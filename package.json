@@ -4,9 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --open",
+    "dev": "vite",
     "lint": "eslint .",
-    "deploy": "vite build && vite preview --open"
+    "deploy": "vite build && vite preview",
+    "build": "vite build"
   },
   "dependencies": {
     "react": "^18.3.1",
