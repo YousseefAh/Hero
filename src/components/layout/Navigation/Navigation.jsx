@@ -1,5 +1,5 @@
-import Yadora from "../../../assets/logo.svg";
-import { links } from "../../../utils/constants";
+import Image from "next/image";
+import { links } from "utils/constants";
 import Hamurger from "./Hamurger";
 
 function Navigation() {
@@ -7,10 +7,12 @@ function Navigation() {
     <section className="flex justify-between">
       <nav className="flex items-center">
         <a href="#">
-          <img
-            src={Yadora}
-            alt="Jodora logo"
-            className="inline-block mr-8 h-7"
+          <Image
+            src="/logo.svg"
+            alt="Yadora logo"
+            width={100}
+            height={28}
+            className="inline-block mr-8 h-7 w-auto"
           />
         </a>
 

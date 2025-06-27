@@ -1,6 +1,9 @@
 /** @type {import('tailwindcss').Config} */
-export default {
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+module.exports = {
+  content: [
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
   theme: {
     extend: {
       screens: {
@@ -38,10 +41,11 @@ export default {
         "translate-x-reverse": "translate-x-reverse 50s linear infinite",
         "translate-x-reverse-slowed": "translate-x-reverse 30s linear infinite",
       },
-    },
-    fontFamily: {
-      sans: ["Poppins", "sans-serif"],
+      fontFamily: {
+        sans: ["var(--font-poppins)"],
+      },
     },
   },
   plugins: [],
 };
+

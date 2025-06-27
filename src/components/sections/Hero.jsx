@@ -1,4 +1,5 @@
-import { reviewImgs } from "../../utils/constants";
+import { reviewImgs } from "utils/constants";
+import Image from "next/image";
 
 function Hero() {
   return (
@@ -15,10 +16,12 @@ function Hero() {
             <ul className="flex">
               {reviewImgs.map((headshot) => (
                 <li className="-mr-4 last:-mr-0" key={headshot.id}>
-                  <img
+                  <Image
                     src={headshot.image}
                     alt={headshot.name}
-                    className="border-4 border-white rounded-full h-10 sm:h-12"
+                    width={48}
+                    height={48}
+                    className="border-4 border-white rounded-full h-10 w-10 sm:h-12 sm:w-12"
                   />
                 </li>
               ))}

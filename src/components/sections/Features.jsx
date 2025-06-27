@@ -1,4 +1,5 @@
-import { features } from "../../utils/constants";
+import { features } from "utils/constants";
+import Image from "next/image";
 
 function Features() {
   return (
@@ -22,9 +23,11 @@ function Features() {
               className="w-[80%] xl:w-5/6 text-center sm:text-start tracking-tight"
               key={feature.id}
             >
-              <img
+              <Image
                 src={feature.icon}
                 alt={feature.name}
+                width={96}
+                height={96}
                 className="sm:place-self-start mb-6 w-24 md:w-auto h-24 md:h-auto place-self-center"
               />
               <h4 className="mb-2 font-bold text-2xl/8 text-primary-500">

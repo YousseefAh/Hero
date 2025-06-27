@@ -1,4 +1,5 @@
 import { TfiQuoteLeft } from "react-icons/tfi";
+import Image from "next/image";
 
 function Testimonial({ testimonial }) {
   return (
@@ -16,9 +17,11 @@ function Testimonial({ testimonial }) {
         </p>
 
         <div className="flex items-center gap-x-4">
-          <img
+          <Image
             src={testimonial.image}
             alt={testimonial.name}
+            width={64}
+            height={64}
             className="rounded-full w-14 lg:w-16 h-14 lg:h-16"
           />
           <div>

@@ -1,7 +1,7 @@
 import { useState } from "react";
+import Image from "next/image";
 
-import { UseModalContext } from "../../contexts/ModalContext";
-import Dots from "../../assets/tweleve-dots.svg";
+import { UseModalContext } from "contexts/ModalContext";
 
 function MoreInformation() {
   const { setCurrentModal } = UseModalContext();
@@ -24,15 +24,19 @@ function MoreInformation() {
   return (
     <>
       <div className="relative bg-primary-500 p-12 md:p-16 lg:p-20 rounded-t-xl text-white">
-        <img
-          src={Dots}
+        <Image
+          src="/tweleve-dots.svg"
           alt="12 dot graphic"
-          className="left-0 absolute h-16 md:h-auto"
+          width={100}
+          height={100}
+          className="left-0 absolute h-16 w-auto md:h-auto"
         />
-        <img
-          src={Dots}
+        <Image
+          src="/tweleve-dots.svg"
           alt="12 dot graphic"
-          className="right-0 absolute h-16 md:h-auto"
+          width={100}
+          height={100}
+          className="right-0 absolute h-16 w-auto md:h-auto"
         />
 
         <h2 className="mb-6 font-bold text-[2rem]/[2.5rem] sm:text-5xl/[4rem] lg:text-7xl/[5.6rem] tracking-tight">

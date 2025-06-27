@@ -1,5 +1,6 @@
+import Image from "next/image";
 import { RxCaretRight } from "react-icons/rx";
-import { appStats, appStatsImgs } from "../../utils/constants";
+import { appStats, appStatsImgs } from "utils/constants";
 
 function AppStatistics() {
   return (
@@ -15,17 +16,21 @@ function AppStatistics() {
         </div>
         <div className="gap-x-4 gap-y-4 md:gap-x-5 lg:gap-x-7 xl:gap-x-9 grid grid-cols-1 sm:grid-cols-3">
           {appStatsImgs.map((img) => (
-            <div className="group relative mx-auto" key={img.id}>
-              <p className="group-hover:visible top-0 right-0 bottom-0 left-0 absolute bg-primary-800 bg-opacity-40 opacity-0 group-hover:opacity-100 px-6 py-8 text-sm text-white lg:text-lg tracking-tight transition-all duration-200 invisible">
+            <div
+              className="group relative mx-auto aspect-[4/3] w-full h-full"
+              key={img.id}
+            >
+              <p className="group-hover:visible top-0 right-0 bottom-0 left-0 absolute bg-primary-800 bg-opacity-40 opacity-0 group-hover:opacity-100 px-6 py-8 text-sm text-white lg:text-lg tracking-tight transition-all duration-200 invisible z-10">
                 {img.description}
               </p>
-              <img
+              <Image
                 key={img.name}
                 alt={img.name}
                 src={img.image}
-                className="rounded-xl md:rounded-2xl"
+                fill
+                className="rounded-xl md:rounded-2xl object-cover"
               />
-              <p className="bottom-6 md:bottom-8 left-4 md:left-6 absolute bg-white bg-opacity-20 opacity-100 group-hover:opacity-0 backdrop-blur-sm px-2 py-1 rounded-lg text-sm text-white lg:text-base xl:text-lg transition-all duration-200 group-hover:invisible">
+              <p className="bottom-6 md:bottom-8 left-4 md:left-6 absolute bg-white bg-opacity-20 opacity-100 group-hover:opacity-0 backdrop-blur-sm px-2 py-1 rounded-lg text-sm text-white lg:text-base xl:text-lg transition-all duration-200 group-hover:invisible z-10">
                 {img.name}
               </p>
             </div>

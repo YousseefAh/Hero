@@ -1,21 +1,28 @@
-import { footerCols, footerSocials } from "../../utils/constants";
-import Yadora from "../../assets/logo.svg";
+import Image from "next/image";
+import { footerCols, footerSocials } from "utils/constants";
 
 function Footer() {
   return (
     <footer className="m-auto px-4 sm:px-8 md:px-16 xl:px-24 pt-16 pb-8 sm:pb-12 md:pb-28 max-w-[90rem]">
       <div className="gap-y-12 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-[2fr_repeat(4,1fr)] grid-rows-3 md:grid-rows-2 xl:grid-rows-1">
         <div className="flex flex-col justify-start content-between row-start-3 md:row-start-2 lg:row-start-1">
-          <img
-            src={Yadora}
+          <Image
+            src="/logo.svg"
             alt="Yadora logo"
-            className="mb-8 md:mb-auto w-min"
+            width={100}
+            height={28}
+            className="mb-8 md:mb-auto w-auto h-auto"
           />
           <ul className="flex gap-x-2">
             {footerSocials.map((logo) => (
               <li key={logo.id}>
                 <a href="#">
-                  <img src={logo.logo} alt={logo.name} />
+                  <Image
+                    src={logo.logo}
+                    alt={logo.name}
+                    width={24}
+                    height={24}
+                  />
                 </a>
               </li>
             ))}
