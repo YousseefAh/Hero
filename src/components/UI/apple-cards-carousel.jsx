@@ -254,6 +254,7 @@ export const BlurImage = ({
   src,
   className,
   alt,
+  fill,
   ...rest
 }) => {
   const [isLoading, setLoading] = useState(true);
@@ -271,6 +272,7 @@ export const BlurImage = ({
       loading="lazy"
       decoding="async"
       alt={alt ? alt : "Background of a beautiful view"}
+      fill={fill ? "true" : undefined}
       {...rest}
     />
   );
