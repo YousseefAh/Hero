@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { links } from "utils/constants";
 import Hamurger from "./Hamurger";
 
@@ -6,7 +7,7 @@ function Navigation() {
   return (
     <section className="flex justify-between">
       <nav className="flex items-center">
-        <a href="#">
+        <Link href="/">
           <Image
             src="/logo.svg"
             alt="Yadora logo"
@@ -14,17 +15,17 @@ function Navigation() {
             height={28}
             className="inline-block mr-8 h-7 w-auto"
           />
-        </a>
+        </Link>
 
         <ul className="inline-flex gap-8 font-medium">
           {links.map((link) => (
-            <li key={link}>
-              <a
-                href="#"
+            <li key={link.name}>
+              <Link
+                href={link.href}
                 className="lg:block hidden text-primary-500 xl:text-lg hover:text-accent-500 transition-all duration-100"
               >
-                {link}
-              </a>
+                {link.name}
+              </Link>
             </li>
           ))}
         </ul>

@@ -13,6 +13,7 @@ import HeroParallaxDemo from "components/ui/hero-parallax-demo";
 import Main from "components/layout/Main";
 import Dashboard from "components/sections/Dashboard";
 import AppStatistics from "components/sections/AppStatistics";
+import AppleCardsCarouselDemo from "components/ui/apple-cards-carousel-demo";
 import Features from "components/sections/Features";
 import Pricing from "components/sections/Pricing/Pricing";
 import Testimonials from "components/sections/Testimonials/Testimonials";
@@ -40,6 +41,7 @@ export default function HomePage() {
         <Main>
           <Dashboard />
           <AppStatistics />
+          <AppleCardsCarouselDemo />
           <Features />
           <Pricing />
           <Testimonials />

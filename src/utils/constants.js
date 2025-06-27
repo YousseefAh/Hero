@@ -1,4 +1,9 @@
-const links = ["Explore", "Company", "Support"];
+const links = [
+  { name: "Explore", href: "#" },
+  { name: "Features", href: "/features" },
+  { name: "Company", href: "#" },
+  { name: "Support", href: "#" }
+];
 
 const reviewImgs = [
   {
