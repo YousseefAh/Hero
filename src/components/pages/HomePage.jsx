@@ -7,7 +7,6 @@ import PageWrapper from "components/layout/PageWrapper";
 import Header from "components/layout/Header";
 import Navigation from "components/layout/Navigation/Navigation";
 import Hero from "components/sections/Hero";
-import HeroParallaxDemo from "components/ui/hero-parallax-demo";
 
 // Main
 import Main from "components/layout/Main";
@@ -33,7 +32,6 @@ export default function HomePage() {
   return (
     <ModalContextProvider>
       <PageWrapper>
-        <HeroParallaxDemo />
         <Header>
           <Navigation />
           <Hero />
