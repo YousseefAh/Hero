@@ -67,7 +67,7 @@ export const StickyScroll = ({
       animate={{
         backgroundColor: backgroundColors[activeCard % backgroundColors.length],
       }}
-      className="relative flex flex-col lg:flex-row h-screen lg:h-[80vh] justify-center lg:space-x-10 overflow-y-auto p-4 sm:p-6 lg:p-10"
+      className="relative flex flex-col lg:flex-row h-screen justify-center lg:space-x-10 overflow-y-auto p-4 sm:p-6 lg:p-10"
       ref={ref}
       transition={{ duration: 0.6, ease: "easeInOut" }}
     >
@@ -121,11 +121,11 @@ export const StickyScroll = ({
         </div>
       </div>
       
-      {/* Desktop Sticky Image Container - Restored original sticky behavior */}
+      {/* Desktop Sticky Image Container - Full height and bigger */}
       <div
         style={{ background: backgroundGradient }}
         className={cn(
-          "sticky top-10 hidden lg:block h-[60vh] xl:h-[70vh] w-full lg:w-80 xl:w-96 overflow-hidden rounded-lg bg-white shadow-2xl",
+          "sticky top-10 hidden lg:block h-[85vh] w-full lg:w-[45%] xl:w-[50%] overflow-hidden rounded-lg bg-white shadow-2xl",
           contentClassName,
         )}
       >
