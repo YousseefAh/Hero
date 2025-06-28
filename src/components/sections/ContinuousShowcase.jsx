@@ -145,7 +145,7 @@ const ContinuousShowcase = () => {
   }
 
   return (
-    <section className="w-full bg-gray-900 py-10 md:py-16 overflow-hidden">
+    <section className="w-full bg-gray-900 min-h-screen sticky top-0 flex flex-col justify-center overflow-hidden">
       <div className="container mx-auto px-4 mb-8 md:mb-12">
         <h2 className="text-center text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-6">
           Knowledge and Insight
