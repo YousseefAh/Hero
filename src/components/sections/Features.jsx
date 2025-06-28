@@ -5,11 +5,17 @@ function Features() {
   return (
     <section className="m-auto px-4 sm:px-8 md:px-16 xl:px-24 pt-14 sm:pt-20 md:pt-32 pb-16 md:pb-24 max-w-[90rem]">
       <div className="gap-y-16 md:gap-y-24 grid lg:grid-cols-2">
-        <div className="w-[90%] sm:max-w-[80%] md:max-w-[75%] xl:max-w-[65%]">
+        <div className="w-[90%] sm:max-w-[80%] md:max-w-[75%] xl:max-w-[65%] mx-auto lg:mx-0 text-center lg:text-left">
           <h3 className="mb-2 sm:mb-4 font-bold text-[2rem]/[2.5rem] text-primary-500 sm:text-4xl md:text-5xl xl:text-[3.5rem]/[4rem] tracking-tight">
             Why become a creator?
           </h3>
           <p className="mb-8 md:mb-10 xl:text-lg tracking-tight">
+            Engage with your supporters and subscribers to sell your skills,
+            knowledge and passions.
+            Engage with your supporters and subscribers to sell your skills,
+            knowledge and passions.
+            Engage with your supporters and subscribers to sell your skills,
+            knowledge and passions.
             Engage with your supporters and subscribers to sell your skills,
             knowledge and passions.
           </p>

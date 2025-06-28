@@ -2,7 +2,7 @@ import Image from "next/image";
 
 function Hamurger() {
   return (
-    <button className="lg:hidden">
+    <button className="lg:hidden p-2" aria-label="Toggle menu">
       <Image
         src="/hamburger.svg"
         alt="Hamburger menu icon"
