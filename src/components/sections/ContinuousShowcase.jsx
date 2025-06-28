@@ -11,38 +11,64 @@ const ContinuousShowcase = () => {
 
   const showcaseImages = [
     {
-      url: '/testimonials/testimonial-1.webp',
-      title: 'Expert Guidance',
-      description: 'Learn from industry professionals'
-    },{
-      url: '/testimonials/testimonial-1.webp',
-      // title: 'Expert Guidance',
-      // description: 'Learn from industry professionals'
+      url: '/my-images/758_1x_shots_soo.png', // High quality image (2.1MB)
+      title: 'Creative Design',
+      description: 'Innovative design solutions for modern challenges',
+      isLocal: true
     },
     {
-      url: '/testimonials/testimonial-2.webp',
-      title: 'Community Support',
-      description: 'Connect with like-minded learners'
+      url: '/my-images/22_1x_shots_so.png', // High quality image (2.2MB)
+      title: 'Modern Architecture',
+      description: 'Contemporary architectural masterpieces',
+      isLocal: true
     },
     {
-      url: '/testimonials/testimonial-3.webp',
-      title: 'Hands-on Practice',
-      description: 'Apply your knowledge in real projects'
+      url: '/my-images/437_1x_shots_so.png', // Good quality (1.7MB)
+      title: 'Digital Innovation',
+      description: 'Pushing boundaries in digital space',
+      isLocal: true
     },
     {
-      url: '/testimonials/testimonial-4.webp',
-      title: 'Flexible Learning',
-      description: 'Learn at your own pace'
+      url: '/my-images/708_1x_shots_so.png', // Nice balanced image (1.2MB)
+      title: 'User Experience',
+      description: 'Crafting seamless user interactions',
+      isLocal: true
     },
     {
-      url: '/testimonials/testimonial-5.webp',
-      title: 'Career Growth',
-      description: 'Advance your professional journey'
+      url: '/my-images/167_1x_shots_so.png', // Good size (1.2MB)
+      title: 'Visual Storytelling',
+      description: 'Compelling visual narratives',
+      isLocal: true
     },
     {
-      url: '/testimonials/testimonial-6.webp',
-      title: 'Proven Results',
-      description: 'Success stories from our students'
+      url: '/my-images/785_1x_shots_so.png', // Well balanced (1MB)
+      title: 'Creative Solutions',
+      description: 'Innovative approaches to design challenges',
+      isLocal: true
+    },
+    {
+      url: '/my-images/226_1x_shots_so.png', // Good quality (991KB)
+      title: 'Design Systems',
+      description: 'Cohesive and scalable design frameworks',
+      isLocal: true
+    },
+    {
+      url: '/my-images/369_1x_shots_so.png', // Detailed image (989KB)
+      title: 'Technical Excellence',
+      description: 'Precision in every pixel',
+      isLocal: true
+    },
+    {
+      url: '/my-images/904_1x_shots_so.png', // Clear quality (942KB)
+      title: 'Product Design',
+      description: 'From concept to reality',
+      isLocal: true
+    },
+    {
+      url: '/my-images/690_1x_shots_so.png', // Good resolution (962KB)
+      title: 'Creative Direction',
+      description: 'Leading through design innovation',
+      isLocal: true
     }
   ];
 
@@ -52,7 +78,7 @@ const ContinuousShowcase = () => {
       const imagePromises = showcaseImages.map((image) => {
         return new Promise((resolve, reject) => {
           const img = document.createElement('img');
-          img.src = image.url;
+          img.src = image.isLocal ? `${window.location.origin}${image.url}` : image.url;
           img.onload = resolve;
           img.onerror = reject;
         });
@@ -139,14 +165,25 @@ const ContinuousShowcase = () => {
               style={{ width: '500px' }} // Force width for better performance
             >
               <div className="relative h-full w-full group">
-                <Image 
-                  src={image.url}
-                  alt={image.title}
-                  fill
-                  priority={index < 6} // Prioritize loading first set of images
-                  className="object-cover"
-                  sizes="500px"
-                />
+                {image.isLocal ? (
+                  // Local images use Next.js Image component
+                  <Image 
+                    src={image.url}
+                    alt={image.title}
+                    fill
+                    priority={index < 6} // Prioritize loading first set of images
+                    className="object-cover"
+                    sizes="500px"
+                  />
+                ) : (
+                  // External URLs use regular img tag
+                  <img 
+                    src={image.url}
+                    alt={image.title}
+                    className="w-full h-full object-cover"
+                    loading={index < 6 ? "eager" : "lazy"}
+                  />
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div className="absolute bottom-0 left-0 right-0 p-8">
                     <h3 className="text-2xl font-bold text-white mb-2">
