@@ -9,27 +9,27 @@ const pageContent = [
   {
     text: "Fantasy Sports Analytics",
     img: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?q=80&w=3556&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    description: "Get detailed fantasy sports analysis with our advanced analytics platform. Track player performance, predict outcomes, and make data-driven decisions for your fantasy teams."
+    description: "Transform your fantasy sports experience with our cutting-edge analytics platform. Our advanced algorithms analyze player performance, injury reports, weather conditions, and historical data to provide you with actionable insights. Track real-time statistics, predict player outcomes with machine learning models, and make data-driven decisions that give you the competitive edge. Whether you're managing multiple leagues or focusing on daily fantasy, our comprehensive dashboard provides everything you need to dominate your competition and maximize your winnings."
   },
   {
     text: "Video Content Creation",
     img: "https://images.unsplash.com/photo-1531554694128-c4c6665f59c2?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    description: "Learn professional video creation techniques from industry experts. Master editing, storytelling, and production skills to create engaging content that captivates your audience."
+    description: "Master the art of professional video creation with comprehensive training from industry veterans. Learn advanced editing techniques using industry-standard software, discover the secrets of compelling storytelling that keeps audiences engaged, and understand the technical aspects of production including lighting, sound design, and cinematography. Our curriculum covers everything from concept development and scriptwriting to post-production workflows and distribution strategies. Build a portfolio that showcases your unique vision and technical expertise."
   },
   {
     text: "Personal Coaching",
     img: "https://images.unsplash.com/photo-1713869791518-a770879e60dc?q=80&w=2333&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    description: "Connect with experienced coaches who provide personalized guidance. Whether it's career development, skill building, or personal growth, get one-on-one mentorship tailored to your goals."
+    description: "Accelerate your personal and professional growth with personalized coaching from experienced mentors who have achieved success in their respective fields. Our coaches provide tailored guidance based on your specific goals, challenges, and learning style. Whether you're looking to advance your career, develop new skills, improve leadership capabilities, or navigate life transitions, our one-on-one sessions offer the support and accountability you need. Benefit from proven frameworks, actionable strategies, and ongoing support that helps you achieve breakthrough results."
   },
   {
     text: "Digital Marketing Mastery",
     img: "https://images.unsplash.com/photo-1599202860130-f600f4948364?q=80&w=2515&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    description: "Master the art of digital marketing with proven strategies. Learn SEO, social media marketing, content creation, and analytics to grow your online presence and reach your target audience."
+    description: "Become a digital marketing expert with our comprehensive training program that covers all aspects of modern online marketing. Master search engine optimization (SEO) techniques that drive organic traffic, learn social media marketing strategies that build engaged communities, and understand content marketing principles that convert prospects into customers. Dive deep into analytics and data interpretation, email marketing automation, paid advertising campaigns, and conversion optimization. Our hands-on approach ensures you gain practical experience with real campaigns and measurable results."
   },
   {
     text: "Creative Photography",
     img: "https://images.unsplash.com/photo-1602081957921-9137a5d6eaee?q=80&w=2793&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    description: "Discover professional photography techniques and develop your unique visual style. Learn composition, lighting, post-processing, and business skills from renowned photographers."
+    description: "Develop your unique photographic vision through comprehensive training that combines technical mastery with artistic expression. Learn advanced composition techniques, master natural and artificial lighting setups, and understand the nuances of different photography genres including portrait, landscape, street, and commercial photography. Our curriculum includes extensive post-processing training using industry-standard software, business development strategies for professional photographers, and portfolio development guidance. Work with professional equipment and learn from award-winning photographers who share their expertise and creative insights."
   }
 ];
 
@@ -38,12 +38,10 @@ const content = pageContent.map((item, index) => ({
   title: item.text,
   description: item.description,
   content: (
-    <div className="flex h-full w-full items-center justify-center text-white">
+    <div className="flex h-full w-full items-center justify-center">
       <img
         src={item.img}
-        width={300}
-        height={300}
-        className="h-full w-full object-cover rounded-lg"
+        className="h-full w-full object-cover"
         alt={item.text}
       />
     </div>
