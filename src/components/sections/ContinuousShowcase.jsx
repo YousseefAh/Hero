@@ -131,7 +131,7 @@ const ContinuousShowcase = () => {
 
   if (!imagesLoaded) {
     return (
-      <section className="w-full bg-gray-900 py-20 overflow-hidden">
+      <section className="w-full bg-gray-900 min-h-screen flex items-center">
         <div className="container mx-auto px-4 mb-16">
           <h2 className="text-center text-4xl md:text-6xl font-bold text-white mb-6">
             Knowledge and Insight
@@ -145,12 +145,12 @@ const ContinuousShowcase = () => {
   }
 
   return (
-    <section className="w-full bg-gray-900 min-h-screen sticky top-0 flex flex-col justify-center overflow-hidden">
-      <div className="container mx-auto px-4 mb-8 md:mb-12">
+    <section className="w-full bg-gray-900 min-h-screen flex flex-col items-center justify-center relative">
+      <div className="container mx-auto px-4">
         <h2 className="text-center text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-6">
           Knowledge and Insight
         </h2>
-        <p className="text-center text-base md:text-lg text-gray-400 max-w-3xl mx-auto">
+        <p className="text-center text-base md:text-lg text-gray-400 max-w-3xl mx-auto mb-8">
           Explore our comprehensive features and tools designed to enhance your experience
         </p>
       </div>
