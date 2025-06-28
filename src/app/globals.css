@@ -3,6 +3,17 @@
 @tailwind utilities;
 
 @layer base {
+  /* Text selection styles */
+  ::selection {
+    background-color: #FFB84C; /* accent-500 */
+    color: #1E1B22; /* primary-800 */
+  }
+  
+  .dark ::selection {
+    background-color: #2B2730; /* primary-500 */
+    color: #FFB84C; /* accent-500 */
+  }
+
   /* Enhanced text contrast for better readability */
   .dark {
     --tw-prose-body: rgb(229 231 235); /* gray-200 */

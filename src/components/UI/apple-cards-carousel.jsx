@@ -1,5 +1,5 @@
 "use client";
-import {
+import React, {
   useEffect,
   useRef,
   useState,
@@ -22,9 +22,9 @@ export const CarouselContext = createContext({
 });
 
 export const Carousel = ({ items, initialScroll = 0 }) => {
-  const carouselRef = React.useRef(null);
-  const [canScrollLeft, setCanScrollLeft] = React.useState(false);
-  const [canScrollRight, setCanScrollRight] = React.useState(true);
+  const carouselRef = useRef(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {

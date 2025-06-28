@@ -1,52 +1,52 @@
 import React from 'react';
-import BlogHeader from '@/components/blog/BlogHeader';
-import TableOfContents from '@/components/blog/TableOfContents';
-import BlogSection from '@/components/blog/BlogSection';
-import { getBlogMetadata } from '@/utils/blogUtils';
+import Link from 'next/link';
+import { getAllBlogPosts } from '@/utils/blogPosts';
 
 export const metadata = {
-  title: 'PRO-G TRAINER ACQUISITION BIBLE',
-  description: 'A comprehensive guide for professional trainers on client acquisition and business growth.'
+  title: 'Blog - Pro-G Training',
+  description: 'Professional training guides and resources for fitness coaches.',
 };
 
 export default function BlogPage() {
-  const { sections, readingTime, totalLines } = getBlogMetadata();
+  const posts = getAllBlogPosts();
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
-      <BlogHeader 
-        title="PRO-G TRAINER ACQUISITION BIBLE: THE ULTIMATE GUIDE"
-        readingTime={readingTime}
-        totalLines={totalLines}
-      />
-
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
-        <div className="flex flex-col lg:flex-row lg:gap-8">
-          {/* Table of Contents - Left Sidebar */}
-          <aside className="lg:w-96 xl:w-[420px] flex-shrink-0 mb-8 lg:mb-0">
-            <div className="lg:sticky lg:top-8">
-              <TableOfContents sections={sections} />
-            </div>
-          </aside>
-          
-          {/* Main Content */}
-          <div className="flex-1 min-w-0">
-            <article className="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 overflow-hidden">
-              <div className="px-6 sm:px-8 lg:px-12 py-8 sm:py-10 lg:py-12">
-                <div className="max-w-4xl mx-auto">
-                  {sections.map((section, index) => (
-                    <BlogSection 
-                      key={index}
-                      section={section}
-                      index={index}
-                    />
-                  ))}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-8">
+          Training Guides & Resources
+        </h1>
+        
+        <div className="grid gap-8 md:grid-cols-2">
+          {posts.map((post) => (
+            <Link 
+              key={post.id}
+              href={`/blog/${post.id}`}
+              className="block group"
+            >
+              <article className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden transition-all duration-200 hover:shadow-lg hover:scale-[1.02]">
+                <div className="p-6">
+                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                    {post.title}
+                  </h2>
+                  <p className="text-gray-600 dark:text-gray-300 mb-4">
+                    {post.description}
+                  </p>
+                  <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
+                    <time dateTime={post.date}>
+                      {new Date(post.date).toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric'
+                      })}
+                    </time>
+                  </div>
                 </div>
-              </div>
-            </article>
-          </div>
+              </article>
+            </Link>
+          ))}
         </div>
-      </main>
+      </div>
     </div>
   );
 }

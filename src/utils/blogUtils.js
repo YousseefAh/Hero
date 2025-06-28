@@ -75,7 +75,7 @@ function processCodeBlocks(lines) {
           processedLines.push(
             '<div class="space-y-3 my-6">' +
             bulletList.map(item => 
-              `<div class="flex items-start group p-3 hover:bg-slate-50 dark:hover:bg-slate-900/50 rounded-lg transition-colors">
+              `<div class="flex items-start group p-3 hover:bg-slate-800/50 dark:hover:bg-slate-700/50 rounded-lg transition-colors">
                 <span class="text-indigo-500 dark:text-indigo-400 mr-3 text-lg flex-shrink-0 mt-0.5">•</span>
                 <div class="text-gray-800 dark:text-gray-200 group-hover:text-gray-900 dark:group-hover:text-gray-50 transition-colors leading-relaxed">${item}</div>
               </div>`
@@ -93,7 +93,7 @@ function processCodeBlocks(lines) {
         processedLines.push(
           '<div class="space-y-3 my-6">' +
           bulletList.map(item => 
-            `<div class="flex items-start group p-3 hover:bg-slate-50 dark:hover:bg-slate-900/50 rounded-lg transition-colors">
+            `<div class="flex items-start group p-3 hover:bg-slate-800/50 dark:hover:bg-slate-700/50 rounded-lg transition-colors">
               <span class="text-indigo-500 dark:text-indigo-400 mr-3 text-lg flex-shrink-0 mt-0.5">•</span>
               <div class="text-gray-800 dark:text-gray-200 group-hover:text-gray-900 dark:group-hover:text-gray-50 transition-colors leading-relaxed">${item}</div>
             </div>`
@@ -121,8 +121,8 @@ function processCodeBlocks(lines) {
             '<span class="text-blue-600 dark:text-blue-400">$1</span>');
 
         processedLines.push(
-          '<div class="bg-slate-50 dark:bg-slate-900 rounded-lg overflow-hidden my-6 shadow-sm">' +
-          '<div class="px-4 py-2 bg-slate-100 dark:bg-slate-800 text-sm text-slate-600 dark:text-slate-400 border-b border-slate-200 dark:border-slate-700">Code</div>' +
+          '<div class="bg-slate-800/30 dark:bg-slate-800/30 rounded-lg overflow-hidden my-6 shadow-sm">' +
+          '<div class="px-4 py-2 bg-slate-800/50 dark:bg-slate-800/50 text-sm text-slate-300 dark:text-slate-300 border-b border-slate-700 dark:border-slate-700">Code</div>' +
           '<pre class="p-4 overflow-x-auto">' +
           '<code class="font-mono text-sm leading-relaxed">' +
           codeContent +
@@ -137,8 +137,8 @@ function processCodeBlocks(lines) {
       // Handle quotes
       if (trimmedLine.startsWith('>')) {
         processedLines.push(
-          `<blockquote class="border-l-4 border-indigo-500 dark:border-indigo-400 pl-6 py-4 my-6 bg-indigo-50 dark:bg-indigo-900/20 rounded-r-lg">
-            <div class="text-gray-800 dark:text-gray-200 italic leading-relaxed text-lg">${formatText(trimmedLine.substring(1))}</div>
+          `<blockquote class="border-l-4 border-indigo-500 dark:border-indigo-400 pl-6 py-4 my-6 bg-slate-800/30 dark:bg-slate-800/30 rounded-r-lg">
+            <div class="text-gray-200 dark:text-gray-200 italic leading-relaxed text-lg">${formatText(trimmedLine.substring(1))}</div>
           </blockquote>`
         );
       } else if (trimmedLine !== '') {
@@ -147,27 +147,27 @@ function processCodeBlocks(lines) {
           // Special handling for sections with arrows
           const [left, right] = formattedText.split('→').map(s => s.trim());
           processedLines.push(
-            `<div class="flex items-center space-x-4 text-lg my-5 bg-gradient-to-r from-slate-50 to-transparent dark:from-slate-900/50 dark:to-transparent p-4 rounded-lg border-l-2 border-indigo-200 dark:border-indigo-800">
-              <div class="font-bold text-gray-900 dark:text-gray-50 min-w-[120px] flex-shrink-0">${left}</div>
-              <span class="text-indigo-500 dark:text-indigo-400 text-xl">→</span>
-              <div class="text-gray-800 dark:text-gray-200 leading-relaxed">${right}</div>
+            `<div class="flex items-center space-x-4 text-lg my-5 bg-slate-800/30 dark:bg-slate-800/30 p-4 rounded-lg border-l-2 border-indigo-500 dark:border-indigo-500">
+              <div class="font-bold text-gray-100 dark:text-gray-100 min-w-[120px] flex-shrink-0">${left}</div>
+              <span class="text-indigo-400 dark:text-indigo-400 text-xl">→</span>
+              <div class="text-gray-200 dark:text-gray-200 leading-relaxed">${right}</div>
             </div>`
           );
         } else if (formattedText.includes(':') && !formattedText.startsWith('<')) {
-          // Special handling for key-value pairs (avoid already formatted HTML)
+          // Special handling for key-value pairs
           const colonIndex = formattedText.indexOf(':');
           const key = formattedText.substring(0, colonIndex);
           const value = formattedText.substring(colonIndex + 1).trim();
           
           processedLines.push(
-            `<div class="flex flex-wrap items-baseline my-4 group hover:bg-slate-50 dark:hover:bg-slate-900/50 p-4 rounded-lg transition-colors border-l-2 border-transparent hover:border-indigo-200 dark:hover:border-indigo-800">
-              <div class="font-bold text-gray-900 dark:text-gray-50 mr-4 min-w-[180px] flex-shrink-0">${key}:</div>
-              <div class="text-gray-800 dark:text-gray-200 flex-1 leading-relaxed">${value}</div>
+            `<div class="flex flex-wrap items-baseline my-4 group hover:bg-slate-800/50 dark:hover:bg-slate-700/50 p-4 rounded-lg transition-colors border-l-2 border-transparent hover:border-indigo-500 dark:hover:border-indigo-500">
+              <div class="font-bold text-gray-100 dark:text-gray-100 mr-4 min-w-[180px] flex-shrink-0">${key}:</div>
+              <div class="text-gray-200 dark:text-gray-200 flex-1 leading-relaxed">${value}</div>
             </div>`
           );
         } else {
           processedLines.push(
-            `<div class="text-gray-800 dark:text-gray-200 my-4 leading-relaxed text-lg">${formattedText}</div>`
+            `<div class="text-gray-200 dark:text-gray-200 my-4 leading-relaxed text-lg">${formattedText}</div>`
           );
         }
       } else {
@@ -181,9 +181,9 @@ function processCodeBlocks(lines) {
     processedLines.push(
       '<div class="space-y-3 my-6">' +
       bulletList.map(item => 
-        `<div class="flex items-start group p-3 hover:bg-slate-50 dark:hover:bg-slate-900/50 rounded-lg transition-colors">
+        `<div class="flex items-start group p-3 hover:bg-slate-800/50 dark:hover:bg-slate-700/50 rounded-lg transition-colors">
           <span class="text-indigo-500 dark:text-indigo-400 mr-3 text-lg flex-shrink-0 mt-0.5">•</span>
-          <div class="text-gray-800 dark:text-gray-200 group-hover:text-gray-900 dark:group-hover:text-gray-50 transition-colors leading-relaxed">${item}</div>
+          <div class="text-gray-200 dark:text-gray-200 group-hover:text-gray-100 dark:group-hover:text-gray-100 transition-colors leading-relaxed">${item}</div>
         </div>`
       ).join('') +
       '</div>'
@@ -193,9 +193,9 @@ function processCodeBlocks(lines) {
   return processedLines;
 }
 
-export function getSections() {
-  const filePath = path.join(process.cwd(), '@the best one yet.md');
-  const raw = fs.readFileSync(filePath, 'utf-8');
+export function getSections(filePath) {
+  const fullPath = path.join(process.cwd(), filePath);
+  const raw = fs.readFileSync(fullPath, 'utf-8');
   const lines = raw.split('\n');
 
   const sections = [];
@@ -204,7 +204,17 @@ export function getSections() {
   const pushCurrent = () => {
     if (current.lines.length > 0 || current.header) {
       current.lines = processCodeBlocks(current.lines);
-      sections.push({ ...current });
+      
+      // Filter out empty sections or sections with only minimal content
+      const hasContent = current.lines.some(line => {
+        const strippedLine = typeof line === 'string' ? line.replace(/<[^>]*>/g, '').trim() : '';
+        return strippedLine.length > 0 && strippedLine !== '—' && strippedLine !== '-';
+      });
+      
+      // Only add sections that have meaningful content or are important headers
+      if (hasContent || (current.header && current.header !== '—' && current.header.trim().length > 0)) {
+        sections.push({ ...current });
+      }
     }
   };
 
@@ -233,6 +243,7 @@ export function getSections() {
           lines: [],
         };
       } else {
+        // Skip horizontal rule sections as they're usually just separators
         current = { header: '—', level: 2, lines: [] };
       }
     } else {
@@ -241,11 +252,22 @@ export function getSections() {
   });
 
   pushCurrent();
-  return sections;
+  
+  // Final filter to remove any remaining empty sections
+  return sections.filter(section => {
+    if (!section.header || section.header === '—') return false;
+    
+    const hasValidContent = section.lines.some(line => {
+      const strippedLine = typeof line === 'string' ? line.replace(/<[^>]*>/g, '').trim() : '';
+      return strippedLine.length > 3; // Must have more than just a few characters
+    });
+    
+    return hasValidContent || section.header.trim().length > 0;
+  });
 }
 
-export function getBlogMetadata() {
-  const sections = getSections();
+export function getBlogMetadata(filePath) {
+  const sections = getSections(filePath);
   const allText = sections.map(s => s.lines.join('\n')).join('\n');
   const readingTime = calculateReadingTime(allText);
   const totalLines = sections.reduce((acc, section) => acc + section.lines.length, 0);

@@ -1,6 +1,6 @@
 # PRO-G TRAINER ACQUISITION BIBLE: THE ULTIMATE GUIDE
 
-> **TARGET AUDIENCE:** Online Fitness Coaches & Personal Trainers Looking to Scale Their Business
+<!-- > **TARGET AUDIENCE:** Online Fitness Coaches & Personal Trainers Looking to Scale Their Business -->
 
 ---
 

@@ -40,20 +40,38 @@ const BlogSection = ({ section, index }) => {
     });
   };
 
+  // Handle text selection
+  const handleSelection = (e) => {
+    e.stopPropagation();
+    const selection = window.getSelection();
+    if (!selection || !selection.toString()) {
+      e.preventDefault();
+    }
+  };
+
   return (
-    <section className="mb-16">
+    <section 
+      className="mb-16"
+      onMouseUp={handleSelection}
+      onTouchEnd={handleSelection}
+    >
       <HeaderComponent />
       
       {section.lines && section.lines.length > 0 && (
-        <div className="space-y-6 prose prose-lg max-w-none 
-                       prose-headings:text-gray-900 dark:prose-headings:text-gray-50
-                       prose-p:text-gray-800 dark:prose-p:text-gray-200
-                       prose-strong:text-gray-900 dark:prose-strong:text-gray-50
-                       prose-em:text-gray-700 dark:prose-em:text-gray-300
-                       prose-code:text-indigo-600 dark:prose-code:text-indigo-400
-                       prose-pre:bg-gray-50 dark:prose-pre:bg-gray-800
-                       prose-blockquote:text-gray-700 dark:prose-blockquote:text-gray-300
-                       prose-li:text-gray-800 dark:prose-li:text-gray-200">
+        <div 
+          className="space-y-6 prose prose-lg max-w-none 
+                     prose-headings:text-gray-900 dark:prose-headings:text-gray-50
+                     prose-p:text-gray-800 dark:prose-p:text-gray-200
+                     prose-strong:text-gray-900 dark:prose-strong:text-gray-50
+                     prose-em:text-gray-700 dark:prose-em:text-gray-300
+                     prose-code:text-indigo-600 dark:prose-code:text-indigo-400
+                     prose-pre:bg-gray-50 dark:prose-pre:bg-gray-800
+                     prose-blockquote:text-gray-700 dark:prose-blockquote:text-gray-300
+                     prose-li:text-gray-800 dark:prose-li:text-gray-200
+                     selection:bg-indigo-500 dark:selection:bg-indigo-500
+                     selection:text-white dark:selection:text-white"
+          onSelect={(e) => e.stopPropagation()}
+        >
           {section.lines.map((line, lineIndex) => {
             if (typeof line === 'string' && line.trim() === '') {
               return <div key={lineIndex} className="h-6"></div>;
@@ -63,7 +81,8 @@ const BlogSection = ({ section, index }) => {
               <div
                 key={lineIndex}
                 dangerouslySetInnerHTML={{ __html: line }}
-                className="text-gray-800 dark:text-gray-200 leading-relaxed"
+                className="text-gray-800 dark:text-gray-200 leading-relaxed bg-transparent hover:bg-transparent dark:hover:bg-transparent"
+                onSelect={(e) => e.stopPropagation()}
               />
             );
           })}
