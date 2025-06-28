@@ -128,11 +128,6 @@ export const StickyScroll = ({
       ref={ref}
       transition={{ duration: 0.6, ease: "easeInOut" }}
     >
-      {/* Debug indicator */}
-      <div className="fixed top-4 right-4 z-50 bg-white text-black p-2 rounded lg:hidden">
-        Section: {activeCard}
-      </div>
-      
       {/* Text Content */}
       <div className="relative flex items-start px-2 lg:px-4 w-full lg:w-auto">
         <div className="w-full max-w-full lg:max-w-3xl">

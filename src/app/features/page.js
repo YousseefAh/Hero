@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { StickyScroll } from "components/ui/sticky-scroll-reveal";
+import Link from "next/link";
 
 // ==========================================
 // CONFIGURABLE CONTENT - EDIT THIS SECTION
@@ -45,6 +46,11 @@ const pageContent = [
     text: "UX/UI Design Excellence",
     img: "https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=2764&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     description: "Create exceptional user experiences with our comprehensive UX/UI design program. Learn user research methodologies, wireframing, prototyping, and usability testing. Master design tools like Figma, Adobe XD, and Sketch while understanding design systems, accessibility principles, and mobile-first design. Develop skills in user psychology, information architecture, and interaction design. Work on real client projects, build an impressive portfolio, and learn from seasoned designers who have worked with top tech companies and startups."
+  },
+  {
+    text: "Creative Photography",
+    img: "https://images.unsplash.com/photo-1602081957921-9137a5d6eaee?q=80&w=2793&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    description: "Develop your unique photographic vision through comprehensive training that combines technical mastery with artistic expression. Learn advanced composition techniques, master natural and artificial lighting setups, and understand the nuances of different photography genres including portrait, landscape, street, and commercial photography. Our curriculum includes extensive post-processing training using industry-standard software, business development strategies for professional photographers, and portfolio development guidance. Work with professional equipment and learn from award-winning photographers who share their expertise and creative insights."
   }
 ];
 
@@ -63,6 +69,28 @@ const content = pageContent.map((item, index) => ({
 
 export default function FeaturesPage() {
   return (
-    <StickyScroll content={content} />
+    <>
+      <Link 
+        href="/" 
+        className="fixed top-4 left-4 z-50 w-10 h-10 flex items-center justify-center opacity-40 hover:opacity-80 transition-opacity duration-200"
+        aria-label="Back to home"
+      >
+        <svg 
+          xmlns="http://www.w3.org/2000/svg" 
+          viewBox="0 0 24 24" 
+          fill="none" 
+          stroke="currentColor" 
+          className="w-6 h-6 text-white"
+        >
+          <path 
+            strokeLinecap="round" 
+            strokeLinejoin="round" 
+            strokeWidth={2} 
+            d="M15 19l-7-7 7-7" 
+          />
+        </svg>
+      </Link>
+      <StickyScroll content={content} />
+    </>
   );
 } 
