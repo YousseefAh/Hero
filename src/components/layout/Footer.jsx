@@ -11,7 +11,7 @@ function Footer() {
             alt="Yadora logo"
             width={100}
             height={28}
-            className="mb-8 md:mb-auto w-auto h-auto pr-4"
+            className="mb-8 md:mb-auto w-auto h-auto pr-10"
           />
           <ul className="flex gap-x-2">
             {footerSocials.map((logo) => (

@@ -1,5 +1,6 @@
 import { reviewImgs } from "utils/constants";
 import Image from "next/image";
+import Link from "next/link";
 
 function Hero() {
   return (
@@ -12,24 +13,32 @@ function Hero() {
               fantasy reports
             </span>
           </h1>
-          <div className="flex sm:flex-row flex-col items-start sm:items-center gap-4">
-            <ul className="flex">
-              {reviewImgs.map((headshot) => (
-                <li className="-mr-4 last:-mr-0" key={headshot.id}>
-                  <Image
-                    src={headshot.image}
-                    alt={headshot.name}
-                    width={48}
-                    height={48}
-                    className="border-4 border-white rounded-full h-10 w-10 sm:h-12 sm:w-12"
-                  />
-                </li>
-              ))}
-            </ul>
-            <p className="font-medium text-primary-500 sm:text-lg">
-              <span className="font-bold text-accent-500">5000+</span> satisfied
-              clients in 2024
-            </p>
+          <div className="flex flex-col gap-6">
+            <div className="flex sm:flex-row flex-col items-start sm:items-center gap-4">
+              <ul className="flex">
+                {reviewImgs.map((headshot) => (
+                  <li className="-mr-4 last:-mr-0" key={headshot.id}>
+                    <Image
+                      src={headshot.image}
+                      alt={headshot.name}
+                      width={48}
+                      height={48}
+                      className="border-4 border-white rounded-full h-10 w-10 sm:h-12 sm:w-12"
+                    />
+                  </li>
+                ))}
+              </ul>
+              <p className="font-medium text-primary-500 sm:text-lg">
+                <span className="font-bold text-accent-500">5000+</span> satisfied
+                clients in 2024
+              </p>
+            </div>
+            <Link 
+              href="/explore" 
+              className="inline-flex items-center justify-center px-8 py-3 text-base font-medium text-white bg-accent-500 border border-transparent rounded-md hover:bg-accent-600 md:py-4 md:text-lg md:px-10 transition-colors duration-200"
+            >
+              Explore Features
+            </Link>
           </div>
         </div>
         <figure>
