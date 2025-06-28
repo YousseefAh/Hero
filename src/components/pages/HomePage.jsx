@@ -15,6 +15,7 @@ import AppStatistics from "components/sections/AppStatistics";
 import AppleCardsCarouselDemo from "components/ui/apple-cards-carousel-demo";
 import Features from "components/sections/Features";
 import WobbleCardDemo from "components/ui/wobble-card-demo";
+import ContinuousShowcase from "components/sections/ContinuousShowcase";
 import Pricing from "components/sections/Pricing/Pricing";
 import Testimonials from "components/sections/Testimonials/Testimonials";
 import CTA from "components/sections/CTA";
@@ -53,6 +54,7 @@ export default function HomePage() {
             </div>
             <WobbleCardDemo />
           </section>
+          <ContinuousShowcase />
           {/* <Pricing /> */}
           <Testimonials />
           <CTA />
