@@ -67,15 +67,15 @@ export const StickyScroll = ({
       animate={{
         backgroundColor: backgroundColors[activeCard % backgroundColors.length],
       }}
-      className="relative flex flex-col lg:flex-row h-screen justify-center lg:space-x-10 overflow-y-auto p-4 sm:p-6 lg:p-16"
+      className="relative flex flex-col lg:flex-row h-screen lg:h-[80vh] justify-center lg:space-x-10 overflow-y-auto p-4 sm:p-6 lg:p-10"
       ref={ref}
       transition={{ duration: 0.6, ease: "easeInOut" }}
     >
-      {/* Text Content - Mobile: Full width, Desktop: Side by side */}
-      <div className="relative flex items-start px-2 lg:px-4 w-full lg:w-auto">
+      {/* Text Content - Restored sticky scroll structure */}
+      <div className="relative flex items-start px-2 lg:px-4">
         <div className="w-full max-w-full lg:max-w-3xl">
           {content.map((item, index) => (
-            <div key={item.title + index} className="my-16 lg:my-32">
+            <div key={item.title + index} className="my-16 sm:my-20 lg:my-32">
               <motion.h2
                 initial={{
                   opacity: 0,
@@ -83,7 +83,7 @@ export const StickyScroll = ({
                 animate={{
                   opacity: activeCard === index ? 1 : 0.3,
                 }}
-                className="text-2xl sm:text-3xl md:text-4xl lg:text-7xl font-bold text-slate-100 mb-4 lg:mb-8"
+                className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-7xl font-bold text-slate-100 mb-4 lg:mb-8"
                 transition={{ duration: 0.4 }}
               >
                 {item.title}
@@ -95,40 +95,50 @@ export const StickyScroll = ({
                 animate={{
                   opacity: activeCard === index ? 1 : 0.3,
                 }}
-                className="text-sm sm:text-base md:text-lg lg:text-2xl mt-4 lg:mt-10 text-slate-300 leading-relaxed"
+                className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl mt-4 lg:mt-10 max-w-full lg:max-w-2xl text-slate-300 leading-relaxed"
                 transition={{ duration: 0.4 }}
               >
                 {item.description}
               </motion.p>
+              
+              {/* Mobile Image - Shows under each text section on mobile only */}
+              <div className="block lg:hidden mt-6">
+                <motion.div 
+                  animate={{
+                    opacity: activeCard === index ? 1 : 0.3,
+                  }}
+                  className="h-64 sm:h-80 w-full overflow-hidden rounded-lg bg-gray-100 shadow-lg"
+                  transition={{ duration: 0.4 }}
+                >
+                  <div className="h-full w-full">
+                    {item.content}
+                  </div>
+                </motion.div>
+              </div>
             </div>
           ))}
           <div className="h-32 lg:h-96" />
         </div>
       </div>
       
-      {/* Image Container - Mobile: Below text, Desktop: Sticky side */}
-      <motion.div
+      {/* Desktop Sticky Image Container - Restored original sticky behavior */}
+      <div
         style={{ background: backgroundGradient }}
         className={cn(
-          // Mobile: relative positioning, smaller size
-          "relative lg:sticky top-4 lg:top-16 h-64 sm:h-80 md:h-96 lg:h-[70vh] w-full lg:w-[45%] overflow-hidden rounded-lg bg-white shadow-2xl mt-8 lg:mt-0",
+          "sticky top-10 hidden lg:block h-[60vh] xl:h-[70vh] w-full lg:w-80 xl:w-96 overflow-hidden rounded-lg bg-white shadow-2xl",
           contentClassName,
         )}
-        animate={{
-          scale: [0.98, 1],
-        }}
-        transition={{ duration: 0.6, ease: "easeInOut" }}
       >
         <motion.div
           key={activeCard}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.4 }}
-          className="h-full w-full"
+          className="h-full w-full relative z-10"
         >
           {content[activeCard].content ?? null}
         </motion.div>
-      </motion.div>
+      </div>
     </motion.div>
   );
 }; 
