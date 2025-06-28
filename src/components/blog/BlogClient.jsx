@@ -3,35 +3,10 @@
 import React, { useState, useEffect } from 'react';
 import TableOfContents from './TableOfContents';
 import BlogSection from './BlogSection';
-import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 export default function BlogClient({ sections, readingTime, totalLines }) {
-  const router = useRouter();
   const [currentSectionIndex, setCurrentSectionIndex] = useState(0);
-
-  const handleBackToBlog = () => {
-    // Always navigate to the blog listing page
-    window.location.href = '/blog';
-  };
-
-  // Handle browser back button
-  useEffect(() => {
-    const handlePopState = (event) => {
-      event.preventDefault();
-      handleBackToBlog();
-    };
-
-    // Add event listener for browser back button
-    window.addEventListener('popstate', handlePopState);
-
-    // Ensure we have at least one history entry to go back to
-    window.history.pushState({ page: 'blog-post' }, '');
-
-    // Cleanup
-    return () => {
-      window.removeEventListener('popstate', handlePopState);
-    };
-  }, []);
 
   // Helper function to check if a section has meaningful content
   const hasMeaningfulContent = (section) => {
@@ -69,8 +44,7 @@ export default function BlogClient({ sections, readingTime, totalLines }) {
           const nextVisibleIndex = visibleSectionIndices.find(i => i > index) ?? visibleSectionIndices[0];
           if (nextVisibleIndex !== undefined) {
             setCurrentSectionIndex(nextVisibleIndex);
-            // Use replaceState instead of pushState to avoid affecting browser history
-            window.history.replaceState({ page: 'blog-post' }, '', `#section-${nextVisibleIndex}`);
+            window.history.replaceState(null, '', `#section-${nextVisibleIndex}`);
           }
         }
       }
@@ -86,8 +60,7 @@ export default function BlogClient({ sections, readingTime, totalLines }) {
     if (currentVisibleIndex < visibleSectionIndices.length - 1) {
       const nextIndex = visibleSectionIndices[currentVisibleIndex + 1];
       setCurrentSectionIndex(nextIndex);
-      // Use replaceState instead of pushState to avoid affecting browser history
-      window.history.replaceState({ page: 'blog-post' }, '', `#section-${nextIndex}`);
+      window.history.pushState(null, '', `#section-${nextIndex}`);
     }
   };
 
@@ -96,8 +69,7 @@ export default function BlogClient({ sections, readingTime, totalLines }) {
     if (currentVisibleIndex > 0) {
       const prevIndex = visibleSectionIndices[currentVisibleIndex - 1];
       setCurrentSectionIndex(prevIndex);
-      // Use replaceState instead of pushState to avoid affecting browser history
-      window.history.replaceState({ page: 'blog-post' }, '', `#section-${prevIndex}`);
+      window.history.pushState(null, '', `#section-${prevIndex}`);
     }
   };
 
@@ -107,8 +79,7 @@ export default function BlogClient({ sections, readingTime, totalLines }) {
       const nextVisibleIndex = visibleSectionIndices.find(i => i > currentSectionIndex) ?? visibleSectionIndices[0];
       if (nextVisibleIndex !== undefined && nextVisibleIndex !== currentSectionIndex) {
         setCurrentSectionIndex(nextVisibleIndex);
-        // Use replaceState instead of pushState to avoid affecting browser history
-        window.history.replaceState({ page: 'blog-post' }, '', `#section-${nextVisibleIndex}`);
+        window.history.replaceState(null, '', `#section-${nextVisibleIndex}`);
       }
     }
   }, [currentSectionIndex, sections, visibleSectionIndices]);
@@ -119,24 +90,6 @@ export default function BlogClient({ sections, readingTime, totalLines }) {
 
   return (
     <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
-      {/* Back Button */}
-      <div className="absolute top-8 left-8">
-        <button 
-          onClick={handleBackToBlog}
-          className="flex items-center justify-center w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all duration-200 group shadow-lg hover:scale-110"
-          title="Back to Blog"
-        >
-          <svg 
-            className="w-5 h-5 text-slate-600 dark:text-slate-300 group-hover:text-slate-800 dark:group-hover:text-slate-100 transition-colors" 
-            fill="none" 
-            stroke="currentColor" 
-            viewBox="0 0 24 24"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-          </svg>
-        </button>
-      </div>
-
       <div className="flex flex-col lg:flex-row lg:gap-8">
         {/* Table of Contents - Left Sidebar */}
         <aside className="lg:w-96 xl:w-[420px] flex-shrink-0 mb-8 lg:mb-0">
@@ -202,7 +155,7 @@ export default function BlogClient({ sections, readingTime, totalLines }) {
                         flex items-center px-6 py-3 rounded-lg font-medium transition-all duration-200
                         ${currentVisibleIndex === totalVisibleSections - 1
                           ? 'bg-gray-100 dark:bg-gray-800 text-gray-400 dark:text-gray-600 cursor-not-allowed'
-                          : 'bg-indigo-600 hover:bg-indigo-700 text-white hover:scale-105 shadow-lg hover:shadow-xl'
+                          : 'bg-slate-100 dark:bg-slate-800 text-gray-700 dark:text-gray-300 hover:bg-slate-200 dark:hover:bg-slate-700 hover:scale-105'
                         }
                       `}
                     >
@@ -211,20 +164,6 @@ export default function BlogClient({ sections, readingTime, totalLines }) {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>
                     </button>
-                  </div>
-
-                  {/* Section Navigation Info */}
-                  <div className="mt-4 text-center text-sm text-gray-500 dark:text-gray-400">
-                    {currentVisibleIndex < totalVisibleSections - 1 && (
-                      <span>
-                        Next: <strong>{visibleSections[currentVisibleIndex + 1]?.header?.replace(/<[^>]*>/g, '') || 'Next Section'}</strong>
-                      </span>
-                    )}
-                    {currentVisibleIndex === totalVisibleSections - 1 && (
-                      <span className="text-green-600 dark:text-green-400 font-medium">
-                        🎉 You've completed the guide!
-                      </span>
-                    )}
                   </div>
                 </div>
               </div>

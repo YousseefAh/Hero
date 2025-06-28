@@ -11,61 +11,61 @@ const ContinuousShowcase = () => {
 
   const showcaseImages = [
     {
-      url: '/my-images/758_1x_shots_soo.png', // High quality image (2.1MB)
+      url: '/testimonials/testimonial-1.webp',
       title: 'Creative Design',
       description: 'Innovative design solutions for modern challenges',
       isLocal: true
     },
     {
-      url: '/my-images/22_1x_shots_so.png', // High quality image (2.2MB)
+      url: '/testimonials/testimonial-2.webp',
       title: 'Modern Architecture',
       description: 'Contemporary architectural masterpieces',
       isLocal: true
     },
     {
-      url: '/my-images/437_1x_shots_so.png', // Good quality (1.7MB)
+      url: '/testimonials/testimonial-3.webp',
       title: 'Digital Innovation',
       description: 'Pushing boundaries in digital space',
       isLocal: true
     },
     {
-      url: '/my-images/708_1x_shots_so.png', // Nice balanced image (1.2MB)
+      url: '/testimonials/testimonial-4.webp',
       title: 'User Experience',
       description: 'Crafting seamless user interactions',
       isLocal: true
     },
     {
-      url: '/my-images/167_1x_shots_so.png', // Good size (1.2MB)
+      url: '/testimonials/testimonial-5.webp',
       title: 'Visual Storytelling',
       description: 'Compelling visual narratives',
       isLocal: true
     },
     {
-      url: '/my-images/785_1x_shots_so.png', // Well balanced (1MB)
+      url: '/testimonials/testimonial-6.webp',
       title: 'Creative Solutions',
       description: 'Innovative approaches to design challenges',
       isLocal: true
     },
     {
-      url: '/my-images/226_1x_shots_so.png', // Good quality (991KB)
+      url: '/testimonials/testimonial-7.webp',
       title: 'Design Systems',
       description: 'Cohesive and scalable design frameworks',
       isLocal: true
     },
     {
-      url: '/my-images/369_1x_shots_so.png', // Detailed image (989KB)
+      url: '/testimonials/testimonial-8.webp',
       title: 'Technical Excellence',
       description: 'Precision in every pixel',
       isLocal: true
     },
     {
-      url: '/my-images/904_1x_shots_so.png', // Clear quality (942KB)
+      url: '/testimonials/testimonial-9.webp',
       title: 'Product Design',
       description: 'From concept to reality',
       isLocal: true
     },
     {
-      url: '/my-images/690_1x_shots_so.png', // Good resolution (962KB)
+      url: '/testimonials/testimonial-10.webp',
       title: 'Creative Direction',
       description: 'Leading through design innovation',
       isLocal: true
