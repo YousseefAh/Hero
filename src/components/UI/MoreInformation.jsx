@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import emailjs from '@emailjs/browser';
-import { UseModalContext } from "contexts/ModalContext";
+import { UseModalContext } from "@/contexts/ModalContext";
 
 function CustomAlert({ message, type, onClose }) {
   useEffect(() => {

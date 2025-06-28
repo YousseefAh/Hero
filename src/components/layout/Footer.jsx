@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { footerCols, footerSocials } from "utils/constants";
+import { footerCols, footerSocials } from "@/utils/constants";
 
 function Footer() {
   return (

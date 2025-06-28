@@ -1,10 +1,11 @@
 "use client";
+import { BsMeta } from "react-icons/bs";
 import Image from "next/image";
 import Link from "next/link";
-import { links } from "utils/constants";
-import Hamurger from "./Hamurger";
+import { links } from "@/utils/constants";
+import Hamurger from "@/components/layout/Navigation/Hamurger";
 import { useState } from "react";
-import { UseModalContext } from "../../../contexts/ModalContext";
+import { UseModalContext } from "@/contexts/ModalContext";
 
 function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

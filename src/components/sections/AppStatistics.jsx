@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { RxCaretRight } from "react-icons/rx";
-import { appStats, appStatsImgs } from "utils/constants";
+import { appStats, appStatsImgs } from "@/utils/constants";
 
 function AppStatistics() {
   return (

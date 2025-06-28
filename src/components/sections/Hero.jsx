@@ -1,4 +1,4 @@
-import { reviewImgs } from "utils/constants";
+import { reviewImgs } from "@/utils/constants";
 import Image from "next/image";
 import Link from "next/link";
 
