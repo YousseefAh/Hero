@@ -53,13 +53,11 @@ const content = pageContent.map((item, index) => ({
   title: item.text,
   description: item.description,
   content: (
-    <div className="flex h-full w-full items-center justify-center">
-      <img
-        src={item.img}
-        className="h-full w-full object-cover"
-        alt={item.text}
-      />
-    </div>
+    <img
+      src={item.img}
+      className="h-full w-full object-cover"
+      alt={item.text}
+    />
   ),
 }));
 

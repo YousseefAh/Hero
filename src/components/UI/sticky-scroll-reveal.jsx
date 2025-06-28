@@ -71,49 +71,25 @@ export const StickyScroll = ({
       ref={ref}
       transition={{ duration: 0.6, ease: "easeInOut" }}
     >
-      {/* Text Content - Restored sticky scroll structure */}
+      {/* Text Content - Clean, no color filters */}
       <div className="relative flex items-start px-2 lg:px-4">
         <div className="w-full max-w-full lg:max-w-3xl">
           {content.map((item, index) => (
             <div key={item.title + index} className="my-16 sm:my-20 lg:my-32">
-              <motion.h2
-                initial={{
-                  opacity: 0,
-                }}
-                animate={{
-                  opacity: activeCard === index ? 1 : 0.3,
-                }}
-                className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-7xl font-bold text-slate-100 mb-4 lg:mb-8"
-                transition={{ duration: 0.4 }}
-              >
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-7xl font-bold text-slate-100 mb-4 lg:mb-8">
                 {item.title}
-              </motion.h2>
-              <motion.p
-                initial={{
-                  opacity: 0,
-                }}
-                animate={{
-                  opacity: activeCard === index ? 1 : 0.3,
-                }}
-                className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl mt-4 lg:mt-10 max-w-full lg:max-w-2xl text-slate-300 leading-relaxed"
-                transition={{ duration: 0.4 }}
-              >
+              </h2>
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl mt-4 lg:mt-10 max-w-full lg:max-w-2xl text-slate-300 leading-relaxed">
                 {item.description}
-              </motion.p>
+              </p>
               
-              {/* Mobile Image - Shows under each text section on mobile only */}
+              {/* Mobile Image - Clean display, no filters */}
               <div className="block lg:hidden mt-6">
-                <motion.div 
-                  animate={{
-                    opacity: activeCard === index ? 1 : 0.3,
-                  }}
-                  className="h-64 sm:h-80 w-full overflow-hidden rounded-lg bg-gray-100 shadow-lg"
-                  transition={{ duration: 0.4 }}
-                >
+                <div className="h-64 sm:h-80 w-full overflow-hidden rounded-lg bg-white shadow-lg">
                   <div className="h-full w-full">
                     {item.content}
                   </div>
-                </motion.div>
+                </div>
               </div>
             </div>
           ))}
@@ -121,20 +97,24 @@ export const StickyScroll = ({
         </div>
       </div>
       
-      {/* Desktop Sticky Image Container - Full height and bigger */}
+      {/* Desktop Sticky Image Container - Only visible on desktop */}
       <div
-        style={{ background: backgroundGradient }}
         className={cn(
-          "sticky top-10 hidden lg:block h-[85vh] w-full lg:w-[45%] xl:w-[50%] overflow-hidden rounded-lg bg-white shadow-2xl",
+          "sticky top-10 hidden lg:block h-[85vh] w-full lg:w-[45%] xl:w-[50%] overflow-hidden rounded-lg bg-gray-900 shadow-2xl",
           contentClassName,
         )}
       >
         <motion.div
           key={activeCard}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.4 }}
-          className="h-full w-full relative z-10"
+          initial={{ opacity: 0, scale: 1.05 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.95 }}
+          transition={{ 
+            duration: 0.5, 
+            ease: "easeInOut",
+            opacity: { duration: 0.3 }
+          }}
+          className="h-full w-full"
         >
           {content[activeCard].content ?? null}
         </motion.div>
