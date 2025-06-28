@@ -30,6 +30,21 @@ const pageContent = [
     text: "Creative Photography",
     img: "https://images.unsplash.com/photo-1602081957921-9137a5d6eaee?q=80&w=2793&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     description: "Develop your unique photographic vision through comprehensive training that combines technical mastery with artistic expression. Learn advanced composition techniques, master natural and artificial lighting setups, and understand the nuances of different photography genres including portrait, landscape, street, and commercial photography. Our curriculum includes extensive post-processing training using industry-standard software, business development strategies for professional photographers, and portfolio development guidance. Work with professional equipment and learn from award-winning photographers who share their expertise and creative insights."
+  },
+  {
+    text: "AI & Machine Learning",
+    img: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    description: "Dive into the revolutionary world of artificial intelligence and machine learning with hands-on training from industry experts. Learn Python programming, data preprocessing, neural networks, and deep learning frameworks like TensorFlow and PyTorch. Master computer vision, natural language processing, and predictive analytics. Build real-world AI applications, understand ethical AI principles, and prepare for the future of technology. Our comprehensive curriculum includes practical projects, industry case studies, and career guidance to help you become an AI specialist in high demand."
+  },
+  {
+    text: "Blockchain Development",
+    img: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=2832&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    description: "Master blockchain technology and cryptocurrency development with comprehensive training in decentralized applications (DApps), smart contracts, and Web3 development. Learn Solidity programming, Ethereum development, DeFi protocols, and NFT creation. Understand blockchain architecture, consensus mechanisms, and security best practices. Build your own cryptocurrency, create smart contracts, and develop decentralized applications. Our expert instructors guide you through real-world projects and help you navigate the rapidly evolving blockchain ecosystem."
+  },
+  {
+    text: "UX/UI Design Excellence",
+    img: "https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=2764&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    description: "Create exceptional user experiences with our comprehensive UX/UI design program. Learn user research methodologies, wireframing, prototyping, and usability testing. Master design tools like Figma, Adobe XD, and Sketch while understanding design systems, accessibility principles, and mobile-first design. Develop skills in user psychology, information architecture, and interaction design. Work on real client projects, build an impressive portfolio, and learn from seasoned designers who have worked with top tech companies and startups."
   }
 ];
 
