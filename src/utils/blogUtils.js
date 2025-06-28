@@ -34,7 +34,7 @@ function formatText(text, isHeader = false) {
   // Convert markdown emphasis to styled spans - ORDER MATTERS!
   // Process triple asterisks first, then double, then single
   text = text.replace(/\*\*\*(.*?)\*\*\*/g, '<strong class="text-indigo-700 dark:text-indigo-300 font-bold">$1</strong>');
-  text = text.replace(/\*\*(.*?)\*\*/g, '<strong class="text-gray-900 dark:text-white font-bold">$1</strong>');
+  text = text.replace(/\*\*(.*?)\*\*/g, '<strong class="text-gray-900 dark:text-gray-50 font-bold">$1</strong>');
   text = text.replace(/\*(.*?)\*/g, '<em class="text-gray-800 dark:text-gray-200 italic">$1</em>');
 
   if (isHeader) {
@@ -77,7 +77,7 @@ function processCodeBlocks(lines) {
             bulletList.map(item => 
               `<div class="flex items-start group p-3 hover:bg-slate-50 dark:hover:bg-slate-900/50 rounded-lg transition-colors">
                 <span class="text-indigo-500 dark:text-indigo-400 mr-3 text-lg flex-shrink-0 mt-0.5">•</span>
-                <div class="text-gray-800 dark:text-gray-200 group-hover:text-gray-900 dark:group-hover:text-white transition-colors leading-relaxed">${item}</div>
+                <div class="text-gray-800 dark:text-gray-200 group-hover:text-gray-900 dark:group-hover:text-gray-50 transition-colors leading-relaxed">${item}</div>
               </div>`
             ).join('') +
             '</div>'
@@ -95,7 +95,7 @@ function processCodeBlocks(lines) {
           bulletList.map(item => 
             `<div class="flex items-start group p-3 hover:bg-slate-50 dark:hover:bg-slate-900/50 rounded-lg transition-colors">
               <span class="text-indigo-500 dark:text-indigo-400 mr-3 text-lg flex-shrink-0 mt-0.5">•</span>
-              <div class="text-gray-800 dark:text-gray-200 group-hover:text-gray-900 dark:group-hover:text-white transition-colors leading-relaxed">${item}</div>
+              <div class="text-gray-800 dark:text-gray-200 group-hover:text-gray-900 dark:group-hover:text-gray-50 transition-colors leading-relaxed">${item}</div>
             </div>`
           ).join('') +
           '</div>'
@@ -148,7 +148,7 @@ function processCodeBlocks(lines) {
           const [left, right] = formattedText.split('→').map(s => s.trim());
           processedLines.push(
             `<div class="flex items-center space-x-4 text-lg my-5 bg-gradient-to-r from-slate-50 to-transparent dark:from-slate-900/50 dark:to-transparent p-4 rounded-lg border-l-2 border-indigo-200 dark:border-indigo-800">
-              <div class="font-bold text-gray-900 dark:text-white min-w-[120px] flex-shrink-0">${left}</div>
+              <div class="font-bold text-gray-900 dark:text-gray-50 min-w-[120px] flex-shrink-0">${left}</div>
               <span class="text-indigo-500 dark:text-indigo-400 text-xl">→</span>
               <div class="text-gray-800 dark:text-gray-200 leading-relaxed">${right}</div>
             </div>`
@@ -161,7 +161,7 @@ function processCodeBlocks(lines) {
           
           processedLines.push(
             `<div class="flex flex-wrap items-baseline my-4 group hover:bg-slate-50 dark:hover:bg-slate-900/50 p-4 rounded-lg transition-colors border-l-2 border-transparent hover:border-indigo-200 dark:hover:border-indigo-800">
-              <div class="font-bold text-gray-900 dark:text-white mr-4 min-w-[180px] flex-shrink-0">${key}:</div>
+              <div class="font-bold text-gray-900 dark:text-gray-50 mr-4 min-w-[180px] flex-shrink-0">${key}:</div>
               <div class="text-gray-800 dark:text-gray-200 flex-1 leading-relaxed">${value}</div>
             </div>`
           );
@@ -183,7 +183,7 @@ function processCodeBlocks(lines) {
       bulletList.map(item => 
         `<div class="flex items-start group p-3 hover:bg-slate-50 dark:hover:bg-slate-900/50 rounded-lg transition-colors">
           <span class="text-indigo-500 dark:text-indigo-400 mr-3 text-lg flex-shrink-0 mt-0.5">•</span>
-          <div class="text-gray-800 dark:text-gray-200 group-hover:text-gray-900 dark:group-hover:text-white transition-colors leading-relaxed">${item}</div>
+          <div class="text-gray-800 dark:text-gray-200 group-hover:text-gray-900 dark:group-hover:text-gray-50 transition-colors leading-relaxed">${item}</div>
         </div>`
       ).join('') +
       '</div>'

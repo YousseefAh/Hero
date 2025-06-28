@@ -44,8 +44,39 @@ module.exports = {
       fontFamily: {
         sans: ["var(--font-poppins)"],
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            color: '#374151', // gray-700
+            strong: {
+              color: '#111827', // gray-900
+            },
+            em: {
+              color: '#4B5563', // gray-600
+            },
+            h1: {
+              color: '#111827', // gray-900
+            },
+            h2: {
+              color: '#111827', // gray-900
+            },
+            h3: {
+              color: '#111827', // gray-900
+            },
+            h4: {
+              color: '#111827', // gray-900
+            },
+            p: {
+              color: '#374151', // gray-700
+            },
+            li: {
+              color: '#374151', // gray-700
+            },
+          },
+        },
+      },
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/typography')],
 };
 

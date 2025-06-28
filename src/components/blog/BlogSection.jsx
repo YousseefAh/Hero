@@ -6,7 +6,7 @@ const BlogSection = ({ section, index }) => {
   }
 
   const getHeaderClasses = (level) => {
-    const baseClasses = "font-bold leading-tight text-gray-900 dark:text-white";
+    const baseClasses = "font-bold leading-tight text-gray-900 dark:text-gray-50";
     switch (level) {
       case 1:
         return `text-4xl sm:text-5xl ${baseClasses} mb-8 mt-16 first:mt-0 pb-4 border-b border-gray-200 dark:border-gray-700`;
@@ -45,7 +45,15 @@ const BlogSection = ({ section, index }) => {
       <HeaderComponent />
       
       {section.lines && section.lines.length > 0 && (
-        <div className="space-y-6">
+        <div className="space-y-6 prose prose-lg max-w-none 
+                       prose-headings:text-gray-900 dark:prose-headings:text-gray-50
+                       prose-p:text-gray-800 dark:prose-p:text-gray-200
+                       prose-strong:text-gray-900 dark:prose-strong:text-gray-50
+                       prose-em:text-gray-700 dark:prose-em:text-gray-300
+                       prose-code:text-indigo-600 dark:prose-code:text-indigo-400
+                       prose-pre:bg-gray-50 dark:prose-pre:bg-gray-800
+                       prose-blockquote:text-gray-700 dark:prose-blockquote:text-gray-300
+                       prose-li:text-gray-800 dark:prose-li:text-gray-200">
           {section.lines.map((line, lineIndex) => {
             if (typeof line === 'string' && line.trim() === '') {
               return <div key={lineIndex} className="h-6"></div>;
@@ -55,7 +63,7 @@ const BlogSection = ({ section, index }) => {
               <div
                 key={lineIndex}
                 dangerouslySetInnerHTML={{ __html: line }}
-                className="prose-like max-w-none"
+                className="text-gray-800 dark:text-gray-200 leading-relaxed"
               />
             );
           })}

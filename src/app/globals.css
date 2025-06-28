@@ -1,3 +1,61 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  /* Enhanced text contrast for better readability */
+  .dark {
+    --tw-prose-body: rgb(229 231 235); /* gray-200 */
+    --tw-prose-headings: rgb(249 250 251); /* gray-50 */
+    --tw-prose-lead: rgb(209 213 219); /* gray-300 */
+    --tw-prose-links: rgb(147 197 253); /* blue-300 */
+    --tw-prose-bold: rgb(249 250 251); /* gray-50 */
+    --tw-prose-counters: rgb(156 163 175); /* gray-400 */
+    --tw-prose-bullets: rgb(156 163 175); /* gray-400 */
+    --tw-prose-hr: rgb(75 85 99); /* gray-600 */
+    --tw-prose-quotes: rgb(229 231 235); /* gray-200 */
+    --tw-prose-quote-borders: rgb(75 85 99); /* gray-600 */
+    --tw-prose-captions: rgb(156 163 175); /* gray-400 */
+    --tw-prose-code: rgb(196 181 253); /* violet-300 */
+    --tw-prose-pre-code: rgb(229 231 235); /* gray-200 */
+    --tw-prose-pre-bg: rgb(31 41 55); /* gray-800 */
+    --tw-prose-th-borders: rgb(75 85 99); /* gray-600 */
+    --tw-prose-td-borders: rgb(55 65 81); /* gray-700 */
+  }
+}
+
+/* Additional text contrast improvements */
+.dark .prose {
+  color: rgb(229 231 235) !important; /* gray-200 */
+}
+
+.dark .prose h1,
+.dark .prose h2,
+.dark .prose h3,
+.dark .prose h4,
+.dark .prose h5,
+.dark .prose h6 {
+  color: rgb(249 250 251) !important; /* gray-50 */
+}
+
+.dark .prose strong {
+  color: rgb(249 250 251) !important; /* gray-50 */
+}
+
+.dark .prose em {
+  color: rgb(209 213 219) !important; /* gray-300 */
+}
+
+.dark .prose code {
+  color: rgb(196 181 253) !important; /* violet-300 */
+  background-color: rgb(55 65 81) !important; /* gray-700 */
+}
+
+/* Table of Contents text improvements */
+.dark .table-of-contents {
+  color: rgb(229 231 235) !important; /* gray-200 */
+}
+
+.dark .table-of-contents h2 {
+  color: rgb(249 250 251) !important; /* gray-50 */
+}
