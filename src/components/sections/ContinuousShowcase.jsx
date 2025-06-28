@@ -102,8 +102,8 @@ const ContinuousShowcase = () => {
     const swiper = new Swiper('.continuous-showcase-swiper', {
       modules: [Autoplay],
       slidesPerView: 'auto',
-      spaceBetween: 30,
-      speed: 8000,
+      spaceBetween: 15,
+      speed: 10000,
       autoplay: {
         delay: 1,
         disableOnInteraction: false,
@@ -145,38 +145,41 @@ const ContinuousShowcase = () => {
   }
 
   return (
-    <section className="w-full bg-gray-900 py-20 overflow-hidden">
-      <div className="container mx-auto px-4 mb-16">
-        <h2 className="text-center text-4xl md:text-6xl font-bold text-white mb-6">
+    <section className="w-full bg-gray-900 py-10 md:py-16 overflow-hidden">
+      <div className="container mx-auto px-4 mb-8 md:mb-12">
+        <h2 className="text-center text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-6">
           Knowledge and Insight
         </h2>
-        <p className="text-center text-lg md:text-xl text-gray-400 max-w-3xl mx-auto">
+        <p className="text-center text-base md:text-lg text-gray-400 max-w-3xl mx-auto">
           Explore our comprehensive features and tools designed to enhance your experience
         </p>
       </div>
       
-      <div className="continuous-showcase-swiper h-[600px] w-full">
+      <div className="continuous-showcase-swiper h-[400px] sm:h-[450px] md:h-[500px] lg:h-[600px] xl:h-[650px] w-full">
         <div className="swiper-wrapper">
-          {/* Triple the slides for smoother infinite loop */}
           {[...showcaseImages, ...showcaseImages, ...showcaseImages].map((image, index) => (
             <div 
               key={index} 
-              className="swiper-slide !w-[500px] rounded-2xl overflow-hidden bg-gray-800 transition-transform duration-500"
-              style={{ width: '500px' }} // Force width for better performance
+              className="swiper-slide !w-[280px] sm:!w-[350px] md:!w-[450px] lg:!w-[550px] xl:!w-[600px] rounded-lg md:rounded-2xl overflow-hidden bg-gray-800 transition-all duration-300"
+              style={{
+                width: '280px',
+                ['@media (min-width: 640px)']: { width: '350px' },
+                ['@media (min-width: 768px)']: { width: '450px' },
+                ['@media (min-width: 1024px)']: { width: '550px' },
+                ['@media (min-width: 1280px)']: { width: '600px' }
+              }}
             >
               <div className="relative h-full w-full group">
                 {image.isLocal ? (
-                  // Local images use Next.js Image component
                   <Image 
                     src={image.url}
                     alt={image.title}
                     fill
-                    priority={index < 6} // Prioritize loading first set of images
+                    priority={index < 6}
                     className="object-cover"
-                    sizes="500px"
+                    sizes="(min-width: 1280px) 600px, (min-width: 1024px) 550px, (min-width: 768px) 450px, (min-width: 640px) 350px, 280px"
                   />
                 ) : (
-                  // External URLs use regular img tag
                   <img 
                     src={image.url}
                     alt={image.title}
@@ -184,12 +187,12 @@ const ContinuousShowcase = () => {
                     loading={index < 6 ? "eager" : "lazy"}
                   />
                 )}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="absolute bottom-0 left-0 right-0 p-8">
-                    <h3 className="text-2xl font-bold text-white mb-2">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="absolute bottom-0 left-0 right-0 p-4 md:p-5 lg:p-6 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                    <h3 className="text-xl md:text-2xl font-bold text-white mb-2">
                       {image.title}
                     </h3>
-                    <p className="text-lg text-gray-300">
+                    <p className="text-sm md:text-base text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-75">
                       {image.description}
                     </p>
                   </div>
