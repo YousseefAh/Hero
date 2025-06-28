@@ -141,21 +141,21 @@ export const StickyScroll = ({
               key={item.title + index} 
               data-section={index} 
               className={cn(
-                'py-16 sm:py-24 lg:py-32',
-                'min-h-[80vh] lg:min-h-0',
+                'py-8 sm:py-12 lg:py-32',
+                'min-h-[60vh] lg:min-h-0',
                 'flex flex-col justify-center'
               )}
             >
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-7xl font-bold text-slate-100 mb-4 lg:mb-8">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-7xl font-bold text-slate-100 mb-2 lg:mb-8">
                 {item.title}
               </h2>
-              <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl mt-4 lg:mt-10 max-w-full lg:max-w-2xl text-slate-300 leading-relaxed">
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl mt-2 lg:mt-10 max-w-full lg:max-w-2xl text-slate-300 leading-relaxed">
                 {item.description}
               </p>
               
               {/* Mobile Image */}
-              <div className="block lg:hidden mt-6">
-                <div className="h-64 sm:h-80 w-full overflow-hidden rounded-lg bg-white shadow-lg">
+              <div className="block lg:hidden mt-4">
+                <div className="h-48 sm:h-80 w-full overflow-hidden rounded-lg bg-white shadow-lg">
                   <div className="h-full w-full">
                     {item.content}
                   </div>
@@ -163,7 +163,7 @@ export const StickyScroll = ({
               </div>
             </div>
           ))}
-          <div className="h-32 lg:h-96" />
+          <div className="h-16 lg:h-96" />
         </div>
       </div>
       
