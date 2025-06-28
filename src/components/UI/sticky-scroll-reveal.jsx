@@ -10,28 +10,84 @@ export const StickyScroll = ({
 }) => {
   const [activeCard, setActiveCard] = React.useState(0);
   const ref = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   const { scrollYProgress } = useScroll({
     container: ref,
     offset: ["start start", "end start"],
   });
+
   const cardLength = content.length;
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    const cardsBreakpoints = content.map((_, index) => index / cardLength);
-    const closestBreakpointIndex = cardsBreakpoints.reduce(
-      (acc, breakpoint, index) => {
-        const distance = Math.abs(latest - breakpoint);
-        if (distance < Math.abs(latest - cardsBreakpoints[acc])) {
-          return index;
-        }
-        return acc;
-      },
-      0,
-    );
-    setActiveCard(closestBreakpointIndex);
+    if (!isMobile) {
+      const cardsBreakpoints = content.map((_, index) => index / cardLength);
+      const closestBreakpointIndex = cardsBreakpoints.reduce(
+        (acc, breakpoint, index) => {
+          const distance = Math.abs(latest - breakpoint);
+          if (distance < Math.abs(latest - cardsBreakpoints[acc])) {
+            return index;
+          }
+          return acc;
+        },
+        0,
+      );
+      setActiveCard(closestBreakpointIndex);
+    }
   });
 
-  // Extended color arrays for more variety
+  // Mobile scroll detection
+  useEffect(() => {
+    if (!isMobile) return;
+
+    const handleScroll = () => {
+      const sections = Array.from(ref.current?.querySelectorAll('[data-section]') || []);
+      if (!sections.length) return;
+
+      const viewportHeight = window.innerHeight;
+      const containerTop = ref.current?.getBoundingClientRect().top || 0;
+
+      let activeIndex = 0;
+      let maxVisibility = 0;
+
+      sections.forEach((section, index) => {
+        const rect = section.getBoundingClientRect();
+        const visibleHeight = Math.min(rect.bottom, viewportHeight) - Math.max(rect.top, 0);
+        const visibilityRatio = visibleHeight / rect.height;
+
+        if (visibilityRatio > maxVisibility) {
+          maxVisibility = visibilityRatio;
+          activeIndex = index;
+        }
+      });
+
+      setActiveCard(activeIndex);
+    };
+
+    const container = ref.current;
+    if (container) {
+      container.addEventListener('scroll', handleScroll);
+      // Also listen to window scroll for cases where the container is affected by viewport scroll
+      window.addEventListener('scroll', handleScroll);
+      // Initial check
+      handleScroll();
+    }
+
+    return () => {
+      container?.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [isMobile]);
+
   const backgroundColors = [
     "#0f172a", // slate-900
     "#000000", // black
@@ -44,19 +100,17 @@ export const StickyScroll = ({
   ];
   
   const linearGradients = [
-    "linear-gradient(to bottom right, #06b6d4, #10b981)", // cyan-500 to emerald-500
-    "linear-gradient(to bottom right, #ec4899, #6366f1)", // pink-500 to indigo-500
-    "linear-gradient(to bottom right, #f97316, #eab308)", // orange-500 to yellow-500
-    "linear-gradient(to bottom right, #FFB84C, #FFCD82)", // accent-500 to accent-200
-    "linear-gradient(to bottom right, #e6a644, #ffc670)", // accent-600 to accent-300
-    "linear-gradient(to bottom right, #8b5cf6, #a78bfa)", // violet-500 to violet-400
-    "linear-gradient(to bottom right, #ef4444, #f87171)", // red-500 to red-400
-    "linear-gradient(to bottom right, #06b6d4, #67e8f9)", // cyan-500 to cyan-300
+    "linear-gradient(to bottom right, #06b6d4, #10b981)",
+    "linear-gradient(to bottom right, #ec4899, #6366f1)",
+    "linear-gradient(to bottom right, #f97316, #eab308)",
+    "linear-gradient(to bottom right, #FFB84C, #FFCD82)",
+    "linear-gradient(to bottom right, #e6a644, #ffc670)",
+    "linear-gradient(to bottom right, #8b5cf6, #a78bfa)",
+    "linear-gradient(to bottom right, #ef4444, #f87171)",
+    "linear-gradient(to bottom right, #06b6d4, #67e8f9)",
   ];
 
-  const [backgroundGradient, setBackgroundGradient] = useState(
-    linearGradients[0],
-  );
+  const [backgroundGradient, setBackgroundGradient] = useState(linearGradients[0]);
 
   useEffect(() => {
     setBackgroundGradient(linearGradients[activeCard % linearGradients.length]);
@@ -67,15 +121,31 @@ export const StickyScroll = ({
       animate={{
         backgroundColor: backgroundColors[activeCard % backgroundColors.length],
       }}
-      className="relative flex flex-col lg:flex-row h-screen justify-center lg:space-x-10 overflow-y-auto p-4 sm:p-6 lg:p-10"
+      style={{
+        backgroundColor: backgroundColors[activeCard % backgroundColors.length],
+      }}
+      className="relative flex flex-col lg:flex-row min-h-screen lg:h-[30rem] lg:justify-center lg:space-x-10 overflow-y-auto p-4 sm:p-6 lg:p-10"
       ref={ref}
       transition={{ duration: 0.6, ease: "easeInOut" }}
     >
-      {/* Text Content - Clean, no color filters */}
-      <div className="relative flex items-start px-2 lg:px-4">
+      {/* Debug indicator */}
+      <div className="fixed top-4 right-4 z-50 bg-white text-black p-2 rounded lg:hidden">
+        Section: {activeCard}
+      </div>
+      
+      {/* Text Content */}
+      <div className="relative flex items-start px-2 lg:px-4 w-full lg:w-auto">
         <div className="w-full max-w-full lg:max-w-3xl">
           {content.map((item, index) => (
-            <div key={item.title + index} className="my-16 sm:my-20 lg:my-32">
+            <div 
+              key={item.title + index} 
+              data-section={index} 
+              className={cn(
+                'py-16 sm:py-24 lg:py-32',
+                'min-h-[80vh] lg:min-h-0',
+                'flex flex-col justify-center'
+              )}
+            >
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-7xl font-bold text-slate-100 mb-4 lg:mb-8">
                 {item.title}
               </h2>
@@ -83,7 +153,7 @@ export const StickyScroll = ({
                 {item.description}
               </p>
               
-              {/* Mobile Image - Clean display, no filters */}
+              {/* Mobile Image */}
               <div className="block lg:hidden mt-6">
                 <div className="h-64 sm:h-80 w-full overflow-hidden rounded-lg bg-white shadow-lg">
                   <div className="h-full w-full">
@@ -97,7 +167,7 @@ export const StickyScroll = ({
         </div>
       </div>
       
-      {/* Desktop Sticky Image Container - Only visible on desktop */}
+      {/* Desktop Sticky Image Container */}
       <div
         className={cn(
           "sticky top-10 hidden lg:block h-[85vh] w-full lg:w-[45%] xl:w-[50%] overflow-hidden rounded-lg bg-gray-900 shadow-2xl",

@@ -63,8 +63,6 @@ const content = pageContent.map((item, index) => ({
 
 export default function FeaturesPage() {
   return (
-    <div className="w-full min-h-screen">
-      <StickyScroll content={content} />
-    </div>
+    <StickyScroll content={content} />
   );
 } 
