@@ -53,7 +53,7 @@ export default function HomePage() {
             </div>
             <WobbleCardDemo />
           </section>
-          <Pricing />
+          {/* <Pricing /> */}
           <Testimonials />
           <CTA />
         </Main>

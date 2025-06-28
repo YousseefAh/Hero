@@ -1,10 +1,6 @@
 "use client";
 import React from "react";
 import { StickyScroll } from "components/ui/sticky-scroll-reveal";
-import PageWrapper from "components/layout/PageWrapper";
-import Header from "components/layout/Header";
-import Navigation from "components/layout/Navigation/Navigation";
-import Footer from "components/layout/Footer";
 
 // ==========================================
 // CONFIGURABLE CONTENT - EDIT THIS SECTION
@@ -56,29 +52,8 @@ const content = pageContent.map((item, index) => ({
 
 export default function FeaturesPage() {
   return (
-    <PageWrapper>
-      <Header>
-        <Navigation />
-      </Header>
-      
-      <main className="w-full min-h-screen bg-white-shade">
-        <div className="m-auto px-4 sm:px-8 md:px-16 xl:px-24 pt-24 pb-16 max-w-[90rem]">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-6xl font-bold text-primary-500 mb-6 transition-colors duration-300">
-              Platform Features
-            </h1>
-            <p className="text-lg md:text-xl text-primary-300 max-w-3xl mx-auto transition-colors duration-300">
-              Discover the powerful features that make our platform the perfect choice for creators and learners alike.
-            </p>
-          </div>
-          
-          <div className="w-full py-4">
-            <StickyScroll content={content} />
-          </div>
-        </div>
-      </main>
-
-      <Footer />
-    </PageWrapper>
+    <div className="w-full min-h-screen">
+      <StickyScroll content={content} />
+    </div>
   );
 } 
