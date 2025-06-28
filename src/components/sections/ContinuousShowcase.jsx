@@ -160,14 +160,7 @@ const ContinuousShowcase = () => {
           {[...showcaseImages, ...showcaseImages, ...showcaseImages].map((image, index) => (
             <div 
               key={index} 
-              className="swiper-slide !w-[280px] sm:!w-[350px] md:!w-[450px] lg:!w-[550px] xl:!w-[600px] rounded-lg md:rounded-2xl overflow-hidden bg-gray-800 transition-all duration-300"
-              style={{
-                width: '280px',
-                ['@media (min-width: 640px)']: { width: '350px' },
-                ['@media (min-width: 768px)']: { width: '450px' },
-                ['@media (min-width: 1024px)']: { width: '550px' },
-                ['@media (min-width: 1280px)']: { width: '600px' }
-              }}
+              className="swiper-slide w-[280px] sm:w-[350px] md:w-[450px] lg:w-[550px] xl:w-[600px] rounded-lg md:rounded-2xl overflow-hidden bg-gray-800 transition-all duration-300"
             >
               <div className="relative h-full w-full group">
                 {image.isLocal ? (
