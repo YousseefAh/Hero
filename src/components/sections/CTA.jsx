@@ -20,12 +20,12 @@ function CTA() {
         <p className="pb-10 text-center text-white xl:text-lg tracking-tight">
           Join a growing community and talk directly with your favorite creators
         </p>
-        <div className="flex flex-col sm:flex-row items-center gap-3">
+        <div className="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto">
           <button
             onClick={() => setCurrentModal("more-information")}
-            className="bg-accent-500 hover:bg-accent-600 px-8 py-4 rounded-2xl text-white text-lg transition-all duration-200 flex items-center gap-2"
+            className="w-full sm:w-auto bg-accent-500 hover:bg-accent-600 px-8 py-4 rounded-2xl text-white text-lg transition-all duration-200 flex items-center justify-center gap-2"
           >
-            More Information
+            Contact Us
             <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
             </svg>
@@ -33,7 +33,7 @@ function CTA() {
 
           <button
             onClick={handleWhatsApp}
-            className="bg-[#25D366] hover:bg-[#128C7E] px-8 py-4 rounded-2xl text-white text-lg transition-all duration-200 flex items-center gap-2"
+            className="w-full sm:w-auto bg-[#25D366] hover:bg-[#128C7E] px-8 py-4 rounded-2xl text-white text-lg transition-all duration-200 flex items-center justify-center gap-2"
           >
             WhatsApp Message
             <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">

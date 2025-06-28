@@ -72,7 +72,7 @@ export default function FeaturesPage() {
     <>
       <Link 
         href="/" 
-        className="fixed top-4 left-4 z-50 w-10 h-10 flex items-center justify-center opacity-40 hover:opacity-80 transition-opacity duration-200"
+        className="fixed top-4 left-4 z-50 w-10 h-10 flex items-center justify-center opacity-40 hover:opacity-80 transition-all duration-200 active:scale-90 bg-black/10 rounded-full backdrop-blur-sm"
         aria-label="Back to home"
       >
         <svg 
