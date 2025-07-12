@@ -9,20 +9,22 @@ export async function generateMetadata({ params }) {
   const post = getBlogPostById(params.id);
   if (!post) return {};
 
+  const metadata = await getBlogMetadata(post.file);
+
   return {
-    title: post.title,
-    description: post.description,
+    title: metadata.title,
+    description: metadata.description,
   };
 }
 
-export default function BlogPostPage({ params }) {
+export default async function BlogPostPage({ params }) {
   const post = getBlogPostById(params.id);
   
   if (!post) {
     notFound();
   }
 
-  const { sections, readingTime, totalLines } = getBlogMetadata(post.file);
+  const { sections, readingTime, totalLines } = await getBlogMetadata(post.file);
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">

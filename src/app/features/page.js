@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { StickyScroll } from "components/ui/sticky-scroll-reveal";
+import { StickyScroll } from "@/components/UI/sticky-scroll-reveal";
 import Link from "next/link";
 
 // ==========================================

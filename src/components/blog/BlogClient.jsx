@@ -8,24 +8,15 @@ import Link from 'next/link';
 export default function BlogClient({ sections, readingTime, totalLines }) {
   const [currentSectionIndex, setCurrentSectionIndex] = useState(0);
 
-  // Helper function to check if a section has meaningful content
+  // Helper function to check if a section has meaningful content (now directly from prop)
   const hasMeaningfulContent = (section) => {
-    if (!section.header || section.header === '—') return false;
-    
-    // Check if section has any non-empty lines
-    const hasNonEmptyLines = section.lines.some(line => {
-      if (typeof line !== 'string') return true;
-      const strippedLine = line.replace(/<[^>]*>/g, '').trim();
-      return strippedLine.length > 0 && strippedLine !== '—' && strippedLine !== '-';
-    });
-
-    return hasNonEmptyLines;
+    return section.hasMeaningfulContent;
   };
 
   // Filter out hidden and empty sections
-  const visibleSections = sections.filter(hasMeaningfulContent);
+  const visibleSections = sections.filter(section => section.hasMeaningfulContent);
   const visibleSectionIndices = sections.reduce((acc, section, index) => {
-    if (hasMeaningfulContent(section)) {
+    if (section.hasMeaningfulContent) {
       acc.push(index);
     }
     return acc;
@@ -36,15 +27,16 @@ export default function BlogClient({ sections, readingTime, totalLines }) {
     const handleHashChange = () => {
       const hash = window.location.hash;
       if (hash.startsWith('#section-')) {
-        const index = parseInt(hash.replace('#section-', ''));
-        if (visibleSectionIndices.includes(index)) {
+        const id = hash.replace('#section-', ''); // Extract the ID
+        const index = sections.findIndex(section => section.id === id); // Find the index by ID
+        if (index !== -1 && visibleSectionIndices.includes(index)) {
           setCurrentSectionIndex(index);
         } else {
-          // If trying to navigate to a hidden section, go to the next visible section
-          const nextVisibleIndex = visibleSectionIndices.find(i => i > index) ?? visibleSectionIndices[0];
+          // If trying to navigate to a hidden section or invalid ID, go to the first visible section
+          const nextVisibleIndex = visibleSectionIndices[0];
           if (nextVisibleIndex !== undefined) {
             setCurrentSectionIndex(nextVisibleIndex);
-            window.history.replaceState(null, '', `#section-${nextVisibleIndex}`);
+            window.history.replaceState(null, '', `#section-${sections[nextVisibleIndex].id}`);
           }
         }
       }
@@ -53,14 +45,14 @@ export default function BlogClient({ sections, readingTime, totalLines }) {
     handleHashChange(); // Check initial hash
     window.addEventListener('hashchange', handleHashChange);
     return () => window.removeEventListener('hashchange', handleHashChange);
-  }, [visibleSectionIndices]);
+  }, [sections, visibleSectionIndices]); // Added sections to dependency array
 
   const goToNextSection = () => {
     const currentVisibleIndex = visibleSectionIndices.indexOf(currentSectionIndex);
     if (currentVisibleIndex < visibleSectionIndices.length - 1) {
       const nextIndex = visibleSectionIndices[currentVisibleIndex + 1];
       setCurrentSectionIndex(nextIndex);
-      window.history.pushState(null, '', `#section-${nextIndex}`);
+      window.history.pushState(null, '', `#section-${sections[nextIndex].id}`);
     }
   };
 
@@ -69,17 +61,17 @@ export default function BlogClient({ sections, readingTime, totalLines }) {
     if (currentVisibleIndex > 0) {
       const prevIndex = visibleSectionIndices[currentVisibleIndex - 1];
       setCurrentSectionIndex(prevIndex);
-      window.history.pushState(null, '', `#section-${prevIndex}`);
+      window.history.pushState(null, '', `#section-${sections[prevIndex].id}`);
     }
   };
 
   // If current section is hidden/empty, navigate to the next visible section
   useEffect(() => {
-    if (!hasMeaningfulContent(sections[currentSectionIndex])) {
+    if (!sections[currentSectionIndex] || !sections[currentSectionIndex].hasMeaningfulContent) {
       const nextVisibleIndex = visibleSectionIndices.find(i => i > currentSectionIndex) ?? visibleSectionIndices[0];
       if (nextVisibleIndex !== undefined && nextVisibleIndex !== currentSectionIndex) {
         setCurrentSectionIndex(nextVisibleIndex);
-        window.history.replaceState(null, '', `#section-${nextVisibleIndex}`);
+        window.history.replaceState(null, '', `#section-${sections[nextVisibleIndex].id}`);
       }
     }
   }, [currentSectionIndex, sections, visibleSectionIndices]);
@@ -125,7 +117,6 @@ export default function BlogClient({ sections, readingTime, totalLines }) {
                 {/* Current Section */}
                 <BlogSection 
                   section={currentSection}
-                  index={currentSectionIndex}
                 />
 
                 {/* Navigation Buttons */}
@@ -161,7 +152,7 @@ export default function BlogClient({ sections, readingTime, totalLines }) {
                     >
                       Next Section
                       <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeLineWidth={2} d="M9 5l7 7-7 7" />
                       </svg>
                     </button>
                   </div>
