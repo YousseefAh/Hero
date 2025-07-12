@@ -11,63 +11,63 @@ const ContinuousShowcase = () => {
 
   const showcaseImages = [
     {
-      url: '/testimonials/testimonial-1.webp',
-      title: 'Creative Design',
-      description: 'Innovative design solutions for modern challenges',
+      url: '/img-app/993_1x_shots_so-min.png',
+      title: 'Insight 1',
+      description: 'Explore detailed analytics and reports',
       isLocal: true
     },
     {
-      url: '/testimonials/testimonial-2.webp',
-      title: 'Modern Architecture',
-      description: 'Contemporary architectural masterpieces',
+      url: '/img-app/976_1x_shots_soo-min.png',
+      title: 'Insight 2',
+      description: 'Discover the power of automated workflows',
       isLocal: true
     },
     {
-      url: '/testimonials/testimonial-3.webp',
-      title: 'Digital Innovation',
-      description: 'Pushing boundaries in digital space',
+      url: '/img-app/758_1x_shots_soo-min.png',
+      title: 'Insight 3',
+      description: 'Manage your clients with ease',
       isLocal: true
     },
     {
-      url: '/testimonials/testimonial-4.webp',
-      title: 'User Experience',
-      description: 'Crafting seamless user interactions',
+      url: '/img-app/704_1x_shots_so-min.png',
+      title: 'Insight 4',
+      description: 'Ensure data security and integrity',
       isLocal: true
     },
     {
-      url: '/testimonials/testimonial-5.webp',
-      title: 'Visual Storytelling',
-      description: 'Compelling visual narratives',
+      url: '/img-app/627_1x_shots_so (1)-min.png',
+      title: 'Insight 5',
+      description: 'Access comprehensive reporting tools',
       isLocal: true
     },
     {
-      url: '/testimonials/testimonial-6.webp',
-      title: 'Creative Solutions',
-      description: 'Innovative approaches to design challenges',
+      url: '/img-app/457_1x_shots_so-min.png',
+      title: 'Insight 6',
+      description: 'Experience seamless user interfaces',
       isLocal: true
     },
     {
-      url: '/testimonials/testimonial-7.webp',
-      title: 'Design Systems',
-      description: 'Cohesive and scalable design frameworks',
+      url: '/img-app/364_1x_shots_so-min.png',
+      title: 'Insight 7',
+      description: 'Optimize performance with real-time tracking',
       isLocal: true
     },
     {
-      url: '/testimonials/testimonial-8.webp',
-      title: 'Technical Excellence',
-      description: 'Precision in every pixel',
+      url: '/img-app/181_1x_shots_so-min.png',
+      title: 'Insight 8',
+      description: 'Connect with clients through integrated communication',
       isLocal: true
     },
     {
-      url: '/testimonials/testimonial-9.webp',
-      title: 'Product Design',
-      description: 'From concept to reality',
+      url: '/img-app/97_1x_shots_so-min.png',
+      title: 'Insight 9',
+      description: 'Gain a mobile-first advantage',
       isLocal: true
     },
     {
-      url: '/testimonials/testimonial-10.webp',
-      title: 'Creative Direction',
-      description: 'Leading through design innovation',
+      url: '/img-app/42shots_so-min.png',
+      title: 'Insight 10',
+      description: 'Unleash your potential with powerful features',
       isLocal: true
     }
   ];
