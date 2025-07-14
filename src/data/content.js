@@ -136,12 +136,12 @@ export const content = {
 
   // شريط بطاقات أبل
   appleCarousel: {
-    title: "اكتشف ما يبنيه المبدعون.",
+    title: "المعرفة والرؤى",
     dummyContent: {
       title: "تعاون دون قيود",
-      description: "استخدم أدواتنا لبناء مشاريع مبتكرة مع فريقك.",
+      description: "استكشف ميزاتنا الشاملة وأدواتنا المصممة لتعزيز تجربتك",
       image: {
-        src: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        src: "/img-app/22_1x_shots_so-min.png",
         alt: "مساحة عمل تعاونية"
       }
     },
