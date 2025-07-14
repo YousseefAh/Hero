@@ -11,7 +11,7 @@ function Hero() {
         <div className="max-w-[50rem]">
           <h1 className="mb-16 sm:mb-4 font-bold text-3xl text-primary-500 sm:text-4xl md:text-5xl/[3.5rem] lg:text-6xl/[4rem] xl:text-7xl/[5rem] tracking-tight">
             {title}{" "}
-            <span className="bg-clip-text bg-gradient-to-t from-accent-500 to-accent-200 text-transparent">
+                                    <span className="text-yellow-500">
               {highlightedText}
             </span>
           </h1>
