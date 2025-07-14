@@ -28,6 +28,7 @@ import Modal from "@/components/UI/Modal";
 import MoreInformation from "@/components/UI/MoreInformation";
 
 import { ModalContextProvider } from "@/contexts/ModalContext";
+import { content } from '@/data/content';
 
 export default function HomePage() {
   return (
@@ -46,10 +47,10 @@ export default function HomePage() {
           <section className="m-auto px-4 sm:px-8 md:px-16 xl:px-24 py-16 max-w-[90rem]">
             <div className="text-center mb-12">
               <h2 className="text-4xl md:text-6xl font-bold text-primary-500 mb-6 transition-colors duration-300">
-                Why Choose Yadora?
+                {content.whyChooseYadora.title}
               </h2>
               <p className="text-lg md:text-xl text-primary-300 max-w-3xl mx-auto transition-colors duration-300">
-                Experience the power of interactive content cards that bring your favorite creators closer to you.
+                {content.whyChooseYadora.description}
               </p>
             </div>
             <WobbleCardDemo />
