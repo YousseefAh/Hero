@@ -111,25 +111,25 @@ export const content = {
         id: 1,
         name: "تواصل",
         description: "تواصل مع جمهورك في أي مكان وزمان.",
-        icon: "/features/connection.svg"
+        icon: "/features/engagement.svg"
       },
       {
         id: 2,
         name: "نمو المجتمع",
         description: "ابنِ مجتمعًا متفاعلاً يدعم أعمالك.",
-        icon: "/features/community.svg"
+        icon: "/features/autonomy.svg"
       },
       {
         id: 3,
         name: "الأرباح",
         description: "حسّن دخلك باستخدام استراتيجيات تسعير مرنة.",
-        icon: "/features/earnings.svg"
+        icon: "/features/earn.svg"
       },
       {
         id: 4,
         name: "التوسع",
         description: "وسّع نطاق أعمالك بدعم وأدوات متقدمة.",
-        icon: "/features/scale.svg"
+        icon: "/features/free.svg"
       },
     ]
   },
