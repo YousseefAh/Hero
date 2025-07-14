@@ -43,7 +43,7 @@ const ContinuousShowcase = () => {
 
   return (
     <section className="w-full bg-black min-h-screen flex flex-col items-center justify-center relative overflow-x-hidden">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 pt-20">
         <h2 className="text-center text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-6">
           {title}
         </h2>
@@ -52,25 +52,25 @@ const ContinuousShowcase = () => {
         </p>
       </div>
       
-      <div className="continuous-showcase-swiper h-full w-full">
+      <div className="continuous-showcase-swiper w-full">
         <div className="swiper-wrapper">
           {[...showcaseImages, ...showcaseImages, ...showcaseImages].map((image, index) => (
             <div 
               key={index} 
-              className="swiper-slide h-full w-[280px] sm:w-[350px] md:w-[450px] lg:w-[550px] xl:w-[600px] rounded-lg md:rounded-2xl overflow-hidden bg-gray-800 transition-all duration-300"
+              className="swiper-slide w-[280px] sm:w-[350px] md:w-[450px] lg:w-[550px] xl:w-[600px] aspect-video rounded-lg md:rounded-2xl overflow-hidden bg-gray-800 transition-all duration-300"
             >
               <div className="relative h-full w-full group">
                 {image.isLocal ? (
                   <img 
                     src={image.url}
                     alt={image.title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-center"
                   />
                 ) : (
                   <img 
                     src={image.url}
                     alt={image.title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-center"
                     loading={index < 6 ? "eager" : "lazy"}
                   />
                 )}
