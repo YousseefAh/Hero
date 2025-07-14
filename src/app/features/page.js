@@ -3,7 +3,7 @@
 import React from "react";
 import { StickyScroll } from "@/components/UI/sticky-scroll-reveal";
 import Link from "next/link";
-import content from "../../data/content";
+import { content } from "../../data/content";
 
 const { pageContent } = content.featuresPage;
 
@@ -43,7 +43,7 @@ export default function FeaturesPage() {
           />
         </svg>
       </Link>
-      <StickyScroll content={content} />
+      <StickyScroll content={contentData} />
     </>
   );
-} 
+}

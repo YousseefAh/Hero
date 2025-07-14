@@ -2,7 +2,7 @@ import { content } from '@/data/content';
 import Image from "next/image";
 
 function Features() {
-  const { title, description, buttonText, featureList } = content.features;
+  const { title, description, buttonText, list } = content.features;
   return (
     <section className="m-auto px-4 sm:px-8 md:px-16 xl:px-24 pt-14 sm:pt-20 md:pt-32 pb-16 md:pb-24 max-w-[90rem]">
       <div className="gap-y-16 md:gap-y-24 grid lg:grid-cols-2">
@@ -18,7 +18,7 @@ function Features() {
           </button>
         </div>
         <ul className="justify-items-center sm:justify-items-start gap-x-8 gap-y-12 md:gap-y-20 grid sm:grid-cols-2 sm:grid-rows-2">
-          {featureList.map((feature) => (
+          {list.map((feature) => (
             <li
               className="w-[80%] xl:w-5/6 text-center sm:text-start tracking-tight"
               key={feature.id}

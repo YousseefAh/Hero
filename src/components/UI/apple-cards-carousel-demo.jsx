@@ -32,9 +32,9 @@ const DummyContent = () => {
           >
             <p className="text-primary-500 text-base md:text-2xl font-sans max-w-3xl mx-auto">
               <span className="font-bold text-primary-500">
-                {dummyContent.boldText}
+                {dummyContent.title}
               </span>{" "}
-              {dummyContent.text.replace(dummyContent.boldText, '')}
+              {dummyContent.description}
             </p>
             <img
               src={dummyContent.image.src}
