@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { content } from '@/data/content';
 import Image from 'next/image';
 import Swiper from 'swiper';
 import { Autoplay } from 'swiper/modules';
@@ -9,68 +10,7 @@ import 'swiper/css';
 const ContinuousShowcase = () => {
   const [imagesLoaded, setImagesLoaded] = useState(false);
 
-  const showcaseImages = [
-    {
-      url: '/img-app/993_1x_shots_so-min.png',
-      title: 'Insight 1',
-      description: 'Explore detailed analytics and reports',
-      isLocal: true
-    },
-    {
-      url: '/img-app/976_1x_shots_soo-min.png',
-      title: 'Insight 2',
-      description: 'Discover the power of automated workflows',
-      isLocal: true
-    },
-    {
-      url: '/img-app/758_1x_shots_soo-min.png',
-      title: 'Insight 3',
-      description: 'Manage your clients with ease',
-      isLocal: true
-    },
-    {
-      url: '/img-app/704_1x_shots_so-min.png',
-      title: 'Insight 4',
-      description: 'Ensure data security and integrity',
-      isLocal: true
-    },
-    {
-      url: '/img-app/627_1x_shots_so (1)-min.png',
-      title: 'Insight 5',
-      description: 'Access comprehensive reporting tools',
-      isLocal: true
-    },
-    {
-      url: '/img-app/457_1x_shots_so-min.png',
-      title: 'Insight 6',
-      description: 'Experience seamless user interfaces',
-      isLocal: true
-    },
-    {
-      url: '/img-app/364_1x_shots_so-min.png',
-      title: 'Insight 7',
-      description: 'Optimize performance with real-time tracking',
-      isLocal: true
-    },
-    {
-      url: '/img-app/181_1x_shots_so-min.png',
-      title: 'Insight 8',
-      description: 'Connect with clients through integrated communication',
-      isLocal: true
-    },
-    {
-      url: '/img-app/97_1x_shots_so-min.png',
-      title: 'Insight 9',
-      description: 'Gain a mobile-first advantage',
-      isLocal: true
-    },
-    {
-      url: '/img-app/42shots_so-min.png',
-      title: 'Insight 10',
-      description: 'Unleash your potential with powerful features',
-      isLocal: true
-    }
-  ];
+  const { title, description, images: showcaseImages } = content.continuousShowcase;
 
   // Preload images
   useEffect(() => {
@@ -145,22 +85,22 @@ const ContinuousShowcase = () => {
   }
 
   return (
-    <section className="w-full bg-black min-h-[70vh] flex flex-col items-center justify-center relative overflow-x-hidden py-16">
+    <section className="w-full bg-black min-h-screen flex flex-col items-center justify-center relative overflow-x-hidden">
       <div className="container mx-auto px-4">
         <h2 className="text-center text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-6">
-          Knowledge and Insight
+          {title}
         </h2>
         <p className="text-center text-base md:text-lg text-gray-400 max-w-3xl mx-auto mb-8">
-          Explore our comprehensive features and tools designed to enhance your experience
+          {description}
         </p>
       </div>
       
-      <div className="continuous-showcase-swiper h-[400px] sm:h-[450px] md:h-[500px] lg:h-[600px] xl:h-[650px] w-full">
+      <div className="continuous-showcase-swiper h-full w-full">
         <div className="swiper-wrapper">
           {[...showcaseImages, ...showcaseImages, ...showcaseImages].map((image, index) => (
             <div 
               key={index} 
-              className="swiper-slide w-[280px] sm:w-[350px] md:w-[450px] lg:w-[550px] xl:w-[600px] rounded-lg md:rounded-2xl overflow-hidden bg-gray-800 transition-all duration-300"
+              className="swiper-slide h-full w-[280px] sm:w-[350px] md:w-[450px] lg:w-[550px] xl:w-[600px] rounded-lg md:rounded-2xl overflow-hidden bg-gray-800 transition-all duration-300"
             >
               <div className="relative h-full w-full group">
                 {image.isLocal ? (

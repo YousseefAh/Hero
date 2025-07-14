@@ -1,21 +1,22 @@
 import Image from "next/image";
 import { RxCaretRight } from "react-icons/rx";
-import { appStats, appStatsImgs } from "@/utils/constants";
+import { content } from '@/data/content';
 
 function AppStatistics() {
+  const { title1, title2, marketplaceText, images, stats } = content.appStatistics;
   return (
     <section className="bg-primary-500 -mt-[1px]">
       <div className="flex flex-col gap-y-12 sm:gap-y-16 md:gap-y-24 xl:gap-y-28 m-auto px-4 sm:px-8 md:px-16 xl:px-24 pt-10 md:pt-16 pb-16 sm:pb-24 md:pb-32 max-w-[90rem]">
         <div>
           <h2 className="bg-clip-text bg-gradient-to-t from-accent-500 to-accent-200 sm:font-bold text-3xl text-transparent sm:text-4xl md:text-5xl/[3.5rem] lg:text-6xl/[4.6rem] xl:text-7xl/[5.6rem] tracking-tight">
-            get direct
+            {title1}
           </h2>
           <h2 className="sm:font-bold text-3xl text-white sm:text-4xl md:text-5xl/[3.5rem] lg:text-6xl/[4rem] xl:text-7xl/[5rem] tracking-tight">
-            knowledge and insight.
+            {title2}
           </h2>
         </div>
         <div className="gap-x-4 gap-y-4 md:gap-x-5 lg:gap-x-7 xl:gap-x-9 grid grid-cols-1 sm:grid-cols-3">
-          {appStatsImgs.map((img) => (
+          {images.map((img) => (
             <div
               className="group relative mx-auto aspect-[4/3] w-full h-full"
               key={img.id}
@@ -38,7 +39,7 @@ function AppStatistics() {
         </div>
         <div className="flex flex-row justify-between items-end gap-x-4 sm:gap-x-8 pl-[20px]">
           <ul className="flex flex-row gap-4 sm:gap-8 lg:gap-16 xl:gap-24">
-            {appStats.map((stat) => (
+            {stats.map((stat) => (
               <li key={stat.id}>
                 <p className="font-bold text-2xl sm:text-[2.5rem]/[3rem] text-accent-500 text-center sm:text-left md:text-5xl lg:text-6xl xl:text-7xl/[5rem] tracking-tight">
                   {stat.value}
@@ -51,7 +52,7 @@ function AppStatistics() {
           </ul>
           <div className="flex items-end gap-2 sm:gap-4 md:gap-6">
             <p className="text-sm sm:text-lg text-white md:text-xl lg:text-2xl xl:text-[2rem]/[2.5rem]">
-              Explore the <br className="sm:block hidden" /> marketplace
+              {marketplaceText.split(' ').slice(0, 2).join(' ')} <br className="sm:block hidden" /> {marketplaceText.split(' ').slice(2).join(' ')}
             </p>
             <button
               aria-label="Explore the marketplace"
