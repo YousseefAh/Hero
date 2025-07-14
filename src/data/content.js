@@ -105,6 +105,7 @@ export const content = {
   features: {
     title: "لماذا تصبح منشئ محتوى؟",
     description: "استفد من الأدوات والموارد التي تتيح لك تحويل شغفك إلى عمل مربح.",
+    buttonText: "ابدأ الآن",
     list: [
       {
         id: 1,
@@ -129,7 +130,7 @@ export const content = {
         name: "التوسع",
         description: "وسّع نطاق أعمالك بدعم وأدوات متقدمة.",
         icon: "/features/scale.svg"
-      }
+      },
     ]
   },
 
