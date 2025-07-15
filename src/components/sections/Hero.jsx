@@ -30,7 +30,7 @@ function Hero() {
                   </li>
                 ))}
               </ul>
-              <p className="font-medium text-primary-500 sm:text-lg">
+              <p className="font-medium text-primary-500 sm:text-lg text-center">
                 {satisfiedClients}
               </p>
             </div>
