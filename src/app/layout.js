@@ -11,6 +11,9 @@ const poppins = Poppins({
 export const metadata = {
   title: "Yadora",
   description: "Learn from your favorite creators about fantasy reports",
+  icons: {
+    icon: '/favicon.svg',
+  },
 };
 
 export default function RootLayout({ children }) {

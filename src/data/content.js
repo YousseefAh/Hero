@@ -119,19 +119,19 @@ export const content = {
         id: 1,
         name: "Lightning-Fast Client Onboarding",
         description: "Get new clients set up and ready to train in under 10 seconds, eliminating tedious paperwork and delays.",
-        icon: "/features/community.svg"
+        icon: "/features/autonomy.svg"
       },
       {
         id: 2,
         name: "Automated Program Creation",
         description: "Instantly generate personalized workout and nutrition plans for hundreds of clients simultaneously, saving you countless hours.",
-        icon: "/features/monetization.svg"
+        icon: "/features/earn.svg"
       },
       {
         id: 3,
         name: "Advanced Client Progress Tracking",
         description: "Monitor every client's journey with detailed analytics and visual progress reports, keeping them motivated and you informed.",
-        icon: "/features/analytics.svg"
+        icon: "/features/engagement.svg"
       },
       {
         id: 4,
@@ -143,19 +143,19 @@ export const content = {
         id: 5,
         name: "Smart Client Segmentation",
         description: "Automatically group clients based on goals, progress, or engagement, allowing for hyper-targeted communication and offers.",
-        icon: "/features/community.svg"
+        icon: "/features/autonomy.svg"
       },
       {
         id: 6,
         name: "Real-Time Live Session Hosting",
         description: "Seamlessly conduct interactive live workouts or Q&A sessions for groups or individuals, directly through the platform.",
-        icon: "/features/monetization.svg"
+        icon: "/features/earn.svg"
       },
       {
         id: 7,
         name: "Automated Client Engagement & Reminders",
         description: "Keep clients motivated and on track with smart, personalized notifications for workouts, check-ins, and renewals.",
-        icon: "/features/analytics.svg"
+        icon: "/features/engagement.svg"
       },
       {
         id: 8,
@@ -167,19 +167,19 @@ export const content = {
         id: 9,
         name: "AI-Powered Content Personalization",
         description: "Deliver highly relevant content and recommendations to each client, making them feel uniquely understood and valued.",
-        icon: "/features/community.svg"
+        icon: "/features/autonomy.svg"
       },
       {
         id: 10,
         name: "Scalable Client Management",
         description: "Effortlessly manage thousands of clients without compromising on personal connection or service quality.",
-        icon: "/features/monetization.svg"
+        icon: "/features/earn.svg"
       },
       {
         id: 11,
         name: "Built-in Marketing Automation",
         description: "Automate lead nurturing and conversion processes, turning prospects into paying clients with minimal effort.",
-        icon: "/features/analytics.svg"
+        icon: "/features/engagement.svg"
       },
       {
         id: 12,
@@ -191,19 +191,19 @@ export const content = {
         id: 13,
         name: "Global Client Reach & Multi-Currency Support",
         description: "Expand your business worldwide with integrated features for international clients and diverse payment methods.",
-        icon: "/features/community.svg"
+        icon: "/features/autonomy.svg"
       },
       {
         id: 14,
         name: "Automated Feedback & Survey Collection",
         description: "Gather continuous client feedback to improve your services and proactively address any concerns.",
-        icon: "/features/monetization.svg"
+        icon: "/features/earn.svg"
       },
       {
         id: 15,
         name: "Dedicated 24/7 Trainer Support",
         description: "Get immediate assistance from our expert team, ensuring you're never stuck and always operating at peak efficiency.",
-        icon: "/features/analytics.svg"
+        icon: "/features/engagement.svg"
       }
     ]
   },
