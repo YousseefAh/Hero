@@ -14,7 +14,9 @@ function Dashboard() {
     <section className="relative">
       <div className="bottom-0 -z-10 absolute bg-primary-500 w-full h-1/2" />
       <div 
-        className="relative justify-items-center grid m-auto px-4 sm:px-8 md:px-16 xl:px-24 py-8 md:py-16 max-w-[90rem] h-auto aspect-[2/1] cursor-pointer"
+
+
+        className="relative justify-items-center grid m-auto px-4 sm:px-8 md:px-16 xl:px-24 py-8 md:py-16 max-w-[90rem] h-auto aspect-video cursor-pointer"
         onClick={handleImageClick}
       >
         {!showVideo && (
@@ -34,14 +36,14 @@ function Dashboard() {
           </>
         )}
         {showVideo && (
-          <iframe
-            src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`}
-            title="YouTube video player"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            className="w-full h-full rounded-lg"
-          ></iframe>
+        <iframe
+          src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&playsinline=1&controls=0&showinfo=0&fs=0`}
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          className="absolute inset-0 w-full h-full rounded-lg object-cover"
+        ></iframe>
         )}
       </div>
     </section>

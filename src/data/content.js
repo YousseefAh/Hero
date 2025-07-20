@@ -247,7 +247,8 @@ export const content = {
       src: "/dashboard.webp",
       alt: "لوحة التحكم"
     },
-    videoId: "dQw4w9WgXcQ" // Rick Astley - Never Gonna Give You Up
+    // videoId: "dQw4w9WgXcQ" // Rick Astley - Never Gonna Give You Up
+    videoId: "tEYF6VvgOic" 
   },
 
   // قسم البطل (Hero)
