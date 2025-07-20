@@ -73,28 +73,36 @@ export const content = {
   testimonials: {
     title: "من مستقل إلى منشئ إمبراطورية",
     subtitle: "قصص نجاح حقيقية من منصتنا",
-    items: [
+    testimonialList: [
+      {
+        id: 4,
+        name: "أحمد خالد",
+        title: "مطور تطبيقات",
+        quote:
+          "كانت يادورا محورية في مساعدتي على التواصل مع الآخرين الذين يشاركونني نفس الشغف!",
+        image: "/testimonials/testimonial-1.webp"
+      },
       {
         id: 1,
         name: "@محمود_علي",
-        role: "مدوّن تقني",
-        description:
+        title: "مدوّن تقني",
+        quote:
           "ساعدتني المنصة في توسيع جمهوري وزيادة دخلي من خلال الدورات المباشرة وبناء مجتمع متفاعل.",
         image: "/testimonials/testimonial-1.webp"
       },
       {
         id: 2,
         name: "@ليلى_السعدي",
-        role: "مصممة جرافيك",
-        description:
+        title: "مصممة جرافيك",
+        quote:
           "بفضل أدوات التحليلات والتسويق المدمجة، تمكّنت من مضاعفة مبيعاتي خلال ثلاثة أشهر فقط!",
         image: "/testimonials/testimonial-2.webp"
       },
       {
         id: 3,
         name: "@سالم_الهاشمي",
-        role: "مدرب لياقة",
-        description:
+        title: "مدرب لياقة",
+        quote:
           "أصبحت أقدم جلسات تدريبية لعملاء حول العالم بفضل خاصية البث المباشر السلسة والدفع الآمن.",
         image: "/testimonials/testimonial-3.webp"
       }
@@ -109,28 +117,94 @@ export const content = {
     list: [
       {
         id: 1,
-        name: "تواصل",
-        description: "تواصل مع جمهورك في أي مكان وزمان.",
-        icon: "/features/engagement.svg"
+        name: "Lightning-Fast Client Onboarding",
+        description: "Get new clients set up and ready to train in under 10 seconds, eliminating tedious paperwork and delays.",
+        icon: "/features/community.svg"
       },
       {
         id: 2,
-        name: "نمو المجتمع",
-        description: "ابنِ مجتمعًا متفاعلاً يدعم أعمالك.",
-        icon: "/features/autonomy.svg"
+        name: "Automated Program Creation",
+        description: "Instantly generate personalized workout and nutrition plans for hundreds of clients simultaneously, saving you countless hours.",
+        icon: "/features/monetization.svg"
       },
       {
         id: 3,
-        name: "الأرباح",
-        description: "حسّن دخلك باستخدام استراتيجيات تسعير مرنة.",
-        icon: "/features/earn.svg"
+        name: "Advanced Client Progress Tracking",
+        description: "Monitor every client's journey with detailed analytics and visual progress reports, keeping them motivated and you informed.",
+        icon: "/features/analytics.svg"
       },
       {
         id: 4,
-        name: "التوسع",
-        description: "وسّع نطاق أعمالك بدعم وأدوات متقدمة.",
+        name: "Integrated Payment Processing",
+        description: "Securely collect payments with ease, offering diverse options and automated invoicing to streamline your finances.",
         icon: "/features/free.svg"
       },
+      {
+        id: 5,
+        name: "Smart Client Segmentation",
+        description: "Automatically group clients based on goals, progress, or engagement, allowing for hyper-targeted communication and offers.",
+        icon: "/features/community.svg"
+      },
+      {
+        id: 6,
+        name: "Real-Time Live Session Hosting",
+        description: "Seamlessly conduct interactive live workouts or Q&A sessions for groups or individuals, directly through the platform.",
+        icon: "/features/monetization.svg"
+      },
+      {
+        id: 7,
+        name: "Automated Client Engagement & Reminders",
+        description: "Keep clients motivated and on track with smart, personalized notifications for workouts, check-ins, and renewals.",
+        icon: "/features/analytics.svg"
+      },
+      {
+        id: 8,
+        name: "Comprehensive Business Analytics Dashboard",
+        description: "Gain deep insights into your business performance, client retention, and revenue streams, all in one intuitive view.",
+        icon: "/features/free.svg"
+      },
+      {
+        id: 9,
+        name: "AI-Powered Content Personalization",
+        description: "Deliver highly relevant content and recommendations to each client, making them feel uniquely understood and valued.",
+        icon: "/features/community.svg"
+      },
+      {
+        id: 10,
+        name: "Scalable Client Management",
+        description: "Effortlessly manage thousands of clients without compromising on personal connection or service quality.",
+        icon: "/features/monetization.svg"
+      },
+      {
+        id: 11,
+        name: "Built-in Marketing Automation",
+        description: "Automate lead nurturing and conversion processes, turning prospects into paying clients with minimal effort.",
+        icon: "/features/analytics.svg"
+      },
+      {
+        id: 12,
+        name: "Custom Branded Client Portal",
+        description: "Offer a professional, branded experience where clients can access everything they need, enhancing your credibility.",
+        icon: "/features/free.svg"
+      },
+      {
+        id: 13,
+        name: "Global Client Reach & Multi-Currency Support",
+        description: "Expand your business worldwide with integrated features for international clients and diverse payment methods.",
+        icon: "/features/community.svg"
+      },
+      {
+        id: 14,
+        name: "Automated Feedback & Survey Collection",
+        description: "Gather continuous client feedback to improve your services and proactively address any concerns.",
+        icon: "/features/monetization.svg"
+      },
+      {
+        id: 15,
+        name: "Dedicated 24/7 Trainer Support",
+        description: "Get immediate assistance from our expert team, ensuring you're never stuck and always operating at peak efficiency.",
+        icon: "/features/analytics.svg"
+      }
     ]
   },
 
@@ -219,11 +293,6 @@ export const content = {
     title: "تخيّل إنك تقدر تدير ألف عميل في ثوانى، بدل ما تضيع أيام!",
     highlightedText: "وقتك أغلى من إنه يضيع.",
     title2: "استثمره صح_"
-
-    // title: "تخيّل إنك تقدر تدير ألف عميل في ثوانى، بدل ما تضيع أيام!",
-    // highlightedText: " وقتك غالي، فاستثمره",
-    // // title2: "صح",
-
   },
 
   // عرض مستمر للصور
