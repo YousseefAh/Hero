@@ -14,7 +14,7 @@ const ContinuousShowcase = () => {
     const swiper = new Swiper('.continuous-showcase-swiper', {
       modules: [Autoplay],
       slidesPerView: 'auto',
-      spaceBetween: 15,
+      spaceBetween: 30,
       speed: 10000,
       autoplay: {
         delay: 1,
@@ -57,7 +57,7 @@ const ContinuousShowcase = () => {
           {[...showcaseImages, ...showcaseImages, ...showcaseImages].map((image, index) => (
             <div 
               key={index} 
-              className="swiper-slide w-[280px] sm:w-[350px] md:w-[450px] lg:w-[550px] xl:w-[600px] aspect-video rounded-lg md:rounded-2xl overflow-hidden bg-gray-800 transition-all duration-300"
+              className="swiper-slide w-[200px] sm:w-[250px] md:w-[320px] lg:w-[400px] xl:w-[450px] aspect-video rounded-lg md:rounded-2xl overflow-hidden bg-gray-800 transition-all duration-300"
             >
               <div className="relative h-full w-full group">
                 {image.isLocal ? (

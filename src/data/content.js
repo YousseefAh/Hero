@@ -64,8 +64,8 @@ export const content = {
   cta: {
     title: "تفاعل بلا حدود",
     subtitle: "انضم إلى مجتمع متنامٍ وتواصل مباشرة مع منشئي المحتوى المفضلين لديك",
-    contactButtonText: "اتصل بنا",
-    whatsappButtonText: "رسالة واتساب",
+    contactButtonText: "On email",
+    whatsappButtonText: "كلمنا علي واتساب",
     whatsappLink: "https://wa.me/201120920078"
   },
 
@@ -137,43 +137,46 @@ export const content = {
 
   // شريط بطاقات أبل
   appleCarousel: {
-    title: "المعرفة والرؤى",
+    title: "اشتغل كأنك فريق ×10",
     dummyContent: {
-      title: "تعاون دون قيود",
-      description: "استكشف ميزاتنا الشاملة وأدواتنا المصممة لتعزيز تجربتك",
+      title: "امتلك أدوات سوبرمان… في شخص واحد",
+      description: "من أول محتوى وهويتك، لتسويق تلقائي وتتبع النتائج — كل ده في مكان واحد، شبّه فريق متكامل بسمه «أنت»!",
       image: {
         src: "/img-app/22_1x_shots_so-min.png",
-        alt: "مساحة عمل تعاونية"
+        alt: "منصة متكاملة لإنتاج المحتوى وإدارته تلقائيًا"
       }
-    },
+    }
+    ,
     cards: [
       {
-        category: "رياضات خيالية",
-        title: "أتقن تحليلات كرة القدم الخيالية.",
-        src: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?q=80&w=3556&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        category: "إنشاء المحتوى",
+        title: "انشئ، عدل، وانشر بدون فريق",
+        src: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?q=80&w=3556"
       },
       {
-        category: "تسويق رقمي",
-        title: "استراتيجيات تسويق متقدمة لعلامتك.",
-        src: "https://images.unsplash.com/photo-1599202860130-f600f4948364?q=80&w=2515&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        category: "أتمتة الرسائل",
+        title: "ابعت للعملاء تلقائيًا في الوقت الصح",
+        src: "https://images.unsplash.com/photo-1602081957921-9137a5d6eaee?q=80&w=2793"
       },
       {
-        category: "إنتاج فيديو",
-        title: "تعلم صناعة الفيديو باحتراف.",
-        src: "https://images.unsplash.com/photo-1531554694128-c4c6665f59c2?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        category: "تسويق ذكي",
+        title: "خطط حملات تسويقية بأقل جهد — وكن الفريق اللي بيصيغها كلها",
+        src: "https://images.unsplash.com/photo-1531554694128-c4c6665f59c2?q=80&w=3387"
       },
       {
-        category: "تصوير فوتوغرافي",
-        title: "تقنيات تصوير احترافية.",
-        src: "https://images.unsplash.com/photo-1602081957921-9137a5d6eaee?q=80&w=2793&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        category: "تحليلات لحظية",
+        title: "عرف مين تفاعل، مين محتاج متابعة، ومين قرب ينصرف",
+        src: "https://images.unsplash.com/photo-1511984804822-e16ba72f5848?q=80&w=2048"
       },
       {
-        category: "إنتاج موسيقي",
-        title: "تعلم الإنتاج الموسيقي من المحترفين.",
-        src: "https://images.unsplash.com/photo-1511984804822-e16ba72f5848?q=80&w=2048&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        category: "تخطيط بدون تعب",
+        title: "رتّب ونظم شغلك تلقائيًا من غير صداع",
+        src: "https://images.unsplash.com/photo-1599202860130-f600f4948364?q=80&w=2515"
       }
     ]
   },
+
+
 
   // إحصائيات التطبيق
   appStatistics: {
