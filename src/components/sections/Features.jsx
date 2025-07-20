@@ -17,7 +17,7 @@ function Features() {
             {buttonText}
           </button>
         </div>
-        <ul className="justify-items-center sm:justify-items-start gap-x-8 gap-y-12 md:gap-y-20 grid sm:grid-cols-2 sm:grid-rows-2">
+        <ul className="flex flex-col items-center gap-y-12 sm:grid sm:justify-items-start sm:gap-x-8 md:gap-y-20 sm:grid-cols-2 sm:grid-rows-2">
           {list.map((feature) => (
             <li
               className="w-[80%] xl:w-5/6 text-center sm:text-start tracking-tight"

@@ -57,7 +57,7 @@ export default function HomePage() {
           </section>
           <ContinuousShowcase />
           {/* <Pricing /> */}
-          <Testimonials />
+          {/* <Testimonials /> */}
           <CTA />
         </Main>
 
