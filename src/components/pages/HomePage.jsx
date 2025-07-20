@@ -17,7 +17,7 @@ import Features from "@/components/sections/Features";
 import WobbleCardDemo from "@/components/UI/wobble-card-demo";
 import ContinuousShowcase from "@/components/sections/ContinuousShowcase";
 import Pricing from "@/components/sections/Pricing/Pricing";
-import Testimonials from "@/components/sections/Testimonials";
+import Testimonials from "@/components/sections/Testimonials/Testimonials";
 import CTA from "@/components/sections/CTA";
 
 // Footer
@@ -57,7 +57,7 @@ export default function HomePage() {
           </section>
           <ContinuousShowcase />
           {/* <Pricing /> */}
-          {/* <Testimonials /> */}
+          <Testimonials />
           <CTA />
         </Main>
 
