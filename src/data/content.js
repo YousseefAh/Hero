@@ -216,14 +216,14 @@ export const content = {
 
   // قسم البطل (Hero)
   hero: {
-    title: "تعلّم من منشئي المحتوى المفضلين لديك عن",
-    highlightedText: "تقارير الخيال العلمي",
-    satisfiedClients: "أكثر من 5000 عميل راضٍ في 2024",
-    exploreButtonText: "استكشف المميزات",
-    serviceDescription: {
-      mainText: "1:1",
-      subText: "خدمة"
-    }
+    title: "تخيّل إنك تقدر تدير ألف عميل في ثوانى، بدل ما تضيع أيام!",
+    highlightedText: "وقتك أغلى من إنه يضيع.",
+    title2: "استثمره صح_"
+
+    // title: "تخيّل إنك تقدر تدير ألف عميل في ثوانى، بدل ما تضيع أيام!",
+    // highlightedText: " وقتك غالي، فاستثمره",
+    // // title2: "صح",
+
   },
 
   // عرض مستمر للصور
