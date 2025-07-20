@@ -13,9 +13,9 @@ function Features() {
           <p className="mb-8 md:mb-10 xl:text-lg tracking-tight">
             {description}
           </p>
-          <button className="bg-primary-500 hover:bg-accent-500 px-8 hover:px-9 py-4 rounded-2xl text-white xl:text-lg tracking-tight transition-all duration-200">
+          <a href={content.cta.whatsappLink} target="_blank" rel="noopener noreferrer" className="inline-block bg-primary-500 hover:bg-green-500 px-8 py-4 rounded-2xl text-white xl:text-lg tracking-tight transition-all duration-200">
             {buttonText}
-          </button>
+          </a>
         </div>
         <ul className="flex flex-col items-center gap-y-12 sm:grid sm:justify-items-start sm:gap-x-8 md:gap-y-20 sm:grid-cols-2 sm:grid-rows-2">
           {list.map((feature) => (
