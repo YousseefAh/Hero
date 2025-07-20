@@ -138,40 +138,71 @@ export const content = {
   // شريط بطاقات أبل
   appleCarousel: {
     title: "اشتغل كأنك فريق ×10",
-    dummyContent: {
-      title: "امتلك أدوات سوبرمان… في شخص واحد",
-      description: "من أول محتوى وهويتك، لتسويق تلقائي وتتبع النتائج — كل ده في مكان واحد، شبّه فريق متكامل بسمه «أنت»!",
-      image: {
-        src: "/img-app/22_1x_shots_so-min.png",
-        alt: "منصة متكاملة لإنتاج المحتوى وإدارته تلقائيًا"
-      }
-    }
-    ,
     cards: [
       {
         category: "إنشاء المحتوى",
         title: "انشئ، عدل، وانشر بدون فريق",
-        src: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?q=80&w=3556"
+        src: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?q=80&w=3556",
+        content: {
+          title: "إنشاء المحتوى",
+          description: "انشئ، عدل، وانشر بدون فريق",
+          image: {
+            src: "/img-app/22_1x_shots_so-min.png",
+            alt: "منصة متكاملة لإنتاج المحتوى وإدارته تلقائيًا"
+          }
+        }
       },
       {
         category: "أتمتة الرسائل",
         title: "ابعت للعملاء تلقائيًا في الوقت الصح",
-        src: "https://images.unsplash.com/photo-1602081957921-9137a5d6eaee?q=80&w=2793"
+        src: "https://images.unsplash.com/photo-1602081957921-9137a5d6eaee?q=80&w=2793",
+        content: {
+          title: "أتمتة الرسائل",
+          description: "ابعت للعملاء تلقائيًا في الوقت الصح",
+          image: {
+            src: "/img-app/22_1x_shots_so-min.png",
+            alt: "منصة متكاملة لإنتاج المحتوى وإدارته تلقائيًا"
+          }
+        }
       },
       {
         category: "تسويق ذكي",
         title: "خطط حملات تسويقية بأقل جهد — وكن الفريق اللي بيصيغها كلها",
-        src: "https://images.unsplash.com/photo-1531554694128-c4c6665f59c2?q=80&w=3387"
+        src: "https://images.unsplash.com/photo-1531554694128-c4c6665f59c2?q=80&w=3387",
+        content: {
+          title: "خطط حملات تسويقية بأقل جهد — وكن الفريق اللي بيصيغها كلها",
+          description: "استخدم الذكاء الاصطناعي لتوليد أفكار ومحتوى لحملاتك التسويقية.",
+          image: {
+            src: "/img-app/22_1x_shots_so-min.png",
+            alt: "منصة متكاملة لإنتاج المحتوى وإدارته تلقائيًا"
+          }
+        }
       },
       {
         category: "تحليلات لحظية",
         title: "عرف مين تفاعل، مين محتاج متابعة، ومين قرب ينصرف",
-        src: "https://images.unsplash.com/photo-1511984804822-e16ba72f5848?q=80&w=2048"
+        src: "https://images.unsplash.com/photo-1511984804822-e16ba72f5848?q=80&w=2048",
+        content: {
+          title: "تحليلات لحظية",
+          description: "عرف مين تفاعل، مين محتاج متابعة، ومين قرب ينصرف",
+          image: {
+            src: "/img-app/22_1x_shots_so-min.png",
+            alt: "منصة متكاملة لإنتاج المحتوى وإدارته تلقائيًا"
+          }
+        }
       },
       {
         category: "تخطيط بدون تعب",
         title: "رتّب ونظم شغلك تلقائيًا من غير صداع",
-        src: "https://images.unsplash.com/photo-1599202860130-f600f4948364?q=80&w=2515"
+        src: "https://images.unsplash.com/photo-1599202860130-f600f4948364?q=80&w=2515",
+        content: {
+          title: "تخطيط بدون تعب",
+          description: "رتّب ونظم شغلك تلقائيًا من غير صداع",
+          image: {
+            src: "/img-app/22_1x_shots_so-min.png",
+            alt: "منصة متكاملة لإنتاج المحتوى وإدارته تلقائيًا"
+          }
+        }
       }
     ]
   },

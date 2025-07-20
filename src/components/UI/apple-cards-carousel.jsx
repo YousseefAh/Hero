@@ -212,7 +212,23 @@ export const Card = ({
               >
                 {card.title}
               </motion.p>
-              <div className="py-10">{card.content}</div>
+                            <div className="py-10">
+                <div className="bg-white-shade p-8 md:p-14 rounded-3xl mb-4">
+                  <p className="text-primary-500 text-base md:text-2xl font-sans max-w-3xl mx-auto">
+                    <span className="font-bold text-primary-500">
+                      {card.content.title}
+                    </span>{" "}
+                    {card.content.description}
+                  </p>
+                  <img
+                    src={card.content.image.src}
+                    alt={card.content.image.alt}
+                    height="500"
+                    width="500"
+                    className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain rounded-lg"
+                  />
+                </div>
+              </div>
             </motion.div>
           </div>
         )}
