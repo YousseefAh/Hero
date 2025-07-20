@@ -1,8 +1,8 @@
 const links = [
-  { name: "Explore", href: "#" },
   { name: "Features", href: "/features" },
+  { name: "Explore", href: "/#dashboard" },
   { name: "Blog", href: "/blog" },
-  { name: "Support", href: "#" }
+  { name: "Support", href: "/#cta" }
 ];
 
 const reviewImgs = [

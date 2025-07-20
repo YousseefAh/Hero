@@ -34,7 +34,7 @@ function Navigation() {
             <li key={link.name}>
               <Link
                 href={link.href}
-                className="lg:block hidden text-primary-500 xl:text-lg hover:text-accent-500 transition-all duration-100"
+                className={`lg:block hidden xl:text-lg hover:text-accent-500 transition-all duration-100 ${link.name === 'Features' ? 'text-yellow-500' : 'text-primary-500'}`}
               >
                 {link.name}
               </Link>

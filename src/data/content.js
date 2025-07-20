@@ -208,7 +208,7 @@ export const content = {
   },
 
 
-
+// l7ftn
   // إحصائيات التطبيق
   appStatistics: {
     title1: "احصل على",

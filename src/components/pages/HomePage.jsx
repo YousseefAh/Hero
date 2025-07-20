@@ -40,10 +40,10 @@ export default function HomePage() {
         </Header>
 
         <Main>
-          <Dashboard />
+          <section id="dashboard"><Dashboard /></section>
           <AppStatistics />
           <AppleCardsCarouselDemo />
-          <Features />
+          <section id="features"><Features /></section>
           <section className="m-auto px-4 sm:px-8 md:px-16 xl:px-24 py-16 max-w-[90rem]">
             <div className="text-center mb-12">
               <h2 className="text-4xl md:text-6xl font-bold text-primary-500 mb-6 transition-colors duration-300">
@@ -58,7 +58,7 @@ export default function HomePage() {
           <ContinuousShowcase />
           {/* <Pricing /> */}
           {/* <Testimonials /> */}
-          <CTA />
+          <section id="cta"><CTA /></section>
         </Main>
 
         <Footer />
