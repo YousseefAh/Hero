@@ -245,7 +245,7 @@ export const content = {
   // لوحة البيانات (صورة توضيحية)
   dashboard: {
     image: {
-      src: "/dashboard.webp",
+      src: "/2.png",
       alt: "لوحة التحكم"
     },
     // videoId: "dQw4w9WgXcQ" // Rick Astley - Never Gonna Give You Up
