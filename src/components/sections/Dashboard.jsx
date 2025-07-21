@@ -32,12 +32,15 @@ function Dashboard() {
           rel: 0,
           modestbranding: 1,
           playsinline: 1,
-          controls: 0,
-          showinfo: 0,
-          fs: 0,
+          controls: 1,
+          showinfo: 1,
+          fs: 1,
         },
         events: {
-          onReady: (event) => event.target.playVideo(),
+          onReady: (event) => {
+            event.target.setPlaybackQuality('hd720');
+            event.target.playVideo();
+          },
         },
       });
     };
