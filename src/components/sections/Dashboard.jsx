@@ -5,6 +5,7 @@ import { content } from '@/data/content';
 function Dashboard() {
   const { image, videoId } = content.dashboard;
   const [showVideo, setShowVideo] = useState(false);
+  const [stopVideoOnScroll, setStopVideoOnScroll] = useState(false); // New state variable to control video pause on scroll
   const playerRef = useRef(null);
   const videoContainerRef = useRef(null);
 
@@ -59,7 +60,7 @@ function Dashboard() {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (!entry.isIntersecting && playerRef.current && typeof playerRef.current.pauseVideo === 'function') {
+        if (stopVideoOnScroll && !entry.isIntersecting && playerRef.current && typeof playerRef.current.pauseVideo === 'function') {
           playerRef.current.pauseVideo();
         }
       },
