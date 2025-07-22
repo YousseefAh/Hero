@@ -11,7 +11,7 @@ export const content = {
       pageContent: [
         {
           text: "كل حاجة في مكان واحد",
-          img: "/img-app/207_1x_shots_so-min.png",
+          img: "/img-app/422shots_so-min.png",
           description:
             "من لوحة واحدة تتابع كل حاجة: العملاء، الخطط، الفواتير، التغذية، والتمارين — كل ده من غير ما تفتح 10 برامج مختلفة."
         },
