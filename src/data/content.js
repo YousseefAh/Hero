@@ -10,52 +10,82 @@ export const content = {
     // يُستخدم بواسطة src/app/features/page.js لمكوّن StickyScroll
     pageContent: [
       {
-        text: "تحليلات الرياضات الخيالية",
-        img: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?q=80&w=3556&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        text: "كل حاجة في مكان واحد",
+        img: "https://images.unsplash.com/photo-1591012911207-3c1d6993f9fe?q=80&w=2800&auto=format&fit=crop",
         description:
-          "حوّل تجربتك في الرياضات الخيالية باستخدام منصتنا المتقدمة للتحليلات. تستخدم خوارزمياتنا الذكية بيانات الأداء والإصابات والطقس والتاريخ لتزويدك برؤى قابلة للتنفيذ تساعدك على التفوق على المنافسين وتحقيق الفوز."
+          "من لوحة واحدة تتابع كل حاجة: العملاء، الخطط، الفواتير، التغذية، والتمارين — كل ده من غير ما تفتح 10 برامج مختلفة."
       },
       {
-        text: "إنشاء محتوى الفيديو",
-        img: "https://images.unsplash.com/photo-1531554694128-c4c6665f59c2?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        text: "نظام ذكي يعرف عميلك محتاج إيه",
+        img: "https://images.unsplash.com/photo-1632259186352-0c71a54b20cc?q=80&w=2800&auto=format=fit=crop",
         description:
-          "أتقن فن إنتاج الفيديو الاحترافي من خلال دروس شاملة يقدمها خبراء الصناعة. تعلّم تقنيات المونتاج المتقدمة وأساليب السرد البصري وصمم محتوى يجذب جمهورك."
+          "عميلك بقاله كام يوم مش فاتح؟ هنوصل له رسالة مخصصة. قرب يجدد؟ هيفضل في الصورة. كل ده بيحصل من غير ما تكتب ولا كلمة."
       },
       {
-        text: "التدريب الشخصي",
-        img: "https://images.unsplash.com/photo-1713869791518-a770879e60dc?q=80&w=2333&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        text: "تقارير لحظية وتوصيات ذكية",
+        img: "https://images.unsplash.com/photo-1533750516457-a7f992034fec?q=80&w=2800&auto=format=fit=crop",
         description:
-          "سرِّع نموك الشخصي والمهني مع جلسات تدريب فردية مصممة خصيصًا لأهدافك وتحدياتك. احصل على توجيه عملي وإستراتيجيات مثبتة لتحقيق نتائج ملموسة."
+          "اعرف كل شيء بيحصل: مين بيتمرن، مين متفاعل، ومين محتاج دفعة. وابدأ تتصرف بناءً على توصيات جاهزة من الذكاء الاصطناعي."
       },
       {
-        text: "احتراف التسويق الرقمي",
-        img: "https://images.unsplash.com/photo-1599202860130-f600f4948364?q=80&w=2515&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        text: "تخصيص كامل بدون تعقيد",
+        img: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?q=80&w=2800&auto=format=fit=crop",
         description:
-          "تعلّم أحدث إستراتيجيات التسويق الرقمي لتحسين حضورك على الإنترنت وزيادة المبيعات عبر القنوات المختلفة بما في ذلك وسائل التواصل الاجتماعي والبريد الإلكتروني والإعلانات المدفوعة."
+          "غير شكل التطبيق، أضف لوجو، اختار نوع البرامج، ضيف روابطك — كله بيحصل في دقائق، من غير ما تحتاج خبرة تقنية."
       },
       {
-        text: "التصوير الإبداعي",
-        img: "https://images.unsplash.com/photo-1602081957921-9137a5d6eaee?q=80&w=2793&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        text: "جاهز في يوم واحد",
+        img: "https://images.unsplash.com/photo-1523966211575-eb4a6e9b9cd5?q=80&w=2800&auto=format=fit=crop",
         description:
-          "اكتشف أسرار التصوير الفوتوغرافي الاحترافي من إعداد الإضاءة إلى معالجات الألوان، وابتكر صورًا تحكي قصة تلامس المشاهدين."
+          "كلّمنا النهاردة، ونسختك الجاهزة من النظام هتكون شغّالة بكامل طاقتها قبل نهاية اليوم."
       },
       {
-        text: "الذكاء الاصطناعي وتعلم الآلة",
-        img: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        text: "خلّي شغلك يشتغل لوحده",
+        img: "https://images.unsplash.com/photo-1631860417435-c1ab2f65fbbf?q=80&w=2800&auto=format=fit=crop",
         description:
-          "تعرّف على مفاهيم الذكاء الاصطناعي وتعلم الآلة وطبّق الخوارزميات لبناء نماذج تنبؤية تحل مشكلات واقعية."
+          "سواء عميل جديد أو قديم، النظام بيتصرف بسرعة ويقدمله اللي محتاجه من غير ما تحرك صباعك. تجربة onboarding أوتوماتيك بالكامل."
       },
       {
-        text: "تطوير البلوك تشين",
-        img: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=2832&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        text: "ضاعف الدخل بذكاء",
+        img: "https://images.unsplash.com/photo-1605902711622-cfb43c4437d5?q=80&w=2800&auto=format=fit=crop",
         description:
-          "طوّر تطبيقات بلوك تشين آمنة وقابلة للتوسع واكتسب فهمًا عميقًا لتقنيات العقود الذكية والأمان اللامركزي."
+          "حوّل كل lead لعميل مدى الحياة عن طريق Funnels ذكية ورسائل متابعة مصممة للغلق والبيع."
       },
       {
-        text: "تميّز تصميم واجهة/تجربة المستخدم",
-        img: "https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=2764&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        text: "بيانات بتخليك تسبق بخطوتين",
+        img: "https://images.unsplash.com/photo-1610465299990-a1edb3b80e67?q=80&w=2800&auto=format=fit=crop",
         description:
-          "صمّم واجهات رقمية جذابة تركز على احتياجات المستخدم وتوفّر تجربة سلسة ومتّسقة عبر جميع المنصات."
+          "توقع العميل اللي على وشك يسيبك وتعامل معاه قبل ما يبعد. ذكاء اصطناعي بيرسم لك خريطة واضحة لكل خطوة جاية."
+      },
+      {
+        text: "عملائك بيحبوا التفاعل؟",
+        img: "https://images.unsplash.com/photo-1616401787935-0c3b82458cfc?q=80&w=2800&auto=format=fit=crop",
+        description:
+          "خليهم يتفاعلوا معك يوميًا من خلال تحديات، إشعارات، وتحديثات مستمرة بتوصل في الوقت الصح."
+      },
+      {
+        text: "دعم عملاء سريع ومُخصص ليك",
+        img: "https://images.unsplash.com/photo-1604882352774-700b7edc1f67?q=80&w=2800&auto=format=fit=crop",
+        description:
+          "لو حصلت أي مشكلة أو محتاج مساعدة، هتلاقي فريق دعم بيرد عليك فورًا، وفاهم احتياجاتك كمدرب، مش مجرد رد تلقائي."
+      },
+      {
+        text: "تجربة تسويق بدون تعب",
+        img: "https://images.unsplash.com/photo-1617641581438-b661c90f50a9?q=80&w=2800&auto=format=fit=crop",
+        description:
+          "حملات تلقائية، روابط خاصة بيك، وأدوات تساعدك تجيب عملاء جدد من غير ما تبقى خبير تسويق. النظام بيسوّق معاك."
+      },
+      {
+        text: "كل عميل في مسار واضح",
+        img: "https://images.unsplash.com/photo-1652196847765-038ca3f3de34?q=80&w=2800&auto=format=fit=crop",
+        description:
+          "مش بس تسجيل بيانات، لأ، كل عميل ليه خطة واضحة، وتقدم بيتم قياسه، وملف بيتحدّث تلقائيًا حسب نشاطه."
+      },
+      {
+        text: "مناسب لمدرب واحد أو فريق كامل",
+        img: "https://images.unsplash.com/photo-1627398242454-d2259a570f6d?q=80&w=2800&auto=format=fit=crop",
+        description:
+          "سواء شغال لوحدك أو معاك مساعدين، السيستم بيخدمك. ممكن تضيف مساعدين، تفوّض مهام، وتراقب كل التفاصيل بسهولة."
       }
     ]
   },
