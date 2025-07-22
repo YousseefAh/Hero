@@ -11,50 +11,50 @@ export const content = {
       pageContent: [
         {
           text: "كل حاجة في مكان واحد",
-          img: "https://images.unsplash.com/photo-1591012911207-3c1d6993f9fe?q=80&w=2800&auto=format&fit=crop",
+          img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2940&auto=format&fit=crop",
           description:
             "من لوحة واحدة تتابع كل حاجة: العملاء، الخطط، الفواتير، التغذية، والتمارين — كل ده من غير ما تفتح 10 برامج مختلفة."
         },
         {
           text: "نظام ذكي يعرف عميلك محتاج إيه",
-          img: "https://images.unsplash.com/photo-1607746882042-944635dfe10e?q=80&w=2800&auto=format&fit=crop",
+          img: "https://images.unsplash.com/photo-1620712943543-2858200e9456?q=80&w=2940&auto=format&fit=crop",
           description:
             "من غير ما يسألك، النظام بيحلل سلوك العميل، ويقدّم له المحتوى والخدمة المناسبة تلقائيًا، علشان يحس إنه دايمًا في رعايتك."
         },
         {
           text: "تجربة عميل احترافية",
-          img: "https://images.unsplash.com/photo-1628245113383-1b1b2e1c56b5?q=80&w=2800&auto=format&fit=crop",
+          img: "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?q=80&w=2940&auto=format&fit=crop",
           description:
             "خلي عميلك يحس إنه بيستخدم تطبيق عالمي: خطة تمرين، متابعة، شات، تنبيهات — كل حاجة بتوصله في الوقت المناسب."
         },
         {
           text: "رسائل تلقائية حسب سلوك العميل",
-          img: "https://images.unsplash.com/photo-1632259186352-0c71a54b20cc?q=80&w=2800&auto=format&fit=crop",
+          img: "https://images.unsplash.com/photo-1589792933541-1191a8723d30?q=80&w=2940&auto=format&fit=crop",
           description:
             "عميلك بقاله كام يوم مش فتح؟ هنوصل له رسالة مخصصة. قرب يجدد؟ هيفضل في الصورة. كل ده بيحصل من غير ما تكتب ولا كلمة."
         },
         {
           text: "تقارير لحظية وتوصيات ذكية",
-          img: "https://images.unsplash.com/photo-1533750516457-a7f992034fec?q=80&w=2800&auto=format&fit=crop",
+          img: "https://images.unsplash.com/photo-1560439514-4e9645039924?q=80&w=2835&auto=format&fit=crop",
           description:
             "اعرف كل شيء بيحصل: مين بيتمرن، مين متفاعل، ومين محتاج دفعة. وابدأ تتصرف بناءً على توصيات جاهزة من الذكاء الاصطناعي."
         },
         {
           text: "تخصيص كامل بدون تعقيد",
-          img: "https://images.unsplash.com/photo-1586281380349-632531db7ed5?q=80&w=2800&auto=format&fit=crop",
+          img: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2940&auto=format&fit=crop",
           description:
             "غير شكل التطبيق، أضف لوجو، اختار نوع البرامج، ضيف روابطك — كله بيحصل في دقائق، من غير ما تحتاج خبرة تقنية."
         },
         
         {
           text: "جاهز في يوم واحد",
-          img: "https://images.unsplash.com/photo-1523966211575-eb4a6e9b9cd5?q=80&w=2800&auto=format&fit=crop",
+          img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2940&auto=format&fit=crop",
           description:
             "كلّمنا النهاردة، ونسختك الجاهزة من النظام هتكون شغّالة بكامل طاقتها قبل نهاية اليوم."
         },
         {
           text: "خلّي شغلك يشتغل لوحده",
-          img: "https://images.unsplash.com/photo-1631860417435-c1ab2f65fbbf?q=80&w=2800&auto=format&fit=crop",
+          img: "https://images.unsplash.com/photo-1487058792275-0ad4624ca1c1?q=80&w=2940&auto=format&fit=crop",
           description:
             "سواء عميل جديد أو قديم، النظام بيتصرف بسرعة ويقدمله اللي محتاجه من غير ما تحرك صباعك. تجربة onboarding أوتوماتيك بالكامل."
         },
@@ -66,7 +66,7 @@ export const content = {
         },
         {
           text: "بيانات بتخليك تسبق بخطوتين",
-          img: "https://images.unsplash.com/photo-1610465299990-a1edb3b80e67?q=80&w=2800&auto=format&fit=crop",
+          img: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=2811&auto=format&fit=crop",
           description:
             "توقع العميل اللي على وشك يسيبك وتعامل معاه قبل ما يبعد. ذكاء اصطناعي بيرسم لك خريطة واضحة لكل خطوة جاية."
         },
