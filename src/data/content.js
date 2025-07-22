@@ -11,143 +11,143 @@ export const content = {
       pageContent: [
         {
           text: "كل حاجة في مكان واحد",
-          img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2940&auto=format&fit=crop",
+          img: "/img-app/207_1x_shots_so-min.png",
           description:
             "من لوحة واحدة تتابع كل حاجة: العملاء، الخطط، الفواتير، التغذية، والتمارين — كل ده من غير ما تفتح 10 برامج مختلفة."
         },
         {
           text: "نظام ذكي يعرف عميلك محتاج إيه",
-          img: "https://images.unsplash.com/photo-1620712943543-2858200e9456?q=80&w=2940&auto=format&fit=crop",
+          img: "/img-app/758_1x_shots_soo-min.png",
           description:
             "من غير ما يسألك، النظام بيحلل سلوك العميل، ويقدّم له المحتوى والخدمة المناسبة تلقائيًا، علشان يحس إنه دايمًا في رعايتك."
         },
         {
           text: "تجربة عميل احترافية",
-          img: "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?q=80&w=2940&auto=format&fit=crop",
+          img: "/img-app/993_1x_shots_so-min.png",
           description:
             "خلي عميلك يحس إنه بيستخدم تطبيق عالمي: خطة تمرين، متابعة، شات، تنبيهات — كل حاجة بتوصله في الوقت المناسب."
         },
         {
           text: "رسائل تلقائية حسب سلوك العميل",
-          img: "https://images.unsplash.com/photo-1589792933541-1191a8723d30?q=80&w=2940&auto=format&fit=crop",
+          img: "/img-app/457_1x_shots_so-min.png",
           description:
             "عميلك بقاله كام يوم مش فتح؟ هنوصل له رسالة مخصصة. قرب يجدد؟ هيفضل في الصورة. كل ده بيحصل من غير ما تكتب ولا كلمة."
         },
         {
           text: "تقارير لحظية وتوصيات ذكية",
-          img: "https://images.unsplash.com/photo-1560439514-4e9645039924?q=80&w=2835&auto=format&fit=crop",
+          img: "/img-app/344_1x_shots_so-min.png",
           description:
             "اعرف كل شيء بيحصل: مين بيتمرن، مين متفاعل، ومين محتاج دفعة. وابدأ تتصرف بناءً على توصيات جاهزة من الذكاء الاصطناعي."
         },
         {
           text: "تخصيص كامل بدون تعقيد",
-          img: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2940&auto=format&fit=crop",
+          img: "/img-app/506_1x_shots_so-min.png",
           description:
             "غير شكل التطبيق، أضف لوجو، اختار نوع البرامج، ضيف روابطك — كله بيحصل في دقائق، من غير ما تحتاج خبرة تقنية."
         },
         
         {
           text: "جاهز في يوم واحد",
-          img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2940&auto=format&fit=crop",
+          img: "/img-app/616_1x_shots_so-min.png",
           description:
             "كلّمنا النهاردة، ونسختك الجاهزة من النظام هتكون شغّالة بكامل طاقتها قبل نهاية اليوم."
         },
         {
           text: "خلّي شغلك يشتغل لوحده",
-          img: "https://images.unsplash.com/photo-1487058792275-0ad4624ca1c1?q=80&w=2940&auto=format&fit=crop",
+          img: "/img-app/724_1x_shots_soo-min.png",
           description:
             "سواء عميل جديد أو قديم، النظام بيتصرف بسرعة ويقدمله اللي محتاجه من غير ما تحرك صباعك. تجربة onboarding أوتوماتيك بالكامل."
         },
         {
           text: "ضاعف الدخل بذكاء",
-          img: "https://images.unsplash.com/photo-1605902711622-cfb43c4437d5?q=80&w=2800&auto=format&fit=crop",
+          img: "/img-app/137_1x_shots_so-min.png",
           description:
             "حوّل كل lead لعميل مدى الحياة عن طريق Funnels ذكية ورسائل متابعة مصممة للغلق والبيع."
         },
         {
           text: "بيانات بتخليك تسبق بخطوتين",
-          img: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=2811&auto=format&fit=crop",
+          img: "/img-app/976_1x_shots_soo-min.png",
           description:
             "توقع العميل اللي على وشك يسيبك وتعامل معاه قبل ما يبعد. ذكاء اصطناعي بيرسم لك خريطة واضحة لكل خطوة جاية."
         },
         {
           text: "عملائك بيحبوا التفاعل؟",
-          img: "https://images.unsplash.com/photo-1616401787935-0c3b82458cfc?q=80&w=2800&auto=format&fit=crop",
+          img: "/img-app/181_1x_shots_so-min.png",
           description:
             "خليهم يتفاعلوا معك يوميًا من خلال تحديات، إشعارات، وتحديثات مستمرة بتوصل في الوقت الصح."
         },
         {
           text: "دعم عملاء سريع ومُخصص ليك",
-          img: "https://images.unsplash.com/photo-1604882352774-700b7edc1f67?q=80&w=2800&auto=format&fit=crop",
+          img: "/img-app/207_1x_shots_so-min.png",
           description:
             "لو حصلت أي مشكلة أو محتاج مساعدة، هتلاقي فريق دعم بيرد عليك فورًا، وفاهم احتياجاتك كمدرب، مش مجرد رد تلقائي."
         },
      
         {
           text: "تجربة تسويق بدون تعب",
-          img: "https://images.unsplash.com/photo-1617641581438-b661c90f50a9?q=80&w=2800&auto=format&fit=crop",
+          img: "/img-app/324_1x_shots_soo-min.png",
           description:
             "حملات تلقائية، روابط خاصة بيك، وأدوات تساعدك تجيب عملاء جدد من غير ما تبقى خبير تسويق. النظام بيسوّق معاك."
         },
         {
           text: "كل عميل في مسار واضح",
-          img: "https://images.unsplash.com/photo-1652196847765-038ca3f3de34?q=80&w=2800&auto=format&fit=crop",
+          img: "/img-app/336shots_so-min.png",
           description:
             "مش بس تسجيل بيانات، لأ، كل عميل ليه خطة واضحة، وتقدم بيتم قياسه، وملف بيتحدّث تلقائيًا حسب نشاطه."
         },
         {
           text: "مناسب لمدرب واحد أو فريق كامل",
-          img: "https://images.unsplash.com/photo-1627398242454-d2259a570f6d?q=80&w=2800&auto=format&fit=crop",
+          img: "/img-app/344_1x_shots_so (1)-min.png",
           description:
             "سواء شغال لوحدك أو معاك مساعدين، السيستم بيخدمك. ممكن تضيف مساعدين، تفوّض مهام، وتراقب كل التفاصيل بسهولة."
         },
         {
           text: "تحويل العملاء بسرعة ",
-          img: "https://images.unsplash.com/photo-1556740749-887f6717d7e4?q=80&w=2800&auto=format&fit=crop",
+          img: "/img-app/364_1x_shots_so-min.png",
           description:
             "حملات onboarding تلقائية بتحول الزوار لعملاء خلال دقائق، مش أيام. خليك دايمًا جاهز للClose."
         },
         {
           text: "متابعة التزام العملاء",
-          img: "https://images.unsplash.com/photo-1571019613914-85f342c0e8de?q=80&w=2800&auto=format&fit=crop",
+          img: "/img-app/422shots_so-min.png",
           description:
             "السيستم بيرصد مواعيد التمارين والتغذية، ويرسلك تنبيهات لو في تأخير. الالتزام بيرفع النتائج."
         },
         {
           text: "تجربة مرئية جذابة",
-          img: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=2800&auto=format&fit=crop",
+          img: "/img-app/42shots_so-min.png",
           description:
             "لوحة تحكم مليانة رسومات وتقارير تفاعلية بتخلي متابعة البيزنس تجربة بصرية مش مجرد بيانات."
         },
         {
           text: "إدارة العروض والكوبونات",
-          img: "https://images.unsplash.com/photo-1527443154391-507e9dc6c5cc?q=80&w=2800&auto=format&fit=crop",
+          img: "/img-app/435_1x_shots_so-min.png",
           description:
             "صمّم عروض موسمية وكوبونات خاصة لعملائك بدون تعقيد — ادفع الآن، وفرصتك لزيادة الconversion."
         },
     
         {
           text: "تقارير الأداء الشهري",
-          img: "https://images.unsplash.com/photo-1593642532973-d31b6557fa68?q=80&w=2800&auto=format&fit=crop",
+          img: "/img-app/437_1x_shots_so-min.png",
           description:
             "تقرير شامل عن تطور عملائك – نمو، نشاط، والتزام – ممكن تطبعها أو ترسلها أوتوماتيك."
         },
         {
           text: "مراقبة الإصابات والتعافي",
-          img: "https://images.unsplash.com/photo-1517638851339-4aa32003c05c?q=80&w=2800&auto=format&fit=crop",
+          img: "/img-app/442_1x_shots_so-min.png",
           description:
             "لو عميل عنده إصابة، السيستم بيبعت خطة تعديل تلقائية بناء على مدخلاتك لتسريع التعافي."
         },
         {
           text: "نظام جوائز وتحفيز",
-          img: "https://images.unsplash.com/photo-1571019613455-1cb2d50c5e04?q=80&w=2800&auto=format&fit=crop",
+          img: "/img-app/453_1x_shots_so-min.png",
           description:
             "أضف نظام نقاط أو badges للعملاء عند تحقيق أهداف معينة — بيحافظ على التفاعل طويل المدى."
         },
        
         {
           text: "توسيع بلا حدود",
-          img: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2800&auto=format&fit=crop",
+          img: "/img-app/491_1x_shots_so-min.png",
           description:
             "جاهز تخطي ١٠٠٠٠٠ عميل؟ النظام مصمم يقابل حجمك بدون ما تحتاج سيرفرات إضافية."
         }
