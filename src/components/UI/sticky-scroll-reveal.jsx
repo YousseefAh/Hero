@@ -141,7 +141,7 @@ export const StickyScroll = ({
                 'flex flex-col justify-center'
               )}
             >
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-7xl font-bold text-slate-100 mb-2 lg:mb-8">
+                            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-slate-100 mb-2 lg:mb-8">
                 {item.title}
               </h2>
               <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl mt-2 lg:mt-10 max-w-full lg:max-w-2xl text-slate-300 leading-relaxed">
