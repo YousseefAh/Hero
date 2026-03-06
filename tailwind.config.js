@@ -10,7 +10,7 @@ module.exports = {
         "pricing-break": "840px",
       },
       colors: {
-        // Primary
+        // Primary (dark text/backgrounds for sections)
         "primary-800": "#1E1B22",
         "primary-700": "#221F26",
         "primary-600": "#27232B",
@@ -20,14 +20,22 @@ module.exports = {
         "primary-200": "#6B686E",
         "primary-50": "#AAA9AC",
 
-        // Accent
-        "accent-800": "#b38135",
-        "accent-700": "#cc933d",
-        "accent-600": "#e6a644",
-        "accent-500": "#FFB84C",
-        "accent-400": "#ffbf5e",
-        "accent-300": "#ffc670",
-        "accent-200": "#FFCD82",
+        // Accent — Neon Green (replaces gold)
+        "accent-800": "#8fb300",
+        "accent-700": "#a3cc00",
+        "accent-600": "#b4e600",
+        "accent-500": "#C6FF00",
+        "accent-400": "#d1ff33",
+        "accent-300": "#dbff5c",
+        "accent-200": "#e6ff85",
+
+        // Blue accent
+        "blue-accent": "#4361EE",
+        "blue-accent-light": "#6B82F2",
+        "blue-accent-dark": "#3451D1",
+
+        // Cyan accent
+        "cyan-accent": "#4CC9F0",
 
         "white-shade": "#F6F6F6",
       },
@@ -36,41 +44,53 @@ module.exports = {
           from: { transform: "translateX(0%)" },
           to: { transform: "translateX(-100%)" },
         },
+        "float-slow": {
+          "0%, 100%": { transform: "translateY(0px) translateX(0px)" },
+          "33%": { transform: "translateY(-20px) translateX(10px)" },
+          "66%": { transform: "translateY(10px) translateX(-15px)" },
+        },
+        "counter-up": {
+          from: { "--num": "0" },
+          to: { "--num": "var(--target)" },
+        },
       },
       animation: {
         "translate-x-reverse": "translate-x-reverse 50s linear infinite",
         "translate-x-reverse-slowed": "translate-x-reverse 30s linear infinite",
+        "float-slow": "float-slow 20s ease-in-out infinite",
+        "float-slower": "float-slow 25s ease-in-out infinite",
       },
       fontFamily: {
-        sans: ["var(--font-poppins)"],
+        sans: ["var(--font-noto-kufi)"],
+        display: ["var(--font-space-grotesk)"],
       },
       typography: {
         DEFAULT: {
           css: {
-            color: '#374151', // gray-700
+            color: '#374151',
             strong: {
-              color: '#111827', // gray-900
+              color: '#111827',
             },
             em: {
-              color: '#4B5563', // gray-600
+              color: '#4B5563',
             },
             h1: {
-              color: '#111827', // gray-900
+              color: '#111827',
             },
             h2: {
-              color: '#111827', // gray-900
+              color: '#111827',
             },
             h3: {
-              color: '#111827', // gray-900
+              color: '#111827',
             },
             h4: {
-              color: '#111827', // gray-900
+              color: '#111827',
             },
             p: {
-              color: '#374151', // gray-700
+              color: '#374151',
             },
             li: {
-              color: '#374151', // gray-700
+              color: '#374151',
             },
           },
         },
@@ -79,4 +99,3 @@ module.exports = {
   },
   plugins: [require('@tailwindcss/typography')],
 };
-

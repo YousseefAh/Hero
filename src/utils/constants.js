@@ -1,107 +1,68 @@
 const links = [
-  { name: "Features", href: "/features" },
-  { name: "Explore", href: "/#dashboard" },
-  { name: "Blog", href: "/blog" },
-  { name: "Support", href: "/#cta" }
+  { name: "المميزات", href: "/features" },
+  { name: "استكشف", href: "/#dashboard" },
+  { name: "الأسعار", href: "/#pricing" },
+  { name: "الدعم", href: "/#cta" }
 ];
 
 const reviewImgs = [
-  {
-    id: 1,
-    name: "Gabriel Romero",
-    image: "/reviews/img-1.webp",
-  },
-  {
-    id: 2,
-    name: "Sarena Burton",
-    image: "/reviews/img-2.webp",
-  },
-  {
-    id: 3,
-    name: "LaDorian Ray",
-    image: "/reviews/img-3.webp",
-  },
-  {
-    id: 4,
-    name: "Madison Lott",
-    image: "/reviews/img-4.webp",
-  },
-  {
-    id: 5,
-    name: "Shannon Sutton",
-    image: "/reviews/img-5.webp",
-  },
+  { id: 1, name: "م. أحمد", image: "/reviews/img-1.webp" },
+  { id: 2, name: "هـ. سارة", image: "/reviews/img-2.webp" },
+  { id: 3, name: "ك. محمد", image: "/reviews/img-3.webp" },
+  { id: 4, name: "ن. ياسمين", image: "/reviews/img-4.webp" },
+  { id: 5, name: "عمرو", image: "/reviews/img-5.webp" },
 ];
 
 const appStatsImgs = [
   {
     id: 1,
-    name: "@mario.lopez",
-    description:
-      "I joined Yadora back in 2021 and never looked back. \
-     Yadoras ability to connect me with people around the world that share \
-      the same passions with me is top tier!",
+    name: "م. أحمد",
+    description: "كنت بخدم ١٥ عميل وحاسس إني هنهار. دلوقتي عندي ١٢٠ عميل وبشتغل ساعات أقل.",
     image: "/appStats/img-1.webp",
   },
   {
     id: 2,
-    name: "@xuifang",
-    description:
-      "Yadora has provided me a platform to showcase my skills, \
-    build my community and teach 1000s about the beautiful art of caligraphy",
+    name: "هـ. سارة",
+    description: "أول حاجة العملاء بيقولوها: التطبيق ده شكله رهيب! الاحترافية بتفرق.",
     image: "/appStats/img-2.webp",
   },
   {
     id: 3,
-    name: "@shannon_sutton",
-    description:
-      "After working on and off as a vocal coach for nearly 10 years, i found Yadora. \
-    The platform has allowed me to find consistent work for months now!",
+    name: "ك. محمد",
+    description: "رفعت سعري ٤٠٪ ومحدش اعترض — لأن التجربة اللي بيحصلوا عليها تستاهل أكتر.",
     image: "/appStats/img-3.webp",
   },
 ];
 
 const appStats = [
-  {
-    id: 1,
-    value: "300",
-    description: "creators",
-  },
-  {
-    id: 2,
-    value: "12.1k",
-    description: "users",
-  },
-  {
-    id: 3,
-    value: "9.11k",
-    description: "sessions",
-  },
+  { id: 1, value: "85%+", description: "استبقاء عملاء" },
+  { id: 2, value: "70%", description: "توفير وقت" },
+  { id: 3, value: "80%", description: "توفير تكاليف" },
 ];
 
 const features = [
   {
     id: 1,
-    name: "Engagement",
-    description: "Engage on a deeper level with the fans that matter most",
+    name: "براندينج احترافي",
+    description: "تطبيق بإسمك وموقع جاهز — عميلك يحس بالثقة من أول لحظة",
     icon: "/features/engagement.svg",
   },
   {
     id: 2,
-    name: "Autonomy",
-    description: "Full autonomy on when and who you chose to talk",
+    name: "أتمتة شاملة",
+    description: "كل المهام الإدارية بتحصل أوتوماتيك — ٢٤ ساعة في اليوم",
     icon: "/features/autonomy.svg",
   },
   {
     id: 3,
-    name: "Free",
-    description: "No monthly fees or annual subscription fees",
+    name: "أدوات مجانية",
+    description: "أدوات اكتساب عملاء واستبقاء بدون أي تكلفة إضافية",
     icon: "/features/free.svg",
   },
   {
     id: 4,
-    name: "Earn",
-    description: "Add a new source of income that you can control",
+    name: "نمو مضاعف",
+    description: "ضاعف دخلك وعملائك بأقل مجهود ووقت",
     icon: "/features/earn.svg",
   },
 ];
@@ -109,160 +70,145 @@ const features = [
 const footerCols = [
   {
     id: 1,
-    heading: "About",
-    links: ["How it works", "Company", "Help & support"],
+    heading: "عن BePrime",
+    links: ["كيف يعمل", "عن الشركة", "الدعم والمساعدة"],
   },
   {
     id: 2,
-    heading: "For creators",
-    links: ["Getting paid", "Onboarding"],
+    heading: "للمدربين",
+    links: ["طرق الدفع", "بدء الاستخدام"],
   },
   {
     id: 3,
-    heading: "Learn",
-    links: ["Blog", "Careers", "Affiliates"],
+    heading: "تعلم",
+    links: ["المدونة", "الوظائف", "الشراكات"],
   },
   {
     id: 4,
-    heading: "Support",
-    links: ["Service status", "Cookies policy", "Privacy policy"],
+    heading: "الدعم",
+    links: ["حالة الخدمة", "سياسة الخصوصية", "الشروط والأحكام"],
   },
 ];
 
 const footerSocials = [
-  {
-    id: 1,
-    name: "Meta (formerly facebook)",
-    logo: "/socials/facebook.svg",
-  },
-  {
-    id: 2,
-    name: "X (formerly twitter)",
-    logo: "/socials/twitter.svg",
-  },
-  {
-    id: 3,
-    name: "Instagram",
-    logo: "/socials/instagram.svg",
-  },
+  { id: 1, name: "فيسبوك", logo: "/socials/facebook.svg" },
+  { id: 2, name: "إكس (تويتر سابقًا)", logo: "/socials/twitter.svg" },
+  { id: 3, name: "إنستجرام", logo: "/socials/instagram.svg" },
 ];
 
 const pricingCards = [
   {
     mostPopular: false,
-    program: "Personal",
+    program: "بداية المشوار",
     price: {
-      monthly: "Free",
-      annual: "Free",
+      monthly: "1,000",
+      annual: "10,000",
     },
-    subheading: "Explore our product for free",
+    subheading: "للمدرب اللي لسه بيبدأ — لحد ١٠٠ عميل",
     bullets: [
-      "20 free fantasy reports",
-      "Limited access to AI-writer",
-      "max 15 hours per month",
-      "14 outreach tokens",
+      "تطبيق بإسمك",
+      "موقع احترافي",
+      "أدوات اكتساب عملاء مجانية",
+      "أتمتة شاملة ٢٤/٧",
+      "دعم بالعربي",
     ],
-    cta: "Start free",
+    cta: "ابدأ دلوقتي",
   },
   {
     primary: true,
     mostPopular: true,
-    program: "Professional",
+    program: "المدرب الطموح",
     price: {
-      monthly: "20",
-      annual: "228",
+      monthly: "2,500",
+      annual: "25,000",
     },
-    subheading: "For the ambitious solo professional",
+    subheading: "للمدرب اللي عايز يكبّر — ١٥٠ لحد ٤٠٠ عميل",
     bullets: [
-      "50 free fantasy reports",
-      "Unlimited access to AI-writer",
-      "max 35 hours per month",
-      "72 outreach tokens",
+      "كل مميزات بداية المشوار",
+      "تحليلات وتقارير ذكية",
+      "نظام استبقاء متقدم",
+      "أدوات تسويق أوتوماتيكية",
+      "تقسيم الجمهور (Segments)",
+      "دعم أولوية",
     ],
-    cta: "Start creating",
+    cta: "ابدأ دلوقتي",
   },
   {
     mostPopular: false,
-    program: "Team",
+    program: "أسماك القرش",
     price: {
-      monthly: "699",
-      annual: "7968",
+      monthly: "5,000",
+      annual: "50,000",
     },
-    subheading: "Licenses for up to 16 members",
+    subheading: "للمدرب اللي بيدير إمبراطورية — ٥٠٠+ عميل",
     bullets: [
-      "1200 free fantasy reports",
-      "Access to AI-writer M2",
-      "Unlimited hours per month",
-      "435 outreach tokens",
+      "كل مميزات المدرب الطموح",
+      "عملاء غير محدودين",
+      "إدارة فريق كاملة",
+      "API مخصص",
+      "تقارير مخصصة",
+      "مدير حساب مخصص",
     ],
-    cta: "Sign up your team",
+    cta: "كلمنا",
   },
 ];
 
 const testimonials = [
   {
-    program: "professional",
-    description:
-      "Yadora has been pivotal in helping me connect with others that share my same passions!",
+    program: "بداية المشوار",
+    description: "كنت بخدم ١٥ عميل وحاسس إني هنهار. دلوقتي عندي ١٢٠ عميل وبشتغل ساعات أقل.",
     image: "/testimonials/testimonial-7.webp",
-    name: "Maria Sanchez",
-    title: "CEO & Founder at Creation LAB's",
+    name: "م. أحمد",
+    title: "مدرب لياقة، القاهرة",
   },
   {
-    program: "team",
-    description:
-      "Sharing my skills with clients around the world has never been easier. Very affordable solution for our team.",
+    program: "المدرب الطموح",
+    description: "أول حاجة العملاء بيقولوها: التطبيق ده شكله رهيب! الاحترافية بتفرق.",
     image: "/testimonials/testimonial-6.webp",
-    name: "Nick Ridley",
-    title: "Product lead at EducationWave",
+    name: "هـ. سارة",
+    title: "مدربة تغذية، الإسكندرية",
   },
   {
-    program: "personal",
-    description:
-      "I love how easy and intuitive the platform is. Took me less than a day to get up and started!",
+    program: "أسماك القرش",
+    description: "رفعت سعري ٤٠٪ ومحدش اعترض — لأن التجربة اللي بيحصلوا عليها تستاهل أكتر.",
     image: "/testimonials/testimonial-10.webp",
-    name: "Asia Moore",
-    title: "Head of HR at inspireUSA",
+    name: "ك. محمد",
+    title: "مدرب أونلاين، الرياض",
   },
   {
-    program: "personal",
-    description:
-      "Having access to 50 free fantasy reports per month allows my small business to generate leads each month",
+    program: "بداية المشوار",
+    description: "كنت بدفع لـ ٥ أدوات مختلفة. دلوقتي كل حاجة في مكان واحد وبوفّر أكتر من ٣٠٠٠ جنيه شهريًا.",
     image: "/testimonials/testimonial-2.webp",
-    name: "Tina Rodriguez",
-    title: "Tech lead at GE accelerator",
+    name: "ن. ياسمين",
+    title: "مدربة يوجا، دبي",
   },
   {
-    program: "team",
-    description:
-      "The free version of Yadora is generous with its offering and has helped fuel our business to new heights!",
+    program: "المدرب الطموح",
+    description: "النظام خلاني أركز على التدريب بس. كل حاجة تانية بتحصل لوحدها — المتابعة، الفواتير، والتسويق.",
     image: "/testimonials/testimonial-3.webp",
-    name: "Jai Ahuja",
-    title: "GForce Labs  trader & Founder",
+    name: "عمرو حسن",
+    title: "مدرب لياقة، جدة",
   },
   {
-    program: "team",
-    description:
-      "Yadora's Customer service has been very gracious in helping me navigate the platform. Loving it so far!",
+    program: "أسماك القرش",
+    description: "من أول أسبوع حسيت بالفرق. العملاء مبسوطين أكتر وأنا مرتاح أكتر.",
     image: "/testimonials/testimonial-1.webp",
-    name: "Amy Young",
-    title: "Creative director at FertilityHealth",
+    name: "مريم خالد",
+    title: "مدربة تأهيل إصابات",
   },
   {
-    program: "personal",
-    description:
-      "Getting my music business off the ground has been a breeze with the help of Yadora's outreach accelerator.",
+    program: "بداية المشوار",
+    description: "لو كنت عارف إن ده موجود من سنة كانت حياتي اتغيرت بدري. أحسن استثمار عملته.",
     image: "/testimonials/testimonial-5.webp",
-    name: "Tanner Hall",
-    title: "Musician and Solo-prenuer",
+    name: "أحمد فوزي",
+    title: "مدرب شخصي",
   },
   {
-    program: "team",
-    description:
-      "I wish i have known about this platform a year ago. The AI writer empowers our team to edit and revise their work easily.",
+    program: "المدرب الطموح",
+    description: "العملاء بيتعاملوا معايا كأني شركة كبيرة — والسبب إن التطبيق بإسمي والموقع شكله رهيب.",
     image: "/testimonials/testimonial-8.webp",
-    name: "Diego Perez",
-    title: "Analyst at SimplyMade",
+    name: "لينا محمود",
+    title: "مدربة تغذية رياضية",
   },
 ];
 
