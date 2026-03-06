@@ -62,6 +62,7 @@ export const MacbookScroll = ({
   return (
     <div
       ref={ref}
+      dir="ltr"
       className="flex min-h-[120vh] shrink-0 scale-[0.7] transform flex-col items-center justify-start pt-4 [perspective:800px] sm:min-h-[150vh] sm:scale-[0.85] sm:pt-0 md:min-h-[200vh] md:scale-100 md:py-80"
     >
       {title && (
@@ -70,6 +71,7 @@ export const MacbookScroll = ({
             translateY: textTransform,
             opacity: textOpacity,
           }}
+          dir="rtl"
           className="mb-20 text-center text-3xl font-bold text-neutral-800"
         >
           {title}
@@ -84,7 +86,10 @@ export const MacbookScroll = ({
         translate={translate}
       />
       {/* Base area */}
-      <div className="relative -z-10 h-[22rem] w-[32rem] overflow-hidden rounded-2xl bg-gray-200">
+      <div
+        dir="ltr"
+        className="relative -z-10 h-[22rem] w-[32rem] overflow-hidden rounded-2xl bg-gray-200"
+      >
         {/* above keyboard bar */}
         <div className="relative h-10 w-full">
           <div className="absolute inset-x-0 mx-auto h-4 w-[80%] bg-[#050505]" />
@@ -174,7 +179,18 @@ export const Trackpad = () => {
 
 export const Keypad = () => {
   return (
-    <div className="mx-1 h-full [transform:translateZ(0)] rounded-md bg-[#050505] p-1 [will-change:transform]">
+    <div
+      dir="ltr"
+      lang="en"
+      style={{
+        // Prevent RTL page context from reordering keycap glyphs (notably punctuation/brackets)
+        // and avoid inheriting the Arabic UI font inside the keyboard.
+        unicodeBidi: "bidi-override",
+        fontFamily:
+          "ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif",
+      }}
+      className="mx-1 h-full [transform:translateZ(0)] rounded-md bg-[#050505] p-1 [will-change:transform]"
+    >
       {/* First Row */}
       <div className="mb-[2px] flex w-full shrink-0 gap-[2px]">
         <KBtn
@@ -458,17 +474,17 @@ export const Keypad = () => {
           </div>
         </KBtn>
         <div className="mt-[2px] flex h-6 w-[4.9rem] flex-col items-center justify-end rounded-[4px] p-[0.5px]">
-          <KBtn className="h-3 w-6">
+          <KBtn className="!h-3 !w-6">
             <IconCaretUpFilled className="h-[6px] w-[6px]" />
           </KBtn>
           <div className="flex">
-            <KBtn className="h-3 w-6">
+            <KBtn className="!h-3 !w-6">
               <IconCaretLeftFilled className="h-[6px] w-[6px]" />
             </KBtn>
-            <KBtn className="h-3 w-6">
+            <KBtn className="!h-3 !w-6">
               <IconCaretDownFilled className="h-[6px] w-[6px]" />
             </KBtn>
-            <KBtn className="h-3 w-6">
+            <KBtn className="!h-3 !w-6">
               <IconCaretRightFilled className="h-[6px] w-[6px]" />
             </KBtn>
           </div>
@@ -507,6 +523,13 @@ export const KBtn = ({
             childrenClassName,
             backlit && "text-white",
           )}
+          dir="ltr"
+          lang="en"
+          style={{
+            unicodeBidi: "bidi-override",
+            fontFamily:
+              "ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif",
+          }}
         >
           {children}
         </div>
