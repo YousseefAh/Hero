@@ -1,114 +1,30 @@
-import { useState, useRef, useEffect } from 'react';
-import Image from "next/image";
-import { content } from '@/data/content';
+"use client";
+
+import { MacbookScroll } from "@/components/UI/macbook-scroll";
+import { content } from "@/data/content";
 
 function Dashboard() {
-  const { image, videoId } = content.dashboard;
-  const [showVideo, setShowVideo] = useState(false);
-  const [stopVideoOnScroll, setStopVideoOnScroll] = useState(false); // New state variable to control video pause on scroll
-  const playerRef = useRef(null);
-  const videoContainerRef = useRef(null);
-
-  const handleImageClick = () => {
-    setShowVideo(true);
-  };
-
-  useEffect(() => {
-    if (!showVideo) {
-      if (playerRef.current) {
-        playerRef.current.destroy();
-        playerRef.current = null;
-      }
-      return;
-    }
-
-    const createPlayer = () => {
-      if (playerRef.current) {
-        playerRef.current.destroy();
-      }
-      playerRef.current = new window.YT.Player('youtube-player', {
-        videoId: videoId,
-        playerVars: {
-          autoplay: 1,
-          rel: 0,
-          modestbranding: 1,
-          playsinline: 1,
-          controls: 1,
-          showinfo: 1,
-          fs: 1,
-        },
-        events: {
-          onReady: (event) => {
-            event.target.setPlaybackQuality('hd720');
-            event.target.playVideo();
-          },
-        },
-      });
-    };
-
-    if (!window.YT) {
-      const tag = document.createElement('script');
-      tag.src = "https://www.youtube.com/iframe_api";
-      const firstScriptTag = document.getElementsByTagName('script')[0];
-      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-      window.onYouTubeIframeAPIReady = createPlayer;
-    } else {
-      createPlayer();
-    }
-  }, [showVideo, videoId]);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (stopVideoOnScroll && !entry.isIntersecting && playerRef.current && typeof playerRef.current.pauseVideo === 'function') {
-          playerRef.current.pauseVideo();
-        }
-      },
-      {
-        threshold: 0.5,
-      }
-    );
-
-    const currentRef = videoContainerRef.current;
-    if (currentRef) {
-      observer.observe(currentRef);
-    }
-
-    return () => {
-      if (currentRef) {
-        observer.unobserve(currentRef);
-      }
-    };
-  }, [showVideo]);
-
   return (
-    <section className="relative">
-      <div className="bottom-0 -z-10 absolute w-full h-1/2" style={{ background: "#0C0C10" }} />
+    <section className="relative overflow-hidden bg-white">
+      <MacbookScroll
+        src={content.dashboard.image.src}
+        showGradient={false}
+        title={
+          <span className="text-primary-500">
+            شوف منظومتك الكاملة —{" "}
+            <span className="text-accent-500 drop-shadow-[0_0_20px_rgba(198,255,0,0.3)]">
+              كل حاجة في مكان واحد
+            </span>
+          </span>
+        }
+      />
+      {/* Smooth transition to dark section below */}
       <div
-        ref={videoContainerRef}
-        className="relative justify-items-center grid m-auto px-4 sm:px-8 md:px-16 xl:px-24 py-8 md:py-16 max-w-[90rem] h-auto aspect-video cursor-pointer"
-        onClick={!showVideo ? handleImageClick : undefined}
-      >
-        {!showVideo && (
-          <>
-            <Image
-              src={image.src}
-              alt={image.alt}
-              fill
-              priority
-              className="block w-full h-full object-contain rounded-lg"
-            />
-            <div className="absolute inset-0 flex items-center justify-center rounded-lg">
-              <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-accent-500/90 backdrop-blur-sm shadow-glow-green flex items-center justify-center hover:scale-110 transition-transform duration-300 animate-pulse-glow">
-                <svg xmlns="http://www.w3.org/2000/svg" className="w-8 h-8 md:w-10 md:h-10" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M8 5v14l11-7z" className="fill-primary-800" />
-                </svg>
-              </div>
-            </div>
-          </>
-        )}
-        {showVideo && <div id="youtube-player" className="absolute inset-0 w-full h-full rounded-lg object-cover"></div>}
-      </div>
+        className="absolute bottom-0 left-0 right-0 h-48 pointer-events-none"
+        style={{
+          background: "linear-gradient(to bottom, transparent, #0C0C10)",
+        }}
+      />
     </section>
   );
 }
