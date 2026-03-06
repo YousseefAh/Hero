@@ -1,54 +1,78 @@
+"use client";
+
+import { useState } from "react";
 import { CiCircleCheck } from "react-icons/ci";
+import { motion } from "motion/react";
 
 function PricingCard({ card, paymentPlan }) {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isHovering, setIsHovering] = useState(false);
+
+  const handleMouseMove = (event) => {
+    const { clientX, clientY } = event;
+    const rect = event.currentTarget.getBoundingClientRect();
+    const x = (clientX - (rect.left + rect.width / 2)) / 25;
+    const y = (clientY - (rect.top + rect.height / 2)) / 25;
+    setMousePosition({ x, y });
+  };
+
   const pclass = {
     container: card.primary ? "pb-12 lg:pb-14" : "pb-10 lg:my-2",
     bulletColor: card.primary ? "stroke-accent-500" : "stroke-white",
     cta: card.primary
-      ? "bg-gradient-to-t bg-accent-500 from-accent-500 to-accent-200"
-      : "bg-white",
+      ? "bg-accent-500 text-primary-800 font-bold hover:shadow-[0_0_20px_rgba(198,255,0,0.4)]"
+      : "bg-white text-primary-500 hover:bg-accent-500 hover:text-primary-800",
     ctaWrapper: card.primary
-      ? "bg-gradient-to-b from-accent-500 to-accent-200 p-[.125rem] rounded-2xl \
-      drop-shadow-[0_0px_35px_rgba(255,184,76,0.20)] hover:drop-shadow-[0_0px_35px_rgba(255,184,76,0.35)]"
+      ? "bg-gradient-to-b from-accent-500 to-accent-300 p-[.125rem] rounded-2xl drop-shadow-[0_0px_35px_rgba(198,255,0,0.20)] hover:drop-shadow-[0_0px_35px_rgba(198,255,0,0.35)]"
       : "",
   };
 
-  // monthly || annual
   const price =
-    card.price[paymentPlan] === "Free" // free
-      ? card.price[paymentPlan] // free
-      : `$${card.price[paymentPlan]}`; // $699
+    card.price[paymentPlan] === "Free"
+      ? card.price[paymentPlan]
+      : `${card.price[paymentPlan]}`;
 
-  // nested ternany
   const paymentPlanText =
     card.price[paymentPlan] === "Free"
       ? ""
       : paymentPlan === "monthly"
-        ? "per month"
-        : "per year";
+        ? "ج.م / شهريًا"
+        : "ج.م / سنويًا";
 
   return (
-    <div
+    <motion.div
+      onMouseMove={handleMouseMove}
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => {
+        setIsHovering(false);
+        setMousePosition({ x: 0, y: 0 });
+      }}
+      style={{
+        transform: isHovering
+          ? `perspective(1000px) rotateX(${-mousePosition.y}deg) rotateY(${mousePosition.x}deg) scale3d(1.02, 1.02, 1)`
+          : "perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)",
+        transition: "transform 0.15s ease-out",
+      }}
       className={`bg-primary-500 px-8 pt-8 rounded-2xl relative overflow-hidden ${pclass.container}`}
     >
-      {/* aboslutely positioned elements */}
+      {/* Absolutely positioned elements */}
       {card.primary && (
         <>
-          <div className="top-0 right-0 z-10 absolute bg-gradient-to-b from-accent-500 to-accent-200 py-[.125rem] rounded-tr-2xl rounded-bl-2xl">
-            <p className="bg-accent-500 bg-gradient-to-t from-accent-500 to-accent-200 px-4 py-2 rounded-tr-xl rounded-bl-2xl text-xs">
-              most popular
+          <div className="top-0 left-0 z-10 absolute bg-gradient-to-b from-accent-500 to-accent-300 py-[.125rem] rounded-tl-2xl rounded-br-2xl">
+            <p className="bg-accent-500 px-4 py-2 rounded-tl-xl rounded-br-2xl text-xs text-primary-800 font-bold">
+              الأكثر شعبية
             </p>
           </div>
-          <div className="left-[-20%] absolute bg-gradient-to-l from-white to-transparent opacity-20 blur-2xl rounded-[50%] w-[30rem] h-28 -rotate-45" />
-          <div className="top-[30%] left-[30%] absolute bg-gradient-to-l from-white to-transparent opacity-20 blur-2xl rounded-[50%] w-[30rem] h-28 -rotate-45" />
+          <div className="right-[-20%] absolute bg-gradient-to-r from-accent-500/20 to-transparent blur-2xl rounded-[50%] w-[30rem] h-28 -rotate-45" />
+          <div className="top-[30%] right-[30%] absolute bg-gradient-to-r from-blue-accent/20 to-transparent blur-2xl rounded-[50%] w-[30rem] h-28 -rotate-45" />
         </>
       )}
 
-      <p className="opacity-80 mb-12 px-6 py-2 border rounded-2xl max-w-min text-sm text-white">
+      <p className="opacity-80 mb-12 px-6 py-2 border rounded-2xl max-w-min text-sm text-white whitespace-nowrap">
         {card.program}
       </p>
       <div className="flex items-end gap-x-2 mb-2">
-        <p className="font-bold text-4xl text-white md:text-5xl xl:text-[3.5rem]/[4rem] tracking-tight">
+        <p className="font-display font-bold text-4xl text-white md:text-5xl xl:text-[3.5rem]/[4rem] tracking-tight">
           {price}
         </p>
         <span className="opacity-50 mb-1 xl:mb-2 text-white">
@@ -68,12 +92,12 @@ function PricingCard({ card, paymentPlan }) {
       </ul>
       <div className={pclass.ctaWrapper}>
         <button
-          className={`text-primary-500 py-4 w-full rounded-2xl  hover:bg-accent-500 transition-all duration-200 hover:text-white ${pclass.cta}`}
+          className={`py-4 w-full rounded-2xl transition-all duration-200 ${pclass.cta}`}
         >
           {card.cta}
         </button>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

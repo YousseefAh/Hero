@@ -12,12 +12,15 @@ import Hero from "@/components/sections/Hero";
 import Main from "@/components/layout/Main";
 import Dashboard from "@/components/sections/Dashboard";
 import AppStatistics from "@/components/sections/AppStatistics";
+import StatsStrip from "@/components/sections/StatsStrip";
 import AppleCardsCarouselDemo from "@/components/UI/apple-cards-carousel-demo";
 import Features from "@/components/sections/Features";
 import WobbleCardDemo from "@/components/UI/wobble-card-demo";
 import ContinuousShowcase from "@/components/sections/ContinuousShowcase";
+import BeforeAfter from "@/components/sections/BeforeAfter";
 import Pricing from "@/components/sections/Pricing/Pricing";
 import Testimonials from "@/components/sections/Testimonials/Testimonials";
+import FAQ from "@/components/sections/FAQ";
 import CTA from "@/components/sections/CTA";
 
 // Footer
@@ -42,22 +45,25 @@ export default function HomePage() {
         <Main>
           <section id="dashboard"><Dashboard /></section>
           <AppStatistics />
+          <StatsStrip />
           <AppleCardsCarouselDemo />
           <section id="features"><Features /></section>
           <section className="m-auto px-4 sm:px-8 md:px-16 xl:px-24 py-16 max-w-[90rem]">
             <div className="text-center mb-12">
-              <h2 className="text-4xl md:text-6xl font-bold text-primary-500 mb-6 transition-colors duration-300">
+              <h2 className="text-4xl md:text-6xl font-bold text-primary-500 mb-6">
                 {content.whyChooseYadora.title}
               </h2>
-              <p className="text-lg md:text-xl text-primary-300 max-w-3xl mx-auto transition-colors duration-300">
+              <p className="text-lg md:text-xl text-primary-300 max-w-3xl mx-auto">
                 {content.whyChooseYadora.description}
               </p>
             </div>
             <WobbleCardDemo />
           </section>
           <ContinuousShowcase />
-          {/* <Pricing /> */}
-          {/* <Testimonials /> */}
+          <BeforeAfter />
+          <section id="pricing"><Pricing /></section>
+          <Testimonials />
+          <FAQ />
           <section id="cta"><CTA /></section>
         </Main>
 
@@ -69,4 +75,4 @@ export default function HomePage() {
       </PageWrapper>
     </ModalContextProvider>
   );
-} 
+}

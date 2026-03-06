@@ -13,8 +13,8 @@ function CTA() {
     <section className="m-auto px-4 sm:px-8 md:px-16 xl:px-24 py-16 max-w-[90rem]">
       <div className="relative flex flex-col items-center bg-primary-500 px-8 py-16 sm:py-24 lg:py-28 rounded-2xl overflow-hidden">
         <div className="top-0 absolute bg-accent-500 w-1/5 h-2" />
-        <div className="lg:left-[4%] absolute bg-gradient-to-l from-white to-transparent opacity-20 blur-2xl rounded-[50%] w-[50rem] h-28 -rotate-45" />
-        <div className="lg:visible lg:left-[35%] absolute bg-gradient-to-l from-white to-transparent opacity-20 blur-2xl rounded-[50%] w-[40rem] h-28 invisible -rotate-45" />
+        <div className="lg:right-[4%] absolute bg-gradient-to-r from-accent-500/20 to-transparent blur-2xl rounded-[50%] w-[50rem] h-28 -rotate-45" />
+        <div className="lg:visible lg:right-[35%] absolute bg-gradient-to-r from-blue-accent/20 to-transparent blur-2xl rounded-[50%] w-[40rem] h-28 invisible -rotate-45" />
 
         <h3 className="mb-4 font-bold text-[2rem]/[2.5rem] text-center text-white sm:text-4xl md:text-5xl/[4rem] xl:text-[3.5rem]/[4rem] tracking-tight">
           {title}
@@ -25,11 +25,11 @@ function CTA() {
         <div className="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto">
           <button
             onClick={() => setCurrentModal("more-information")}
-            className="w-full sm:w-auto bg-accent-500 hover:bg-accent-600 px-8 py-4 rounded-2xl text-white text-lg transition-all duration-200 flex items-center justify-center gap-2"
+            className="w-full sm:w-auto bg-accent-500 hover:bg-accent-400 px-8 py-4 rounded-2xl text-primary-800 font-bold text-lg transition-all duration-200 hover:shadow-[0_0_20px_rgba(198,255,0,0.3)] flex items-center justify-center gap-2"
           >
             {contactButtonText}
             <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 17l-5-5m0 0l5-5m-5 5h12" />
             </svg>
           </button>
 
