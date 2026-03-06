@@ -44,81 +44,53 @@ export const MacbookScroll = ({
   const textTransform = useTransform(scrollYProgress, [0, 0.3], [0, 100]);
   const textOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
 
-  // Mobile scroll
+  // Mobile scroll — entrance animation as user scrolls to section
   const mobileRef = useRef(null);
   const { scrollYProgress: mobileProgress } = useScroll({
     target: mobileRef,
-    offset: ["start start", "end start"],
+    offset: ["start end", "center center"],
   });
 
-  const mTitleOpacity = useTransform(mobileProgress, [0, 0.2], [1, 0]);
-  const mTitleY = useTransform(mobileProgress, [0, 0.2], [0, -30]);
-  const mRotate = useTransform(mobileProgress, [0.05, 0.3], [-28, 0]);
-  const mScaleX = useTransform(mobileProgress, [0, 0.3], [1.05, 1]);
-  const mScaleY = useTransform(mobileProgress, [0, 0.3], [0.8, 1]);
-  const mTranslate = useTransform(mobileProgress, [0, 1], [0, 300]);
+  const mTitleOpacity = useTransform(mobileProgress, [0, 0.5], [0, 1]);
+  const mTitleY = useTransform(mobileProgress, [0, 0.5], [30, 0]);
+  const mOpacity = useTransform(mobileProgress, [0.1, 0.7], [0, 1]);
+  const mY = useTransform(mobileProgress, [0.1, 0.7], [80, 0]);
+  const mScale = useTransform(mobileProgress, [0.1, 0.7], [0.9, 1]);
 
   return (
     <>
-      {/* ====== MOBILE — scroll-linked lid animation (below md) ====== */}
+      {/* ====== MOBILE — scroll-reveal MacBook (below md) ====== */}
       <div
         ref={mobileRef}
-        className="flex min-h-[130vh] flex-col items-center overflow-hidden px-3 pt-8 md:hidden [perspective:800px]"
+        className="flex flex-col items-center overflow-hidden px-3 py-8 md:hidden"
       >
         {title && (
           <motion.h2
-            style={{ opacity: mTitleOpacity, translateY: mTitleY }}
+            style={{ opacity: mTitleOpacity, y: mTitleY }}
             className="mb-6 text-center text-2xl font-bold text-neutral-800"
           >
             {title}
           </motion.h2>
         )}
 
-        {/* Mobile Lid — responsive, scroll-linked */}
-        <div className="relative w-full [perspective:800px]">
-          {/* Back panel (logo — visible when lid is closed) */}
-          <div
-            style={{
-              transform: "perspective(800px) rotateX(-25deg) translateZ(0px)",
-              transformOrigin: "bottom",
-              transformStyle: "preserve-3d",
-            }}
-            className="relative aspect-[16/11] w-full rounded-2xl bg-[#010101] p-1.5"
-          >
-            <div
-              style={{ boxShadow: "0px 2px 0px 2px #171717 inset" }}
-              className="absolute inset-0 flex items-center justify-center rounded-lg bg-[#010101]"
-            >
-              <span className="text-white">
-                <BePrimeLidLogo />
-              </span>
-            </div>
-          </div>
-
-          {/* Front panel (screen — animates open with scroll) */}
-          <motion.div
-            style={{
-              scaleX: mScaleX,
-              scaleY: mScaleY,
-              rotateX: mRotate,
-              translateY: mTranslate,
-              transformStyle: "preserve-3d",
-              transformOrigin: "top",
-            }}
-            className="absolute inset-0 aspect-[16/11] w-full rounded-2xl bg-[#010101] p-1.5"
-          >
-            <div className="absolute inset-0 rounded-lg bg-[#272729]" />
+        {/* MacBook — clean flat mockup, scroll-linked entrance */}
+        <motion.div
+          style={{ opacity: mOpacity, y: mY, scale: mScale }}
+          className="w-full"
+        >
+          {/* Screen bezel */}
+          <div className="w-full rounded-t-2xl bg-[#010101] p-1.5">
             <img
               src={src}
               alt="BePrime Dashboard"
-              className="absolute inset-0 h-full w-full rounded-lg object-cover object-left-top"
+              className="aspect-[16/10] w-full rounded-lg object-cover object-left-top"
             />
-          </motion.div>
-        </div>
-
-        {/* Hinge + base */}
-        <div className="relative -z-10 mx-auto h-[3px] w-[94%] bg-gradient-to-b from-[#3a3a3d] to-[#2a2a2d]" />
-        <div className="relative -z-10 mx-auto h-[6px] w-[72%] rounded-b-lg bg-gradient-to-b from-[#d1d1d3] to-[#a5a5a8]" />
+          </div>
+          {/* Hinge */}
+          <div className="mx-auto h-[3px] w-[94%] bg-gradient-to-b from-[#3a3a3d] to-[#2a2a2d]" />
+          {/* Base */}
+          <div className="mx-auto h-[6px] w-[72%] rounded-b-lg bg-gradient-to-b from-[#d1d1d3] to-[#a5a5a8]" />
+        </motion.div>
       </div>
 
       {/* ====== DESKTOP — scroll animation (md and up, unchanged) ====== */}
