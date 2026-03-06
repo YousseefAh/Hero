@@ -192,7 +192,7 @@ export const Keypad = () => {
       className="mx-1 h-full [transform:translateZ(0)] rounded-md bg-[#050505] p-1 [will-change:transform]"
     >
       {/* First Row */}
-      <div className="mb-[2px] flex w-full shrink-0 gap-[2px]">
+      <div className="mb-[2px] flex w-full shrink-0 gap-[2px] justify-between">
         <KBtn
           className="w-10 items-end justify-start pb-[2px] pl-[4px]"
           childrenClassName="items-start"
@@ -255,7 +255,7 @@ export const Keypad = () => {
       </div>
 
       {/* Second row */}
-      <div className="mb-[2px] flex w-full shrink-0 gap-[2px]">
+      <div className="mb-[2px] flex w-full shrink-0 gap-[2px] justify-between">
         <KBtn>
           <span className="block">~</span>
           <span className="mt-1 block">`</span>
@@ -317,7 +317,7 @@ export const Keypad = () => {
       </div>
 
       {/* Third row */}
-      <div className="mb-[2px] flex w-full shrink-0 gap-[2px]">
+      <div className="mb-[2px] flex w-full shrink-0 gap-[2px] justify-between">
         <KBtn
           className="w-10 items-end justify-start pb-[2px] pl-[4px]"
           childrenClassName="items-start"
@@ -473,18 +473,24 @@ export const Keypad = () => {
             <span className="block">option</span>
           </div>
         </KBtn>
-        <div className="mt-[2px] flex h-6 w-[4.9rem] flex-col items-center justify-end rounded-[4px] p-[0.5px]">
-          <KBtn className="!h-3 !w-6">
-            <IconCaretUpFilled className="h-[6px] w-[6px]" />
-          </KBtn>
-          <div className="flex">
-            <KBtn className="!h-3 !w-6">
+        <div className="mt-[2px] grid w-[4.9rem] grid-cols-3 grid-rows-2 gap-[2px] rounded-[4px] p-[0.5px]">
+          <div className="col-start-2 row-start-1">
+            <KBtn className="!h-6 !w-6">
+              <IconCaretUpFilled className="h-[6px] w-[6px]" />
+            </KBtn>
+          </div>
+          <div className="col-start-1 row-start-2">
+            <KBtn className="!h-6 !w-6">
               <IconCaretLeftFilled className="h-[6px] w-[6px]" />
             </KBtn>
-            <KBtn className="!h-3 !w-6">
+          </div>
+          <div className="col-start-2 row-start-2">
+            <KBtn className="!h-6 !w-6">
               <IconCaretDownFilled className="h-[6px] w-[6px]" />
             </KBtn>
-            <KBtn className="!h-3 !w-6">
+          </div>
+          <div className="col-start-3 row-start-2">
+            <KBtn className="!h-6 !w-6">
               <IconCaretRightFilled className="h-[6px] w-[6px]" />
             </KBtn>
           </div>
