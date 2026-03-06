@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 import { cn } from "@/lib/utils";
 import {
@@ -30,143 +30,95 @@ export const MacbookScroll = ({
   title,
   badge,
 }) => {
+  // Desktop scroll
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
   });
 
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    if (typeof window !== "undefined" && window.innerWidth < 768) {
-      setIsMobile(true);
-    }
-  }, []);
-
-  const scaleX = useTransform(
-    scrollYProgress,
-    [0, 0.3],
-    [1.2, isMobile ? 1 : 1.5],
-  );
-  const scaleY = useTransform(
-    scrollYProgress,
-    [0, 0.3],
-    [0.6, isMobile ? 1 : 1.5],
-  );
+  const scaleX = useTransform(scrollYProgress, [0, 0.3], [1.2, 1.5]);
+  const scaleY = useTransform(scrollYProgress, [0, 0.3], [0.6, 1.5]);
   const translate = useTransform(scrollYProgress, [0, 1], [0, 1500]);
   const rotate = useTransform(scrollYProgress, [0.1, 0.12, 0.3], [-28, -28, 0]);
   const textTransform = useTransform(scrollYProgress, [0, 0.3], [0, 100]);
   const textOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
 
+  // Mobile scroll
+  const mobileRef = useRef(null);
+  const { scrollYProgress: mobileProgress } = useScroll({
+    target: mobileRef,
+    offset: ["start start", "end start"],
+  });
+
+  const mTitleOpacity = useTransform(mobileProgress, [0, 0.2], [1, 0]);
+  const mTitleY = useTransform(mobileProgress, [0, 0.2], [0, -30]);
+  const mRotate = useTransform(mobileProgress, [0.05, 0.3], [-28, 0]);
+  const mScaleX = useTransform(mobileProgress, [0, 0.3], [1.05, 1]);
+  const mScaleY = useTransform(mobileProgress, [0, 0.3], [0.8, 1]);
+  const mTranslate = useTransform(mobileProgress, [0, 1], [0, 300]);
+
   return (
     <>
-      {/* ====== MOBILE — cinematic MacBook reveal (below md) ====== */}
-      <div className="flex flex-col items-center overflow-hidden px-4 py-12 md:hidden">
-        {/* Title — slides up and fades in */}
+      {/* ====== MOBILE — scroll-linked lid animation (below md) ====== */}
+      <div
+        ref={mobileRef}
+        className="flex min-h-[130vh] flex-col items-center overflow-hidden px-3 pt-8 md:hidden [perspective:800px]"
+      >
         {title && (
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            viewport={{ once: true }}
-            className="mb-8 text-center text-2xl font-bold text-neutral-800"
+            style={{ opacity: mTitleOpacity, translateY: mTitleY }}
+            className="mb-6 text-center text-2xl font-bold text-neutral-800"
           >
             {title}
           </motion.h2>
         )}
 
-        <div className="relative mx-auto w-full max-w-lg">
-          {/* Ambient glow behind MacBook */}
-          <motion.div
-            className="absolute -inset-8 -z-10 rounded-3xl"
+        {/* Mobile Lid — responsive, scroll-linked */}
+        <div className="relative w-full [perspective:800px]">
+          {/* Back panel (logo — visible when lid is closed) */}
+          <div
             style={{
-              background:
-                "radial-gradient(ellipse at 50% 40%, rgba(198,255,0,0.08) 0%, rgba(99,102,241,0.06) 50%, transparent 80%)",
+              transform: "perspective(800px) rotateX(-25deg) translateZ(0px)",
+              transformOrigin: "bottom",
+              transformStyle: "preserve-3d",
             }}
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 2, delay: 0.5 }}
-            viewport={{ once: true }}
-          />
-
-          {/* MacBook 3D container */}
-          <motion.div
-            className="[perspective:1200px]"
-            initial={{ opacity: 0, y: 50, scale: 0.92 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{
-              duration: 0.9,
-              delay: 0.1,
-              ease: [0.21, 0.68, 0.33, 0.99],
-            }}
-            viewport={{ once: true }}
+            className="relative aspect-[16/11] w-full rounded-2xl bg-[#010101] p-1.5"
           >
-            {/* Screen/lid with 3D tilt entrance */}
-            <motion.div
-              style={{
-                transformStyle: "preserve-3d",
-                transformOrigin: "bottom center",
-              }}
-              initial={{ rotateX: 20 }}
-              whileInView={{ rotateX: 0 }}
-              transition={{
-                duration: 1.4,
-                delay: 0.25,
-                ease: [0.16, 1, 0.3, 1],
-              }}
-              viewport={{ once: true }}
+            <div
+              style={{ boxShadow: "0px 2px 0px 2px #171717 inset" }}
+              className="absolute inset-0 flex items-center justify-center rounded-lg bg-[#010101]"
             >
-              <div className="relative w-full rounded-t-2xl bg-[#010101] p-1.5 shadow-[0_-2px_40px_rgba(0,0,0,0.2)]">
-                {/* Camera notch */}
-                <div className="absolute top-0 left-1/2 z-10 h-[3px] w-10 -translate-x-1/2 rounded-b-sm bg-[#1a1a1c]" />
+              <span className="text-white">
+                <BePrimeLidLogo />
+              </span>
+            </div>
+          </div>
 
-                {/* Screen */}
-                <div className="relative overflow-hidden rounded-lg bg-[#0a0a0a]">
-                  {/* Screen "power on" — black overlay fades out */}
-                  <motion.div
-                    className="absolute inset-0 z-10 bg-[#0a0a0a]"
-                    initial={{ opacity: 1 }}
-                    whileInView={{ opacity: 0 }}
-                    transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
-                    viewport={{ once: true }}
-                  />
-                  <img
-                    src={src}
-                    alt="BePrime Dashboard"
-                    className="aspect-[16/10] w-full object-cover object-left-top"
-                  />
-                  {/* Shine sweep across screen */}
-                  <motion.div
-                    className="absolute inset-0 z-20 -skew-x-12 bg-gradient-to-r from-transparent via-white/[0.1] to-transparent"
-                    initial={{ x: "-150%" }}
-                    whileInView={{ x: "250%" }}
-                    transition={{
-                      duration: 1,
-                      delay: 1.4,
-                      ease: "easeInOut",
-                    }}
-                    viewport={{ once: true }}
-                  />
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Hinge bar */}
-            <div className="mx-auto h-[3px] w-[94%] bg-gradient-to-b from-[#3a3a3d] to-[#2a2a2d]" />
-            {/* Base body — tapered wedge */}
-            <div className="mx-auto h-[6px] w-[72%] rounded-b-lg bg-gradient-to-b from-[#d1d1d3] to-[#a5a5a8]" />
-
-            {/* Ground shadow */}
-            <motion.div
-              className="mx-auto mt-3 h-3 w-[60%] rounded-full bg-black/[0.08] blur-lg"
-              initial={{ opacity: 0, scaleX: 0.4 }}
-              whileInView={{ opacity: 1, scaleX: 1 }}
-              transition={{ duration: 1.2, delay: 0.5 }}
-              viewport={{ once: true }}
+          {/* Front panel (screen — animates open with scroll) */}
+          <motion.div
+            style={{
+              scaleX: mScaleX,
+              scaleY: mScaleY,
+              rotateX: mRotate,
+              translateY: mTranslate,
+              transformStyle: "preserve-3d",
+              transformOrigin: "top",
+            }}
+            className="absolute inset-0 aspect-[16/11] w-full rounded-2xl bg-[#010101] p-1.5"
+          >
+            <div className="absolute inset-0 rounded-lg bg-[#272729]" />
+            <img
+              src={src}
+              alt="BePrime Dashboard"
+              className="absolute inset-0 h-full w-full rounded-lg object-cover object-left-top"
             />
           </motion.div>
         </div>
+
+        {/* Hinge + base */}
+        <div className="relative -z-10 mx-auto h-[3px] w-[94%] bg-gradient-to-b from-[#3a3a3d] to-[#2a2a2d]" />
+        <div className="relative -z-10 mx-auto h-[6px] w-[72%] rounded-b-lg bg-gradient-to-b from-[#d1d1d3] to-[#a5a5a8]" />
       </div>
 
       {/* ====== DESKTOP — scroll animation (md and up, unchanged) ====== */}
