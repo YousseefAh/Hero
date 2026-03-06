@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 import { cn } from "@/lib/utils";
 import {
@@ -30,119 +30,84 @@ export const MacbookScroll = ({
   title,
   badge,
 }) => {
-  // Desktop scroll
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
   });
 
-  const scaleX = useTransform(scrollYProgress, [0, 0.3], [1.2, 1.5]);
-  const scaleY = useTransform(scrollYProgress, [0, 0.3], [0.6, 1.5]);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.innerWidth < 768) {
+      setIsMobile(true);
+    }
+  }, []);
+
+  const scaleX = useTransform(
+    scrollYProgress,
+    [0, 0.3],
+    [1.2, isMobile ? 1 : 1.5],
+  );
+  const scaleY = useTransform(
+    scrollYProgress,
+    [0, 0.3],
+    [0.6, isMobile ? 1 : 1.5],
+  );
   const translate = useTransform(scrollYProgress, [0, 1], [0, 1500]);
   const rotate = useTransform(scrollYProgress, [0.1, 0.12, 0.3], [-28, -28, 0]);
   const textTransform = useTransform(scrollYProgress, [0, 0.3], [0, 100]);
   const textOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
 
-  // Mobile scroll — entrance animation as user scrolls to section
-  const mobileRef = useRef(null);
-  const { scrollYProgress: mobileProgress } = useScroll({
-    target: mobileRef,
-    offset: ["start end", "center center"],
-  });
-
-  const mTitleOpacity = useTransform(mobileProgress, [0, 0.5], [0, 1]);
-  const mTitleY = useTransform(mobileProgress, [0, 0.5], [30, 0]);
-  const mOpacity = useTransform(mobileProgress, [0.1, 0.7], [0, 1]);
-  const mY = useTransform(mobileProgress, [0.1, 0.7], [80, 0]);
-  const mScale = useTransform(mobileProgress, [0.1, 0.7], [0.9, 1]);
-
   return (
-    <>
-      {/* ====== MOBILE — scroll-reveal MacBook (below md) ====== */}
-      <div
-        ref={mobileRef}
-        className="flex flex-col items-center overflow-hidden px-3 py-8 md:hidden"
-      >
-        {title && (
-          <motion.h2
-            style={{ opacity: mTitleOpacity, y: mTitleY }}
-            className="mb-6 text-center text-2xl font-bold text-neutral-800"
-          >
-            {title}
-          </motion.h2>
-        )}
-
-        {/* MacBook — clean flat mockup, scroll-linked entrance */}
-        <motion.div
-          style={{ opacity: mOpacity, y: mY, scale: mScale }}
-          className="w-full"
+    <div
+      ref={ref}
+      className="flex min-h-[120vh] shrink-0 scale-[0.7] transform flex-col items-center justify-start pt-4 [perspective:800px] sm:min-h-[150vh] sm:scale-[0.85] sm:pt-0 md:min-h-[200vh] md:scale-100 md:py-80"
+    >
+      {title && (
+        <motion.h2
+          style={{
+            translateY: textTransform,
+            opacity: textOpacity,
+          }}
+          className="mb-20 text-center text-3xl font-bold text-neutral-800"
         >
-          {/* Screen bezel */}
-          <div className="w-full rounded-t-2xl bg-[#010101] p-1.5">
-            <img
-              src={src}
-              alt="BePrime Dashboard"
-              className="aspect-[16/10] w-full rounded-lg object-cover object-left-top"
-            />
-          </div>
-          {/* Hinge */}
-          <div className="mx-auto h-[3px] w-[94%] bg-gradient-to-b from-[#3a3a3d] to-[#2a2a2d]" />
-          {/* Base */}
-          <div className="mx-auto h-[6px] w-[72%] rounded-b-lg bg-gradient-to-b from-[#d1d1d3] to-[#a5a5a8]" />
-        </motion.div>
-      </div>
-
-      {/* ====== DESKTOP — scroll animation (md and up, unchanged) ====== */}
-      <div
-        ref={ref}
-        className="hidden min-h-[200vh] shrink-0 transform flex-col items-center justify-start py-80 [perspective:800px] md:flex"
-      >
-        {title && (
-          <motion.h2
-            style={{
-              translateY: textTransform,
-              opacity: textOpacity,
-            }}
-            className="mb-20 text-center text-3xl font-bold text-neutral-800"
-          >
-            {title}
-          </motion.h2>
-        )}
-        {/* Lid */}
-        <Lid
-          src={src}
-          scaleX={scaleX}
-          scaleY={scaleY}
-          rotate={rotate}
-          translate={translate}
-        />
-        {/* Base area */}
-        <div className="relative -z-10 h-[22rem] w-[32rem] overflow-hidden rounded-2xl bg-gray-200">
-          {/* above keyboard bar */}
-          <div className="relative h-10 w-full">
-            <div className="absolute inset-x-0 mx-auto h-4 w-[80%] bg-[#050505]" />
-          </div>
-          <div className="relative flex">
-            <div className="mx-auto h-full w-[10%] overflow-hidden">
-              <SpeakerGrid />
-            </div>
-            <div className="mx-auto h-full w-[80%]">
-              <Keypad />
-            </div>
-            <div className="mx-auto h-full w-[10%] overflow-hidden">
-              <SpeakerGrid />
-            </div>
-          </div>
-          <Trackpad />
-          <div className="absolute inset-x-0 bottom-0 mx-auto h-2 w-20 rounded-tl-3xl rounded-tr-3xl bg-gradient-to-t from-[#272729] to-[#050505]" />
-          {showGradient && (
-            <div className="absolute inset-x-0 bottom-0 z-50 h-40 w-full bg-gradient-to-t from-white via-white to-transparent"></div>
-          )}
-          {badge && <div className="absolute bottom-4 left-4">{badge}</div>}
+          {title}
+        </motion.h2>
+      )}
+      {/* Lid */}
+      <Lid
+        src={src}
+        scaleX={scaleX}
+        scaleY={scaleY}
+        rotate={rotate}
+        translate={translate}
+      />
+      {/* Base area */}
+      <div className="relative -z-10 h-[22rem] w-[32rem] overflow-hidden rounded-2xl bg-gray-200">
+        {/* above keyboard bar */}
+        <div className="relative h-10 w-full">
+          <div className="absolute inset-x-0 mx-auto h-4 w-[80%] bg-[#050505]" />
         </div>
+        <div className="relative flex">
+          <div className="mx-auto h-full w-[10%] overflow-hidden">
+            <SpeakerGrid />
+          </div>
+          <div className="mx-auto h-full w-[80%]">
+            <Keypad />
+          </div>
+          <div className="mx-auto h-full w-[10%] overflow-hidden">
+            <SpeakerGrid />
+          </div>
+        </div>
+        <Trackpad />
+        <div className="absolute inset-x-0 bottom-0 mx-auto h-2 w-20 rounded-tl-3xl rounded-tr-3xl bg-gradient-to-t from-[#272729] to-[#050505]" />
+        {showGradient && (
+          <div className="absolute inset-x-0 bottom-0 z-50 h-40 w-full bg-gradient-to-t from-white via-white to-transparent"></div>
+        )}
+        {badge && <div className="absolute bottom-4 left-4">{badge}</div>}
       </div>
-    </>
+    </div>
   );
 };
 
