@@ -60,54 +60,165 @@ export const MacbookScroll = ({
   const textOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
 
   return (
-    <div
-      ref={ref}
-      className="flex min-h-[200vh] shrink-0 scale-[0.35] transform flex-col items-center justify-start py-0 [perspective:800px] sm:scale-[0.5] md:scale-100 md:py-80"
-    >
-      {title && (
-        <motion.h2
-          style={{
-            translateY: textTransform,
-            opacity: textOpacity,
-          }}
-          className="mb-20 text-center text-3xl font-bold text-neutral-800"
-        >
-          {title}
-        </motion.h2>
-      )}
-      {/* Lid */}
-      <Lid
-        src={src}
-        scaleX={scaleX}
-        scaleY={scaleY}
-        rotate={rotate}
-        translate={translate}
-      />
-      {/* Base area */}
-      <div className="relative -z-10 h-[22rem] w-[32rem] overflow-hidden rounded-2xl bg-gray-200">
-        {/* above keyboard bar */}
-        <div className="relative h-10 w-full">
-          <div className="absolute inset-x-0 mx-auto h-4 w-[80%] bg-[#050505]" />
-        </div>
-        <div className="relative flex">
-          <div className="mx-auto h-full w-[10%] overflow-hidden">
-            <SpeakerGrid />
-          </div>
-          <div className="mx-auto h-full w-[80%]">
-            <Keypad />
-          </div>
-          <div className="mx-auto h-full w-[10%] overflow-hidden">
-            <SpeakerGrid />
-          </div>
-        </div>
-        <Trackpad />
-        <div className="absolute inset-x-0 bottom-0 mx-auto h-2 w-20 rounded-tl-3xl rounded-tr-3xl bg-gradient-to-t from-[#272729] to-[#050505]" />
-        {showGradient && (
-          <div className="absolute inset-x-0 bottom-0 z-50 h-40 w-full bg-gradient-to-t from-white via-white to-transparent"></div>
+    <>
+      {/* ====== MOBILE — cinematic MacBook reveal (below md) ====== */}
+      <div className="flex flex-col items-center overflow-hidden px-4 py-12 md:hidden">
+        {/* Title — slides up and fades in */}
+        {title && (
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            viewport={{ once: true }}
+            className="mb-8 text-center text-2xl font-bold text-neutral-800"
+          >
+            {title}
+          </motion.h2>
         )}
-        {badge && <div className="absolute bottom-4 left-4">{badge}</div>}
+
+        <div className="relative mx-auto w-full max-w-lg">
+          {/* Ambient glow behind MacBook */}
+          <motion.div
+            className="absolute -inset-8 -z-10 rounded-3xl"
+            style={{
+              background:
+                "radial-gradient(ellipse at 50% 40%, rgba(198,255,0,0.08) 0%, rgba(99,102,241,0.06) 50%, transparent 80%)",
+            }}
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 2, delay: 0.5 }}
+            viewport={{ once: true }}
+          />
+
+          {/* MacBook 3D container */}
+          <motion.div
+            className="[perspective:1200px]"
+            initial={{ opacity: 0, y: 50, scale: 0.92 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{
+              duration: 0.9,
+              delay: 0.1,
+              ease: [0.21, 0.68, 0.33, 0.99],
+            }}
+            viewport={{ once: true }}
+          >
+            {/* Screen/lid with 3D tilt entrance */}
+            <motion.div
+              style={{
+                transformStyle: "preserve-3d",
+                transformOrigin: "bottom center",
+              }}
+              initial={{ rotateX: 20 }}
+              whileInView={{ rotateX: 0 }}
+              transition={{
+                duration: 1.4,
+                delay: 0.25,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+              viewport={{ once: true }}
+            >
+              <div className="relative w-full rounded-t-2xl bg-[#010101] p-1.5 shadow-[0_-2px_40px_rgba(0,0,0,0.2)]">
+                {/* Camera notch */}
+                <div className="absolute top-0 left-1/2 z-10 h-[3px] w-10 -translate-x-1/2 rounded-b-sm bg-[#1a1a1c]" />
+
+                {/* Screen */}
+                <div className="relative overflow-hidden rounded-lg bg-[#0a0a0a]">
+                  {/* Screen "power on" — black overlay fades out */}
+                  <motion.div
+                    className="absolute inset-0 z-10 bg-[#0a0a0a]"
+                    initial={{ opacity: 1 }}
+                    whileInView={{ opacity: 0 }}
+                    transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+                    viewport={{ once: true }}
+                  />
+                  <img
+                    src={src}
+                    alt="BePrime Dashboard"
+                    className="aspect-[16/10] w-full object-cover object-left-top"
+                  />
+                  {/* Shine sweep across screen */}
+                  <motion.div
+                    className="absolute inset-0 z-20 -skew-x-12 bg-gradient-to-r from-transparent via-white/[0.1] to-transparent"
+                    initial={{ x: "-150%" }}
+                    whileInView={{ x: "250%" }}
+                    transition={{
+                      duration: 1,
+                      delay: 1.4,
+                      ease: "easeInOut",
+                    }}
+                    viewport={{ once: true }}
+                  />
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Hinge bar */}
+            <div className="mx-auto h-[3px] w-[94%] bg-gradient-to-b from-[#3a3a3d] to-[#2a2a2d]" />
+            {/* Base body — tapered wedge */}
+            <div className="mx-auto h-[6px] w-[72%] rounded-b-lg bg-gradient-to-b from-[#d1d1d3] to-[#a5a5a8]" />
+
+            {/* Ground shadow */}
+            <motion.div
+              className="mx-auto mt-3 h-3 w-[60%] rounded-full bg-black/[0.08] blur-lg"
+              initial={{ opacity: 0, scaleX: 0.4 }}
+              whileInView={{ opacity: 1, scaleX: 1 }}
+              transition={{ duration: 1.2, delay: 0.5 }}
+              viewport={{ once: true }}
+            />
+          </motion.div>
+        </div>
       </div>
-    </div>
+
+      {/* ====== DESKTOP — scroll animation (md and up, unchanged) ====== */}
+      <div
+        ref={ref}
+        className="hidden min-h-[200vh] shrink-0 transform flex-col items-center justify-start py-80 [perspective:800px] md:flex"
+      >
+        {title && (
+          <motion.h2
+            style={{
+              translateY: textTransform,
+              opacity: textOpacity,
+            }}
+            className="mb-20 text-center text-3xl font-bold text-neutral-800"
+          >
+            {title}
+          </motion.h2>
+        )}
+        {/* Lid */}
+        <Lid
+          src={src}
+          scaleX={scaleX}
+          scaleY={scaleY}
+          rotate={rotate}
+          translate={translate}
+        />
+        {/* Base area */}
+        <div className="relative -z-10 h-[22rem] w-[32rem] overflow-hidden rounded-2xl bg-gray-200">
+          {/* above keyboard bar */}
+          <div className="relative h-10 w-full">
+            <div className="absolute inset-x-0 mx-auto h-4 w-[80%] bg-[#050505]" />
+          </div>
+          <div className="relative flex">
+            <div className="mx-auto h-full w-[10%] overflow-hidden">
+              <SpeakerGrid />
+            </div>
+            <div className="mx-auto h-full w-[80%]">
+              <Keypad />
+            </div>
+            <div className="mx-auto h-full w-[10%] overflow-hidden">
+              <SpeakerGrid />
+            </div>
+          </div>
+          <Trackpad />
+          <div className="absolute inset-x-0 bottom-0 mx-auto h-2 w-20 rounded-tl-3xl rounded-tr-3xl bg-gradient-to-t from-[#272729] to-[#050505]" />
+          {showGradient && (
+            <div className="absolute inset-x-0 bottom-0 z-50 h-40 w-full bg-gradient-to-t from-white via-white to-transparent"></div>
+          )}
+          {badge && <div className="absolute bottom-4 left-4">{badge}</div>}
+        </div>
+      </div>
+    </>
   );
 };
 
