@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { motion, useInView } from "motion/react";
 import { content } from "@/data/content";
 
 function AnimatedCounter({ target, suffix = "", prefix = "", display }) {
@@ -9,7 +10,7 @@ function AnimatedCounter({ target, suffix = "", prefix = "", display }) {
   const hasAnimated = useRef(false);
 
   useEffect(() => {
-    if (display) return; // skip animation for display-only stats
+    if (display) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -40,44 +41,62 @@ function AnimatedCounter({ target, suffix = "", prefix = "", display }) {
   }, [target, display]);
 
   return (
-    <span ref={ref} className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-accent-500 drop-shadow-[0_0_20px_rgba(198,255,0,0.4)]">
+    <span ref={ref} className="font-display text-4xl sm:text-5xl md:text-6xl font-bold bg-gradient-to-br from-accent-500 via-accent-400 to-cyan-accent bg-clip-text text-transparent">
       {display ? display : `${prefix}${count}${suffix}`}
     </span>
   );
 }
 
 const statIcons = [
-  // Retention icon (heart with pulse)
-  <svg key="retention" className="w-8 h-8 text-accent-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>,
-  // Time saving icon (clock)
-  <svg key="time" className="w-8 h-8 text-accent-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>,
-  // Cost saving icon (currency)
-  <svg key="cost" className="w-8 h-8 text-accent-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>,
-  // Speed icon (lightning)
-  <svg key="speed" className="w-8 h-8 text-accent-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>,
+  // Retention (heart)
+  <svg key="r" className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" /></svg>,
+  // Time (clock)
+  <svg key="t" className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>,
+  // Cost (wallet)
+  <svg key="c" className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" /></svg>,
+  // Speed (bolt)
+  <svg key="s" className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg>,
 ];
 
 function StatsStrip() {
   const { stats } = content.statsStrip;
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   return (
-    <section className="w-full bg-gradient-to-r from-primary-700 via-primary-600 to-primary-700 py-16">
-      <div className="m-auto px-4 sm:px-8 md:px-16 xl:px-24 max-w-[90rem]">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+    <section ref={ref} className="relative w-full py-20 overflow-hidden" style={{ background: "linear-gradient(135deg, #0C0C10 0%, #0E0E18 50%, #0C0C10 100%)" }}>
+      {/* Ambient green glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[300px] rounded-full opacity-[0.04]" style={{ background: "radial-gradient(ellipse, #C6FF00, transparent 70%)" }} />
+
+      <div className="relative z-10 m-auto px-4 sm:px-8 md:px-16 xl:px-24 max-w-[90rem]">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
           {stats.map((stat, index) => (
-            <div key={index} className="flex flex-col items-center text-center gap-3 relative">
-              {statIcons[index]}
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: index * 0.12 }}
+              className="group relative flex flex-col items-center text-center gap-4 rounded-2xl p-6 md:p-8 border border-white/[0.05] bg-white/[0.02] hover:border-accent-500/20 hover:bg-white/[0.04] transition-all duration-500"
+            >
+              {/* Icon circle */}
+              <div className="flex items-center justify-center w-14 h-14 rounded-2xl bg-accent-500/10 text-accent-500 group-hover:bg-accent-500/15 transition-colors duration-300">
+                {statIcons[index]}
+              </div>
+
+              {/* Number */}
               <AnimatedCounter
                 target={stat.value}
                 suffix={stat.suffix}
                 prefix={stat.prefix || ""}
                 display={stat.display}
               />
-              <p className="text-primary-50 text-sm md:text-base">{stat.label}</p>
-              {index < stats.length - 1 && (
-                <div className="hidden md:block absolute left-0 top-1/2 -translate-y-1/2 w-px h-16 bg-primary-400/30" />
-              )}
-            </div>
+
+              {/* Label */}
+              <p className="text-[#7B7B8E] text-sm md:text-base group-hover:text-[#9B9BAE] transition-colors duration-300">{stat.label}</p>
+
+              {/* Subtle top glow on hover */}
+              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style={{ background: "radial-gradient(ellipse at top, rgba(198, 255, 0, 0.03), transparent 60%)" }} />
+            </motion.div>
           ))}
         </div>
       </div>
