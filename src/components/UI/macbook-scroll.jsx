@@ -473,24 +473,24 @@ export const Keypad = () => {
             <span className="block">option</span>
           </div>
         </KBtn>
-        <div className="mt-[2px] grid w-[4.9rem] grid-cols-3 grid-rows-2 gap-[2px] rounded-[4px] p-[0.5px]">
+        <div className="mt-[2px] grid h-6 w-[4.9rem] grid-cols-3 grid-rows-2 gap-[2px] rounded-[4px] p-[0.5px]">
           <div className="col-start-2 row-start-1">
-            <KBtn className="!h-6 !w-6">
+            <KBtn className="!h-3 !w-6">
               <IconCaretUpFilled className="h-[6px] w-[6px]" />
             </KBtn>
           </div>
           <div className="col-start-1 row-start-2">
-            <KBtn className="!h-6 !w-6">
+            <KBtn className="!h-3 !w-6">
               <IconCaretLeftFilled className="h-[6px] w-[6px]" />
             </KBtn>
           </div>
           <div className="col-start-2 row-start-2">
-            <KBtn className="!h-6 !w-6">
+            <KBtn className="!h-3 !w-6">
               <IconCaretDownFilled className="h-[6px] w-[6px]" />
             </KBtn>
           </div>
           <div className="col-start-3 row-start-2">
-            <KBtn className="!h-6 !w-6">
+            <KBtn className="!h-3 !w-6">
               <IconCaretRightFilled className="h-[6px] w-[6px]" />
             </KBtn>
           </div>
