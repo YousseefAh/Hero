@@ -23,7 +23,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="ar" dir="rtl">
+    <html lang="ar" dir="rtl" suppressHydrationWarning>
       <body
         className={`${notoKufi.variable} ${spaceGrotesk.variable} font-sans`}
         suppressHydrationWarning
