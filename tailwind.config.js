@@ -39,6 +39,11 @@ module.exports = {
 
         "white-shade": "#F6F6F6",
       },
+      boxShadow: {
+        "glow-green": "0 0 20px rgba(198, 255, 0, 0.3), 0 0 60px rgba(198, 255, 0, 0.1)",
+        "glow-blue": "0 0 20px rgba(67, 97, 238, 0.3), 0 0 60px rgba(67, 97, 238, 0.1)",
+        "glow-mixed": "0 0 20px rgba(198, 255, 0, 0.2), 0 0 40px rgba(67, 97, 238, 0.15)",
+      },
       keyframes: {
         "translate-x-reverse": {
           from: { transform: "translateX(0%)" },
@@ -53,12 +58,22 @@ module.exports = {
           from: { "--num": "0" },
           to: { "--num": "var(--target)" },
         },
+        "pulse-glow": {
+          "0%, 100%": { boxShadow: "0 0 20px rgba(198, 255, 0, 0.3)" },
+          "50%": { boxShadow: "0 0 40px rgba(198, 255, 0, 0.5), 0 0 80px rgba(198, 255, 0, 0.2)" },
+        },
+        shimmer: {
+          "0%": { backgroundPosition: "-200% 0" },
+          "100%": { backgroundPosition: "200% 0" },
+        },
       },
       animation: {
         "translate-x-reverse": "translate-x-reverse 50s linear infinite",
         "translate-x-reverse-slowed": "translate-x-reverse 30s linear infinite",
         "float-slow": "float-slow 20s ease-in-out infinite",
         "float-slower": "float-slow 25s ease-in-out infinite",
+        "pulse-glow": "pulse-glow 3s ease-in-out infinite",
+        shimmer: "shimmer 3s ease-in-out infinite",
       },
       fontFamily: {
         sans: ["var(--font-noto-kufi)"],

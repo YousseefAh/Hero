@@ -460,7 +460,7 @@ export const content = {
       { value: 85, suffix: "%+", label: "نسبة استبقاء العملاء" },
       { value: 70, suffix: "%", label: "توفير في الوقت الإداري" },
       { value: 80, suffix: "%", label: "توفير في التكاليف" },
-      { value: 24, suffix: " ساعة>", label: "وقت التشغيل الكامل", prefix: "<" }
+      { value: 24, suffix: " ساعة>", label: "وقت التشغيل الكامل", prefix: "<", display: "أقل من ٢٤ ساعة" }
     ]
   },
 
