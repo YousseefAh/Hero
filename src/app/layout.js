@@ -25,7 +25,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="ar" dir="rtl" suppressHydrationWarning>
       <body
-        className={`${notoKufi.variable} ${spaceGrotesk.variable} font-sans`}
+        className={`${notoKufi.variable} ${spaceGrotesk.variable} font-sans overflow-x-hidden`}
         suppressHydrationWarning
       >
         {children}
