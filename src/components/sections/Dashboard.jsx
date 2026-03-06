@@ -99,9 +99,11 @@ function Dashboard() {
               className="block w-full h-full object-contain rounded-lg"
             />
             <div className="absolute inset-0 flex items-center justify-center rounded-lg">
-              <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 24 24" fill="white">
-                <path d="M8 5v14l11-7z" />
-              </svg>
+              <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-accent-500/90 backdrop-blur-sm shadow-glow-green flex items-center justify-center hover:scale-110 transition-transform duration-300 animate-pulse-glow">
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-8 h-8 md:w-10 md:h-10" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8 5v14l11-7z" className="fill-primary-800" />
+                </svg>
+              </div>
             </div>
           </>
         )}

@@ -35,7 +35,7 @@ function Features() {
         <ul className="flex flex-col items-center gap-y-12 sm:grid sm:justify-items-start sm:gap-x-8 md:gap-y-20 sm:grid-cols-2 sm:grid-rows-2">
           {list.map((feature) => (
             <li
-              className="w-[80%] xl:w-5/6 text-center sm:text-start tracking-tight"
+              className="w-[80%] xl:w-5/6 text-center sm:text-right tracking-tight hover:bg-accent-500/5 rounded-xl p-4 transition-colors"
               key={feature.id}
             >
               <Image

@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "motion/react";
 
 function FAQItem({ question, answer, isOpen, onToggle }) {
   return (
-    <div className="border-b border-primary-500/10">
+    <div className={`border-b border-primary-500/10 transition-all duration-300 ${isOpen ? 'border-r-4 border-r-accent-500' : ''}`}>
       <button
         onClick={onToggle}
         className="w-full flex items-center justify-between py-6 text-right"

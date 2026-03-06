@@ -21,7 +21,7 @@ function BeforeAfter() {
           initial={{ opacity: 0, x: 50 }}
           animate={isInView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="bg-primary-500/5 border border-red-200/30 rounded-2xl p-8"
+          className="bg-red-50 border border-red-300/40 rounded-2xl p-8 shadow-lg"
         >
           <h3 className="text-xl font-bold text-red-400 mb-6 text-right">{before.heading}</h3>
           <ul className="space-y-4">
@@ -47,7 +47,7 @@ function BeforeAfter() {
           initial={{ opacity: 0, x: -50 }}
           animate={isInView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="bg-accent-500/5 border border-accent-500/20 rounded-2xl p-8"
+          className="bg-accent-500/5 border border-accent-500/30 rounded-2xl p-8 shadow-lg"
         >
           <h3 className="text-xl font-bold text-accent-500 mb-6 text-right">{after.heading}</h3>
           <ul className="space-y-4">

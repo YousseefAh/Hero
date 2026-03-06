@@ -3,10 +3,10 @@ import Image from "next/image";
 
 function Testimonial({ testimonial }) {
   return (
-    <figure className="inline-block bg-white-shade mx-2 lg:mx-4 px-6 lg:px-8 py-6 lg:py-8 rounded-xl w-96">
+    <figure className="inline-block bg-white-shade mx-2 lg:mx-4 px-6 lg:px-8 py-6 lg:py-8 rounded-xl w-96 shadow-md">
       <blockquote className="text-wrap">
         <div className="flex justify-between items-start mb-2">
-          <TfiQuoteLeft className="w-12 lg:w-14 h-12 lg:h-14 text-accent-500 overflow-visible stroke-[.02rem]" />
+          <TfiQuoteLeft className="w-12 lg:w-14 h-12 lg:h-14 text-accent-500 overflow-visible" />
           <p className="bg-accent-500 px-3 py-1 rounded-md font-medium text-primary-800 text-sm tracking-tight">
             {testimonial.program}
           </p>
