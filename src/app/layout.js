@@ -1,6 +1,5 @@
 import { Poppins } from "next/font/google";
 import "./globals.css";
-import StagewiseToolbarWrapper from "../components/layout/StagewiseToolbarWrapper";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -23,7 +22,6 @@ export default function RootLayout({ children }) {
         className={`${poppins.variable} font-sans`}
         suppressHydrationWarning
       >
-        <StagewiseToolbarWrapper />
         {children}
       </body>
     </html>

@@ -1,6 +1,7 @@
+"use client";
+
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import emailjs from '@emailjs/browser';
 import { UseModalContext } from "@/contexts/ModalContext";
 
 function CustomAlert({ message, type, onClose }) {
@@ -44,7 +45,10 @@ function MoreInformation() {
   };
 
   useEffect(() => {
-    emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY);
+    if (typeof window === "undefined") return;
+    import("@emailjs/browser").then(({ default: emailjs }) => {
+      emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY);
+    });
   }, []);
 
   const [inputs, setInputs] = useState({
@@ -72,6 +76,7 @@ function MoreInformation() {
     
     setLoading(true);
     try {
+      const { default: emailjs } = await import("@emailjs/browser");
       await emailjs.send(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
         process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
