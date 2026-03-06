@@ -12,7 +12,14 @@ function BeforeAfter() {
   return (
     <section ref={ref} className="m-auto px-4 sm:px-8 md:px-16 xl:px-24 py-16 max-w-[90rem]">
       <h2 className="text-center font-bold text-[2rem]/[2.5rem] text-primary-500 md:text-5xl xl:text-[3.5rem]/[4rem] tracking-tight mb-12">
-        {title}
+        قبل{" "}
+        <span className="underline underline-offset-2 decoration-8 decoration-accent-500">
+          BEPRIME
+        </span>{" "}
+        vs بعد{" "}
+        <span className="underline underline-offset-2 decoration-8 decoration-accent-500">
+          BEPRIME
+        </span>
       </h2>
 
       <div className="grid md:grid-cols-2 gap-8">
