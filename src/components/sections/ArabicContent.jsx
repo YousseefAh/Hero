@@ -38,7 +38,7 @@ function FeatureCard({ item, index, isInView }) {
       transition={{ duration: 0.5, delay: index * 0.08 }}
       className={`group relative rounded-2xl p-6 md:p-8 transition-all duration-500 border ${
         isLast
-          ? "md:col-span-2 bg-gradient-to-br from-accent-500/10 via-accent-500/5 to-blue-accent/10 border-accent-500/20 hover:border-accent-500/40 hover:shadow-[0_0_40px_rgba(198,255,0,0.08)]"
+          ? "bg-gradient-to-br from-accent-500/10 via-accent-500/5 to-blue-accent/10 border-accent-500/20 hover:border-accent-500/40 hover:shadow-[0_0_40px_rgba(198,255,0,0.08)]"
           : "bg-white/[0.03] border-white/[0.06] hover:border-accent-500/30 hover:bg-white/[0.05] hover:shadow-[0_0_40px_rgba(198,255,0,0.05)]"
       }`}
     >
