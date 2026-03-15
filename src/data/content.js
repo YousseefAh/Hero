@@ -514,6 +514,7 @@ export const content = {
         cta: "كلمنا"
       }
     ],
+    // Default slider data (used by most plans)
     priceData: [
       { clients: 10, price: 500 },
       { clients: 25, price: 600 },
@@ -527,6 +528,17 @@ export const content = {
       { clients: 400, price: 4000 },
       { clients: 500, price: 5000 },
       { clients: 1000, price: 8000 }
-    ]
+    ],
+    // Custom slider data per program
+    priceDataByProgram: {
+      "المدرب الطموح": [
+        { clients: 150, price: 2000 },
+        { clients: 200, price: 3000 },
+        { clients: 250, price: 4000 },
+        { clients: 300, price: 5000 },
+        { clients: 400, price: 5500 },
+        { clients: 500, price: 6000 }
+      ]
+    }
   },
 };

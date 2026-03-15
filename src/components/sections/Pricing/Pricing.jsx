@@ -9,7 +9,8 @@ import { content } from "@/data/content";
 function Pricing() {
   const [paymentPlan, setPaymentPlan] = useState("monthly");
 
-  const { priceData, currency, priceGuarantee } = content.pricing;
+  const { priceData, priceDataByProgram, currency, priceGuarantee } =
+    content.pricing;
 
   const [planSliders, setPlanSliders] = useState({
     "بداية المشوار": 0,
@@ -50,19 +51,24 @@ function Pricing() {
         </div>
 
         <div className="gap-x-4 gap-y-4 grid grid-cols-1 pricing-break:grid-cols-2 xl:grid-cols-[32fr_34fr_32fr] my-10 lg:w-4/5 pricing-break:w-full xl:w-full">
-          {pricingCards.map((card) => (
-            <PricingCard
-              card={card}
-              key={card.program}
-              paymentPlan={paymentPlan}
-              sliderValue={planSliders[card.program]}
-              onSliderChange={(value) =>
-                handlePlanSliderChange(card.program, value)
-              }
-              priceData={priceData}
-              currency={currency}
-            />
-          ))}
+          {pricingCards.map((card) => {
+            const cardPriceData =
+              priceDataByProgram[card.program] || priceData;
+
+            return (
+              <PricingCard
+                card={card}
+                key={card.program}
+                paymentPlan={paymentPlan}
+                sliderValue={planSliders[card.program]}
+                onSliderChange={(value) =>
+                  handlePlanSliderChange(card.program, value)
+                }
+                priceData={cardPriceData}
+                currency={currency}
+              />
+            );
+          })}
         </div>
       </div>
     </section>
