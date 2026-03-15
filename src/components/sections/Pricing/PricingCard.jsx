@@ -36,9 +36,13 @@ function PricingCard({
 
   const isStarter = card.program === "بداية المشوار";
 
+  const maxIndex = priceData ? priceData.length - 1 : 0;
+  const clampedValue =
+    maxIndex >= 0 ? Math.max(0, Math.min(sliderValue, maxIndex)) : 0;
+
   const currentPoint =
     !isStarter && priceData
-      ? priceData[sliderValue] || priceData[0]
+      ? priceData[clampedValue] || priceData[0]
       : null;
 
   const basePrice =
@@ -82,8 +86,8 @@ function PricingCard({
               الأكثر شعبية
             </p>
           </div>
-          <div className="right-[-20%] absolute bg-gradient-to-r from-accent-500/20 to-transparent blur-2xl rounded-[50%] w-[30rem] h-28 -rotate-45" />
-          <div className="top-[30%] right-[30%] absolute bg-gradient-to-r from-blue-accent/20 to-transparent blur-2xl rounded-[50%] w-[30rem] h-28 -rotate-45" />
+          <div className="right-[-20%] absolute bg-gradient-to-r from-accent-500/20 to-transparent blur-2xl rounded-[50%] w-[30rem] h-28 -rotate-45 pointer-events-none" />
+          <div className="top-[30%] right-[30%] absolute bg-gradient-to-r from-blue-accent/20 to-transparent blur-2xl rounded-[50%] w-[30rem] h-28 -rotate-45 pointer-events-none" />
         </>
       )}
 
@@ -102,7 +106,7 @@ function PricingCard({
             type="range"
             min={0}
             max={priceData.length - 1}
-            value={sliderValue}
+            value={clampedValue}
             onChange={(e) => onSliderChange(Number(e.target.value))}
             className="w-full h-2 rounded-full appearance-none cursor-pointer bg-gradient-to-l from-accent-500 via-accent-500/60 to-blue-accent [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-accent-500 [&::-webkit-slider-thumb]:shadow-[0_0_10px_rgba(198,255,0,0.5)] [&::-webkit-slider-thumb]:cursor-pointer"
           />
