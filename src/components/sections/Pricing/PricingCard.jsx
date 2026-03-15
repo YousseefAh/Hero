@@ -4,7 +4,14 @@ import { useState } from "react";
 import { CiCircleCheck } from "react-icons/ci";
 import { motion } from "motion/react";
 
-function PricingCard({ card, paymentPlan }) {
+function PricingCard({
+  card,
+  paymentPlan,
+  sliderValue,
+  onSliderChange,
+  priceData,
+  currency,
+}) {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
 
@@ -27,10 +34,20 @@ function PricingCard({ card, paymentPlan }) {
       : "",
   };
 
-  const price =
+  const isStarter = card.program === "بداية المشوار";
+
+  const currentPoint =
+    !isStarter && priceData ? priceData[sliderValue] || priceData[0] : null;
+
+  const basePrice =
     card.price[paymentPlan] === "Free"
       ? card.price[paymentPlan]
       : `${card.price[paymentPlan]}`;
+
+  const price =
+    card.price[paymentPlan] === "Free" || isStarter || !currentPoint
+      ? basePrice
+      : currentPoint.price.toLocaleString();
 
   const paymentPlanText =
     card.price[paymentPlan] === "Free"
@@ -71,12 +88,30 @@ function PricingCard({ card, paymentPlan }) {
       <p className="opacity-80 mb-12 px-6 py-2 border rounded-2xl max-w-min text-sm text-white whitespace-nowrap">
         {card.program}
       </p>
+      {!isStarter && currentPoint && (
+        <div className="mb-4">
+          <div className="flex justify-between items-center mb-2">
+            <span className="text-primary-50 text-xs">عدد العملاء</span>
+            <span className="font-display font-semibold text-accent-500 text-sm">
+              {currentPoint.clients} عميل
+            </span>
+          </div>
+          <input
+            type="range"
+            min={0}
+            max={priceData.length - 1}
+            value={sliderValue}
+            onChange={(e) => onSliderChange(Number(e.target.value))}
+            className="w-full h-2 rounded-full appearance-none cursor-pointer bg-gradient-to-l from-accent-500 via-accent-500/60 to-blue-accent [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-accent-500 [&::-webkit-slider-thumb]:shadow-[0_0_10px_rgba(198,255,0,0.5)] [&::-webkit-slider-thumb]:cursor-pointer"
+          />
+        </div>
+      )}
       <div className="flex items-end gap-x-2 mb-2">
         <p className="font-display font-bold text-4xl text-white md:text-5xl xl:text-[3.5rem]/[4rem] tracking-tight">
           {price}
         </p>
         <span className="opacity-50 mb-1 xl:mb-2 text-white">
-          {paymentPlanText}
+          {paymentPlanText || currency}
         </span>
       </div>
       <p className="text-white">{card.subheading}</p>

@@ -8,15 +8,25 @@ import { content } from "@/data/content";
 
 function Pricing() {
   const [paymentPlan, setPaymentPlan] = useState("monthly");
-  const [sliderValue, setSliderValue] = useState(4);
 
   const { priceData, currency, priceGuarantee } = content.pricing;
+
+  const [planSliders, setPlanSliders] = useState({
+    "بداية المشوار": 0,
+    "المدرب الطموح": 4,
+    "أسماك القرش": 8,
+  });
 
   function handlePaymentPlanChange() {
     setPaymentPlan((plan) => (plan === "monthly" ? "annual" : "monthly"));
   }
 
-  const currentPricePoint = priceData[sliderValue] || priceData[0];
+  function handlePlanSliderChange(program, value) {
+    setPlanSliders((prev) => ({
+      ...prev,
+      [program]: value,
+    }));
+  }
 
   return (
     <section className="m-auto px-4 sm:px-8 md:px-16 xl:px-24 py-8 max-w-[90rem]">
@@ -25,30 +35,10 @@ function Pricing() {
           ابدأ النهاردة<span className="text-accent-500">.</span>
         </h2>
 
-        {/* Client slider */}
-        <div className="w-full max-w-md mb-8">
-          <div className="flex justify-between items-center mb-4">
-            <span className="text-primary-200 text-sm">عدد العملاء</span>
-            <span className="font-display font-bold text-2xl text-accent-500">
-              {currentPricePoint.clients} عميل
-            </span>
-          </div>
-          <input
-            type="range"
-            min={0}
-            max={priceData.length - 1}
-            value={sliderValue}
-            onChange={(e) => setSliderValue(Number(e.target.value))}
-            className="w-full h-2 rounded-full appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-6 [&::-webkit-slider-thumb]:h-6 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-accent-500 [&::-webkit-slider-thumb]:shadow-[0_0_10px_rgba(198,255,0,0.5)] [&::-webkit-slider-thumb]:cursor-pointer"
-          />
-          <div className="flex justify-between items-center mt-4">
-            <span className="text-primary-200 text-sm">السعر الشهري</span>
-            <span className="font-display font-bold text-3xl text-primary-500">
-              {currentPricePoint.price.toLocaleString()} <span className="text-lg">{currency}</span>
-            </span>
-          </div>
-          <p className="text-center text-accent-500 text-sm mt-2 font-medium">{priceGuarantee}</p>
-        </div>
+        {/* Guarantee text kept under heading now that sliders moved into cards */}
+        <p className="text-center text-accent-500 text-sm mt-2 font-medium">
+          {priceGuarantee}
+        </p>
 
         <div className="flex items-center gap-x-4">
           <p className="text-primary-500 xl:text-lg tracking-tight">سنوي</p>
@@ -65,6 +55,12 @@ function Pricing() {
               card={card}
               key={card.program}
               paymentPlan={paymentPlan}
+              sliderValue={planSliders[card.program]}
+              onSliderChange={(value) =>
+                handlePlanSliderChange(card.program, value)
+              }
+              priceData={priceData}
+              currency={currency}
             />
           ))}
         </div>
