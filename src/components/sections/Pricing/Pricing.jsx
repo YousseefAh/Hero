@@ -51,12 +51,12 @@ function Pricing() {
         </div>
 
         <div className="flex items-center gap-x-4">
-          <p className="text-primary-500 xl:text-lg tracking-tight">شهري</p>
+          <p className="text-primary-500 xl:text-lg tracking-tight">سنوي</p>
           <Toggle
             handleToggle={handlePaymentPlanChange}
             toggleLabel="التبديل بين الخطط الشهرية والسنوية"
           />
-          <p className="text-primary-500 xl:text-lg tracking-tight">سنوي</p>
+          <p className="text-primary-500 xl:text-lg tracking-tight">شهري</p>
         </div>
 
         <div className="gap-x-4 gap-y-4 grid grid-cols-1 pricing-break:grid-cols-2 xl:grid-cols-[32fr_34fr_32fr] my-10 lg:w-4/5 pricing-break:w-full xl:w-full">
