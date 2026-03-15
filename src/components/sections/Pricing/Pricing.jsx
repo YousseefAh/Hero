@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Toggle from "../../UI/Toggle";
+// import Toggle from "../../UI/Toggle"; // unused while سنوي is commented out
 import PricingCard from "./PricingCard";
 import { pricingCards } from "../../../utils/constants";
 import { content } from "@/data/content";
@@ -18,9 +18,9 @@ function Pricing() {
     "أسماك القرش": 8,
   });
 
-  function handlePaymentPlanChange() {
-    setPaymentPlan((plan) => (plan === "monthly" ? "annual" : "monthly"));
-  }
+  // function handlePaymentPlanChange() {
+  //   setPaymentPlan((plan) => (plan === "monthly" ? "annual" : "monthly"));
+  // }
 
   function handlePlanSliderChange(program, value) {
     setPlanSliders((prev) => ({
@@ -41,12 +41,13 @@ function Pricing() {
           {priceGuarantee}
         </p>
 
+        {/* سنوي (annual) commented out – pricing is monthly only */}
         <div className="flex items-center gap-x-4">
-          <p className="text-primary-500 xl:text-lg tracking-tight">سنوي</p>
+          {/* <p className="text-primary-500 xl:text-lg tracking-tight">سنوي</p>
           <Toggle
             handleToggle={handlePaymentPlanChange}
             toggleLabel="التبديل بين الخطط الشهرية والسنوية"
-          />
+          /> */}
           <p className="text-primary-500 xl:text-lg tracking-tight">شهري</p>
         </div>
 
