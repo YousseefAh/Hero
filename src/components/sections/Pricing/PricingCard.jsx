@@ -14,8 +14,10 @@ function PricingCard({
 }) {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
+  const [isPointerOnSlider, setIsPointerOnSlider] = useState(false);
 
   const handleMouseMove = (event) => {
+    if (isPointerOnSlider) return;
     const { clientX, clientY } = event;
     const rect = event.currentTarget.getBoundingClientRect();
     const x = (clientX - (rect.left + rect.width / 2)) / 25;
@@ -83,7 +85,7 @@ function PricingCard({
         setMousePosition({ x: 0, y: 0 });
       }}
       style={{
-        transform: isHovering
+        transform: isHovering && !isPointerOnSlider
           ? `perspective(1000px) rotateX(${-mousePosition.y}deg) rotateY(${mousePosition.x}deg) scale3d(1.02, 1.02, 1)`
           : "perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)",
         transition: "transform 0.15s ease-out",
@@ -107,7 +109,11 @@ function PricingCard({
         {card.program}
       </p>
       {!isStarter && currentPoint && (
-        <div className="mb-4">
+        <div
+          className="mb-4"
+          onMouseEnter={() => setIsPointerOnSlider(true)}
+          onMouseLeave={() => setIsPointerOnSlider(false)}
+        >
           <div className="flex justify-between items-center mb-2">
             <span className="text-primary-50 text-xs">عدد العملاء</span>
             <span className="font-display font-semibold text-accent-500 text-sm">
