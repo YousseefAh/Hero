@@ -14,7 +14,7 @@ function Pricing() {
 
   const [planSliders, setPlanSliders] = useState({
     "بداية المشوار": 0,
-    "المدرب الطموح": 4,
+    "المدرب الطموح": 2,
     "أسماك القرش": 8,
   });
 

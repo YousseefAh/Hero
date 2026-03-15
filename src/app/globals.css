@@ -42,10 +42,10 @@ input[type="range"]::-moz-range-track {
   height: 0.5rem;
 }
 
-/* Custom scrollbar */
+/* Hide scrollbars globally while keeping scroll functional */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 0;
+  height: 0;
 }
 
 ::-webkit-scrollbar-track {
@@ -53,10 +53,15 @@ input[type="range"]::-moz-range-track {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(198, 255, 0, 0.3);
+  background: transparent;
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(198, 255, 0, 0.5);
+  background: transparent;
+}
+
+/* Firefox */
+html {
+  scrollbar-width: none;
 }

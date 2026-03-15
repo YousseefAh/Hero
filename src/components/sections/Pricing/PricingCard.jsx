@@ -37,7 +37,9 @@ function PricingCard({
   const isStarter = card.program === "بداية المشوار";
 
   const currentPoint =
-    !isStarter && priceData ? priceData[sliderValue] || priceData[0] : null;
+    !isStarter && priceData
+      ? priceData[sliderValue] || priceData[0]
+      : null;
 
   const basePrice =
     card.price[paymentPlan] === "Free"

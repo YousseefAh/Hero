@@ -537,6 +537,14 @@ export const content = {
         { clients: 5000, price: 9000 },
         { clients: 10000, price: 15000 },
         { clients: 20000, price: 20000 }
+      ],
+      "المدرب الطموح": [
+        { clients: 150, price: 200 },
+        { clients: 200, price: 4000 },
+        { clients: 250, price: 4000 },
+        { clients: 300, price: 5000 },
+        { clients: 400, price: 5500 },
+        { clients: 500, price: 6000 }
       ]
     }
   },
