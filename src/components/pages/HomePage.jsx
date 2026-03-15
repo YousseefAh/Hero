@@ -62,7 +62,7 @@ export default function HomePage() {
           <ContinuousShowcase />
           <BeforeAfter />
           <section id="pricing"><Pricing /></section>
-          <Testimonials />
+          {/* <Testimonials /> */}
           <FAQ />
           <section id="cta"><CTA /></section>
         </Main>

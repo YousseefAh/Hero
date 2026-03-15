@@ -458,9 +458,9 @@ export const content = {
   statsStrip: {
     stats: [
       { value: 85, suffix: "%+", label: "نسبة استبقاء العملاء" },
-      { value: 70, suffix: "%", label: "توفير في الوقت الإداري" },
+      { value: 70, suffix: "%", label: "من وقتك بيرجع ليك كل يوم" },
       { value: 80, suffix: "%", label: "توفير في التكاليف" },
-      { value: 24, suffix: " ساعة>", label: "وقت التشغيل الكامل", prefix: "<", display: "أقل من ٢٤ ساعة" }
+      { value: 24, suffix: " ساعة>", label: "من قرارك لأول عميل", prefix: "<", display: "أقل من ٢٤ ساعة" }
     ]
   },
 

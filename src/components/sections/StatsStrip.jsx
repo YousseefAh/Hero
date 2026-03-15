@@ -41,7 +41,11 @@ function AnimatedCounter({ target, suffix = "", prefix = "", display }) {
   }, [target, display]);
 
   return (
-    <span ref={ref} className="font-display text-4xl sm:text-5xl md:text-6xl font-bold bg-gradient-to-br from-accent-500 via-accent-400 to-cyan-accent bg-clip-text text-transparent">
+    <span ref={ref} className={`font-display font-bold bg-gradient-to-br from-accent-500 via-accent-400 to-cyan-accent bg-clip-text text-transparent leading-tight ${
+      display
+        ? "text-xl sm:text-2xl md:text-2xl"
+        : "text-4xl sm:text-5xl md:text-6xl"
+    }`}>
       {display ? display : `${prefix}${count}${suffix}`}
     </span>
   );
