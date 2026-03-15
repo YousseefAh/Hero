@@ -531,13 +531,12 @@ export const content = {
     ],
     // Custom slider data per program
     priceDataByProgram: {
-      "المدرب الطموح": [
-        { clients: 150, price: 2000 },
-        { clients: 200, price: 3000 },
-        { clients: 250, price: 4000 },
-        { clients: 300, price: 5000 },
-        { clients: 400, price: 5500 },
-        { clients: 500, price: 6000 }
+      "أسماك القرش": [
+        { clients: 1000, price: 7000 },
+        { clients: 2500, price: 8000 },
+        { clients: 5000, price: 9000 },
+        { clients: 10000, price: 15000 },
+        { clients: 20000, price: 20000 }
       ]
     }
   },
