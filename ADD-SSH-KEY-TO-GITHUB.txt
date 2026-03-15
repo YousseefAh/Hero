@@ -1,0 +1,22 @@
+========================================
+ADD THIS SSH KEY TO GITHUB (one-time)
+========================================
+
+1. You should have a browser tab open: https://github.com/settings/ssh/new
+   (If not, open that URL while logged in as YousseefAh.)
+
+2. Title: Hero-Push (or any name)
+
+3. Key type: Authentication Key
+
+4. Key — paste this entire line (it's already in your clipboard):
+
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEbQPHeQBOYF9cIp67jWldPcuLI8lvtPH+H79FVik93W yousseef.ah@gmail.com
+
+5. Click "Add SSH key".
+
+6. Then in terminal run:  git push origin main
+
+========================================
+Done? Delete this file: ADD-SSH-KEY-TO-GITHUB.txt
+========================================
