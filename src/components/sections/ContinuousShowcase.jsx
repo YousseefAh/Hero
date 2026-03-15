@@ -1,49 +1,44 @@
 'use client';
 
-import { useEffect } from 'react';
 import { content } from '@/data/content';
-import Image from 'next/image';
-import Swiper from 'swiper';
-import { Autoplay } from 'swiper/modules';
-import 'swiper/css';
 
 const ContinuousShowcase = () => {
-  const { title, description, images: showcaseImages } = content.continuousShowcase;
+  const { title, description } = content.continuousShowcase;
 
-  useEffect(() => {
-    const swiper = new Swiper('.continuous-showcase-swiper', {
-      modules: [Autoplay],
-      slidesPerView: 'auto',
-      spaceBetween: 30,
-      speed: 10000,
-      autoplay: {
-        delay: 1,
-        disableOnInteraction: false,
-      },
-      loop: true,
-      loopAdditionalSlides: 4,
-      allowTouchMove: false,
-      grabCursor: false,
-      watchSlidesProgress: true,
-      freeMode: {
-        enabled: true,
-        momentum: false,
-      },
-      slideToClickedSlide: false,
-      preventInteractionOnTransition: true,
-      updateOnWindowResize: true,
-      observer: true,
-      observeParents: true
-    });
-
-    return () => {
-      if (swiper) swiper.destroy();
-    };
-  }, []);
+  // Photo carousel commented out – keeping only title and description
+  // useEffect(() => {
+  //   const swiper = new Swiper('.continuous-showcase-swiper', {
+  //     modules: [Autoplay],
+  //     slidesPerView: 'auto',
+  //     spaceBetween: 30,
+  //     speed: 10000,
+  //     autoplay: {
+  //       delay: 1,
+  //       disableOnInteraction: false,
+  //     },
+  //     loop: true,
+  //     loopAdditionalSlides: 4,
+  //     allowTouchMove: false,
+  //     grabCursor: false,
+  //     watchSlidesProgress: true,
+  //     freeMode: {
+  //       enabled: true,
+  //       momentum: false,
+  //     },
+  //     slideToClickedSlide: false,
+  //     preventInteractionOnTransition: true,
+  //     updateOnWindowResize: true,
+  //     observer: true,
+  //     observeParents: true
+  //   });
+  //   return () => {
+  //     if (swiper) swiper.destroy();
+  //   };
+  // }, []);
 
   return (
-    <section className="w-full bg-gradient-to-b from-primary-700 via-primary-600 to-primary-700 min-h-screen flex flex-col items-center justify-center relative overflow-x-hidden">
-      <div className="container mx-auto px-4 pt-20">
+    <section className="w-full bg-gradient-to-b from-primary-700 via-primary-600 to-primary-700 py-20 flex flex-col items-center justify-center relative overflow-x-hidden">
+      <div className="container mx-auto px-4">
         <h2 className="text-center text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-6">
           {title}
         </h2>
@@ -51,23 +46,24 @@ const ContinuousShowcase = () => {
           {description}
         </p>
       </div>
-      
+
+      {/* Photo carousel commented out
       <div className="continuous-showcase-swiper w-full">
         <div className="swiper-wrapper">
           {[...showcaseImages, ...showcaseImages, ...showcaseImages].map((image, index) => (
-            <div 
-              key={index} 
+            <div
+              key={index}
               className="swiper-slide w-[200px] sm:w-[250px] md:w-[320px] lg:w-[400px] xl:w-[450px] aspect-video rounded-lg md:rounded-2xl overflow-hidden bg-primary-500 transition-all duration-300"
             >
               <div className="relative h-full w-full group">
                 {image.isLocal ? (
-                  <img 
+                  <img
                     src={image.url}
                     alt={image.title}
                     className="w-full h-full object-cover object-center"
                   />
                 ) : (
-                  <img 
+                  <img
                     src={image.url}
                     alt={image.title}
                     className="w-full h-full object-cover object-center"
@@ -89,6 +85,7 @@ const ContinuousShowcase = () => {
           ))}
         </div>
       </div>
+      */}
     </section>
   );
 };
