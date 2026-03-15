@@ -35,6 +35,8 @@ function PricingCard({
   };
 
   const isStarter = card.program === "بداية المشوار";
+  const isSharks = card.program === "أسماك القرش";
+  const isAmbitious = card.program === "المدرب الطموح";
 
   const maxIndex = priceData ? priceData.length - 1 : 0;
   const clampedValue =
@@ -50,10 +52,20 @@ function PricingCard({
       ? card.price[paymentPlan]
       : `${card.price[paymentPlan]}`;
 
+  let effectivePrice = currentPoint?.price ?? null;
+
+  if (
+    effectivePrice != null &&
+    paymentPlan === "annual" &&
+    (isSharks || isAmbitious)
+  ) {
+    effectivePrice = effectivePrice * 12;
+  }
+
   const price =
     card.price[paymentPlan] === "Free" || isStarter || !currentPoint
       ? basePrice
-      : currentPoint.price.toLocaleString();
+      : effectivePrice.toLocaleString();
 
   const paymentPlanText =
     card.price[paymentPlan] === "Free"
