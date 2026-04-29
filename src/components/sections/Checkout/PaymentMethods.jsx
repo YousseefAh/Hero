@@ -74,7 +74,7 @@ function InstaPayIcon() {
 export default function PaymentMethods() {
   const { checkout, setPaymentMethod, confirmPayment } = useCheckout();
   const { payment, plan } = checkout;
-  const [agreedToPolicy, setAgreedToPolicy] = useState(false);
+  const [agreedToPolicy, setAgreedToPolicy] = useState(true);
 
   const methods = Object.values(PAYMENT_METHODS);
 
