@@ -3,10 +3,12 @@
 import { useState } from "react";
 import { CiCircleCheck } from "react-icons/ci";
 import { motion } from "motion/react";
+import { useCheckout } from "@/contexts/CheckoutContext";
 
 function PricingCard({ card, paymentPlan }) {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
+  const { startCheckout } = useCheckout();
 
   const handleMouseMove = (event) => {
     const { clientX, clientY } = event;
@@ -38,6 +40,16 @@ function PricingCard({ card, paymentPlan }) {
       : paymentPlan === "monthly"
         ? "ج.م / شهريًا"
         : "ج.م / سنويًا";
+
+  const handleCTA = () => {
+    startCheckout({
+      name: card.program,
+      price: card.price[paymentPlan],
+      billingCycle: paymentPlan,
+      features: card.bullets,
+      subheading: card.subheading,
+    });
+  };
 
   return (
     <motion.div
@@ -92,6 +104,7 @@ function PricingCard({ card, paymentPlan }) {
       </ul>
       <div className={pclass.ctaWrapper}>
         <button
+          onClick={handleCTA}
           className={`py-4 w-full rounded-2xl transition-all duration-200 ${pclass.cta}`}
         >
           {card.cta}
