@@ -78,23 +78,10 @@ function FeatureCard({ item, index }) {
 }
 
 const ArabicContent = () => {
-  const { title, sections } = content.arabicFeatures;
-  const [titleRef, titleVisible] = useRevealOnce("-80px");
+  const { sections } = content.arabicFeatures;
 
   return (
     <div dir="rtl">
-      {/* Section title */}
-      <h2
-        ref={titleRef}
-        style={{
-          opacity: titleVisible ? 1 : 0,
-          transform: titleVisible ? "translateY(0)" : "translateY(16px)",
-          transition: "opacity 0.6s cubic-bezier(0.25,0.46,0.45,0.94), transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94)",
-        }}
-        className="text-center text-3xl md:text-4xl xl:text-5xl font-bold text-white mb-12 md:mb-16"
-      >
-        {title}
-      </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
         {sections.map((item, index) => (
