@@ -398,7 +398,7 @@ export const content = {
   // لوحة البيانات (Dashboard)
   dashboard: {
     image: {
-      src: "/2.png",
+      src: "/hero.jpg",
       alt: "لوحة التحكم — BePrime"
     },
     videoId: "ETvBDPjVcOI"
