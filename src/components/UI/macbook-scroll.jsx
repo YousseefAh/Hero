@@ -63,7 +63,8 @@ export const MacbookScroll = ({
     <div
       ref={ref}
       dir="ltr"
-      className="flex min-h-[120vh] shrink-0 scale-[0.7] transform flex-col items-center justify-start pt-4 [perspective:800px] sm:min-h-[150vh] sm:scale-[0.85] sm:pt-0 md:min-h-[200vh] md:scale-100 md:py-80"
+      className="flex min-h-[120vh] shrink-0 transform flex-col items-center justify-start pt-4 [perspective:800px] sm:min-h-[150vh] sm:scale-[0.85] sm:pt-0 md:min-h-[200vh] md:scale-100 md:py-80"
+      style={isMobile ? { transform: "scale(clamp(0.65, calc(90vw / 512px), 0.85))" } : undefined}
     >
       {title && (
         <motion.h2
