@@ -62,6 +62,7 @@ export async function submitToGoogleSheets(data) {
     // no-cors to lose the body. Instead, send data as URL query parameters
     // via GET request, which survives the redirect reliably.
     const params = new URLSearchParams();
+    params.append("action", "write");
     for (const [key, value] of Object.entries(payload)) {
       params.append(key, value);
     }
