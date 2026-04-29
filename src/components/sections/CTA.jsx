@@ -12,39 +12,39 @@ function CTA() {
   };
 
   return (
-    <section className="w-full sm:px-6 md:px-12 xl:px-20 sm:py-20 max-w-[90rem] mx-auto">
+    <section className="w-full sm:px-6 md:px-12 xl:px-20 sm:py-20 max-w-[90rem] mx-auto" style={{ background: "#0C0C10" }}>
 
       {/* ─── Card ─── */}
-      <div className="relative overflow-hidden sm:rounded-[2rem] bg-primary-800">
+      <div className="relative overflow-hidden sm:rounded-[2rem] bg-[#0C0C10] sm:bg-primary-800">
 
         {/* ── Layered background mesh ── */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-800 via-primary-700 to-primary-800" />
+        <div className="hidden sm:block absolute inset-0 bg-gradient-to-br from-primary-800 via-primary-700 to-primary-800" />
 
         {/* ── Blue orb — top-left ── */}
         <div
-          className="pointer-events-none absolute -top-32 -left-24 w-[480px] h-[480px] rounded-full opacity-40"
+          className="pointer-events-none absolute -top-32 -left-24 w-[480px] h-[480px] rounded-full opacity-40 hidden sm:block"
           style={{ background: "radial-gradient(circle, rgba(67,97,238,0.35) 0%, transparent 65%)", filter: "blur(40px)" }}
         />
         {/* ── Green orb — bottom-right ── */}
         <div
-          className="pointer-events-none absolute -bottom-24 -right-16 w-[360px] h-[360px] rounded-full opacity-50"
+          className="pointer-events-none absolute -bottom-24 -right-16 w-[360px] h-[360px] rounded-full opacity-50 hidden sm:block"
           style={{ background: "radial-gradient(circle, rgba(198,255,0,0.22) 0%, transparent 65%)", filter: "blur(36px)" }}
         />
         {/* ── Blue tint — center ── */}
         <div
-          className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] rounded-full opacity-20"
+          className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] rounded-full opacity-20 hidden sm:block"
           style={{ background: "radial-gradient(ellipse, rgba(67,97,238,0.3) 0%, transparent 70%)", filter: "blur(50px)" }}
         />
 
         {/* ── Subtle dot grid ── */}
         <div
-          className="pointer-events-none absolute inset-0 opacity-[0.035]"
+          className="pointer-events-none absolute inset-0 opacity-[0.035] hidden sm:block"
           style={{ backgroundImage: "radial-gradient(circle, #C6FF00 1px, transparent 1px)", backgroundSize: "32px 32px" }}
         />
 
         {/* ── Top shimmer line ── */}
         <div
-          className="absolute top-0 inset-x-0 h-px"
+          className="absolute top-0 inset-x-0 h-px hidden sm:block"
           style={{ background: "linear-gradient(90deg, transparent 5%, rgba(67,97,238,0.6) 30%, rgba(198,255,0,0.9) 55%, transparent 95%)" }}
         />
 
@@ -126,7 +126,7 @@ function CTA() {
 
         {/* ── Bottom shimmer line ── */}
         <div
-          className="absolute bottom-0 inset-x-0 h-px"
+          className="absolute bottom-0 inset-x-0 h-px hidden sm:block"
           style={{ background: "linear-gradient(90deg, transparent 5%, rgba(198,255,0,0.4) 40%, rgba(67,97,238,0.5) 70%, transparent 95%)" }}
         />
       </div>
