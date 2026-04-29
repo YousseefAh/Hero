@@ -85,7 +85,7 @@ export const Carousel = ({ items, initialScroll = 0 }) => {
             className={cn(
               "absolute right-0 z-[1000] h-auto w-[5%] overflow-hidden bg-gradient-to-l",
             )}
-          ></div>
+          />
 
           <div
             className={cn(
@@ -260,21 +260,29 @@ export const BlurImage = ({
   ...rest
 }) => {
   const [isLoading, setLoading] = useState(true);
+  const hasLoaded = useRef(false);
+
+  const handleLoad = () => {
+    if (!hasLoaded.current) {
+      hasLoaded.current = true;
+      setLoading(false);
+    }
+  };
+
   return (
     <img
       className={cn(
-        "h-full w-full transition duration-300",
-        isLoading ? "blur-sm" : "blur-0",
+        "h-full w-full transition-opacity duration-500 ease-out",
+        isLoading ? "opacity-0" : "opacity-100",
         className,
       )}
-      onLoad={() => setLoading(false)}
+      onLoad={handleLoad}
       src={src}
-      width={width}
-      height={height}
+      width={width || 640}
+      height={height || 800}
       loading="lazy"
       decoding="async"
       alt={alt ? alt : "Background of a beautiful view"}
-      fill={fill ? "true" : undefined}
       {...rest}
     />
   );
