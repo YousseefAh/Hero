@@ -40,86 +40,96 @@ const footerColumns = [
 
 function Footer() {
   return (
-    <footer className="m-auto px-4 sm:px-8 md:px-16 xl:px-24 pt-16 pb-8 sm:pb-12 md:pb-28 max-w-[90rem]">
-      <div className="gap-y-12 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-[2fr_repeat(4,1fr)] grid-rows-3 md:grid-rows-2 xl:grid-rows-1">
-        <div className="flex flex-col items-start gap-6 row-start-3 md:row-start-2 lg:row-start-1 lg:pr-4">
+    <footer className="w-full px-5 sm:px-8 md:px-16 xl:px-24 pt-12 pb-8 sm:pb-12 md:pb-20 max-w-[90rem] mx-auto">
+
+      {/* ── Top section ── */}
+      <div className="flex flex-col lg:flex-row lg:items-start gap-10 lg:gap-16 pb-10 border-b border-primary-400/15">
+
+        {/* Brand block — full width on mobile, fixed width on desktop */}
+        <div className="flex flex-col gap-4 lg:w-64 shrink-0">
           <Link href="/">
-            <Image src="/beprime-logo.png" alt="BePrime Logo" width={180} height={180} className="w-auto h-16 lg:h-20 object-contain hover:opacity-80 transition-opacity" />
+            <Image
+              src="/beprime-logo.png"
+              alt="BePrime Logo"
+              width={160}
+              height={160}
+              className="w-auto h-12 sm:h-14 object-contain hover:opacity-80 transition-opacity"
+            />
           </Link>
-          <p className="text-primary-300 text-sm/relaxed max-w-[340px] font-medium">
+          <p className="text-primary-300 text-sm leading-relaxed max-w-xs">
             شريكك التقني لبناء منظومة تدريب متكاملة. علامتك التجارية، تطبيقك، ونجاحك، في مكان واحد.
           </p>
-          <ul className="flex items-center gap-x-3 mt-2">
+          {/* Socials */}
+          <ul className="flex items-center gap-2.5 mt-1">
             {footerSocials.map((social) => (
               <li key={social.id}>
-                <a 
-                  href="#" 
-                  className="w-10 h-10 rounded-xl bg-white border border-primary-400/20 flex items-center justify-center hover:bg-accent-500 hover:border-accent-500 hover:-translate-y-1 transition-all duration-300 group shadow-sm hover:shadow-glow-green"
+                <a
+                  href="#"
+                  className="w-9 h-9 rounded-lg bg-white border border-primary-400/15 flex items-center justify-center hover:bg-accent-500 hover:border-accent-500 hover:-translate-y-0.5 transition-all duration-300 group shadow-sm hover:shadow-glow-green"
                   aria-label={social.name}
                 >
                   <Image
                     src={social.logo}
                     alt={social.name}
-                    width={20}
-                    height={20}
-                    className="opacity-60 group-hover:opacity-90 transition-opacity"
+                    width={16}
+                    height={16}
+                    className="opacity-50 group-hover:opacity-90 transition-opacity"
                   />
                 </a>
               </li>
             ))}
           </ul>
         </div>
-        {footerColumns.map((column) => (
-          <div key={column.id}>
-            <p className="mb-4 font-bold text-lg/6 text-primary-500 xl:text-xl">
-              {column.heading}
-            </p>
-            <ul className="flex flex-col gap-y-2">
-              {column.links.map((link) => (
-                <li key={link.label}>
-                  {link.external ? (
-                    <a
-                      href={link.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-primary-500 xl:text-lg hover:text-accent-500 transition-all duration-100"
-                    >
-                      {link.label}
-                    </a>
-                  ) : (
-                    <Link
-                      href={link.href}
-                      className="text-primary-500 xl:text-lg hover:text-accent-500 transition-all duration-100"
-                    >
-                      {link.label}
-                    </Link>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div>
 
-      {/* Bottom bar */}
-      <div className="mt-12 pt-6 border-t border-primary-400/20 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <p className="text-primary-200 text-sm">
-          © {new Date().getFullYear()} BePrime. جميع الحقوق محفوظة.
-        </p>
-        <div className="flex items-center gap-4 text-xs text-primary-200">
-          <Link href="/privacy-policy" className="hover:text-accent-500 transition-colors">
-            الخصوصية
-          </Link>
-          <span className="w-1 h-1 rounded-full bg-primary-300" />
-          <Link href="/refund-policy" className="hover:text-accent-500 transition-colors">
-            الاسترجاع
-          </Link>
-          <span className="w-1 h-1 rounded-full bg-primary-300" />
-          <Link href="/terms" className="hover:text-accent-500 transition-colors">
-            الشروط
-          </Link>
+        {/* Nav columns — 2-col grid on mobile, 4-col on desktop */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 flex-1">
+          {footerColumns.map((column) => (
+            <div key={column.id}>
+              <p className="mb-3 font-bold text-sm text-primary-400 uppercase tracking-wider">
+                {column.heading}
+              </p>
+              <ul className="flex flex-col gap-y-2">
+                {column.links.map((link) => (
+                  <li key={link.label}>
+                    {link.external ? (
+                      <a
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm text-primary-300 hover:text-accent-500 transition-colors duration-150"
+                      >
+                        {link.label}
+                      </a>
+                    ) : (
+                      <Link
+                        href={link.href}
+                        className="text-sm text-primary-300 hover:text-accent-500 transition-colors duration-150"
+                      >
+                        {link.label}
+                      </Link>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
       </div>
+
+      {/* ── Bottom bar ── */}
+      <div className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <p className="text-primary-200 text-xs">
+          © {new Date().getFullYear()} BePrime. جميع الحقوق محفوظة.
+        </p>
+        <div className="flex items-center gap-3 text-xs text-primary-200">
+          <Link href="/privacy-policy" className="hover:text-accent-500 transition-colors">الخصوصية</Link>
+          <span className="w-px h-3 bg-primary-400/30" />
+          <Link href="/refund-policy" className="hover:text-accent-500 transition-colors">الاسترجاع</Link>
+          <span className="w-px h-3 bg-primary-400/30" />
+          <Link href="/terms" className="hover:text-accent-500 transition-colors">الشروط</Link>
+        </div>
+      </div>
+
     </footer>
   );
 }
