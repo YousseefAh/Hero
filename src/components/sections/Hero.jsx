@@ -7,19 +7,23 @@ import BlurText from "@/components/UI/BlurText";
 function Hero() {
   const { subtitle, ctaText, highlightedText, title2 } = content.hero;
 
-  // ─────────────────────────────────────────────────────────────
-  //  MOBILE:  min-h-svh → fills the viewport. flex center → 
-  //           content sits in the vertical sweet spot on every
-  //           phone from iPhone SE (667px) to 14 Pro Max (932px).
-  //           clamp() font sizes scale fluidly between 375–430px
-  //           so NO line ever wraps differently across phones.
+  // ──────────────────────────────────────────────────────────────
+  //  MOBILE LAYOUT STRATEGY: 100% viewport-proportional.
   //
-  //  DESKTOP: sm:min-h-0 drops the viewport filling.
-  //           Standard padding takes over. 
-  // ─────────────────────────────────────────────────────────────
+  //  Every vertical gap uses `svh` so the layout is a fixed
+  //  RATIO of the screen — identical proportions on every phone
+  //  from iPhone SE (667px) to iPhone 15 Pro Max (932px).
+  //
+  //  Font sizes use clamp(min, vw, max) for horizontal scaling.
+  //  Gaps use svh for vertical scaling.
+  //  → The two axes scale independently = perfect on any phone.
+  //
+  //  DESKTOP: sm: breakpoints override everything with fixed
+  //  values. No svh on desktop.
+  // ──────────────────────────────────────────────────────────────
 
   return (
-    <section className="relative pt-10 sm:pt-20 md:pt-24 pb-4 sm:pb-0 px-5 sm:px-10 overflow-hidden">
+    <section className="relative pt-[2svh] sm:pt-20 md:pt-24 pb-[1svh] sm:pb-0 px-5 sm:px-10 overflow-hidden">
 
       {/* ── Ambient glow ── */}
       <div
@@ -33,13 +37,10 @@ function Hero() {
       {/* ── Content ── */}
       <div className="relative z-10 flex flex-col items-center text-center w-full max-w-4xl mx-auto">
 
-        {/* ─── HEADING ──────────────────────────────────────────
-             3 lines. Each one idea. Fluid font via clamp():
-             375px → 1.5rem (24px)
-             400px → 6.5vw (26px)
-             430px → 1.75rem (28px)  [capped]
-             Then sm/md/lg breakpoints take over for tablets+
-        ────────────────────────────────────────────────────── */}
+        {/* ═══ HEADING ═══
+            Font: clamp scales with screen WIDTH (vw)
+            Lines stack with zero gap — leading handles breathing
+        */}
         <div className="flex flex-col items-center gap-0">
           <BlurText
             text="أنت مدرب عالمي."
@@ -72,28 +73,32 @@ function Hero() {
           />
         </div>
 
-        {/* ─── SUBTITLE ─────────────────────────────────────── */}
+        {/* ═══ SUBTITLE ═══
+            Gap from heading: 3svh (proportional to screen height)
+        */}
         <motion.p
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 1.4, ease: "easeOut" }}
-          className="mt-[clamp(1.25rem,4vw,2rem)] sm:mt-8 text-primary-300 text-[clamp(0.8rem,3.5vw,0.95rem)] sm:text-base md:text-lg leading-[1.8] max-w-lg"
+          className="mt-[3svh] sm:mt-8 text-primary-300 text-[clamp(0.8rem,3.5vw,0.95rem)] sm:text-base md:text-lg leading-[1.8] max-w-lg"
         >
           {subtitle}
         </motion.p>
 
-        {/* ─── CTA ──────────────────────────────────────────── */}
+        {/* ═══ CTA ═══
+            Gap from subtitle: 3svh
+        */}
         <motion.div
           initial={{ opacity: 0, y: 6 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 1.7, ease: "easeOut" }}
-          className="mt-[clamp(1.25rem,4vw,2.25rem)] sm:mt-9"
+          className="mt-[3svh] sm:mt-9"
         >
           <a
             href={content.cta.whatsappLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center justify-center gap-2 px-[clamp(1.25rem,5vw,2.25rem)] sm:px-9 py-3 sm:py-3.5 rounded-xl font-bold text-[clamp(0.75rem,3.2vw,0.875rem)] sm:text-[0.95rem] text-primary-800 bg-accent-500 hover:bg-accent-400 transition-all duration-300 shadow-glow-green hover:shadow-[0_0_40px_rgba(198,255,0,0.35)] hover:-translate-y-px active:scale-[0.985] whitespace-nowrap"
+            className="group inline-flex items-center justify-center gap-2 px-[clamp(1.25rem,5vw,2.25rem)] sm:px-9 py-[clamp(0.6rem,1.5vw,0.875rem)] sm:py-3.5 rounded-xl font-bold text-[clamp(0.75rem,3.2vw,0.875rem)] sm:text-[0.95rem] text-primary-800 bg-accent-500 hover:bg-accent-400 transition-all duration-300 shadow-glow-green hover:shadow-[0_0_40px_rgba(198,255,0,0.35)] hover:-translate-y-px active:scale-[0.985] whitespace-nowrap"
           >
             <span>{ctaText}</span>
             <svg
@@ -105,12 +110,14 @@ function Hero() {
           </a>
         </motion.div>
 
-        {/* ─── TRUST ────────────────────────────────────────── */}
+        {/* ═══ TRUST ═══
+            Gap from CTA: 1.5svh
+        */}
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 2.0 }}
-          className="mt-3 text-[11px] text-primary-200/40 tracking-[0.04em]"
+          className="mt-[1.5svh] sm:mt-3 text-[11px] text-primary-200/40 tracking-[0.04em]"
         >
           بدون بطاقة ائتمان · جاهز في أقل من ٢٤ ساعة
         </motion.p>
