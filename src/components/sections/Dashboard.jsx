@@ -15,6 +15,7 @@ function Dashboard() {
             <BlurText
               text="شوف منظومتك الكاملة —"
               delay={90}
+              initialDelay={0}
               animateBy="words"
               direction="top"
               stepDuration={0.4}
@@ -23,6 +24,7 @@ function Dashboard() {
             <BlurText
               text="كل حاجة في مكان واحد"
               delay={100}
+              initialDelay={0.65}
               animateBy="words"
               direction="bottom"
               stepDuration={0.4}
