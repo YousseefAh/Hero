@@ -13,7 +13,7 @@ export default function WobbleCardDemo() {
         containerClassName="col-span-1 lg:col-span-2 h-full bg-gradient-to-bl from-accent-600 via-accent-500 to-blue-accent min-h-[300px] lg:min-h-[360px]"
         className=""
       >
-        <div className="max-w-[60%] relative z-10">
+        <div className="max-w-[55%] relative z-10 ml-auto">
           <h2 className="text-right text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-primary-800">
             {content.whyChooseYadora.cards[0].heading}
           </h2>
@@ -24,7 +24,7 @@ export default function WobbleCardDemo() {
         <img
           src={content.whyChooseYadora.cards[0].imageSrc}
           alt={content.whyChooseYadora.cards[0].imageAlt}
-          className="absolute right-0 bottom-0 w-[48%] max-w-[260px] h-auto object-contain rounded-tl-2xl"
+          className="absolute left-0 bottom-0 w-[48%] max-w-[260px] h-auto object-contain rounded-tr-2xl"
         />
       </WobbleCard>
 
