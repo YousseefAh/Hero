@@ -205,15 +205,15 @@ export const content = {
           image: { src: "/newdesigns/WhatsApp Image 2026-04-24 at 08.42.26.jpeg", alt: "منظومة AI متكاملة" }
         }
       },
-      // 4 — AI Analysis 4-screens: deep AI power showcase
+      // 4 — Biological Age "Birth Cert is a Lie" grey poster: bold hook
       {
-        category: "تحليلات AI",
-        title: "الـ AI بيحلل الأوزان، التغذية، النوم — كل حاجة.",
-        src: "/newdesigns/WhatsApp Image 2026-04-01 at 06.08.17.jpeg",
+        category: "العمر البيولوجي",
+        title: "شهادة ميلادك كدبة — اعرف عمرك الحقيقي.",
+        src: "/newdesigns/WhatsApp Image 2026-02-05 at 15.23.37.jpeg",
         content: {
-          title: "تحليلات AI شاملة",
-          description: "كل حاجة بتتحلل تلقائي — تقارير واضحة، بيانات لحظية، وقرارات مبنية على أرقام حقيقية.",
-          image: { src: "/newdesigns/WhatsApp Image 2026-04-01 at 06.08.17.jpeg", alt: "تحليلات AI شاملة" }
+          title: "عمرك الحقيقي",
+          description: "مش مهم تاريخ ميلادك — المهم جسمك. اعرف عمرك البيولوجي الحقيقي وابدأ رحلة التغيير.",
+          image: { src: "/newdesigns/WhatsApp Image 2026-02-05 at 15.23.37.jpeg", alt: "شهادة ميلادك كدبة" }
         }
       },
       // 5 — Workout Analysis with coach: performance focus
@@ -238,15 +238,15 @@ export const content = {
           image: { src: "/newdesigns/WhatsApp Image 2026-03-12 at 04.20.12.jpeg", alt: "تسجيل الأوزان" }
         }
       },
-      // 7 — Workout Analytics dashboard: detailed progress view
+      // 7 — App Features AI Analysis (phone in hand): all features listed
       {
-        category: "داشبورد التمرين",
-        title: "شوف تطورك على مدار الأشهر — في لمحة.",
-        src: "/newdesigns/WhatsApp Image 2026-03-16 at 07.59.04.jpeg",
+        category: "مميزات AI",
+        title: "صوّر الأكل، حلّل النوم، تابع كل حاجة — في تطبيق واحد.",
+        src: "/newdesigns/WhatsApp Image 2026-04-11 at 18.27.12.jpeg",
         content: {
-          title: "داشبورد التمرين المتقدم",
-          description: "سجّل كل الأوزان والتمارين والأيام — ومدربك يعدّل البرنامج بشكل مستمر بناءً على بياناتك.",
-          image: { src: "/newdesigns/WhatsApp Image 2026-03-16 at 07.59.04.jpeg", alt: "داشبورد التمرين" }
+          title: "مميزات الذكاء الاصطناعي",
+          description: "صوّر وحلّل الأكل، تتبع المياه، تحليل النوم، اختبار القوة والتحمل، تتبع الأوزان — كل حاجة في الأبليكيشن.",
+          image: { src: "/newdesigns/WhatsApp Image 2026-04-11 at 18.27.12.jpeg", alt: "مميزات AI في التطبيق" }
         }
       },
       // 8 — Weight Recording dashboard: progress tracking proof
