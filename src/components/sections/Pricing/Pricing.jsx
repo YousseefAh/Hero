@@ -7,14 +7,16 @@ import { pricingCards } from "../../../utils/constants";
 import { content } from "@/data/content";
 
 function Pricing() {
-  const [paymentPlan, setPaymentPlan] = useState("monthly");
+  const paymentPlan = "monthly";
   const [sliderValue, setSliderValue] = useState(4);
 
   const { priceData, currency, priceGuarantee } = content.pricing;
 
-  function handlePaymentPlanChange() {
-    setPaymentPlan((plan) => (plan === "monthly" ? "annual" : "monthly"));
-  }
+  // TODO: Uncomment when adding 3-month billing cycle
+  // const [paymentPlan, setPaymentPlan] = useState("monthly");
+  // function handlePaymentPlanChange() {
+  //   setPaymentPlan((plan) => (plan === "monthly" ? "annual" : "monthly"));
+  // }
 
   const currentPricePoint = priceData[sliderValue] || priceData[0];
 
@@ -50,14 +52,15 @@ function Pricing() {
           <p className="text-center text-accent-500 text-sm mt-2 font-medium">{priceGuarantee}</p>
         </div>
 
-        <div className="flex items-center gap-x-4">
+        {/* TODO: Uncomment when adding 3-month billing cycle toggle */}
+        {/* <div className="flex items-center gap-x-4">
           <p className="text-primary-500 xl:text-lg tracking-tight">شهري</p>
           <Toggle
             handleToggle={handlePaymentPlanChange}
             toggleLabel="التبديل بين الخطط الشهرية والسنوية"
           />
           <p className="text-primary-500 xl:text-lg tracking-tight">سنوي</p>
-        </div>
+        </div> */}
 
         <div className="gap-x-4 gap-y-4 grid grid-cols-1 pricing-break:grid-cols-2 xl:grid-cols-[32fr_34fr_32fr] my-10 lg:w-4/5 pricing-break:w-full xl:w-full">
           {pricingCards.map((card) => (
