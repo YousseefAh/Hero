@@ -1,12 +1,19 @@
 "use client";
 
 import { useCheckout, PAYMENT_METHODS } from "@/contexts/CheckoutContext";
+import { useRouter } from "next/navigation";
 import { motion } from "motion/react";
 
 export default function PaymentConfirmation() {
   const { checkout, closeCheckout } = useCheckout();
+  const router = useRouter();
   const { payment, plan, customerInfo } = checkout;
   const methodData = PAYMENT_METHODS[payment.method];
+
+  const handleGoHome = () => {
+    closeCheckout();
+    router.push("/");
+  };
 
   const details = [
     { label: "رقم الطلب", value: payment.referenceId, dir: "ltr", accent: true },
@@ -152,7 +159,7 @@ export default function PaymentConfirmation() {
 
         {/* Home */}
         <button
-          onClick={closeCheckout}
+          onClick={handleGoHome}
           className="w-full py-4 rounded-xl text-white/50 font-medium text-base border border-white/10 hover:bg-white/5 hover:text-white/70 transition-all duration-300 active:scale-[0.985]"
         >
           رجوع للصفحة الرئيسية

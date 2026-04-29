@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { useCheckout } from "@/contexts/CheckoutContext";
 
 /* ── Check icon ── */
@@ -138,6 +139,7 @@ function PricingCard({ card, paymentPlan }) {
   const [isHovering, setIsHovering] = useState(false);
   const [selectedTierIndex, setSelectedTierIndex] = useState(0);
   const { startCheckout } = useCheckout();
+  const router = useRouter();
 
   const handleMouseMove = (event) => {
     const { clientX, clientY } = event;
@@ -175,6 +177,7 @@ function PricingCard({ card, paymentPlan }) {
       features: card.bullets,
       subheading: card.subheading,
     });
+    router.push("/payment");
   };
 
   // Card-type-specific styles

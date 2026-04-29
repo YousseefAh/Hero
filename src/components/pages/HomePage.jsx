@@ -30,17 +30,14 @@ import Footer from "@/components/layout/Footer";
 import Modal from "@/components/UI/Modal";
 import MoreInformation from "@/components/UI/MoreInformation";
 
-// Checkout
-import Checkout from "@/components/sections/Checkout/Checkout";
+
 
 import { ModalContextProvider } from "@/contexts/ModalContext";
-import { CheckoutProvider } from "@/contexts/CheckoutContext";
 import { content } from '@/data/content';
 
 export default function HomePage() {
   return (
     <ModalContextProvider>
-      <CheckoutProvider>
         <PageWrapper>
           <Header>
             <Navigation />
@@ -77,11 +74,7 @@ export default function HomePage() {
           <Modal modalName="more-information">
             <MoreInformation />
           </Modal>
-
-          {/* Checkout overlay */}
-          <Checkout />
         </PageWrapper>
-      </CheckoutProvider>
     </ModalContextProvider>
   );
 }

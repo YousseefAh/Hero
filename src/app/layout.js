@@ -1,5 +1,6 @@
 import { Noto_Kufi_Arabic, Space_Grotesk } from "next/font/google";
 import "./globals.css";
+import ClientProviders from "@/components/layout/ClientProviders";
 
 const notoKufi = Noto_Kufi_Arabic({
   subsets: ["arabic"],
@@ -28,7 +29,9 @@ export default function RootLayout({ children }) {
         className={`${notoKufi.variable} ${spaceGrotesk.variable} font-sans overflow-x-hidden`}
         suppressHydrationWarning
       >
-        {children}
+        <ClientProviders>
+          {children}
+        </ClientProviders>
       </body>
     </html>
   );
