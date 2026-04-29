@@ -272,9 +272,9 @@ function PricingCard({ card, paymentPlan }) {
 
       {/* ── Badge (top-right corner) ── */}
       {hasBadge && (
-        <div className="absolute top-0 right-0 z-20">
+        <div className="absolute top-0 left-0 z-20">
           <div
-            className="px-4 py-2 rounded-bl-2xl text-[11px] font-bold tracking-wide"
+            className="px-4 py-2 rounded-br-2xl text-[11px] font-bold tracking-wide"
             style={{
               background: isPrimary
                 ? "linear-gradient(135deg, #C6FF00 0%, #B4E600 100%)"

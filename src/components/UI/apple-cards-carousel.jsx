@@ -260,27 +260,31 @@ export const BlurImage = ({
   ...rest
 }) => {
   const [isLoading, setLoading] = useState(true);
-  const hasLoaded = useRef(false);
+  const imgRef = useRef(null);
 
-  const handleLoad = () => {
-    if (!hasLoaded.current) {
-      hasLoaded.current = true;
+  useEffect(() => {
+    // Handle already-cached images (onLoad won't fire)
+    if (imgRef.current?.complete && imgRef.current?.naturalWidth > 0) {
       setLoading(false);
     }
-  };
+    // Fallback: force visible after 3s no matter what
+    const timer = setTimeout(() => setLoading(false), 3000);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <img
+      ref={imgRef}
       className={cn(
         "h-full w-full transition-opacity duration-500 ease-out",
         isLoading ? "opacity-0" : "opacity-100",
         className,
       )}
-      onLoad={handleLoad}
+      onLoad={() => setLoading(false)}
       src={src}
       width={width || 640}
       height={height || 800}
-      loading="lazy"
+      loading="eager"
       decoding="async"
       alt={alt ? alt : "Background of a beautiful view"}
       {...rest}

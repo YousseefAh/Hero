@@ -19,7 +19,7 @@ function Navigation() {
     <section className="flex justify-between relative z-50">
       <nav className="flex items-center">
         <Link href="/">
-          <Image src="/beprime-logo.png" alt="BePrime Logo" width={120} height={40} className="w-auto h-8 lg:h-10 object-contain ml-8" />
+          <Image src="/beprime-logo.png" alt="BePrime Logo" width={120} height={40} priority className="w-auto h-8 lg:h-10 object-contain ml-8" />
         </Link>
 
         <ul className="inline-flex gap-8 font-medium">
