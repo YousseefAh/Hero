@@ -56,7 +56,7 @@ export const Carousel = ({ items, initialScroll = 0 }) => {
 
   const handleCardClose = (index) => {
     if (carouselRef.current) {
-      const cardWidth = isMobile() ? 288 : 384; // square cards (w-72 / md:w-96)
+      const cardWidth = 280; // matches style={{ width: "280px" }}
       const gap = isMobile() ? 4 : 8;
       const scrollPosition = (cardWidth + gap) * (index + 1);
       carouselRef.current.scrollTo({
@@ -236,23 +236,9 @@ export const Card = ({
       <motion.button
         layoutId={layout ? `card-${card.title}` : undefined}
         onClick={handleOpen}
-        className="relative z-10 flex h-72 w-72 flex-col items-start justify-start overflow-hidden rounded-3xl bg-primary-300 md:h-96 md:w-96"
+        className="relative z-10 flex flex-col items-start justify-start overflow-hidden rounded-3xl bg-primary-300"
+        style={{ width: "280px", aspectRatio: "4/5" }}
       >
-        <div className="pointer-events-none absolute inset-x-0 top-0 z-30 h-full bg-gradient-to-b from-black/50 via-transparent to-transparent" />
-        <div className="relative z-40 p-8">
-          <motion.p
-            layoutId={layout ? `category-${card.category}` : undefined}
-            className="text-left font-sans text-sm font-medium text-white md:text-base"
-          >
-            {card.category}
-          </motion.p>
-          <motion.p
-            layoutId={layout ? `title-${card.title}` : undefined}
-            className="mt-2 max-w-xs text-left font-sans text-xl font-semibold [text-wrap:balance] text-white md:text-3xl"
-          >
-            {card.title}
-          </motion.p>
-        </div>
         <BlurImage
           src={card.src}
           alt={card.title}
