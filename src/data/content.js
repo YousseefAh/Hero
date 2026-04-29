@@ -173,83 +173,83 @@ export const content = {
     title: "اشتغل كأنك فريق × ١٠ — وبراحة فرد واحد",
     cards: [
       {
-        category: "البراندينج",
-        title: "تطبيقك بإسمك. موقعك جاهز. براندك يلمع.",
-        src: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?q=80&w=3556",
+        category: "التحليلات الذكية",
+        title: "الذكاء الاصطناعي بيحلل كل خطوة لعميلك",
+        src: "/newdesigns/WhatsApp Image 2026-04-01 at 06.08.17.jpeg",
         content: {
-          title: "البراندينج",
-          description: "عميلك بيشوفك كأنك شركة عالمية — مش مدرب بيبعت PDF.",
+          title: "تحليلات بالذكاء الاصطناعي",
+          description: "تحليل شامل للتمرين، التغذية، النوم، والأوزان — كل حاجة بتتحلل تلقائي وبتوصلك في تقارير واضحة.",
           image: {
-            src: "/img-app/22_1x_shots_so-min.png",
-            alt: "تطبيق احترافي بإسم البراند"
+            src: "/newdesigns/WhatsApp Image 2026-04-01 at 06.08.17.jpeg",
+            alt: "تحليلات ذكية بالـ AI"
           }
         }
       },
       {
-        category: "الأتمتة",
-        title: "كل حاجة بتحصل لوحدها — وأنت مرتاح",
-        src: "https://images.unsplash.com/photo-1602081957921-9137a5d6eaee?q=80&w=2793",
+        category: "تحليل التغذية",
+        title: "تتبع الوجبات والتطور الغذائي لكل عميل",
+        src: "/newdesigns/WhatsApp Image 2026-04-01 at 06.29.53.jpeg",
         content: {
-          title: "الأتمتة",
-          description: "من الترحيب للتجديد، النظام بيتصرف بدون ما تحرك صباعك.",
+          title: "تحليل التغذية",
+          description: "تتبع وجبات عميلك يوميًا وأسبوعيًا مع تحليل Macros كامل — ضمان التطور والاستمرارية.",
           image: {
-            src: "/img-app/22_1x_shots_so-min.png",
-            alt: "أتمتة شاملة للمهام"
+            src: "/newdesigns/WhatsApp Image 2026-04-01 at 06.29.53.jpeg",
+            alt: "تحليل التغذية والنظام الغذائي"
           }
         }
       },
       {
-        category: "اكتساب العملاء",
-        title: "عملائك بيجيبوا لك عملاء — مجانًا",
-        src: "https://images.unsplash.com/photo-1531554694128-c4c6665f59c2?q=80&w=3387",
+        category: "مميزات التطبيق",
+        title: "كل حاجة عميلك محتاجها — في تطبيق واحد",
+        src: "/newdesigns/WhatsApp Image 2026-04-25 at 01.34.28.jpeg",
         content: {
-          title: "اكتساب العملاء",
-          description: "أدوات Referral وتحديات وQuizzes بتخلي النمو تلقائي.",
+          title: "مميزات التطبيق",
+          description: "تتبع الوزن، تحليل التمارين، المياه، النوم، العمر البيولوجي — كل حاجة في مكان واحد بتجربة مستخدم عالمية.",
           image: {
-            src: "/img-app/22_1x_shots_so-min.png",
-            alt: "أدوات اكتساب عملاء مجانية"
+            src: "/newdesigns/WhatsApp Image 2026-04-25 at 01.34.28.jpeg",
+            alt: "مميزات تطبيق BePrime"
           }
         }
       },
       {
-        category: "الاستبقاء",
-        title: "عميلك مش هيعرف يسيبك",
-        src: "https://images.unsplash.com/photo-1511984804822-e16ba72f5848?q=80&w=2048",
+        category: "تسجيل الأوزان",
+        title: "كل وزن بيتسجل — وتقدّم عميلك واضح قدامك",
+        src: "/newdesigns/WhatsApp Image 2026-04-26 at 21.34.19.jpeg",
         content: {
-          title: "الاستبقاء",
-          description: "تجربة عميل مصممة عشان يفضل، يتفاعل، ويجدد.",
+          title: "تسجيل الأوزان",
+          description: "كل تمرينة بتتسجل أوزانها تلقائي. عميلك يقدر يتابع تطوره والداشبورد بيوريك كل حاجة.",
           image: {
-            src: "/img-app/22_1x_shots_so-min.png",
-            alt: "نظام استبقاء ذكي"
+            src: "/newdesigns/WhatsApp Image 2026-04-26 at 21.34.19.jpeg",
+            alt: "تسجيل ومتابعة الأوزان"
           }
         }
       },
       {
-        category: "التحليلات",
-        title: "اعرف كل حاجة بتحصل — في ثانية",
-        src: "https://images.unsplash.com/photo-1599202860130-f600f4948364?q=80&w=2515",
+        category: "تحليل النظام الغذائي",
+        title: "كل وجبة بتتحول لبيانات — والنظام بيعمل الباقي",
+        src: "/newdesigns/WhatsApp Image 2026-04-01 at 03.51.26.jpeg",
         content: {
-          title: "التحليلات",
-          description: "بيانات لحظية بتخليك دايمًا متقدم بخطوة.",
+          title: "تحليل النظام الغذائي",
+          description: "تسجيل الوجبات، حساب السعرات، والتغذية المتكاملة — كل حاجة أوتوماتيك وبدون تعقيد.",
           image: {
-            src: "/img-app/22_1x_shots_so-min.png",
-            alt: "لوحة تحليلات ذكية"
+            src: "/newdesigns/WhatsApp Image 2026-04-01 at 03.51.26.jpeg",
+            alt: "تحليل النظام الغذائي"
           }
         }
       },
       {
-        category: "التسويق",
-        title: "النظام بيسوّق معاك ٢٤ ساعة",
-        src: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?q=80&w=3556",
+        category: "تجربة العميل",
+        title: "تطبيقك بإسمك — وعميلك يحس بالاحترافية",
+        src: "/newdesigns/WhatsApp Image 2026-04-11 at 18.27.12.jpeg",
         content: {
-          title: "التسويق",
-          description: "حملات أوتوماتيكية وأدوات اكتساب بتشتغل وأنت نايم.",
+          title: "تجربة عميل متكاملة",
+          description: "صوّر وحلل الأكل بالذكاء الاصطناعي، تتبع المياه، تحليل النوم، اختبار القوة — كل حاجة في الأبليكيشن.",
           image: {
-            src: "/img-app/22_1x_shots_so-min.png",
-            alt: "تسويق أوتوماتيكي"
+            src: "/newdesigns/WhatsApp Image 2026-04-11 at 18.27.12.jpeg",
+            alt: "مميزات AI في التطبيق"
           }
         }
-      }
+      },
     ]
   },
 
