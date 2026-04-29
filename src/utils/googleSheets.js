@@ -58,15 +58,17 @@ export async function submitToGoogleSheets(data) {
       status: "في الانتظار ⏳",
     };
 
-    const response = await fetch(GOOGLE_SHEET_URL, {
-      method: "POST",
-      mode: "no-cors", // Apps Script doesn't support CORS preflight
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-    });
+    // Google Apps Script redirects POST requests, which causes fetch with
+    // no-cors to lose the body. Instead, send data as URL query parameters
+    // via GET request, which survives the redirect reliably.
+    const params = new URLSearchParams();
+    for (const [key, value] of Object.entries(payload)) {
+      params.append(key, value);
+    }
 
-    // no-cors mode returns opaque response, so we can't read status
-    // but if fetch didn't throw, it went through
+    const url = `${GOOGLE_SHEET_URL}?${params.toString()}`;
+    await fetch(url, { method: "GET", mode: "no-cors" });
+
     console.log("[GoogleSheets] ✅ Data submitted successfully");
     return true;
   } catch (error) {
