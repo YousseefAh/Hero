@@ -246,6 +246,7 @@ function BeforeAfter() {
                   rounded-none sm:rounded-3xl lg:rounded-none lg:rounded-r-3xl
                   border-y sm:border border-red-500/[0.08]
                   lg:border-l-0
+                  h-full flex flex-col
                 "
                 style={{
                   background: "linear-gradient(160deg, rgba(25,10,10,0.95) 0%, rgba(18,8,8,0.98) 100%)",
@@ -263,7 +264,7 @@ function BeforeAfter() {
                   }}
                 />
 
-                <div className="relative z-10 p-6 sm:p-8 md:p-10 lg:p-12">
+                <div className="relative z-10 p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col flex-1">
                   {/* Header */}
                   <PanelHeader heading={before.heading} variant="before" />
 
@@ -284,7 +285,7 @@ function BeforeAfter() {
                   </ul>
 
                   {/* Bottom status */}
-                  <div className="mt-8 sm:mt-10 pt-6 border-t border-red-500/[0.08]">
+                  <div className="mt-auto pt-6 border-t border-red-500/[0.08]">
                     <div
                       className="
                         inline-flex items-center gap-2.5
@@ -362,6 +363,7 @@ function BeforeAfter() {
                   rounded-none sm:rounded-3xl lg:rounded-none lg:rounded-l-3xl
                   border-y sm:border border-accent-500/[0.08]
                   lg:border-r-0
+                  h-full flex flex-col
                 "
                 style={{
                   background: "linear-gradient(160deg, rgba(10,20,10,0.95) 0%, rgba(8,16,8,0.98) 100%)",
@@ -379,7 +381,7 @@ function BeforeAfter() {
                   }}
                 />
 
-                <div className="relative z-10 p-6 sm:p-8 md:p-10 lg:p-12">
+                <div className="relative z-10 p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col flex-1">
                   {/* Header */}
                   <PanelHeader heading={after.heading} variant="after" />
 
@@ -400,7 +402,7 @@ function BeforeAfter() {
                   </ul>
 
                   {/* Bottom status */}
-                  <div className="mt-8 sm:mt-10 pt-6 border-t border-accent-500/[0.08]">
+                  <div className="mt-auto pt-6 border-t border-accent-500/[0.08]">
                     <div
                       className="
                         inline-flex items-center gap-2.5
