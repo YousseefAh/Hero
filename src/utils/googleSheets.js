@@ -56,6 +56,7 @@ export async function submitToGoogleSheets(data) {
       paymentMethod: data.paymentMethod,
       referenceId: data.referenceId,
       status: "في الانتظار ⏳",
+      contacted: "لم يتم ❌",
     };
 
     // Google Apps Script redirects POST requests, which causes fetch with

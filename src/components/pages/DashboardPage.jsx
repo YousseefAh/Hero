@@ -100,26 +100,33 @@ function StatusBadge({ status }) {
 
 // ─── Status Actions (clickable buttons) ───
 const STATUS_OPTIONS = [
-  { label: "✅ مؤكد", value: "تم الدفع ✅", color: "green" },
-  { label: "⏳ انتظار", value: "في الانتظار ⏳", color: "amber" },
-  { label: "❌ ملغي", value: "ملغي ❌", color: "red" },
+  { label: "✅ مؤكد", value: "تم الدفع ✅" },
+  { label: "⏳ انتظار", value: "في الانتظار ⏳" },
+  { label: "❌ ملغي", value: "ملغي ❌" },
 ];
 
-function StatusActions({ row, onUpdate }) {
+const CONTACTED_OPTIONS = [
+  { label: "✅ تم التواصل", value: "تم التواصل ✅" },
+  { label: "❌ لم يتم", value: "لم يتم ❌" },
+];
+
+function ColumnActions({ row, field, colNum, options, onUpdate }) {
   const [open, setOpen] = useState(false);
   const [updating, setUpdating] = useState(false);
+  const currentValue = row[field];
 
-  const handleUpdate = async (newStatus) => {
+  const handleUpdate = async (newValue) => {
     setUpdating(true);
     setOpen(false);
     try {
       const params = new URLSearchParams({
         action: "update",
         row: row._row,
-        status: newStatus,
+        col: colNum,
+        value: newValue,
       });
       await fetch(`${GOOGLE_SHEET_URL}?${params.toString()}`, { mode: "no-cors" });
-      onUpdate(row._row, newStatus);
+      onUpdate(row._row, field, newValue);
     } catch (err) {
       console.error("Update failed:", err);
     } finally {
@@ -129,7 +136,7 @@ function StatusActions({ row, onUpdate }) {
 
   return (
     <div className="flex items-center gap-2">
-      <StatusBadge status={row.status} />
+      <StatusBadge status={currentValue} />
       <div className="relative">
         <button
           onClick={() => setOpen(!open)}
@@ -148,7 +155,7 @@ function StatusActions({ row, onUpdate }) {
           <>
             <div className="fixed inset-0 z-10" onClick={() => setOpen(false)} />
             <div className="absolute left-0 top-full mt-1 z-20 bg-[#1a1c24] border border-white/[0.1] rounded-lg shadow-xl overflow-hidden min-w-[120px]">
-              {STATUS_OPTIONS.map((opt) => (
+              {options.map((opt) => (
                 <button
                   key={opt.value}
                   onClick={() => handleUpdate(opt.value)}
@@ -215,10 +222,10 @@ export default function DashboardPage() {
     }
   }, []);
 
-  // Update status optimistically
-  const handleStatusUpdate = useCallback((rowNum, newStatus) => {
+  // Update any cell optimistically
+  const handleCellUpdate = useCallback((rowNum, field, newValue) => {
     setRows((prev) =>
-      prev.map((r) => (r._row === rowNum ? { ...r, status: newStatus } : r))
+      prev.map((r) => (r._row === rowNum ? { ...r, [field]: newValue } : r))
     );
   }, []);
 
@@ -320,6 +327,7 @@ export default function DashboardPage() {
                       <th className="text-right text-white/30 font-medium text-[11px] px-4 py-3 whitespace-nowrap">الدفع</th>
                       <th className="text-right text-white/30 font-medium text-[11px] px-4 py-3 whitespace-nowrap">المرجع</th>
                       <th className="text-right text-white/30 font-medium text-[11px] px-4 py-3 whitespace-nowrap">الحالة</th>
+                      <th className="text-right text-white/30 font-medium text-[11px] px-4 py-3 whitespace-nowrap">التواصل</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -334,7 +342,8 @@ export default function DashboardPage() {
                         <td className="px-4 py-3.5 text-[#C6FF00]/80 text-xs font-bold whitespace-nowrap">{row.price} ج.م</td>
                         <td className="px-4 py-3.5 text-white/40 text-xs whitespace-nowrap">{row.paymentMethod}</td>
                         <td className="px-4 py-3.5 text-white/25 text-[10px] font-mono whitespace-nowrap" dir="ltr">{row.referenceId}</td>
-                        <td className="px-4 py-3.5 whitespace-nowrap"><StatusActions row={row} onUpdate={handleStatusUpdate} /></td>
+                        <td className="px-4 py-3.5 whitespace-nowrap"><ColumnActions row={row} field="status" colNum={10} options={STATUS_OPTIONS} onUpdate={handleCellUpdate} /></td>
+                        <td className="px-4 py-3.5 whitespace-nowrap"><ColumnActions row={row} field="contacted" colNum={11} options={CONTACTED_OPTIONS} onUpdate={handleCellUpdate} /></td>
                       </tr>
                     ))}
                   </tbody>
