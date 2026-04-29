@@ -64,7 +64,7 @@ export default function HomePage() {
               </div>
               <WobbleCardDemo />
             </section>
-            <ContinuousShowcase />
+            {/* <ContinuousShowcase /> */}
             <BeforeAfter />
             <section id="pricing"><Pricing /></section>
             {/* <Testimonials /> */}
