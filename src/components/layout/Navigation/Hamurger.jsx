@@ -10,15 +10,15 @@ function Hamurger() {
         className="transition-all duration-200 group-hover:-rotate-90"
       >
         {/* Row 1 */}
-        <circle cx="4"  cy="4"  r="2" fill="#C6FF00" />
-        <circle cx="12" cy="4"  r="2" fill="#1E1B22" />
-        <circle cx="20" cy="4"  r="2" fill="#1E1B22" />
+        <circle cx="4" cy="4" r="2" fill="#a7d100ff" />
+        <circle cx="12" cy="4" r="2" fill="#1E1B22" />
+        <circle cx="20" cy="4" r="2" fill="#1E1B22" />
         {/* Row 2 */}
-        <circle cx="4"  cy="12" r="2" fill="#C6FF00" />
+        <circle cx="4" cy="12" r="2" fill="#8fb300" />
         <circle cx="12" cy="12" r="2" fill="#1E1B22" />
         <circle cx="20" cy="12" r="2" fill="#1E1B22" />
         {/* Row 3 */}
-        <circle cx="4"  cy="20" r="2" fill="#C6FF00" />
+        <circle cx="4" cy="20" r="2" fill="#8fb300" />
         <circle cx="12" cy="20" r="2" fill="#1E1B22" />
         <circle cx="20" cy="20" r="2" fill="#1E1B22" />
       </svg>
