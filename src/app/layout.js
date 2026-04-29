@@ -17,7 +17,7 @@ export const metadata = {
   title: "BePrime — أنت المدرب. إحنا المنظومة.",
   description: "BePrime بيحوّل شغلك لمنظومة احترافية كاملة — من البراندينج لحد ما العميل يجدد اشتراكه. كل ده وأنت مركز بس على اللي بتحبه: التدريب.",
   icons: {
-    icon: '/favicon.svg',
+    icon: '/beprime-logo.png',
   },
 };
 

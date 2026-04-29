@@ -2,6 +2,7 @@
 
 import { useCheckout } from "@/contexts/CheckoutContext";
 import { motion, AnimatePresence } from "motion/react";
+import Image from "next/image";
 import PlanSummary from "./PlanSummary";
 import CustomerInfoForm from "./CustomerInfoForm";
 import PaymentMethods from "./PaymentMethods";
@@ -101,9 +102,7 @@ export default function Checkout() {
               <div />
             )}
 
-            <span className="font-bold text-lg sm:text-xl text-white tracking-tight">
-              Be<span className="text-accent-500">Prime</span>
-            </span>
+            <Image src="/beprime-logo.png" alt="BePrime Logo" width={120} height={40} className="w-auto h-6 sm:h-8 object-contain filter brightness-0 invert" />
 
             {checkout.step < 4 ? (
               <button

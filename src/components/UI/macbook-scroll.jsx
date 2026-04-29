@@ -593,27 +593,10 @@ export const OptionKey = ({ className }) => {
 
 const BePrimeLidLogo = () => {
   return (
-    <svg
-      width="40"
-      height="40"
-      viewBox="0 0 40 40"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className="h-4 w-4"
-    >
-      <rect width="40" height="40" rx="8" fill="none" />
-      <text
-        x="50%"
-        y="54%"
-        dominantBaseline="middle"
-        textAnchor="middle"
-        fill="currentColor"
-        fontSize="24"
-        fontWeight="bold"
-        fontFamily="system-ui, sans-serif"
-      >
-        B
-      </text>
-    </svg>
+    <img
+      src="/beprime-logo.png"
+      alt="BePrime Logo"
+      className="w-10 h-10 object-contain opacity-80"
+    />
   );
 };

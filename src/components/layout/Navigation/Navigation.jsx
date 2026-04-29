@@ -19,9 +19,7 @@ function Navigation() {
     <section className="flex justify-between relative z-50">
       <nav className="flex items-center">
         <Link href="/">
-          <span className="inline-block ml-8 font-bold text-2xl text-primary-500 tracking-tight">
-            Be<span className="text-accent-500">Prime</span>
-          </span>
+          <Image src="/beprime-logo.png" alt="BePrime Logo" width={120} height={40} className="w-auto h-8 lg:h-10 object-contain ml-8" />
         </Link>
 
         <ul className="inline-flex gap-8 font-medium">
@@ -56,9 +54,7 @@ function Navigation() {
         <div className="flex flex-col h-full p-8">
           <div className="flex justify-between items-center mb-12">
             <Link href="/">
-              <span className="font-bold text-2xl text-white tracking-tight">
-                Be<span className="text-accent-500">Prime</span>
-              </span>
+              <Image src="/beprime-logo.png" alt="BePrime Logo" width={120} height={40} className="w-auto h-8 object-contain filter brightness-0 invert" />
             </Link>
             <button onClick={() => setIsMenuOpen(false)} className="p-2">
               <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">

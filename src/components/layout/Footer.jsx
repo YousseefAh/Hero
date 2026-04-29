@@ -43,9 +43,7 @@ function Footer() {
     <footer className="m-auto px-4 sm:px-8 md:px-16 xl:px-24 pt-16 pb-8 sm:pb-12 md:pb-28 max-w-[90rem]">
       <div className="gap-y-12 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-[2fr_repeat(4,1fr)] grid-rows-3 md:grid-rows-2 xl:grid-rows-1">
         <div className="flex flex-col justify-start content-between row-start-3 md:row-start-2 lg:row-start-1">
-          <span className="mb-8 md:mb-auto font-bold text-2xl text-primary-500 tracking-tight pl-10">
-            Be<span className="text-accent-500">Prime</span>
-          </span>
+          <Image src="/beprime-logo.png" alt="BePrime Logo" width={120} height={40} className="mb-8 md:mb-auto w-auto h-10 object-contain pl-10" />
           <ul className="flex gap-x-2">
             {footerSocials.map((logo) => (
               <li key={logo.id}>
