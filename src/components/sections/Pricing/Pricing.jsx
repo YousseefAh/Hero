@@ -8,17 +8,17 @@ import { content } from "@/data/content";
 
 function Pricing() {
   const paymentPlan = "monthly";
-  const [sliderValue, setSliderValue] = useState(4);
 
-  const { priceData, currency, priceGuarantee } = content.pricing;
+  // TODO: Uncomment slider when ready
+  // const [sliderValue, setSliderValue] = useState(4);
+  // const { priceData, currency, priceGuarantee } = content.pricing;
+  // const currentPricePoint = priceData[sliderValue] || priceData[0];
 
   // TODO: Uncomment when adding 3-month billing cycle
   // const [paymentPlan, setPaymentPlan] = useState("monthly");
   // function handlePaymentPlanChange() {
   //   setPaymentPlan((plan) => (plan === "monthly" ? "annual" : "monthly"));
   // }
-
-  const currentPricePoint = priceData[sliderValue] || priceData[0];
 
   return (
     <section className="m-auto px-4 sm:px-8 md:px-16 xl:px-24 py-8 max-w-[90rem]">
@@ -27,8 +27,8 @@ function Pricing() {
           ابدأ النهاردة<span className="text-accent-500">.</span>
         </h2>
 
-        {/* Client slider */}
-        <div className="w-full max-w-md mb-8">
+        {/* TODO: Uncomment client slider when ready */}
+        {/* <div className="w-full max-w-md mb-8">
           <div className="flex justify-between items-center mb-4">
             <span className="text-primary-200 text-sm">عدد العملاء</span>
             <span className="font-display font-bold text-2xl text-accent-500">
@@ -50,7 +50,7 @@ function Pricing() {
             </span>
           </div>
           <p className="text-center text-accent-500 text-sm mt-2 font-medium">{priceGuarantee}</p>
-        </div>
+        </div> */}
 
         {/* TODO: Uncomment when adding 3-month billing cycle toggle */}
         {/* <div className="flex items-center gap-x-4">
