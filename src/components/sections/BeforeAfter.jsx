@@ -3,33 +3,6 @@
 import { content } from "@/data/content";
 import { motion } from "motion/react";
 
-const beforeIcons = [
-  // phone/messages chaos
-  <svg key="b1" className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>,
-  // spreadsheet
-  <svg key="b2" className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M3 14h18M10 3v18M3 6a3 3 0 013-3h12a3 3 0 013 3v12a3 3 0 01-3 3H6a3 3 0 01-3-3V6z" /></svg>,
-  // money chaos
-  <svg key="b3" className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" /></svg>,
-  // clock
-  <svg key="b4" className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>,
-  // user disappear
-  <svg key="b5" className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>,
-  // exhausted
-  <svg key="b6" className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>,
-  // broken chart
-  <svg key="b7" className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6" /></svg>,
-];
-
-const afterIcons = [
-  <svg key="a1" className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" /></svg>,
-  <svg key="a2" className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" /></svg>,
-  <svg key="a3" className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>,
-  <svg key="a4" className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>,
-  <svg key="a5" className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>,
-  <svg key="a6" className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>,
-  <svg key="a7" className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" /></svg>,
-];
-
 function BeforeAfter() {
   const { before, after } = content.beforeAfter;
 
@@ -89,10 +62,7 @@ function BeforeAfter() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                 </svg>
               </div>
-              <div>
-                <span className="text-xs font-bold tracking-[0.15em] uppercase text-red-500/70">قبل BePrime</span>
-                <h3 className="text-lg font-bold text-red-400 leading-tight">{before.heading}</h3>
-              </div>
+              <h3 className="text-lg font-bold text-red-400 leading-tight">{before.heading}</h3>
             </div>
 
             {/* Divider */}
@@ -107,15 +77,11 @@ function BeforeAfter() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: "-30px" }}
                   transition={{ delay: 0.06 * i, duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
-                  className="flex items-start gap-4 group"
+                  className="flex items-start gap-3 group"
                 >
                   {/* Index badge */}
                   <span className="flex-shrink-0 inline-flex items-center justify-center w-7 h-7 rounded-lg bg-red-500/10 border border-red-500/20 text-red-500/60 text-xs font-bold mt-0.5 group-hover:bg-red-500/15 transition-colors">
                     {String(i + 1).padStart(2, "0")}
-                  </span>
-                  {/* Icon */}
-                  <span className="flex-shrink-0 mt-1 text-red-500/40 group-hover:text-red-500/60 transition-colors">
-                    {beforeIcons[i]}
                   </span>
                   {/* Text */}
                   <p className="text-[#8A7070] text-sm md:text-base leading-relaxed group-hover:text-[#A08080] transition-colors">
@@ -167,10 +133,7 @@ function BeforeAfter() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
-              <div>
-                <span className="text-xs font-bold tracking-[0.15em] uppercase text-accent-500/70">بعد BePrime</span>
-                <h3 className="text-lg font-bold text-accent-400 leading-tight">{after.heading}</h3>
-              </div>
+              <h3 className="text-lg font-bold text-accent-400 leading-tight">{after.heading}</h3>
             </div>
 
             {/* Divider */}
@@ -185,15 +148,11 @@ function BeforeAfter() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: "-30px" }}
                   transition={{ delay: 0.06 * i, duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
-                  className="flex items-start gap-4 group"
+                  className="flex items-start gap-3 group"
                 >
                   {/* Index badge */}
                   <span className="flex-shrink-0 inline-flex items-center justify-center w-7 h-7 rounded-lg bg-accent-500/10 border border-accent-500/20 text-accent-500/60 text-xs font-bold mt-0.5 group-hover:bg-accent-500/15 transition-colors">
                     {String(i + 1).padStart(2, "0")}
-                  </span>
-                  {/* Icon */}
-                  <span className="flex-shrink-0 mt-1 text-accent-500/40 group-hover:text-accent-500 transition-colors">
-                    {afterIcons[i]}
                   </span>
                   {/* Text */}
                   <p className="text-[#708A70] text-sm md:text-base leading-relaxed group-hover:text-[#90AA90] transition-colors">
