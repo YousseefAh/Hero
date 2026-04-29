@@ -8,7 +8,7 @@ function Hero() {
   const { subtitle, ctaText, highlightedText, title2 } = content.hero;
 
   return (
-    <section className="relative flex flex-col items-center justify-center min-h-[90svh] pt-24 sm:pt-28 pb-20 sm:pb-28 px-5 sm:px-10 overflow-hidden">
+    <section className="relative pt-28 sm:pt-32 md:pt-36 pb-16 sm:pb-20 md:pb-28 px-5 sm:px-10 overflow-hidden">
 
       {/* ── Ghost glow — top-center, barely there ── */}
       <div
@@ -47,7 +47,7 @@ function Hero() {
             animateBy="words"
             direction="top"
             stepDuration={0.36}
-            className="justify-center font-black text-[2.15rem] sm:text-[3.25rem] md:text-[4.25rem] lg:text-[5.25rem] leading-[1.2] tracking-[-0.01em] text-accent-700"
+            className="justify-center font-black text-[2.15rem] sm:text-[3.25rem] md:text-[4.25rem] lg:text-[5.25rem] leading-[1.2] tracking-[-0.01em] text-accent-500"
           />
 
           {/* Beat 3 — The named enemy */}
