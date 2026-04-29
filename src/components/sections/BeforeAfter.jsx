@@ -141,20 +141,12 @@ function PanelHeader({ heading, variant }) {
 
       {/* Heading */}
       <div>
-        <h3
-          className={`text-base sm:text-lg font-bold leading-tight ${
-            isRed ? "text-red-400" : "text-accent-400"
-          }`}
-        >
-          {heading}
+        <h3 className="text-base sm:text-lg md:text-xl font-bold leading-tight">
+          <span className="text-white">{heading.split('|')[0]}</span>
+          <span className={isRed ? "text-red-400" : "text-accent-400"}>
+            {heading.split('|')[1] || ""}
+          </span>
         </h3>
-        <p
-          className={`text-[10px] sm:text-[11px] mt-0.5 font-medium tracking-wider uppercase ${
-            isRed ? "text-red-500/40" : "text-accent-500/40"
-          }`}
-        >
-          {isRed ? "بدون منظومة" : "مع BePrime"}
-        </p>
       </div>
     </div>
   );
