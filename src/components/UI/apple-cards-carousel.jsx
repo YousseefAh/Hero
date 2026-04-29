@@ -56,7 +56,7 @@ export const Carousel = ({ items, initialScroll = 0 }) => {
 
   const handleCardClose = (index) => {
     if (carouselRef.current) {
-      const cardWidth = 280; // matches style={{ width: "280px" }}
+      const cardWidth = 320; // matches style={{ width: "320px" }}
       const gap = isMobile() ? 4 : 8;
       const scrollPosition = (cardWidth + gap) * (index + 1);
       carouselRef.current.scrollTo({
@@ -237,7 +237,7 @@ export const Card = ({
         layoutId={layout ? `card-${card.title}` : undefined}
         onClick={handleOpen}
         className="relative z-10 flex flex-col items-start justify-start overflow-hidden rounded-3xl bg-primary-300"
-        style={{ width: "280px", aspectRatio: "4/5" }}
+        style={{ width: "320px", aspectRatio: "4/5" }}
       >
         <BlurImage
           src={card.src}

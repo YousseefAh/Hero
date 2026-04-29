@@ -172,76 +172,109 @@ export const content = {
   appleCarousel: {
     title: "اشتغل كأنك فريق × ١٠ — وبراحة فرد واحد",
     cards: [
-      // 1. App Features Overview — best first impression, shows everything at a glance
+      // 1 — Brand identity hook: first thing visitor sees
+      {
+        category: "BePrime",
+        title: "كل اللي محتاجه — وأكتر",
+        src: "/newdesigns/WhatsApp Image 2026-02-03 at 17.37.39.jpeg",
+        content: {
+          title: "كل اللي محتاجه — وأكتر",
+          description: "منصة BePrime مش مجرد أبليكيشن. دي حقبة جديدة في التدريب الأونلاين. براندك + تطبيقك + عملائك = في مكان واحد.",
+          image: { src: "/newdesigns/WhatsApp Image 2026-02-03 at 17.37.39.jpeg", alt: "BePrime - كل اللي محتاجه" }
+        }
+      },
+      // 2 — App features overview: best product first impression
       {
         category: "مميزات التطبيق",
-        title: "كل حاجة عميلك محتاجها — في تطبيق واحد",
+        title: "صحتك كلها. تطبيق واحد أذكى.",
         src: "/newdesigns/WhatsApp Image 2026-04-25 at 01.34.28.jpeg",
         content: {
           title: "مميزات التطبيق",
-          description: "تتبع الوزن، تحليل التمارين، المياه، النوم، العمر البيولوجي — كل حاجة في مكان واحد بتجربة مستخدم عالمية.",
+          description: "تتبع الوزن، تحليل التمارين، المياه، النوم، العمر البيولوجي — كل حاجة متكاملة في تجربة مستخدم عالمية.",
           image: { src: "/newdesigns/WhatsApp Image 2026-04-25 at 01.34.28.jpeg", alt: "مميزات تطبيق BePrime" }
         }
       },
-      // 2. AI Analysis (4 phones) — shows the AI power across all features
+      // 3 — AI ecosystem: shows the full connected intelligence picture
       {
-        category: "التحليلات الذكية",
-        title: "الذكاء الاصطناعي بيحلل كل خطوة لعميلك",
-        src: "/newdesigns/WhatsApp Image 2026-04-01 at 06.08.17.jpeg",
-        content: {
-          title: "تحليلات بالذكاء الاصطناعي",
-          description: "تحليل شامل للتمرين، التغذية، النوم، والأوزان — كل حاجة بتتحلل تلقائي وبتوصلك في تقارير واضحة.",
-          image: { src: "/newdesigns/WhatsApp Image 2026-04-01 at 06.08.17.jpeg", alt: "تحليلات ذكية بالـ AI" }
-        }
-      },
-      // 3. App Features Isometric — visual overview of all features
-      {
-        category: "نظرة شاملة",
-        title: "منظومة متكاملة لتطوير تجربة عميلك",
-        src: "/newdesigns/WhatsApp Image 2026-04-11 at 21.52.32.jpeg",
-        content: {
-          title: "نظرة شاملة على المنصة",
-          description: "من تتبع المياه للتغذية للنوم للتمارين — كل حاجة مترابطة في نظام واحد ذكي.",
-          image: { src: "/newdesigns/WhatsApp Image 2026-04-11 at 21.52.32.jpeg", alt: "نظرة شاملة على المنصة" }
-        }
-      },
-      // 4. AI Analysis Map — shows the connected AI ecosystem
-      {
-        category: "ذكاء اصطناعي",
-        title: "كل بياناتك متصلة — والـ AI بيربطها ليك",
+        category: "الذكاء الاصطناعي",
+        title: "بياناتك متصلة. والـ AI بيربطها ليك.",
         src: "/newdesigns/WhatsApp Image 2026-04-24 at 08.42.26.jpeg",
         content: {
           title: "منظومة الذكاء الاصطناعي",
-          description: "تحليل التغذية، الأوزان، النوم، التمارين، العمر البيولوجي — كل حاجة الـ AI بيحللها ويوصلك نتائج فورية.",
+          description: "تحليل التغذية، الأوزان، النوم، التمارين، والعمر البيولوجي — كل بياناتك مترابطة تلقائي وبتوصلك نتائج فورية.",
           image: { src: "/newdesigns/WhatsApp Image 2026-04-24 at 08.42.26.jpeg", alt: "منظومة AI متكاملة" }
         }
       },
-      // 5. Workout Analysis (with trainer illustration)
+      // 4 — AI Analysis 4-screens: deep AI power showcase
+      {
+        category: "تحليلات AI",
+        title: "الـ AI بيحلل الأوزان، التغذية، النوم — كل حاجة.",
+        src: "/newdesigns/WhatsApp Image 2026-04-01 at 06.08.17.jpeg",
+        content: {
+          title: "تحليلات AI شاملة",
+          description: "كل حاجة بتتحلل تلقائي — تقارير واضحة، بيانات لحظية، وقرارات مبنية على أرقام حقيقية.",
+          image: { src: "/newdesigns/WhatsApp Image 2026-04-01 at 06.08.17.jpeg", alt: "تحليلات AI شاملة" }
+        }
+      },
+      // 5 — Workout Analysis with coach: performance focus
       {
         category: "تحليل التمرين",
-        title: "كل تمرينة بتتحلل — والنتائج واضحة",
+        title: "كل جلسة بتتحلل. نتائجك واضحة.",
         src: "/newdesigns/WhatsApp Image 2026-03-27 at 18.58.13.jpeg",
         content: {
           title: "تحليل التمارين",
-          description: "تحليل أداء كل جلسة تدريبية مع إحصائيات القوة، العضلات المستهدفة، والتطور على مدار الأسابيع.",
-          image: { src: "/newdesigns/WhatsApp Image 2026-03-27 at 18.58.13.jpeg", alt: "تحليل التمارين العضلية" }
+          description: "إحصائيات القوة، العضلات المستهدفة، Cardio Progress — مدربك يتابع تطورك من البيانات بشكل دوري.",
+          image: { src: "/newdesigns/WhatsApp Image 2026-03-27 at 18.58.13.jpeg", alt: "تحليل التمارين" }
         }
       },
-      // 6. Weight Recording (hands with phones)
+      // 6 — Recording Weights in-app: action shot while exercising
       {
-        category: "تسجيل الأوزان",
-        title: "كل وزن بيتسجل — وتقدّم عميلك واضح قدامك",
+        category: "تسجيل التمارين",
+        title: "سجّل أوزانك أثناء التمرين — مش بعده.",
+        src: "/newdesigns/WhatsApp Image 2026-03-12 at 04.20.12.jpeg",
+        content: {
+          title: "تسجيل الأوزان لحظة بلحظة",
+          description: "نزّل الأبليكيشن، جاوب على الاستبيان، وسجّل كل Set وزنه — والتطور هيتكتب لوحده.",
+          image: { src: "/newdesigns/WhatsApp Image 2026-03-12 at 04.20.12.jpeg", alt: "تسجيل الأوزان" }
+        }
+      },
+      // 7 — Workout Analytics dashboard: detailed progress view
+      {
+        category: "داشبورد التمرين",
+        title: "شوف تطورك على مدار الأشهر — في لمحة.",
+        src: "/newdesigns/WhatsApp Image 2026-03-16 at 07.59.04.jpeg",
+        content: {
+          title: "داشبورد التمرين المتقدم",
+          description: "سجّل كل الأوزان والتمارين والأيام — ومدربك يعدّل البرنامج بشكل مستمر بناءً على بياناتك.",
+          image: { src: "/newdesigns/WhatsApp Image 2026-03-16 at 07.59.04.jpeg", alt: "داشبورد التمرين" }
+        }
+      },
+      // 8 — Weight Recording dashboard: progress tracking proof
+      {
+        category: "تتبع الأوزان",
+        title: "وزنك بيتسجل. مدربك بيتابع. أنت بتتطور.",
         src: "/newdesigns/WhatsApp Image 2026-04-26 at 21.34.19.jpeg",
         content: {
-          title: "تسجيل الأوزان",
-          description: "كل تمرينة بتتسجل أوزانها تلقائي في الداشبورد. عميلك يقدر يتابع تطوره بشكل بصري واضح.",
-          image: { src: "/newdesigns/WhatsApp Image 2026-04-26 at 21.34.19.jpeg", alt: "تسجيل ومتابعة الأوزان" }
+          title: "تتبع الأوزان بالداشبورد",
+          description: "كل تمرينة بتتسجل أوزانها تلقائي. الداشبورد بيوريك الصورة الكاملة لتطورك على مدار الوقت.",
+          image: { src: "/newdesigns/WhatsApp Image 2026-04-26 at 21.34.19.jpeg", alt: "تتبع الأوزان" }
         }
       },
-      // 7. Diet Analysis (dual phones with charts)
+      // 9 — Weight Tracker 3D: AI-powered weight coaching
+      {
+        category: "Weight Tracker AI",
+        title: "سجّل أوزانك. ومدربك هيحدد النظام المثالي ليك.",
+        src: "/newdesigns/WhatsApp Image 2026-02-12 at 02.59.10.jpeg",
+        content: {
+          title: "تتبع الأوزان بالذكاء الاصطناعي",
+          description: "سجّل كل أوزانك — وهتقدر تتابع تطورك بشكل مثالي. ومدربك يحدد النظام الأمثل بناءً على البيانات.",
+          image: { src: "/newdesigns/WhatsApp Image 2026-02-12 at 02.59.10.jpeg", alt: "AI Weight Tracker" }
+        }
+      },
+      // 10 — Diet Analysis dual phones: daily nutrition tracking
       {
         category: "تحليل التغذية",
-        title: "تتبع الوجبات والتطور الغذائي لكل عميل",
+        title: "تتبع كل وجبة. وضمان التطور بشكل يومي.",
         src: "/newdesigns/WhatsApp Image 2026-04-01 at 06.29.53.jpeg",
         content: {
           title: "تحليل التغذية",
@@ -249,81 +282,92 @@ export const content = {
           image: { src: "/newdesigns/WhatsApp Image 2026-04-01 at 06.29.53.jpeg", alt: "تحليل التغذية" }
         }
       },
-      // 8. Recording Weights (action shots)
+      // 11 — Diet Analysis isometric: smart nutrition ecosystem
       {
-        category: "تتبع التقدم",
-        title: "سجّل أوزانك في كل تمرين — وتابع تطورك",
-        src: "/newdesigns/WhatsApp Image 2026-03-12 at 04.20.12.jpeg",
-        content: {
-          title: "تتبع التقدم في التمرين",
-          description: "نزّل الأبليكيشن، جاوب على الاستبيان، سجّل أوزانك — وهتقدر تطور بشكل مستمر.",
-          image: { src: "/newdesigns/WhatsApp Image 2026-03-12 at 04.20.12.jpeg", alt: "تتبع التقدم" }
-        }
-      },
-      // 9. Workout Analysis (scrolling data)
-      {
-        category: "تحليل التمرين المتقدم",
-        title: "مدربك هيقدر يتابعك بشكل دوري من البيانات",
-        src: "/newdesigns/WhatsApp Image 2026-03-16 at 07.59.04.jpeg",
-        content: {
-          title: "تحليل التمرين المتقدم",
-          description: "سجّل كل أوزانك وتمارينك وأيامك — ومن خلال البيانات مدربك هيقدر يتابعك بشكل احترافي.",
-          image: { src: "/newdesigns/WhatsApp Image 2026-03-16 at 07.59.04.jpeg", alt: "تحليل التمرين المتقدم" }
-        }
-      },
-      // 10. AI Analysis overview (weight, sleep, diet, workout)
-      {
-        category: "تحليلات شاملة",
-        title: "الـ AI بيحلل كل حاجة — وأنت مرتاح",
-        src: "/newdesigns/WhatsApp Image 2026-03-31 at 08.49.37.jpeg",
-        content: {
-          title: "تحليلات AI شاملة",
-          description: "تحليل الأوزان، جودة النوم، النظام الغذائي، التمرين العضلي — كل حاجة بالذكاء الاصطناعي.",
-          image: { src: "/newdesigns/WhatsApp Image 2026-03-31 at 08.49.37.jpeg", alt: "تحليلات AI شاملة" }
-        }
-      },
-      // 11. App Features (phone in hand with AI features)
-      {
-        category: "مميزات AI",
-        title: "صوّر الأكل وحلله بالذكاء الاصطناعي فورًا",
-        src: "/newdesigns/WhatsApp Image 2026-04-11 at 18.27.12.jpeg",
-        content: {
-          title: "مميزات الذكاء الاصطناعي",
-          description: "صوّر وحلل الأكل بالذكاء الاصطناعي، تتبع المياه، تحليل النوم، اختبار القوة والتحمل — كل حاجة في الأبليكيشن.",
-          image: { src: "/newdesigns/WhatsApp Image 2026-04-11 at 18.27.12.jpeg", alt: "مميزات AI في التطبيق" }
-        }
-      },
-      // 12. Diet Analysis (isometric illustration)
-      {
-        category: "تحليل النظام الغذائي",
-        title: "كل وجبة بتتحول لبيانات — والنظام بيعمل الباقي",
+        category: "نظام غذائي ذكي",
+        title: "كل وجبة بتتحول لبيانات — والنظام بيعمل الباقي.",
         src: "/newdesigns/WhatsApp Image 2026-04-01 at 03.51.26.jpeg",
         content: {
-          title: "تحليل النظام الغذائي",
-          description: "تسجيل الوجبات، حساب السعرات، والتغذية المتكاملة — كل حاجة أوتوماتيك وبدون تعقيد.",
-          image: { src: "/newdesigns/WhatsApp Image 2026-04-01 at 03.51.26.jpeg", alt: "تحليل النظام الغذائي" }
+          title: "النظام الغذائي الذكي",
+          description: "تسجيل الوجبات، حساب السعرات، توزيع Macros — كل حاجة أوتوماتيك وبدون تعقيد.",
+          image: { src: "/newdesigns/WhatsApp Image 2026-04-01 at 03.51.26.jpeg", alt: "النظام الغذائي الذكي" }
         }
       },
-      // 13. Food Alternatives
+      // 12 — Snap & Track: AI camera food analysis
       {
-        category: "بدائل الأكل",
-        title: "بدائل صحية ذكية — عميلك دايمًا عنده خيارات",
-        src: "/newdesigns/WhatsApp Image 2026-03-03 at 03.34.23.jpeg",
-        content: {
-          title: "بدائل الأكل الذكية",
-          description: "أدوات ذكية بتقترح بدائل صحية لكل وجبة — عشان عميلك يفضل ملتزم بالنظام.",
-          image: { src: "/newdesigns/WhatsApp Image 2026-03-03 at 03.34.23.jpeg", alt: "بدائل الأكل الذكية" }
-        }
-      },
-      // 14. Diet Analysis (snap & track)
-      {
-        category: "تحليل الأكل بالكاميرا",
-        title: "صوّر أكلك — والـ AI هيحلله فورًا",
+        category: "صوّر أكلك",
+        title: "صوّر الأكل. والـ AI هيحلله في ثانية.",
         src: "/newdesigns/WhatsApp Image 2026-02-07 at 05.43.20.jpeg",
         content: {
           title: "تحليل الأكل بالكاميرا",
-          description: "التقط صورة لوجبتك والذكاء الاصطناعي هيحللها — سعرات، بروتين، كاربوهيدرات، ودهون.",
+          description: "التقط صورة لوجبتك — والذكاء الاصطناعي يحللها فورًا: سعرات، بروتين، كاربوهيدرات، ودهون.",
           image: { src: "/newdesigns/WhatsApp Image 2026-02-07 at 05.43.20.jpeg", alt: "تحليل الأكل بالكاميرا" }
+        }
+      },
+      // 13 — Food Alternatives: smart healthy substitutions
+      {
+        category: "بدائل الأكل",
+        title: "عميلك دايمًا عنده بديل صحي أذكى.",
+        src: "/newdesigns/WhatsApp Image 2026-03-03 at 03.34.23.jpeg",
+        content: {
+          title: "بدائل الأكل الذكية",
+          description: "النظام يقترح بدائل صحية لكل وجبة — عشان عميلك يفضل ملتزم حتى لو ماعندوش خيارات كتير.",
+          image: { src: "/newdesigns/WhatsApp Image 2026-03-03 at 03.34.23.jpeg", alt: "بدائل الأكل الذكية" }
+        }
+      },
+      // 14 — Sleep Tracker: rest & recovery
+      {
+        category: "تتبع النوم",
+        title: "النوم هو النصف التاني من التمرين.",
+        src: "/newdesigns/WhatsApp Image 2026-02-03 at 16.04.28.jpeg",
+        content: {
+          title: "تتبع جودة النوم",
+          description: "اعرف بتنام إزاي وأمتى — والـ AI يحلل جودة نومك ويوصيك بالوقت المثالي للراحة والتعافي.",
+          image: { src: "/newdesigns/WhatsApp Image 2026-02-03 at 16.04.28.jpeg", alt: "تتبع النوم" }
+        }
+      },
+      // 15 — AI Analysis all pathways: full connected ecosystem
+      {
+        category: "تحليلات شاملة",
+        title: "الـ AI شايف الصورة كلها — وبيحللها ليك.",
+        src: "/newdesigns/WhatsApp Image 2026-03-31 at 08.49.37.jpeg",
+        content: {
+          title: "تحليلات AI شاملة",
+          description: "تحليل الأوزان، جودة النوم، النظام الغذائي، التمرين العضلي — كل حاجة مترابطة بالذكاء الاصطناعي.",
+          image: { src: "/newdesigns/WhatsApp Image 2026-03-31 at 08.49.37.jpeg", alt: "تحليلات AI شاملة" }
+        }
+      },
+      // 16 — Water Tracker: daily hydration
+      {
+        category: "تتبع المياه",
+        title: "الماء بيفرق. وعميلك لازم يعرف كمّيته.",
+        src: "/newdesigns/WhatsApp Image 2026-02-24 at 19.58.53.jpeg",
+        content: {
+          title: "تتبع المياه اليومي",
+          description: "سجّل هدف المياه اليومي — والنظام يحلل احتياجاتك ويبعت تذكيرات عشان تفضل رطب طول اليوم.",
+          image: { src: "/newdesigns/WhatsApp Image 2026-02-24 at 19.58.53.jpeg", alt: "تتبع المياه" }
+        }
+      },
+      // 17 — Biological Age face split: powerful emotional hook
+      {
+        category: "العمر البيولوجي",
+        title: "عمرك الحقيقي مش في شهادة الميلاد.",
+        src: "/newdesigns/WhatsApp Image 2026-02-04 at 21.19.14.jpeg",
+        content: {
+          title: "قياس العمر البيولوجي",
+          description: "اعرف عمرك الحقيقي بناءً على جسمك — مش تاريخ ميلادك. وشوف الفرق وأنت بتلتزم بالنظام.",
+          image: { src: "/newdesigns/WhatsApp Image 2026-02-04 at 21.19.14.jpeg", alt: "العمر البيولوجي" }
+        }
+      },
+      // 18 — Biological Age blue CTA: closing power card
+      {
+        category: "ابدأ النهاردة",
+        title: "شهادة ميلادك كدبة. اكتشف عمرك الحقيقي.",
+        src: "/newdesigns/WhatsApp Image 2026-02-05 at 15.23.36.jpeg",
+        content: {
+          title: "اكتشف عمرك الحقيقي",
+          description: "جسمك عنده عمر تاني — اعرفه، اشتغل عليه، وغيّره. حمّل التطبيق وابدأ رحلتك النهاردة.",
+          image: { src: "/newdesigns/WhatsApp Image 2026-02-05 at 15.23.36.jpeg", alt: "العمر البيولوجي - ابدأ الآن" }
         }
       },
     ]
