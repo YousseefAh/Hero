@@ -23,7 +23,7 @@ function Hero() {
   // ──────────────────────────────────────────────────────────────
 
   return (
-    <section className="relative h-[38svh] sm:h-auto flex items-center justify-center sm:block sm:pt-20 md:pt-24 pb-0 px-5 sm:px-10 overflow-hidden">
+    <section className="relative pt-[7svh] sm:pt-20 md:pt-24 px-5 sm:px-10 overflow-hidden">
 
       {/* ── Ambient glow ── */}
       <div
