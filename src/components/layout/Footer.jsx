@@ -42,17 +42,27 @@ function Footer() {
   return (
     <footer className="m-auto px-4 sm:px-8 md:px-16 xl:px-24 pt-16 pb-8 sm:pb-12 md:pb-28 max-w-[90rem]">
       <div className="gap-y-12 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-[2fr_repeat(4,1fr)] grid-rows-3 md:grid-rows-2 xl:grid-rows-1">
-        <div className="flex flex-col justify-start content-between row-start-3 md:row-start-2 lg:row-start-1">
-          <Image src="/beprime-logo.png" alt="BePrime Logo" width={120} height={40} className="mb-8 md:mb-auto w-auto h-10 object-contain pl-10" />
-          <ul className="flex gap-x-2">
-            {footerSocials.map((logo) => (
-              <li key={logo.id}>
-                <a href="#">
+        <div className="flex flex-col items-start gap-6 row-start-3 md:row-start-2 lg:row-start-1 lg:pr-4">
+          <Link href="/">
+            <Image src="/beprime-logo.png" alt="BePrime Logo" width={180} height={180} className="w-auto h-16 lg:h-20 object-contain hover:opacity-80 transition-opacity" />
+          </Link>
+          <p className="text-primary-300 text-sm/relaxed max-w-[280px] font-medium">
+            شريكك التقني لبناء منظومة تدريب متكاملة. علامتك التجارية، تطبيقك، ونجاحك، في مكان واحد.
+          </p>
+          <ul className="flex items-center gap-x-3 mt-2">
+            {footerSocials.map((social) => (
+              <li key={social.id}>
+                <a 
+                  href="#" 
+                  className="w-10 h-10 rounded-xl bg-white border border-primary-400/20 flex items-center justify-center hover:bg-accent-500 hover:border-accent-500 hover:-translate-y-1 transition-all duration-300 group shadow-sm hover:shadow-glow-green"
+                  aria-label={social.name}
+                >
                   <Image
-                    src={logo.logo}
-                    alt={logo.name}
-                    width={24}
-                    height={24}
+                    src={social.logo}
+                    alt={social.name}
+                    width={20}
+                    height={20}
+                    className="opacity-60 group-hover:opacity-90 transition-opacity"
                   />
                 </a>
               </li>
