@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useState, useCallback } from "react";
+import { createContext, useContext, useState, useCallback, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { submitToGoogleSheets } from "@/utils/googleSheets";
 
@@ -105,21 +105,26 @@ export function CheckoutProvider({ children }) {
     }));
   }, []);
 
+  const lastSubmittedRef = useRef(null);
+
   const confirmPayment = useCallback(() => {
     const refId = `BP-${Date.now().toString(36).toUpperCase()}-${Math.random().toString(36).substring(2, 6).toUpperCase()}`;
 
     setCheckout((prev) => {
-      // Fire-and-forget: send to Google Sheets (doesn't block UI)
-      submitToGoogleSheets({
-        fullName: prev.customerInfo.fullName,
-        phone: prev.customerInfo.phone,
-        platformName: prev.customerInfo.platformName,
-        planName: prev.plan?.name || "—",
-        price: prev.plan?.price || "—",
-        billingCycle: prev.plan?.billingCycle || "monthly",
-        paymentMethod: PAYMENT_METHODS[prev.payment.method]?.name || prev.payment.method,
-        referenceId: refId,
-      });
+      // Dedup: only submit once per referenceId (React StrictMode calls updater twice)
+      if (lastSubmittedRef.current !== refId) {
+        lastSubmittedRef.current = refId;
+        submitToGoogleSheets({
+          fullName: prev.customerInfo.fullName,
+          phone: prev.customerInfo.phone,
+          platformName: prev.customerInfo.platformName,
+          planName: prev.plan?.name || "—",
+          price: prev.plan?.price || "—",
+          billingCycle: prev.plan?.billingCycle || "monthly",
+          paymentMethod: PAYMENT_METHODS[prev.payment.method]?.name || prev.payment.method,
+          referenceId: refId,
+        });
+      }
 
       return {
         ...prev,
