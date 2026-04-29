@@ -19,7 +19,7 @@ function Hero() {
   // ─────────────────────────────────────────────────────────────
 
   return (
-    <section className="relative min-h-[70svh] sm:min-h-0 flex items-center justify-center sm:block pt-14 sm:pt-20 md:pt-24 pb-6 sm:pb-0 px-5 sm:px-10 overflow-hidden">
+    <section className="relative pt-10 sm:pt-20 md:pt-24 pb-4 sm:pb-0 px-5 sm:px-10 overflow-hidden">
 
       {/* ── Ambient glow ── */}
       <div
