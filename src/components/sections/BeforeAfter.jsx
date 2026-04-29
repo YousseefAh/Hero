@@ -1,8 +1,7 @@
 "use client";
 
 import { content } from "@/data/content";
-import { motion, useInView } from "motion/react";
-import { useRef } from "react";
+import { motion } from "motion/react";
 
 const beforeIcons = [
   // phone/messages chaos
@@ -33,12 +32,9 @@ const afterIcons = [
 
 function BeforeAfter() {
   const { before, after } = content.beforeAfter;
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
     <section
-      ref={ref}
       dir="rtl"
       className="relative w-full py-24 overflow-hidden"
       style={{ background: "linear-gradient(180deg, #0C0C10 0%, #0A0A0E 50%, #0C0C10 100%)" }}
@@ -53,9 +49,10 @@ function BeforeAfter() {
 
         {/* ── Title ── */}
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          initial={{ opacity: 0, y: 24, filter: "blur(6px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="text-center mb-16"
         >
           <p className="text-sm font-semibold tracking-[0.2em] uppercase text-[#5A5A6E] mb-4">المقارنة الحقيقية</p>
@@ -75,9 +72,10 @@ function BeforeAfter() {
 
           {/* ── BEFORE panel ── */}
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7, ease: "easeOut" }}
+            initial={{ opacity: 0, x: 40, filter: "blur(6px)" }}
+            whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="relative p-8 md:p-10"
             style={{ background: "linear-gradient(135deg, #130A0A 0%, #0F0808 100%)" }}
           >
@@ -106,8 +104,9 @@ function BeforeAfter() {
                 <motion.li
                   key={i}
                   initial={{ opacity: 0, x: 20 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ delay: 0.08 * i + 0.2, duration: 0.45 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-30px" }}
+                  transition={{ delay: 0.06 * i, duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
                   className="flex items-start gap-4 group"
                 >
                   {/* Index badge */}
@@ -151,9 +150,10 @@ function BeforeAfter() {
 
           {/* ── AFTER panel ── */}
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.15, ease: "easeOut" }}
+            initial={{ opacity: 0, x: -40, filter: "blur(6px)" }}
+            whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.7, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="relative p-8 md:p-10"
             style={{ background: "linear-gradient(135deg, #0A130A 0%, #080F08 100%)" }}
           >
@@ -182,8 +182,9 @@ function BeforeAfter() {
                 <motion.li
                   key={i}
                   initial={{ opacity: 0, x: -20 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ delay: 0.08 * i + 0.35, duration: 0.45 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-30px" }}
+                  transition={{ delay: 0.06 * i, duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
                   className="flex items-start gap-4 group"
                 >
                   {/* Index badge */}
@@ -215,8 +216,9 @@ function BeforeAfter() {
         {/* ── Bottom CTA strip ── */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.8 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 text-center"
         >
           <span className="text-[#5A5A6E] text-sm">القرار بيدك.</span>
