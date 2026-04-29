@@ -6,7 +6,7 @@ import { motion } from "motion/react";
 
 function Dashboard() {
   return (
-    <section className="relative overflow-hidden bg-white -mt-6 sm:mt-0">
+    <section className="relative overflow-hidden bg-white -mt-12 sm:mt-0">
       <MacbookScroll
         src={content.dashboard.image.src}
         showGradient={false}
