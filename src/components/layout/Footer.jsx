@@ -46,7 +46,7 @@ function Footer() {
           <Link href="/">
             <Image src="/beprime-logo.png" alt="BePrime Logo" width={180} height={180} className="w-auto h-16 lg:h-20 object-contain hover:opacity-80 transition-opacity" />
           </Link>
-          <p className="text-primary-300 text-sm/relaxed max-w-[280px] font-medium">
+          <p className="text-primary-300 text-sm/relaxed max-w-[340px] font-medium">
             شريكك التقني لبناء منظومة تدريب متكاملة. علامتك التجارية، تطبيقك، ونجاحك، في مكان واحد.
           </p>
           <ul className="flex items-center gap-x-3 mt-2">
