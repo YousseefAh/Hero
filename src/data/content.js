@@ -406,11 +406,11 @@ export const content = {
 
   // قسم البطل (Hero)
   hero: {
-    title: "أنت مدرب عالمي. وقتك أغلى من إنه يضيع على Excel و WhatsApp_",
+    title: "أنت مدرب عالمي. وقتك أغلى من إنه يضيع على Excel و WhatsApp",
     subtitle: "BePrime بيحوّل شغلك لمنظومة احترافية كاملة — من البراندينج لحد ما العميل يجدد اشتراكه.",
     ctaText: "ابدأ مجانًا — جهّز منظومتك في أقل من ٢٤ ساعة",
     highlightedText: "وقتك أغلى من إنه يضيع",
-    title2: "على Excel و WhatsApp_"
+    title2: "على Excel و WhatsAppـ"
   },
 
   // عرض مستمر للصور

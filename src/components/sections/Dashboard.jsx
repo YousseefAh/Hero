@@ -33,7 +33,6 @@ function Dashboard() {
           </span>
         }
       />
-
       {/* Smooth transition to dark section below */}
       <div
         className="absolute bottom-0 left-0 right-0 h-48 pointer-events-none"
