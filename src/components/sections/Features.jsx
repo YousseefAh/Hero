@@ -32,10 +32,10 @@ function Features() {
             </span>
           </a>
         </div>
-        <ul className="flex flex-col items-center gap-y-12 sm:grid sm:justify-items-start sm:gap-x-8 md:gap-y-20 sm:grid-cols-2 sm:grid-rows-2">
+        <ul className="grid grid-cols-2 gap-x-4 gap-y-8 sm:gap-x-8 sm:gap-y-12 md:gap-y-20">
           {list.map((feature) => (
             <li
-              className="w-[80%] xl:w-5/6 text-center sm:text-right tracking-tight hover:bg-accent-500/5 rounded-xl p-4 transition-colors"
+              className="text-center sm:text-right tracking-tight hover:bg-accent-500/5 rounded-xl p-3 sm:p-4 transition-colors"
               key={feature.id}
             >
               <Image
@@ -43,12 +43,12 @@ function Features() {
                 alt={feature.name}
                 width={96}
                 height={96}
-                className="sm:place-self-start mb-6 w-24 md:w-auto h-24 md:h-auto place-self-center"
+                className="mx-auto sm:mx-0 mb-4 sm:mb-6 w-14 h-14 sm:w-20 sm:h-20 md:w-24 md:h-24"
               />
-              <h4 className="mb-2 font-bold text-2xl/8 text-primary-500">
+              <h4 className="mb-1.5 sm:mb-2 font-bold text-lg sm:text-2xl/8 text-primary-500">
                 {feature.name}
               </h4>
-              <p className="text-primary-500 xl:text-lg tracking-tight">
+              <p className="text-primary-500 text-sm sm:text-base xl:text-lg tracking-tight">
                 {feature.description}
               </p>
             </li>
