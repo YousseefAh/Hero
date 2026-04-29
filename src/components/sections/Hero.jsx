@@ -44,31 +44,31 @@ function Hero() {
         <div className="flex flex-col items-center gap-0">
           <BlurText
             text="أنت مدرب عالمي."
-            delay={70}
-            initialDelay={0.1}
+            delay={50}
+            initialDelay={0.05}
             animateBy="words"
             direction="top"
-            stepDuration={0.35}
+            stepDuration={0.28}
             className="justify-center font-black text-[clamp(1.5rem,6.5vw,1.75rem)] sm:text-5xl md:text-6xl lg:text-[4.5rem] leading-[1.3] text-primary-800"
           />
 
           <BlurText
             text={highlightedText}
-            delay={80}
-            initialDelay={0.45}
+            delay={60}
+            initialDelay={0.25}
             animateBy="words"
             direction="top"
-            stepDuration={0.35}
+            stepDuration={0.28}
             className="justify-center font-black text-[clamp(1.5rem,6.5vw,1.75rem)] sm:text-5xl md:text-6xl lg:text-[4.5rem] leading-[1.3] text-accent-500"
           />
 
           <BlurText
             text={title2}
-            delay={80}
-            initialDelay={0.95}
+            delay={60}
+            initialDelay={0.6}
             animateBy="words"
             direction="top"
-            stepDuration={0.35}
+            stepDuration={0.28}
             className="justify-center font-black text-[clamp(1.5rem,6.5vw,1.75rem)] sm:text-5xl md:text-6xl lg:text-[4.5rem] leading-[1.3] text-primary-800"
           />
         </div>
@@ -79,7 +79,7 @@ function Hero() {
         <motion.p
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 1.4, ease: "easeOut" }}
+          transition={{ duration: 0.4, delay: 0.9, ease: "easeOut" }}
           className="mt-[3svh] sm:mt-8 text-primary-300 text-[clamp(0.8rem,3.5vw,0.95rem)] sm:text-base md:text-lg leading-[1.8] max-w-lg"
         >
           {subtitle}
@@ -91,7 +91,7 @@ function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 6 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 1.7, ease: "easeOut" }}
+          transition={{ duration: 0.35, delay: 1.1, ease: "easeOut" }}
           className="mt-[3svh] sm:mt-9"
         >
           <a
@@ -116,7 +116,7 @@ function Hero() {
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 2.0 }}
+          transition={{ duration: 0.5, delay: 1.3 }}
           className="mt-[1.5svh] sm:mt-3 text-[11px] text-primary-200/40 tracking-[0.04em]"
         >
           بدون بطاقة ائتمان · جاهز في أقل من ٢٤ ساعة
