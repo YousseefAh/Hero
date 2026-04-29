@@ -92,9 +92,7 @@ export default function PaymentMethods() {
           {
             to_name: "BePrime Team",
             from_name: checkout.customerInfo.fullName,
-            from_email: checkout.customerInfo.email,
-            message: `🔔 طلب اشتراك جديد!\n\n📋 الخطة: ${plan.name}\n💰 المبلغ: ${plan.price} ج.م (${plan.billingCycle === "monthly" ? "شهري" : "سنوي"})\n\n👤 الاسم: ${checkout.customerInfo.fullName}\n📧 الإيميل: ${checkout.customerInfo.email}\n📱 الموبايل: ${checkout.customerInfo.phone}\n🏢 البيزنس: ${checkout.customerInfo.businessName || "—"}\n👥 عدد العملاء: ${checkout.customerInfo.clientCount || "—"}\n\n💳 طريقة الدفع: ${PAYMENT_METHODS[payment.method]?.name}`,
-            reply_to: checkout.customerInfo.email,
+            message: `🔔 طلب اشتراك جديد!\n\n📋 الخطة: ${plan.name}\n💰 المبلغ: ${plan.price} ج.م (${plan.billingCycle === "monthly" ? "شهري" : "سنوي"})\n\n👤 الاسم: ${checkout.customerInfo.fullName}\n📱 الموبايل: ${checkout.customerInfo.phone}\n\n💳 طريقة الدفع: ${PAYMENT_METHODS[payment.method]?.name}`,
           }
         );
       }

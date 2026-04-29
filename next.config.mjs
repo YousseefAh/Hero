@@ -25,6 +25,11 @@ const nextConfig = {
     // ESLint patch fails with ESLint 9 + eslint-config-next (known rushstack issue)
     ignoreDuringBuilds: true,
   },
+  images: {
+    remotePatterns: [
+      { protocol: "https", hostname: "res.cloudinary.com" },
+    ],
+  },
 };
 
 export default nextConfig;

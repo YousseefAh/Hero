@@ -1,22 +1,21 @@
 "use client";
 
 import { createContext, useContext, useState, useCallback } from "react";
+import { useRouter } from "next/navigation";
 
 const CheckoutContext = createContext();
 
 const INITIAL_STATE = {
   isOpen: false,
-  step: 1, // 1: Plan Summary, 2: Customer Info, 3: Payment, 4: Confirmation
+  step: 1, // 1: Info + Plan, 2: Payment, 3: Confirmation
   plan: null, // { name, price, billingCycle, features, subheading }
   customerInfo: {
     fullName: "",
-    email: "",
     phone: "",
-    businessName: "",
-    clientCount: "",
+    platformName: "",
   },
   payment: {
-    method: "", // "vodafone_cash" | "manual_instapay" | "fawaterk" (future)
+    method: "", // "vodafone_cash" | "manual_instapay"
     status: "pending", // "pending" | "awaiting_confirmation" | "confirmed"
     referenceId: "",
   },
@@ -61,21 +60,6 @@ export const PAYMENT_METHODS = {
     icon: "instapay",
     instructions: "حوّل المبلغ على حساب إنستاباي وابعتلنا إيصال الدفع",
   },
-  // FAWATERK — Future payment gateway (uncomment when ready)
-  // fawaterk_card: {
-  //   id: "fawaterk_card",
-  //   name: "بطاقة ائتمان",
-  //   nameEn: "Credit Card",
-  //   icon: "card",
-  //   gateway: "fawaterk",
-  // },
-  // fawaterk_wallet: {
-  //   id: "fawaterk_wallet",
-  //   name: "محفظة إلكترونية",
-  //   nameEn: "E-Wallet",
-  //   icon: "wallet",
-  //   gateway: "fawaterk",
-  // },
 };
 
 export function CheckoutProvider({ children }) {
@@ -88,12 +72,10 @@ export function CheckoutProvider({ children }) {
       step: 1,
       plan,
     });
-    document.body.style.overflow = "hidden";
   }, []);
 
   const closeCheckout = useCallback(() => {
     setCheckout(INITIAL_STATE);
-    document.body.style.overflow = "";
   }, []);
 
   const setStep = useCallback((step) => {
@@ -101,7 +83,7 @@ export function CheckoutProvider({ children }) {
   }, []);
 
   const nextStep = useCallback(() => {
-    setCheckout((prev) => ({ ...prev, step: Math.min(prev.step + 1, 4) }));
+    setCheckout((prev) => ({ ...prev, step: Math.min(prev.step + 1, 3) }));
   }, []);
 
   const prevStep = useCallback(() => {
@@ -126,7 +108,7 @@ export function CheckoutProvider({ children }) {
     const refId = `BP-${Date.now().toString(36).toUpperCase()}-${Math.random().toString(36).substring(2, 6).toUpperCase()}`;
     setCheckout((prev) => ({
       ...prev,
-      step: 4,
+      step: 3,
       payment: {
         ...prev.payment,
         status: "awaiting_confirmation",
