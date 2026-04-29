@@ -12,7 +12,7 @@ function CTA() {
   };
 
   return (
-    <section className="w-full sm:px-6 md:px-12 xl:px-20 sm:py-20 max-w-[90rem] mx-auto" style={{ background: "#0C0C10" }}>
+    <section className="w-full sm:px-6 md:px-12 xl:px-20 sm:py-20 max-w-[90rem] mx-auto bg-[#0C0C10] sm:bg-transparent">
 
       {/* ─── Card ─── */}
       <div className="relative overflow-hidden sm:rounded-[2rem] bg-[#0C0C10] sm:bg-primary-800">
