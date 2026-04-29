@@ -205,17 +205,7 @@ export const content = {
           image: { src: "/newdesigns/WhatsApp Image 2026-04-24 at 08.42.26.jpeg", alt: "منظومة AI متكاملة" }
         }
       },
-      // 4 — Biological Age "Birth Cert is a Lie" grey poster: bold hook
-      {
-        category: "العمر البيولوجي",
-        title: "شهادة ميلادك كدبة — اعرف عمرك الحقيقي.",
-        src: "/newdesigns/WhatsApp Image 2026-02-05 at 15.23.37.jpeg",
-        content: {
-          title: "عمرك الحقيقي",
-          description: "مش مهم تاريخ ميلادك — المهم جسمك. اعرف عمرك البيولوجي الحقيقي وابدأ رحلة التغيير.",
-          image: { src: "/newdesigns/WhatsApp Image 2026-02-05 at 15.23.37.jpeg", alt: "شهادة ميلادك كدبة" }
-        }
-      },
+
       // 5 — Workout Analysis with coach: performance focus
       {
         category: "تحليل التمرين",
@@ -447,22 +437,26 @@ export const content = {
       {
         heading: "بتبني براند — مش بتبيع خدمة",
         text: "أي مدرب يقدر يبيع تمرين. بس اللي بينجح هو اللي بيبني براند. BePrime بيحوّلك من شخص بيقدم خدمة... لبراند الناس بتثق فيه وبتدوّر عليه.",
-        imageAlt: "بناء براند احترافي مع BePrime"
+        imageAlt: "بناء براند احترافي مع BePrime",
+        imageSrc: "/newdesigns/WhatsApp Image 2026-02-03 at 17.37.39.jpeg"
       },
       {
         heading: "عملائك بيبقوا — وبيجيبوا غيرهم",
         text: "بدل ما تفضل تجري ورا عملاء جداد كل شهر — خلي العملاء الموجودين يبقوا مبسوطين ويسوّقوا لك. BePrime بيخلق loop بتخلي النمو مستمر.",
-        imageAlt: "نظام استبقاء ونمو تلقائي"
+        imageAlt: "نظام استبقاء ونمو تلقائي",
+        imageSrc: "/newdesigns/WhatsApp Image 2026-04-25 at 01.34.28.jpeg"
       },
       {
         heading: "بتعرف كل حاجة — في أي وقت",
         text: "مش محتاج تخمن. لوحة التحكم بتوريك كل حاجة: مين بيتمرن، مين بيتكاسل، أنهي عرض بيجيب فلوس، ومين محتاج دفعة.",
-        imageAlt: "تحليلات وبيانات في الوقت الحقيقي"
+        imageAlt: "تحليلات وبيانات في الوقت الحقيقي",
+        imageSrc: "/newdesigns/WhatsApp Image 2026-04-24 at 08.42.26.jpeg"
       },
       {
         heading: "ابدأ في دقائق — مش أسابيع",
         text: "مفيش setup معقد أو انتظار. كلمنا النهاردة — ونظامك يكون شغال بالكامل قبل ما تنام.",
-        imageAlt: "بدء سريع وسهل"
+        imageAlt: "بدء سريع وسهل",
+        imageSrc: "/newdesigns/WhatsApp Image 2026-04-26 at 21.34.19.jpeg"
       }
     ]
   },
