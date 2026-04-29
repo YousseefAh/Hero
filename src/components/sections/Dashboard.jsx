@@ -13,9 +13,9 @@ function Dashboard() {
         title={(() => {
           const line1 = ["شوف", "منظومتك", "الكاملة", "—"];
           const line2 = ["كل", "حاجة", "في", "مكان", "واحد"];
-          const heroEnd = 1.5;   // hero finishes at ~1.3s + buffer
-          const wordGap = 0.10;  // 100ms between each word (snappy)
-          const linePause = 0.5; // shorter pause between lines
+          const heroEnd = 1.3;   // hero trust note at 1.2s + buffer
+          const wordGap = 0.09;  // 90ms — snappy
+          const linePause = 0.4; // tight beat between lines
 
           const line1Start = heroEnd;
           const line2Start = line1Start + line1.length * wordGap + linePause;

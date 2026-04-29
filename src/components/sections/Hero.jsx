@@ -7,21 +7,6 @@ import BlurText from "@/components/UI/BlurText";
 function Hero() {
   const { subtitle, ctaText, highlightedText, title2 } = content.hero;
 
-  // ──────────────────────────────────────────────────────────────
-  //  MOBILE LAYOUT STRATEGY: 100% viewport-proportional.
-  //
-  //  Every vertical gap uses `svh` so the layout is a fixed
-  //  RATIO of the screen — identical proportions on every phone
-  //  from iPhone SE (667px) to iPhone 15 Pro Max (932px).
-  //
-  //  Font sizes use clamp(min, vw, max) for horizontal scaling.
-  //  Gaps use svh for vertical scaling.
-  //  → The two axes scale independently = perfect on any phone.
-  //
-  //  DESKTOP: sm: breakpoints override everything with fixed
-  //  values. No svh on desktop.
-  // ──────────────────────────────────────────────────────────────
-
   return (
     <section className="relative pt-[8svh] sm:pt-20 md:pt-24 px-5 sm:px-10 overflow-hidden">
 
@@ -37,35 +22,41 @@ function Hero() {
       {/* ── Content ── */}
       <div className="relative z-10 flex flex-col items-center text-center w-full max-w-4xl mx-auto">
 
-        {/* ═══ HEADING ═══
-            Font: clamp scales with screen WIDTH (vw)
-            Lines stack with zero gap — leading handles breathing
-        */}
+        {/* ═══════════════════════════════════════════════
+            ACT 1 — THE STATEMENT
+            Three beats. Fast, confident, no hesitation.
+            Each line overlaps the tail of the previous
+            so the heading feels like ONE continuous thought.
+        ═══════════════════════════════════════════════ */}
         <div className="flex flex-col items-center gap-0">
+
+          {/* Beat 1 — WHO YOU ARE (instant, no wait) */}
           <BlurText
             text="أنت مدرب عالمي."
-            delay={50}
-            initialDelay={0.05}
+            delay={40}
+            initialDelay={0}
             animateBy="words"
             direction="top"
-            stepDuration={0.28}
+            stepDuration={0.3}
             className="justify-center font-black text-[clamp(1.5rem,6.5vw,1.75rem)] sm:text-5xl md:text-6xl lg:text-[4.5rem] leading-[1.3] text-primary-800"
           />
 
+          {/* Beat 2 — THE PAIN (green punch — overlaps beat 1's tail) */}
           <BlurText
             text={highlightedText}
-            delay={60}
-            initialDelay={0.25}
+            delay={55}
+            initialDelay={0.18}
             animateBy="words"
             direction="top"
-            stepDuration={0.28}
+            stepDuration={0.32}
             className="justify-center font-black text-[clamp(1.5rem,6.5vw,1.75rem)] sm:text-5xl md:text-6xl lg:text-[4.5rem] leading-[1.3] text-accent-500"
           />
 
+          {/* Beat 3 — THE ENEMY (rapid, matter-of-fact) */}
           <BlurText
             text={title2}
-            delay={60}
-            initialDelay={0.6}
+            delay={50}
+            initialDelay={0.5}
             animateBy="words"
             direction="top"
             stepDuration={0.28}
@@ -73,25 +64,30 @@ function Hero() {
           />
         </div>
 
-        {/* ═══ SUBTITLE ═══
-            Gap from heading: 3svh (proportional to screen height)
-        */}
+        {/* ═══════════════════════════════════════════════
+            ACT 2 — THE SOLUTION
+            Gentle, weightless. Contrast the heavy heading.
+        ═══════════════════════════════════════════════ */}
+
+        {/* Subtitle — floats in softly */}
         <motion.p
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.9, ease: "easeOut" }}
+          initial={{ opacity: 0, y: 12, filter: "blur(4px)" }}
+          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          transition={{ duration: 0.7, delay: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="mt-[3svh] sm:mt-8 text-primary-300 text-[clamp(0.8rem,3.5vw,0.95rem)] sm:text-base md:text-lg leading-[1.8] max-w-lg"
         >
           {subtitle}
         </motion.p>
 
-        {/* ═══ CTA ═══
-            Gap from subtitle: 3svh
-        */}
+        {/* CTA — springs in with confidence */}
         <motion.div
-          initial={{ opacity: 0, y: 6 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.35, delay: 1.1, ease: "easeOut" }}
+          initial={{ opacity: 0, y: 16, scale: 0.92 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{
+            duration: 0.6,
+            delay: 1.0,
+            ease: [0.34, 1.56, 0.64, 1],
+          }}
           className="mt-[3svh] sm:mt-9"
         >
           <a
@@ -110,13 +106,11 @@ function Hero() {
           </a>
         </motion.div>
 
-        {/* ═══ TRUST ═══
-            Gap from CTA: 1.5svh
-        */}
+        {/* Trust — whisper, barely there */}
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 1.3 }}
+          transition={{ duration: 0.5, delay: 1.2 }}
           className="mt-[1.5svh] sm:mt-3 text-[11px] text-primary-200/40 tracking-[0.04em]"
         >
           بدون بطاقة ائتمان · جاهز في أقل من ٢٤ ساعة

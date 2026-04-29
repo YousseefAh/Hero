@@ -77,11 +77,17 @@ export const MacbookScroll = ({
           {title}
         </motion.h2>
       )}
-      {/* Laptop entrance — slides up from bottom */}
+      {/* Laptop entrance — rises like a product reveal */}
       <motion.div
-        initial={{ opacity: 0, y: 60 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, delay: 2.2, ease: "easeOut" }}
+        initial={{ opacity: 0, y: 100, scale: 0.96 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{
+          type: "spring",
+          stiffness: 55,
+          damping: 16,
+          delay: 1.8,
+          opacity: { duration: 0.4, delay: 1.8, ease: "easeOut" },
+        }}
       >
         {/* Lid */}
         <Lid
