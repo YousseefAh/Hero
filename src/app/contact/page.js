@@ -131,8 +131,9 @@ export default function ContactPage() {
           <ContactCard
             icon="📍"
             label="العنوان"
-            value="23 شارع ربعة العدوية — الهرم، الجيزة"
+            value="23 Rabaa Adawya St, Haram, Giza"
             href="https://maps.google.com/?q=23+rabaa+adawya+st+haram+giza"
+            dir="ltr"
           />
         </div>
 
