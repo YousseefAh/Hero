@@ -55,7 +55,7 @@ function Navigation() {
 
         <button
           onClick={handleContact}
-          className="bg-accent-500 hover:bg-accent-400 px-8 hover:px-9 py-4 rounded-2xl text-primary-800 font-bold xl:text-lg transition-all duration-200 hover:shadow-[0_0_20px_rgba(198,255,0,0.3)]"
+          className="bg-accent-500 hover:bg-accent-400 px-5 py-2.5 rounded-xl text-primary-800 font-bold text-sm transition-all duration-200 hover:shadow-[0_0_15px_rgba(198,255,0,0.3)]"
         >
           {t.nav.contact}
         </button>
@@ -107,7 +107,7 @@ function Navigation() {
 
             <button
               onClick={handleContact}
-              className="w-full bg-accent-500 hover:bg-accent-400 px-8 py-4 rounded-2xl text-primary-800 font-bold text-xl transition-all duration-200"
+              className="w-full bg-accent-500 hover:bg-accent-400 px-8 py-3.5 rounded-2xl text-primary-800 font-bold text-lg transition-all duration-200"
             >
               {t.nav.contact}
             </button>
