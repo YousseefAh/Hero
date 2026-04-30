@@ -1,14 +1,33 @@
+"use client";
+
 import Testimonial from "./Testimonial";
-import { testimonials } from "@/utils/constants";
+import { useLanguage } from "@/contexts/LanguageContext";
+
+const testimonialImages = [
+  "/testimonials/testimonial-7.webp",
+  "/testimonials/testimonial-6.webp",
+  "/testimonials/testimonial-10.webp",
+  "/testimonials/testimonial-2.webp",
+  "/testimonials/testimonial-3.webp",
+  "/testimonials/testimonial-1.webp",
+  "/testimonials/testimonial-5.webp",
+  "/testimonials/testimonial-8.webp",
+];
 
 function Testimonials() {
+  const { t, isRTL } = useLanguage();
+  const testimonials = t.testimonials.map((item, i) => ({
+    ...item,
+    image: testimonialImages[i] || testimonialImages[0],
+  }));
   return (
     <section className="m-auto py-12 sm:py-16 xl:py-24 max-w-[90rem]">
-      <h2 className="px-4 sm:px-8 md:px-16 xl:px-24 pb-12 sm:pb-14 md:pb-16 font-bold text-[2rem]/[2.5rem] text-primary-500 sm:text-4xl md:text-5xl xl:text-[3.5rem]/[4rem] tracking-tight text-right">
-        مش إحنا بنقول.{" "}
-        <span className="underline underline-offset-2 decoration-8 decoration-accent-500">
-          هم اللي بيقولوا
-        </span>
+      <h2 className="px-4 sm:px-8 md:px-16 xl:px-24 pb-12 sm:pb-14 md:pb-16 font-bold text-[2rem]/[2.5rem] text-primary-500 sm:text-4xl md:text-5xl xl:text-[3.5rem]/[4rem] tracking-tight">
+        {isRTL ? (
+          <>مش إحنا بنقول.{" "}<span className="underline underline-offset-2 decoration-8 decoration-accent-500">هم اللي بيقولوا</span></>
+        ) : (
+          <>Don't take our word for it.{" "}<span className="underline underline-offset-2 decoration-8 decoration-accent-500">Hear from them</span></>
+        )}
       </h2>
 
       <div className="relative">

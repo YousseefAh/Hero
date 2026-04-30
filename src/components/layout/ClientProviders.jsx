@@ -1,11 +1,14 @@
 "use client";
 
 import { CheckoutProvider } from "@/contexts/CheckoutContext";
+import { LanguageProvider } from "@/contexts/LanguageContext";
 
 export default function ClientProviders({ children }) {
   return (
-    <CheckoutProvider>
-      {children}
-    </CheckoutProvider>
+    <LanguageProvider>
+      <CheckoutProvider>
+        {children}
+      </CheckoutProvider>
+    </LanguageProvider>
   );
 }

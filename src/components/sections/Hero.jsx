@@ -1,11 +1,12 @@
 "use client";
 
-import { content } from '@/data/content';
 import { motion } from "motion/react";
 import BlurText from "@/components/UI/BlurText";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 function Hero() {
-  const { subtitle, ctaText, highlightedText, title2 } = content.hero;
+  const { t, isRTL } = useLanguage();
+  const { subtitle, cta: ctaText, highlightedText, title2 } = t.hero;
 
   return (
     <section className="relative pt-[9svh] sm:pt-20 md:pt-24 px-5 sm:px-10 overflow-hidden">
@@ -32,7 +33,7 @@ function Hero() {
 
           {/* Beat 1 — WHO YOU ARE (instant, no wait) */}
           <BlurText
-            text="أنت مدرب عالمي."
+            text={t.hero.title.split('.')[0] + '.'}
             delay={40}
             initialDelay={0}
             animateBy="words"
@@ -91,17 +92,17 @@ function Hero() {
           className="mt-[3svh] sm:mt-9"
         >
           <a
-            href={content.cta.whatsappLink}
+            href="https://wa.me/201120920078"
             target="_blank"
             rel="noopener noreferrer"
             className="group inline-flex items-center justify-center gap-2 px-[clamp(1.25rem,5vw,2.25rem)] sm:px-9 py-[clamp(0.6rem,1.5vw,0.875rem)] sm:py-3.5 rounded-xl font-bold text-[clamp(0.75rem,3.2vw,0.875rem)] sm:text-[0.95rem] text-primary-800 bg-accent-500 hover:bg-accent-400 transition-all duration-300 shadow-glow-green hover:shadow-[0_0_40px_rgba(198,255,0,0.35)] hover:-translate-y-px active:scale-[0.985] whitespace-nowrap"
           >
             <span>{ctaText}</span>
             <svg
-              className="h-3 w-3 sm:h-3.5 sm:w-3.5 shrink-0 transition-transform duration-300 group-hover:-translate-x-0.5"
+              className={`h-3 w-3 sm:h-3.5 sm:w-3.5 shrink-0 transition-transform duration-300 ${isRTL ? 'group-hover:-translate-x-0.5' : 'group-hover:translate-x-0.5'}`}
               fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}
             >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M11 17l-5-5m0 0l5-5m-5 5h12" />
+              <path strokeLinecap="round" strokeLinejoin="round" d={isRTL ? "M11 17l-5-5m0 0l5-5m-5 5h12" : "M13 7l5 5m0 0l-5 5m5-5H6"} />
             </svg>
           </a>
         </motion.div>
@@ -113,7 +114,7 @@ function Hero() {
           transition={{ duration: 0.5, delay: 1.2 }}
           className="mt-[1.5svh] sm:mt-3 text-[11px] text-primary-200/40 tracking-[0.04em]"
         >
-          بدون بطاقة ائتمان · جاهز في أقل من ٢٤ ساعة
+          {isRTL ? 'بدون بطاقة ائتمان · جاهز في أقل من ٢٤ ساعة' : 'No credit card needed · Ready in less than 24 hours'}
         </motion.p>
 
       </div>

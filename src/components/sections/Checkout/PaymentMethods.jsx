@@ -137,7 +137,7 @@ export default function PaymentMethods() {
             key={method.id}
             onClick={() => setPaymentMethod(method.id)}
             whileTap={{ scale: 0.98 }}
-            className={`relative w-full rounded-xl p-4 sm:p-5 text-right transition-all duration-300 ${
+            className={`relative w-full rounded-xl p-4 sm:p-5 transition-all duration-300 ${
               payment.method === method.id
                 ? "bg-accent-500/[0.07] border-accent-500/40 shadow-[0_0_20px_rgba(198,255,0,0.08)]"
                 : "bg-white/[0.03] border-white/[0.08] hover:bg-white/[0.05] hover:border-white/[0.12]"

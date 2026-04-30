@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useCheckout } from "@/contexts/CheckoutContext";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 /* ── Check icon ── */
 function CheckIcon({ accent, enterprise }) {
@@ -26,7 +27,7 @@ function CheckIcon({ accent, enterprise }) {
 }
 
 /* ── Tier Dropdown ── */
-function TierDropdown({ tiers, selectedIndex, onChange }) {
+function TierDropdown({ tiers, selectedIndex, onChange, isRTL }) {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
   const selected = tiers[selectedIndex];
@@ -45,7 +46,7 @@ function TierDropdown({ tiers, selectedIndex, onChange }) {
     <div ref={dropdownRef} className="relative mt-5">
       {/* Label */}
       <p className="text-[11px] text-accent-500/50 font-semibold tracking-wider uppercase mb-2">
-        عدد العملاء
+        {isRTL ? 'عدد العملاء' : 'Number of Clients'}
       </p>
 
       {/* Trigger */}
@@ -70,7 +71,7 @@ function TierDropdown({ tiers, selectedIndex, onChange }) {
           {selected.clients >= 1000
             ? `${(selected.clients / 1000).toLocaleString()}K`
             : selected.clients
-          } عميل — {selected.price} ج.م/شهريًا
+          } {isRTL ? 'عميل' : 'clients'} — {selected.price} {isRTL ? 'ج.م/شهريًا' : 'EGP/mo'}
         </span>
         <svg
           className={`w-4 h-4 text-accent-500/50 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
@@ -121,10 +122,10 @@ function TierDropdown({ tiers, selectedIndex, onChange }) {
                 {tier.clients >= 1000
                   ? `${(tier.clients / 1000).toLocaleString()}K`
                   : tier.clients
-                } عميل
+                } {isRTL ? 'عميل' : 'clients'}
               </span>
               <span className="font-display font-bold">
-                {tier.price} <span className="text-xs font-normal opacity-60">ج.م</span>
+                {tier.price} <span className="text-xs font-normal opacity-60">{isRTL ? 'ج.م' : 'EGP'}</span>
               </span>
             </button>
           ))}
@@ -153,7 +154,8 @@ function PricingCard({ card, paymentPlan }) {
   const isEnterprise = card.isEnterprise;
   const hasTiers = card.tiers && card.tiers.length > 0;
   const hasPromo = card.originalPrice && card.promoLabel;
-  const isCustomPrice = card.price[paymentPlan] === "تواصل معنا";
+  const { t, isRTL } = useLanguage();
+  const isCustomPrice = card.price[paymentPlan] === "تواصل معنا" || card.price[paymentPlan] === "Contact Us";
   const hasBadge = card.badge;
 
   // Dynamic price for tiered cards
@@ -164,12 +166,12 @@ function PricingCard({ card, paymentPlan }) {
   const paymentPlanText = isCustomPrice
     ? ""
     : paymentPlan === "monthly"
-      ? "ج.م / شهريًا"
-      : "ج.م / سنويًا";
+      ? (isRTL ? "ج.م / شهريًا" : "EGP / month")
+      : (isRTL ? "ج.م / سنويًا" : "EGP / year");
 
   const handleCTA = () => {
     const finalPrice = hasTiers ? card.tiers[selectedTierIndex].price : card.price[paymentPlan];
-    const tierInfo = hasTiers ? ` (${card.tiers[selectedTierIndex].clients} عميل)` : "";
+    const tierInfo = hasTiers ? ` (${card.tiers[selectedTierIndex].clients} ${isRTL ? 'عميل' : 'clients'})` : "";
     startCheckout({
       name: card.program + tierInfo,
       price: finalPrice,
@@ -270,11 +272,11 @@ function PricingCard({ card, paymentPlan }) {
         style={{ background: hoverGlow }}
       />
 
-      {/* ── Badge (top-right corner) ── */}
+      {/* ── Badge (top corner) ── */}
       {hasBadge && (
-        <div className="absolute top-0 left-0 z-20">
+        <div className={`absolute top-0 ${isRTL ? 'left-0' : 'right-0'} z-20`}>
           <div
-            className="px-4 py-2 rounded-br-2xl text-[11px] font-bold tracking-wide"
+            className={`px-4 py-2 ${isRTL ? 'rounded-br-2xl' : 'rounded-bl-2xl'} text-[11px] font-bold tracking-wide`}
             style={{
               background: isPrimary
                 ? "linear-gradient(135deg, #C6FF00 0%, #B4E600 100%)"
@@ -316,14 +318,14 @@ function PricingCard({ card, paymentPlan }) {
               <span className="inline-flex items-center px-2.5 py-1 rounded-lg bg-accent-500/10 text-accent-400 text-[11px] font-bold border border-accent-500/15">
                 🔥 {card.promoLabel}
               </span>
-              <span className="text-[#5A5A6E] text-sm line-through">{card.originalPrice} ج.م</span>
+              <span className="text-[#5A5A6E] text-sm line-through">{card.originalPrice} {isRTL ? 'ج.م' : 'EGP'}</span>
             </div>
           )}
 
           <div className="flex items-baseline gap-2">
             {isCustomPrice ? (
               <span className="font-display font-bold text-2xl sm:text-3xl tracking-tight text-white">
-                {price}
+                {t.pricing.contactUs}
               </span>
             ) : (
               <>
@@ -359,6 +361,7 @@ function PricingCard({ card, paymentPlan }) {
             tiers={card.tiers}
             selectedIndex={selectedTierIndex}
             onChange={setSelectedTierIndex}
+            isRTL={isRTL}
           />
         )}
 

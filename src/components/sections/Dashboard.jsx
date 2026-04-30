@@ -3,16 +3,19 @@
 import { MacbookScroll } from "@/components/UI/macbook-scroll";
 import { content } from "@/data/content";
 import { motion } from "motion/react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 function Dashboard() {
+  const { t } = useLanguage();
+  
   return (
     <section className="relative overflow-hidden bg-white -mt-12 sm:mt-0">
       <MacbookScroll
         src={content.dashboard.image.src}
         showGradient={false}
         title={(() => {
-          const line1 = ["شوف", "منظومتك", "الكاملة", "—"];
-          const line2 = ["كل", "حاجة", "في", "مكان", "واحد"];
+          const line1 = t.dashboard.line1;
+          const line2 = t.dashboard.line2;
           const heroEnd = 1.3;   // hero trust note at 1.2s + buffer
           const wordGap = 0.09;  // 90ms — snappy
           const linePause = 0.4; // tight beat between lines

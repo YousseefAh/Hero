@@ -1,9 +1,10 @@
 "use client";
 
 import ArabicContent from "./ArabicContent";
-import { content } from "@/data/content";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 function AppStatistics() {
+  const { t } = useLanguage();
   return (
     <section className="relative -mt-[1px] overflow-hidden" style={{ background: "linear-gradient(180deg, #0C0C10 0%, #101017 50%, #0C0C10 100%)" }}>
       {/* Ambient glow effects */}
@@ -14,7 +15,7 @@ function AppStatistics() {
         {/* Section header */}
         <div className="text-center">
           <h2 className="text-3xl md:text-5xl xl:text-6xl font-bold mb-4 text-white">
-            {content.arabicFeatures.title}<span className="text-accent-500">.</span>
+            {t.arabicFeatures.title}<span className="text-accent-500">.</span>
           </h2>
         </div>
 

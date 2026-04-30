@@ -1,8 +1,8 @@
 "use client";
 
-import { content } from "@/data/content";
 import { motion } from "motion/react";
 import { useRef } from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 /* ────────────────────────────────────────────────────────────
    BeforeAfter — Premium comparison section
@@ -33,7 +33,7 @@ function StepBadge({ index, variant }) {
 }
 
 /* ── Single step item ── */
-function StepItem({ text, index, variant, totalItems }) {
+function StepItem({ text, index, variant, totalItems, isRTL }) {
   const isRed = variant === "before";
   const isLast = index === totalItems - 1;
 
@@ -53,7 +53,7 @@ function StepItem({ text, index, variant, totalItems }) {
       {!isLast && (
         <div
           className={`
-            absolute top-10 sm:top-11 right-[15px] sm:right-[17px] w-px h-[calc(100%+4px)]
+            absolute top-10 sm:top-11 ${isRTL ? 'right-[15px] sm:right-[17px]' : 'left-[15px] sm:left-[17px]'} w-px h-[calc(100%+4px)]
             ${isRed
               ? "bg-gradient-to-b from-red-500/15 to-transparent"
               : "bg-gradient-to-b from-accent-500/15 to-transparent"
@@ -154,13 +154,13 @@ function PanelHeader({ heading, variant }) {
 
 /* ── Main Component ── */
 function BeforeAfter() {
-  const { before, after } = content.beforeAfter;
+  const { t, isRTL } = useLanguage();
+  const { before, after } = t.beforeAfter;
   const sectionRef = useRef(null);
 
   return (
     <section
       ref={sectionRef}
-      dir="rtl"
       id="before-after"
       className="relative w-full overflow-hidden"
       style={{
@@ -201,20 +201,20 @@ function BeforeAfter() {
           <div className="inline-flex items-center gap-2 mb-5 sm:mb-6">
             <div className="h-px w-8 sm:w-12 bg-gradient-to-l from-[#5A5A6E] to-transparent" />
             <p className="text-[10px] sm:text-xs font-semibold tracking-[0.25em] uppercase text-[#5A5A6E]">
-              المقارنة الحقيقية
+              {isRTL ? 'المقارنة الحقيقية' : 'The Real Comparison'}
             </p>
             <div className="h-px w-8 sm:w-12 bg-gradient-to-r from-[#5A5A6E] to-transparent" />
           </div>
 
           {/* Main heading */}
           <h2 className="text-[1.65rem] sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-[1.4] sm:leading-tight">
-            <span className="text-[#FF4444]">قبل</span>
+            <span className="text-[#FF4444]">{isRTL ? 'قبل' : 'Before'}</span>
             <span className="text-[#2A2A3E] mx-2 sm:mx-3">—</span>
-            <span className="text-white/90">يومك كان عذاب</span>
+            <span className="text-white/90">{isRTL ? 'يومك كان عذاب' : 'Your day was chaos'}</span>
             <br />
-            <span className="text-accent-500">بعد</span>
+            <span className="text-accent-500">{isRTL ? 'بعد' : 'After'}</span>
             <span className="text-[#2A2A3E] mx-2 sm:mx-3">—</span>
-            <span className="text-white/90">يومك بيشتغل لصالحك</span>
+            <span className="text-white/90">{isRTL ? 'يومك بيشتغل لصالحك' : 'Your day works for you'}</span>
           </h2>
         </motion.div>
 
@@ -224,7 +224,7 @@ function BeforeAfter() {
 
             {/* ── BEFORE Panel ── */}
             <motion.div
-              initial={{ opacity: 0, x: 30, filter: "blur(6px)" }}
+              initial={{ opacity: 0, x: isRTL ? 30 : -30, filter: "blur(6px)" }}
               whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
@@ -235,9 +235,9 @@ function BeforeAfter() {
                 className="
                   relative overflow-hidden
                   mx-0 sm:mx-2 lg:mx-0
-                  rounded-none sm:rounded-3xl lg:rounded-none lg:rounded-r-3xl
+                  rounded-none sm:rounded-3xl ${isRTL ? 'lg:rounded-none lg:rounded-r-3xl' : 'lg:rounded-none lg:rounded-l-3xl'}
                   border-y sm:border border-red-500/[0.08]
-                  lg:border-l-0
+                  ${isRTL ? 'lg:border-l-0' : 'lg:border-r-0'}
                   h-full flex flex-col
                 "
                 style={{
@@ -246,7 +246,7 @@ function BeforeAfter() {
                 }}
               >
                 {/* Top gradient line */}
-                <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-l from-transparent via-red-500/25 to-transparent" />
+                <div className={`absolute top-0 inset-x-0 h-px ${isRTL ? 'bg-gradient-to-l' : 'bg-gradient-to-r'} from-transparent via-red-500/25 to-transparent`} />
 
                 {/* Subtle noise texture */}
                 <div
@@ -261,7 +261,7 @@ function BeforeAfter() {
                   <PanelHeader heading={before.heading} variant="before" />
 
                   {/* Separator */}
-                  <div className="my-6 sm:my-8 h-px bg-gradient-to-l from-red-500/20 via-red-500/8 to-transparent" />
+                  <div className={`my-6 sm:my-8 h-px ${isRTL ? 'bg-gradient-to-l' : 'bg-gradient-to-r'} from-red-500/20 via-red-500/8 to-transparent`} />
 
                   {/* Steps */}
                   <ul className="space-y-5 sm:space-y-6">
@@ -272,6 +272,7 @@ function BeforeAfter() {
                         index={i}
                         variant="before"
                         totalItems={before.items.length}
+                        isRTL={isRTL}
                       />
                     ))}
                   </ul>
@@ -286,7 +287,7 @@ function BeforeAfter() {
                         backdrop-blur-sm
                       "
                     >
-                      <StatusTag variant="before" text="يوم بعد يوم — نفس الدوامة" />
+                      <StatusTag variant="before" text={isRTL ? 'يوم بعد يوم — نفس الدوامة' : 'Day after day — same cycle'} />
                     </div>
                   </div>
                 </div>
@@ -341,7 +342,7 @@ function BeforeAfter() {
 
             {/* ── AFTER Panel ── */}
             <motion.div
-              initial={{ opacity: 0, x: -30, filter: "blur(6px)" }}
+              initial={{ opacity: 0, x: isRTL ? -30 : 30, filter: "blur(6px)" }}
               whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.7, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
@@ -352,9 +353,9 @@ function BeforeAfter() {
                 className="
                   relative overflow-hidden
                   mx-0 sm:mx-2 lg:mx-0
-                  rounded-none sm:rounded-3xl lg:rounded-none lg:rounded-l-3xl
+                  rounded-none sm:rounded-3xl ${isRTL ? 'lg:rounded-none lg:rounded-l-3xl' : 'lg:rounded-none lg:rounded-r-3xl'}
                   border-y sm:border border-accent-500/[0.08]
-                  lg:border-r-0
+                  ${isRTL ? 'lg:border-r-0' : 'lg:border-l-0'}
                   h-full flex flex-col
                 "
                 style={{
@@ -363,7 +364,7 @@ function BeforeAfter() {
                 }}
               >
                 {/* Top gradient line */}
-                <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-l from-transparent via-accent-500/25 to-transparent" />
+                <div className={`absolute top-0 inset-x-0 h-px ${isRTL ? 'bg-gradient-to-l' : 'bg-gradient-to-r'} from-transparent via-accent-500/25 to-transparent`} />
 
                 {/* Subtle noise texture */}
                 <div
@@ -378,7 +379,7 @@ function BeforeAfter() {
                   <PanelHeader heading={after.heading} variant="after" />
 
                   {/* Separator */}
-                  <div className="my-6 sm:my-8 h-px bg-gradient-to-l from-accent-500/20 via-accent-500/8 to-transparent" />
+                  <div className={`my-6 sm:my-8 h-px ${isRTL ? 'bg-gradient-to-l' : 'bg-gradient-to-r'} from-accent-500/20 via-accent-500/8 to-transparent`} />
 
                   {/* Steps */}
                   <ul className="space-y-5 sm:space-y-6">
@@ -389,6 +390,7 @@ function BeforeAfter() {
                         index={i}
                         variant="after"
                         totalItems={after.items.length}
+                        isRTL={isRTL}
                       />
                     ))}
                   </ul>
@@ -403,7 +405,7 @@ function BeforeAfter() {
                         backdrop-blur-sm
                       "
                     >
-                      <StatusTag variant="after" text="المنظومة شغالة لصالحك — كل يوم" />
+                      <StatusTag variant="after" text={isRTL ? 'المنظومة شغالة لصالحك — كل يوم' : 'Your system works for you — every day'} />
                     </div>
                   </div>
                 </div>
@@ -420,10 +422,10 @@ function BeforeAfter() {
           transition={{ duration: 0.6, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="mt-10 sm:mt-14 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 text-center px-5"
         >
-          <span className="text-[#5A5A6E] text-xs sm:text-sm">القرار بيدك.</span>
+          <span className="text-[#5A5A6E] text-xs sm:text-sm">{isRTL ? 'القرار بيدك.' : 'The choice is yours.'}</span>
           <span className="hidden sm:block w-1 h-1 rounded-full bg-[#3A3A4E]" />
           <span className="text-white font-semibold text-sm sm:text-base bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
-            أي يوم عايز تعيشه؟
+            {isRTL ? 'أي يوم عايز تعيشه؟' : 'Which day do you want to live?'}
           </span>
         </motion.div>
       </div>

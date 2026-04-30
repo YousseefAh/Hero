@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { content } from "@/data/content";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 function AnimatedCounter({ target, suffix = "", prefix = "", display }) {
   const [count, setCount] = useState(0);
@@ -84,7 +85,12 @@ function useRevealOnce(margin = "-50px") {
 }
 
 function StatsStrip() {
-  const { stats } = content.statsStrip;
+  const { t } = useLanguage();
+  const stats = content.statsStrip.stats.map((stat, i) => ({
+    ...stat,
+    label: t.statsStrip[i]?.label || stat.label,
+    display: t.statsStrip[i]?.display || stat.display,
+  }));
   const [ref, visible] = useRevealOnce("-50px");
 
   return (

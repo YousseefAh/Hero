@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef, useEffect, useState } from "react";
-import { content } from "@/data/content";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const sectionIcons = [
   <svg key="system" className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>,
@@ -38,8 +38,8 @@ function useRevealOnce(margin = "-80px") {
   return [ref, visible];
 }
 
-function FeatureCard({ item, index }) {
-  const isLast = index === content.arabicFeatures.sections.length - 1;
+function FeatureCard({ item, index, total, isRTL }) {
+  const isLast = index === total - 1;
   const [ref, visible] = useRevealOnce("-60px");
 
   return (
@@ -57,7 +57,7 @@ function FeatureCard({ item, index }) {
       }`}
     >
       {/* Title with inline icon */}
-      <h3 className={`flex items-center gap-2.5 text-xl md:text-2xl font-bold mb-3 text-right transition-colors duration-300 ${
+      <h3 className={`flex items-center gap-2.5 text-xl md:text-2xl font-bold mb-3 transition-colors duration-300 ${
         isLast ? "text-accent-400" : "text-white group-hover:text-accent-400"
       }`}>
         <span className={`shrink-0 ${isLast ? "text-accent-400" : "text-accent-500/60 group-hover:text-accent-500"} transition-colors duration-300`}>
@@ -67,25 +67,26 @@ function FeatureCard({ item, index }) {
       </h3>
 
       {/* Description */}
-      <p className="text-[#8B8B9E] text-base md:text-lg leading-relaxed text-right group-hover:text-[#A5A5B8] transition-colors duration-300">
+      <p className="text-[#8B8B9E] text-base md:text-lg leading-relaxed group-hover:text-[#A5A5B8] transition-colors duration-300">
         {item.text}
       </p>
 
       {/* Subtle corner accent on hover */}
-      <div className="absolute top-0 right-0 w-20 h-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style={{ background: "radial-gradient(circle at top right, rgba(198, 255, 0, 0.06), transparent 70%)" }} />
+      <div className={`absolute top-0 ${isRTL ? 'right-0' : 'left-0'} w-20 h-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`} style={{ background: `radial-gradient(circle at top ${isRTL ? 'right' : 'left'}, rgba(198, 255, 0, 0.06), transparent 70%)` }} />
     </div>
   );
 }
 
 const ArabicContent = () => {
-  const { sections } = content.arabicFeatures;
+  const { t, isRTL } = useLanguage();
+  const { sections } = t.arabicFeatures;
 
   return (
-    <div dir="rtl">
+    <div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
         {sections.map((item, index) => (
-          <FeatureCard key={index} item={item} index={index} />
+          <FeatureCard key={index} item={item} index={index} total={sections.length} isRTL={isRTL} />
         ))}
       </div>
     </div>

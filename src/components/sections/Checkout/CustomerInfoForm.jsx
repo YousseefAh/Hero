@@ -2,20 +2,23 @@
 
 import { useCheckout } from "@/contexts/CheckoutContext";
 import { useState } from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function CustomerInfoForm() {
   const { checkout, updateCustomerInfo, nextStep } = useCheckout();
+  const { t, isRTL } = useLanguage();
+  const c = t.checkout.customerInfo;
   const { customerInfo, plan } = checkout;
   const [errors, setErrors] = useState({});
   const [touched, setTouched] = useState({});
 
   const validate = () => {
     const newErrors = {};
-    if (!customerInfo.fullName.trim()) newErrors.fullName = "الاسم مطلوب";
+    if (!customerInfo.fullName.trim()) newErrors.fullName = isRTL ? "الاسم مطلوب" : "Name is required";
     if (!customerInfo.phone.trim()) {
-      newErrors.phone = "رقم الموبايل مطلوب";
+      newErrors.phone = isRTL ? "رقم الموبايل مطلوب" : "Phone number is required";
     } else if (!/^01[0-9]{9}$/.test(customerInfo.phone.replace(/\s/g, ""))) {
-      newErrors.phone = "رقم موبايل غير صحيح";
+      newErrors.phone = isRTL ? "رقم موبايل غير صحيح" : "Invalid phone number";
     }
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -53,10 +56,10 @@ export default function CustomerInfoForm() {
                 <p className="text-white/25 text-[11px]">{plan.subheading}</p>
               </div>
             </div>
-            {plan.price !== "تواصل معنا" && (
+            {plan.price !== "تواصل معنا" && plan.price !== "Contact Us" && (
               <div className="text-left">
                 <p className="font-display font-bold text-lg text-accent-500">{plan.price}</p>
-                <p className="text-white/25 text-[10px]">ج.م/شهريًا</p>
+                <p className="text-white/25 text-[10px]">{isRTL ? 'ج.م/شهريًا' : 'EGP/mo'}</p>
               </div>
             )}
           </div>
@@ -74,10 +77,10 @@ export default function CustomerInfoForm() {
             {/* Name */}
             <div>
               <label className="block text-white/40 text-[11px] font-medium mb-1.5 tracking-wide">
-                الاسم الكامل <span className="text-accent-500">*</span>
+                {c.fullName} <span className="text-accent-500">*</span>
               </label>
               <input
-                type="text" autoComplete="name" placeholder="مثال: أحمد محمد"
+                type="text" autoComplete="name" placeholder={isRTL ? 'مثال: أحمد محمد' : 'e.g. Ahmed Mohamed'}
                 value={customerInfo.fullName}
                 onChange={(e) => updateCustomerInfo("fullName", e.target.value)}
                 onBlur={() => handleBlur("fullName")}
@@ -91,7 +94,7 @@ export default function CustomerInfoForm() {
             {/* Phone */}
             <div>
               <label className="block text-white/40 text-[11px] font-medium mb-1.5 tracking-wide">
-                رقم الموبايل <span className="text-accent-500">*</span>
+                {c.phone} <span className="text-accent-500">*</span>
               </label>
               <input
                 type="tel" dir="ltr" autoComplete="tel" placeholder="01xxxxxxxxx"
@@ -108,10 +111,10 @@ export default function CustomerInfoForm() {
             {/* Platform name */}
             <div>
               <label className="block text-white/40 text-[11px] font-medium mb-1.5 tracking-wide">
-                اسم المنصة اللي عايزها <span className="text-white/15">(اختياري)</span>
+                {c.platformName} <span className="text-white/15">{isRTL ? '(اختياري)' : '(optional)'}</span>
               </label>
               <input
-                type="text" autoComplete="organization" placeholder="مثال: FitZone"
+                type="text" autoComplete="organization" placeholder={isRTL ? 'مثال: FitZone' : 'e.g. FitZone'}
                 value={customerInfo.platformName}
                 onChange={(e) => updateCustomerInfo("platformName", e.target.value)}
                 className={`${inputBase} ${inputOk}`}
@@ -132,9 +135,9 @@ export default function CustomerInfoForm() {
               style={{ background: "linear-gradient(135deg, #d4ff33 0%, #C6FF00 100%)" }}
             />
             <span className="relative flex items-center justify-center gap-2">
-              متابعة إلى الدفع
-              <svg className="h-4 w-4 transition-transform duration-300 group-hover:-translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 17l-5-5m0 0l5-5m-5 5h12" />
+              {c.next}
+              <svg className={`h-4 w-4 transition-transform duration-300 ${isRTL ? 'group-hover:-translate-x-0.5' : 'group-hover:translate-x-0.5'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={isRTL ? "M11 17l-5-5m0 0l5-5m-5 5h12" : "M13 7l5 5m0 0l-5 5m5-5H6"} />
               </svg>
             </span>
           </button>

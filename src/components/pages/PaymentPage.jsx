@@ -8,14 +8,18 @@ import Image from "next/image";
 import CustomerInfoForm from "@/components/sections/Checkout/CustomerInfoForm";
 import PaymentMethods from "@/components/sections/Checkout/PaymentMethods";
 import PaymentConfirmation from "@/components/sections/Checkout/PaymentConfirmation";
+import { useLanguage } from "@/contexts/LanguageContext";
 
-const STEPS = [
-  { id: 1, label: "بياناتك" },
-  { id: 2, label: "الدفع" },
-  { id: 3, label: "تأكيد" },
-];
+function getSteps(isRTL) {
+  return [
+    { id: 1, label: isRTL ? "بياناتك" : "Info" },
+    { id: 2, label: isRTL ? "الدفع" : "Pay" },
+    { id: 3, label: isRTL ? "تأكيد" : "Done" },
+  ];
+}
 
-function StepIndicator({ currentStep }) {
+function StepIndicator({ currentStep, isRTL }) {
+  const STEPS = getSteps(isRTL);
   return (
     <div className="flex items-center justify-center gap-1.5 sm:gap-2 mb-5 sm:mb-6" dir="ltr">
       {STEPS.map((step, i) => (
@@ -59,6 +63,7 @@ function StepIndicator({ currentStep }) {
 
 export default function PaymentPage() {
   const { checkout, closeCheckout, prevStep } = useCheckout();
+  const { t, isRTL } = useLanguage();
   const router = useRouter();
 
   // If no plan selected, redirect back to home
@@ -98,19 +103,19 @@ export default function PaymentPage() {
         />
       </div>
 
-      <div className="relative w-full max-w-2xl mx-auto px-4 sm:px-6 py-4 sm:py-5 min-h-[100dvh] flex flex-col" dir="rtl">
+      <div className="relative w-full max-w-2xl mx-auto px-4 sm:px-6 py-4 sm:py-5 min-h-[100dvh] flex flex-col">
         {/* ── Top bar ── */}
         <div className="relative flex items-center justify-center mb-4 sm:mb-5">
           {/* Back button */}
           {checkout.step < 3 && (
             <button
               onClick={handleBack}
-              className="absolute right-0 top-1/2 -translate-y-1/2 flex items-center gap-1 text-white/40 hover:text-white/70 transition-colors text-xs sm:text-sm"
+              className={`absolute ${isRTL ? 'right-0' : 'left-0'} top-1/2 -translate-y-1/2 flex items-center gap-1 text-white/40 hover:text-white/70 transition-colors text-xs sm:text-sm`}
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={isRTL ? "M9 5l7 7-7 7" : "M15 19l-7-7 7-7"} />
               </svg>
-              {checkout.step === 1 ? "الرئيسية" : "رجوع"}
+              {checkout.step === 1 ? (isRTL ? 'الرئيسية' : 'Home') : (isRTL ? 'رجوع' : 'Back')}
             </button>
           )}
 
@@ -127,7 +132,7 @@ export default function PaymentPage() {
           {checkout.step < 3 && (
             <button
               onClick={handleClose}
-              className="absolute left-0 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-white/30 hover:text-white/60 hover:bg-white/[0.08] transition-all duration-300"
+              className={`absolute ${isRTL ? 'left-0' : 'right-0'} top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-white/30 hover:text-white/60 hover:bg-white/[0.08] transition-all duration-300`}
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -137,7 +142,7 @@ export default function PaymentPage() {
         </div>
 
         {/* Step indicator */}
-        <StepIndicator currentStep={checkout.step} />
+        <StepIndicator currentStep={checkout.step} isRTL={isRTL} />
 
         {/* Step content */}
         <div className="flex-1 flex flex-col justify-center">
@@ -163,12 +168,12 @@ export default function PaymentPage() {
               <svg className="w-3 h-3 text-accent-500/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
               </svg>
-              بياناتك محمية
+              {isRTL ? 'بياناتك محمية' : 'Data protected'}
             </span>
             <span className="w-1 h-1 rounded-full bg-white/10" />
-            <a href="/privacy-policy" target="_blank" className="hover:text-white/30 transition-colors underline underline-offset-2">الخصوصية</a>
+            <a href="/privacy-policy" target="_blank" className="hover:text-white/30 transition-colors underline underline-offset-2">{isRTL ? 'الخصوصية' : 'Privacy'}</a>
             <span className="w-1 h-1 rounded-full bg-white/10" />
-            <a href="/terms" target="_blank" className="hover:text-white/30 transition-colors underline underline-offset-2">الشروط</a>
+            <a href="/terms" target="_blank" className="hover:text-white/30 transition-colors underline underline-offset-2">{isRTL ? 'الشروط' : 'Terms'}</a>
           </div>
         )}
       </div>

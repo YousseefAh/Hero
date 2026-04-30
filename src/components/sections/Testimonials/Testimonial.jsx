@@ -12,7 +12,7 @@ function Testimonial({ testimonial }) {
           </p>
         </div>
 
-        <p className="mb-6 lg:mb-8 font-medium text-primary-500 tracking-tight text-right">
+        <p className="mb-6 lg:mb-8 font-medium text-primary-500 tracking-tight">
           {testimonial.description}
         </p>
 
