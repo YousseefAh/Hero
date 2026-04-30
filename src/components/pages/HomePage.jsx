@@ -32,6 +32,8 @@ import MoreInformation from "@/components/UI/MoreInformation";
 
 
 
+import AuroraBackground from "@/components/UI/AuroraBackground";
+
 import { ModalContextProvider } from "@/contexts/ModalContext";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -40,13 +42,17 @@ export default function HomePage() {
   return (
     <ModalContextProvider>
         <PageWrapper>
-          <Header>
-            <Navigation />
-            <Hero />
-          </Header>
+          {/* ── Aurora zone — covers Header + Dashboard ── */}
+          <div className="relative">
+            <AuroraBackground />
+            <Header>
+              <Navigation />
+              <Hero />
+            </Header>
+            <section id="dashboard"><Dashboard /></section>
+          </div>
 
           <Main>
-            <section id="dashboard"><Dashboard /></section>
             <AppStatistics />
             <StatsStrip />
             <AppleCardsCarouselDemo />
