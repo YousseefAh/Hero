@@ -34,6 +34,7 @@ const footerColumns = [
     heading: "تواصل معنا",
     links: [
       { label: "واتساب", href: "https://wa.me/201120920078", external: true },
+      { label: "صفحة التواصل", href: "/contact" },
     ],
   },
 ];
