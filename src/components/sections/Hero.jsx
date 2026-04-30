@@ -39,7 +39,7 @@ function Hero() {
             animateBy="words"
             direction="top"
             stepDuration={0.3}
-            className="justify-center font-black text-[clamp(1.5rem,6.5vw,1.75rem)] sm:text-5xl md:text-6xl lg:text-[4.5rem] leading-[1.3] lg:leading-[1.5] text-primary-800"
+            className={`justify-center font-black text-[clamp(1.5rem,6.5vw,1.75rem)] sm:text-5xl md:text-6xl lg:text-[4.5rem] leading-[1.3] ${isRTL ? 'lg:leading-[1.5]' : ''} text-primary-800`}
           />
 
           {/* Beat 2 — THE PAIN (green punch — overlaps beat 1's tail) */}
@@ -50,7 +50,7 @@ function Hero() {
             animateBy="words"
             direction="top"
             stepDuration={0.32}
-            className="justify-center font-black text-[clamp(1.5rem,6.5vw,1.75rem)] sm:text-5xl md:text-6xl lg:text-[4.5rem] leading-[1.3] lg:leading-[1.5] text-accent-500"
+            className={`justify-center font-black text-[clamp(1.5rem,6.5vw,1.75rem)] sm:text-5xl md:text-6xl lg:text-[4.5rem] leading-[1.3] ${isRTL ? 'lg:leading-[1.5]' : ''} text-accent-500`}
           />
 
           {/* Beat 3 — THE ENEMY (rapid, matter-of-fact) */}
@@ -61,7 +61,7 @@ function Hero() {
             animateBy="words"
             direction="top"
             stepDuration={0.28}
-            className="justify-center font-black text-[clamp(1.5rem,6.5vw,1.75rem)] sm:text-5xl md:text-6xl lg:text-[4.5rem] leading-[1.3] lg:leading-[1.5] text-primary-800"
+            className={`justify-center font-black text-[clamp(1.5rem,6.5vw,1.75rem)] sm:text-5xl md:text-6xl lg:text-[4.5rem] leading-[1.3] ${isRTL ? 'lg:leading-[1.5]' : ''} text-primary-800`}
           />
         </div>
 
