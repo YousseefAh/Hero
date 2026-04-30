@@ -9,7 +9,7 @@ function Dashboard() {
   const { t } = useLanguage();
   
   return (
-    <section className="relative overflow-hidden bg-white -mt-12 sm:mt-0">
+    <section className="relative overflow-hidden -mt-12 sm:mt-0">
       <MacbookScroll
         src={content.dashboard.image.src}
         showGradient={false}
