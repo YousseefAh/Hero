@@ -12,10 +12,10 @@ function Footer() {
     <footer className="w-full px-5 sm:px-8 md:px-16 xl:px-24 pt-12 pb-8 sm:pb-12 md:pb-20 max-w-[90rem] mx-auto">
 
       {/* ── Top section ── */}
-      <div className="flex flex-col lg:flex-row lg:items-start gap-10 lg:gap-16 pb-10 border-b border-primary-400/15">
+      <div className="pb-10 border-b border-primary-400/15">
 
-        {/* Brand block */}
-        <div className="flex flex-col gap-4 lg:w-64 shrink-0">
+        {/* Logo */}
+        <div className="mb-8">
           <Link href="/">
             <Image
               src="/beprime-logo.png"
@@ -25,33 +25,37 @@ function Footer() {
               className="w-auto h-12 sm:h-14 object-contain hover:opacity-80 transition-opacity"
             />
           </Link>
-          <p className="text-primary-300 text-sm leading-relaxed max-w-xs">
-            {t.footer.tagline}
-          </p>
-          {/* Socials */}
-          <ul className="flex items-center gap-2.5 mt-1">
-            {footerSocials.map((social) => (
-              <li key={social.id}>
-                <a
-                  href="#"
-                  className="w-9 h-9 rounded-lg bg-white border border-primary-400/15 flex items-center justify-center hover:bg-accent-500 hover:border-accent-500 hover:-translate-y-0.5 transition-all duration-300 group shadow-sm hover:shadow-glow-green"
-                  aria-label={social.name}
-                >
-                  <Image
-                    src={social.logo}
-                    alt={social.name}
-                    width={16}
-                    height={16}
-                    className="opacity-50 group-hover:opacity-90 transition-opacity"
-                  />
-                </a>
-              </li>
-            ))}
-          </ul>
         </div>
 
-        {/* Nav columns */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 flex-1">
+        {/* Tagline + Nav columns — all on one row */}
+        <div className="grid grid-cols-2 sm:grid-cols-5 gap-8">
+          {/* Tagline + socials as first column */}
+          <div className="col-span-2 sm:col-span-1">
+            <p className="text-primary-300 text-sm leading-relaxed">
+              {t.footer.tagline}
+            </p>
+            <ul className="flex items-center gap-2.5 mt-4">
+              {footerSocials.map((social) => (
+                <li key={social.id}>
+                  <a
+                    href="#"
+                    className="w-9 h-9 rounded-lg bg-white border border-primary-400/15 flex items-center justify-center hover:bg-accent-500 hover:border-accent-500 hover:-translate-y-0.5 transition-all duration-300 group shadow-sm hover:shadow-glow-green"
+                    aria-label={social.name}
+                  >
+                    <Image
+                      src={social.logo}
+                      alt={social.name}
+                      width={16}
+                      height={16}
+                      className="opacity-50 group-hover:opacity-90 transition-opacity"
+                    />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Nav columns */}
           {t.footer.columns.map((column, idx) => (
             <div key={idx}>
               <p className="mb-3 font-bold text-sm text-primary-400 uppercase tracking-wider">
