@@ -14,23 +14,20 @@ function Footer() {
       {/* ── Top section ── */}
       <div className="pb-10 border-b border-primary-400/15">
 
-        {/* Logo */}
-        <div className="mb-8">
-          <Link href="/">
-            <Image
-              src="/beprime-logo.png"
-              alt="BePrime Logo"
-              width={160}
-              height={160}
-              className="w-auto h-12 sm:h-14 object-contain hover:opacity-80 transition-opacity"
-            />
-          </Link>
-        </div>
-
         {/* Tagline + Nav columns — all on one row */}
         <div className="grid grid-cols-2 sm:grid-cols-6 gap-x-10 gap-y-8">
-          {/* Tagline + socials as first column (wider) */}
-          <div className="col-span-2">
+          {/* Logo + Tagline + socials */}
+          <div className="col-span-2 flex items-start gap-4">
+            <Link href="/" className="shrink-0">
+              <Image
+                src="/beprime-logo.png"
+                alt="BePrime Logo"
+                width={160}
+                height={160}
+                className="w-auto h-10 object-contain hover:opacity-80 transition-opacity"
+              />
+            </Link>
+            <div>
             <p className="text-primary-300 text-sm leading-relaxed">
               {t.footer.tagline}
             </p>
@@ -53,6 +50,7 @@ function Footer() {
                 </li>
               ))}
             </ul>
+            </div>
           </div>
 
           {/* Nav columns */}
