@@ -28,9 +28,9 @@ function Footer() {
         </div>
 
         {/* Tagline + Nav columns — all on one row */}
-        <div className="grid grid-cols-2 sm:grid-cols-5 gap-8">
-          {/* Tagline + socials as first column */}
-          <div className="col-span-2 sm:col-span-1">
+        <div className="grid grid-cols-2 sm:grid-cols-6 gap-x-10 gap-y-8">
+          {/* Tagline + socials as first column (wider) */}
+          <div className="col-span-2">
             <p className="text-primary-300 text-sm leading-relaxed">
               {t.footer.tagline}
             </p>
