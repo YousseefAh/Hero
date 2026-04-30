@@ -13,7 +13,7 @@ export const en = {
   hero: {
     title: "You're a world-class coach. Your time is too valuable to waste on Excel & WhatsApp",
     subtitle: "BePrime transforms your work into a complete professional ecosystem — from branding to client renewal.",
-    cta: "Start Free — Set up your system in less than 24 hours",
+    cta: "Start Free — Ready in 24 hours",
     highlightedText: "Your time is too valuable to waste",
     title2: "on Excel & WhatsApp",
   },

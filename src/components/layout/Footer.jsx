@@ -14,20 +14,22 @@ function Footer() {
       {/* ── Top section ── */}
       <div className="pb-10 border-b border-primary-400/15">
 
-        {/* Tagline + Nav columns — all on one row */}
-        <div className="grid grid-cols-2 sm:grid-cols-6 gap-x-10 gap-y-8">
-          {/* Logo + Tagline + socials */}
-          <div className="col-span-2 flex items-start gap-4">
-            <Link href="/" className="shrink-0">
-              <Image
-                src="/beprime-logo.png"
-                alt="BePrime Logo"
-                width={160}
-                height={160}
-                className="w-auto h-10 object-contain hover:opacity-80 transition-opacity"
-              />
-            </Link>
-            <div>
+        {/* Logo */}
+        <Link href="/" className="inline-block mb-8">
+          <Image
+            src="/beprime-logo.png"
+            alt="BePrime Logo"
+            width={160}
+            height={160}
+            className="w-auto h-10 object-contain hover:opacity-80 transition-opacity"
+          />
+        </Link>
+
+        {/* Tagline + Nav columns — one row */}
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-16">
+
+          {/* Tagline + socials */}
+          <div className="lg:max-w-[220px] shrink-0">
             <p className="text-primary-300 text-sm leading-relaxed">
               {t.footer.tagline}
             </p>
@@ -50,40 +52,42 @@ function Footer() {
                 </li>
               ))}
             </ul>
-            </div>
           </div>
 
           {/* Nav columns */}
-          {t.footer.columns.map((column, idx) => (
-            <div key={idx}>
-              <p className="mb-3 font-bold text-sm text-primary-400 uppercase tracking-wider">
-                {column.heading}
-              </p>
-              <ul className="flex flex-col gap-y-2">
-                {column.links.map((link) => (
-                  <li key={link.label}>
-                    {link.external ? (
-                      <a
-                        href={link.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-sm text-primary-300 hover:text-accent-500 transition-colors duration-150"
-                      >
-                        {link.label}
-                      </a>
-                    ) : (
-                      <Link
-                        href={link.href}
-                        className="text-sm text-primary-300 hover:text-accent-500 transition-colors duration-150"
-                      >
-                        {link.label}
-                      </Link>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 lg:gap-12 flex-1">
+            {t.footer.columns.map((column, idx) => (
+              <div key={idx}>
+                <p className="mb-3 font-bold text-sm text-primary-400 uppercase tracking-wider">
+                  {column.heading}
+                </p>
+                <ul className="flex flex-col gap-y-2">
+                  {column.links.map((link) => (
+                    <li key={link.label}>
+                      {link.external ? (
+                        <a
+                          href={link.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-sm text-primary-300 hover:text-accent-500 transition-colors duration-150"
+                        >
+                          {link.label}
+                        </a>
+                      ) : (
+                        <Link
+                          href={link.href}
+                          className="text-sm text-primary-300 hover:text-accent-500 transition-colors duration-150"
+                        >
+                          {link.label}
+                        </Link>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
         </div>
       </div>
 
