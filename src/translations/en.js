@@ -103,14 +103,41 @@ export const en = {
 
   // ─── Arabic Features Section (English version) ───
   arabicFeatures: {
-    title: "Why coaches choose BePrime?",
+    title: "Your Smart System: For Training & Results Management",
+    subtitle: "Instead of scattering yourself across papers and files — here's how this system shortcuts the path to success for every professional coach",
     sections: [
-      { title: "The system works — while you sleep", text: "Clients book, pay, receive their plans, and track their progress — all without you lifting a finger. You coach, and the rest happens automatically." },
-      { title: "Your offer sells itself", text: "Clients see a clear, compelling offer and decide in seconds. No explaining, no convincing — every step designed to convert." },
-      { title: "Your clients stay — and bring others", text: "Smart reminders, timely offers, and continuous follow-up — clients feel valued and renew without you asking." },
-      { title: "Data — not guesswork", text: "Know who's training, who's slacking, and which offer brings the most revenue. Every decision backed by real numbers." },
-      { title: "From 10 clients to 10,000 — same quality", text: "Every new client gets the same professional experience. Scale without adding staff or burning out." },
-      { title: "80% savings. Zero complexity.", text: "No big team, no multiple tools. One system that does the work of 10 people — at a fraction of the cost." },
+      {
+        title: "The system works — while you sleep",
+        text: "Clients book, pay, receive their plans, and track their progress — all without you lifting a finger. You coach, and the rest happens automatically.",
+      },
+      {
+        title: "Smart Subscription Management — goodbye forgetfulness",
+        text: "The system works as your \"second brain\"; precisely tracking start and end dates for every client's subscription, alerting you instantly when someone's about to expire — ensuring continuous sales and zero client loss.",
+      },
+      {
+        title: "Professional Diet & Exercise Organization",
+        text: "Every client detail — meal plans, training schedules — stored in one organized place. Access and edit in seconds. Say goodbye to the era of screenshots and lost messages.",
+      },
+      {
+        title: "Your offer sells itself",
+        text: "Clients see a clear, compelling offer and decide in seconds. No explaining, no convincing — every step designed to convert.",
+      },
+      {
+        title: "Your clients stay — and bring others",
+        text: "Smart reminders, timely offers, and continuous follow-up — clients feel valued and renew without you asking.",
+      },
+      {
+        title: "Data — not guesswork",
+        text: "Know who's training, who's slacking, and which offer brings the most revenue. No more guessing — every decision backed by real numbers.",
+      },
+      {
+        title: "From 10 clients to 10,000 — same quality",
+        text: "Every new client gets the same professional experience. Scale without adding staff or burning out.",
+      },
+      {
+        title: "80% savings. Zero complexity.",
+        text: "No big team, no multiple tools. One system that does the work of 10 people — at a fraction of the cost.",
+      },
     ],
   },
 
@@ -225,6 +252,7 @@ export const en = {
       title: "Your Info",
       fullName: "Full Name",
       phone: "Phone Number",
+      email: "Email",
       platformName: "Platform Name (optional)",
       next: "Continue to Payment",
       plan: "Plan",
@@ -236,8 +264,23 @@ export const en = {
         instapay: "InstaPay",
         bank: "Bank Transfer",
       },
+      fawaterakHeading: "Pay online",
+      fawaterakHint: "Cards and supported wallets via our payment partner.",
+      fawaterakLoading: "Loading payment options…",
+      fawaterakUnavailable: "Online payment is not available right now. Use manual transfer below.",
+      fawaterakPay: "Continue to secure checkout",
+      fawaterakError: "Could not start checkout. Try again or use manual transfer.",
       confirm: "Confirm Payment",
       back: "Back",
+    },
+    fawaterakReturn: {
+      successTitle: "Payment successful",
+      successBody: "Thank you. We received your payment and will follow up shortly if needed.",
+      failTitle: "Payment not completed",
+      failBody: "The transaction did not finish. You were not charged, or the payment was declined. You can try again from pricing.",
+      pendingTitle: "Payment pending",
+      pendingBody: "Your payment is still processing (for example Fawry or cash codes). We will update you when it clears.",
+      referenceLabel: "Reference",
     },
     confirmation: {
       title: "Order Confirmation",

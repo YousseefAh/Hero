@@ -1,7 +1,6 @@
 "use client";
 
 import { createContext, useContext, useState, useCallback, useRef } from "react";
-import { useRouter } from "next/navigation";
 import { submitToGoogleSheets } from "@/utils/googleSheets";
 
 const CheckoutContext = createContext();
@@ -13,37 +12,19 @@ const INITIAL_STATE = {
   customerInfo: {
     fullName: "",
     phone: "",
+    email: "",
     platformName: "",
   },
   payment: {
-    method: "", // "vodafone_cash" | "manual_instapay"
+    method: "", // "vodafone_cash" | "manual_instapay" | "fawaterak"
+    fawaterakPaymentMethodId: null,
     status: "pending", // "pending" | "awaiting_confirmation" | "confirmed"
     referenceId: "",
+    fawaterakInvoiceKey: "",
   },
 };
 
-/**
- * Payment gateway configuration.
- * Currently: manual methods only.
- * Future: Fawaterk integration.
- *
- * FAWATERK INTEGRATION (uncomment when ready):
- * ─────────────────────────────────────────────
- * Endpoint: POST https://api.fawaterk.com/api/v2/invoiceInitPay
- * Headers:  { Authorization: `Bearer ${process.env.NEXT_PUBLIC_FAWATERK_API_KEY}` }
- * Body: {
- *   payment_method_id: <from GET /api/v2/getPaymentmethods>,
- *   cartTotal: plan.price,
- *   currency: 'EGP',
- *   customer: { first_name, last_name, email, phone, address },
- *   cartItems: [{ name: plan.name, price: plan.price, quantity: 1 }],
- *   redirectionUrls: {
- *     successUrl: `${window.location.origin}/checkout/success`,
- *     failUrl: `${window.location.origin}/checkout/fail`,
- *     pendingUrl: `${window.location.origin}/checkout/pending`
- *   }
- * }
- */
+/** Manual transfer methods. Online checkout uses Fawaterak via /api/fawaterak/init. */
 export const PAYMENT_METHODS = {
   vodafone_cash: {
     id: "vodafone_cash",
@@ -60,6 +41,12 @@ export const PAYMENT_METHODS = {
     number: "yousseef.ah@instapay",
     icon: "instapay",
     instructions: "حوّل المبلغ على حساب إنستاباي وابعتلنا إيصال الدفع",
+  },
+  fawaterak: {
+    id: "fawaterak",
+    name: "دفع إلكتروني",
+    nameEn: "Online payment",
+    instructions: "",
   },
 };
 
@@ -98,10 +85,17 @@ export function CheckoutProvider({ children }) {
     }));
   }, []);
 
-  const setPaymentMethod = useCallback((method) => {
+  const setPaymentMethod = useCallback((method, fawaterakPaymentMethodId = null) => {
     setCheckout((prev) => ({
       ...prev,
-      payment: { ...prev.payment, method },
+      payment: {
+        ...prev.payment,
+        method,
+        fawaterakPaymentMethodId:
+          method === "fawaterak" && fawaterakPaymentMethodId != null
+            ? Number(fawaterakPaymentMethodId)
+            : null,
+      },
     }));
   }, []);
 
@@ -111,7 +105,6 @@ export function CheckoutProvider({ children }) {
     const refId = `BP-${Date.now().toString(36).toUpperCase()}-${Math.random().toString(36).substring(2, 6).toUpperCase()}`;
 
     setCheckout((prev) => {
-      // Dedup: only submit once per referenceId (React StrictMode calls updater twice)
       if (lastSubmittedRef.current !== refId) {
         lastSubmittedRef.current = refId;
         submitToGoogleSheets({

@@ -17,6 +17,11 @@ function AppStatistics() {
           <h2 className="text-3xl md:text-5xl xl:text-6xl font-bold mb-4 text-white">
             {t.arabicFeatures.title}<span className="text-accent-500">.</span>
           </h2>
+          {t.arabicFeatures.subtitle && (
+            <p className="text-[#8B8B9E] text-base md:text-lg lg:text-xl max-w-3xl mx-auto leading-relaxed">
+              {t.arabicFeatures.subtitle}
+            </p>
+          )}
         </div>
 
         <ArabicContent />

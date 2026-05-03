@@ -31,7 +31,7 @@ export async function submitToGoogleSheets(data) {
       billingCycle: data.billingCycle === "monthly" ? "شهري" : "سنوي",
       paymentMethod: data.paymentMethod,
       referenceId: data.referenceId,
-      status: "في الانتظار ⏳",
+      status: data.status ?? "في الانتظار ⏳",
       contacted: "لم يتم ❌",
     };
 

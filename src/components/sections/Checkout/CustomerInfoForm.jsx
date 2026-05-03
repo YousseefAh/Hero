@@ -20,12 +20,18 @@ export default function CustomerInfoForm() {
     } else if (!/^01[0-9]{9}$/.test(customerInfo.phone.replace(/\s/g, ""))) {
       newErrors.phone = isRTL ? "رقم موبايل غير صحيح" : "Invalid phone number";
     }
+    const email = (customerInfo.email || "").trim();
+    if (!email) {
+      newErrors.email = isRTL ? "البريد مطلوب للدفع الإلكتروني" : "Email is required";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      newErrors.email = isRTL ? "بريد غير صالح" : "Invalid email address";
+    }
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
   const handleSubmit = () => {
-    setTouched({ fullName: true, phone: true });
+    setTouched({ fullName: true, phone: true, email: true });
     if (validate()) nextStep();
   };
 
@@ -105,6 +111,26 @@ export default function CustomerInfoForm() {
               />
               {touched.phone && errors.phone && (
                 <p className="text-red-400 text-[10px] mt-1">{errors.phone}</p>
+              )}
+            </div>
+
+            {/* Email */}
+            <div>
+              <label className="block text-white/40 text-[11px] font-medium mb-1.5 tracking-wide">
+                {c.email} <span className="text-accent-500">*</span>
+              </label>
+              <input
+                type="email"
+                dir="ltr"
+                autoComplete="email"
+                placeholder={isRTL ? "you@example.com" : "you@example.com"}
+                value={customerInfo.email}
+                onChange={(e) => updateCustomerInfo("email", e.target.value)}
+                onBlur={() => handleBlur("email")}
+                className={`${inputBase} ${touched.email && errors.email ? inputErr : inputOk}`}
+              />
+              {touched.email && errors.email && (
+                <p className="text-red-400 text-[10px] mt-1">{errors.email}</p>
               )}
             </div>
 
