@@ -46,10 +46,11 @@ export function splitCustomerName(fullName) {
   const t = (fullName || "").trim();
   if (!t) return { first_name: "Customer", last_name: "BePrime" };
   const i = t.indexOf(" ");
-  if (i === -1) return { first_name: t.slice(0, 80), last_name: "—" };
+  // Fawaterak validates last_name format; avoid symbols like "—"
+  if (i === -1) return { first_name: t.slice(0, 80), last_name: "BePrime" };
   return {
     first_name: t.slice(0, i).slice(0, 80),
-    last_name: (t.slice(i + 1).trim() || "—").slice(0, 80),
+    last_name: (t.slice(i + 1).trim() || "BePrime").slice(0, 80),
   };
 }
 
