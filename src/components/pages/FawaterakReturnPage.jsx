@@ -11,11 +11,33 @@ function ReturnInner({ variant }) {
   const tr = t.checkout.fawaterakReturn;
   const sp = useSearchParams();
   const invoiceKey = sp.get("invoice_key") || sp.get("invoiceKey") || "";
+  const invoiceId = sp.get("invoice_id") || sp.get("invoiceId") || "";
+  const invoiceStatus =
+    (sp.get("invoice_status") ||
+      sp.get("invoiceStatus") ||
+      sp.get("status") ||
+      sp.get("payment_status") ||
+      sp.get("paymentStatus") ||
+      "")?.toString();
+
+  const normalizedStatus = invoiceStatus.trim().toLowerCase();
+  const derivedVariant =
+    normalizedStatus === "paid" || normalizedStatus === "success" || normalizedStatus === "successful"
+      ? "success"
+      : normalizedStatus === "failed" ||
+          normalizedStatus === "fail" ||
+          normalizedStatus === "declined" ||
+          normalizedStatus === "canceled" ||
+          normalizedStatus === "cancelled"
+        ? "fail"
+        : variant;
+
+  const reference = invoiceKey || invoiceId || "";
 
   const copy =
-    variant === "success"
+    derivedVariant === "success"
       ? { title: tr.successTitle, body: tr.successBody, tone: "success" }
-      : variant === "fail"
+      : derivedVariant === "fail"
         ? { title: tr.failTitle, body: tr.failBody, tone: "fail" }
         : { title: tr.pendingTitle, body: tr.pendingBody, tone: "pending" };
 
@@ -43,9 +65,9 @@ function ReturnInner({ variant }) {
       >
         <h1 className="text-xl sm:text-2xl font-bold text-white mb-3">{copy.title}</h1>
         <p className="text-white/55 text-sm leading-relaxed mb-6">{copy.body}</p>
-        {invoiceKey ? (
+        {reference ? (
           <p className="text-white/35 text-xs mb-6" dir="ltr">
-            {tr.referenceLabel}: {invoiceKey}
+            {tr.referenceLabel}: {reference}
           </p>
         ) : null}
         <Link
