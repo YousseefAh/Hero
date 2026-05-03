@@ -1,4 +1,4 @@
-import PayPage from "@/components/pages/PayPage";
+import PayPageFawaterak from "@/components/pages/PayPageFawaterak";
 
 export const metadata = {
   title: "الدفع — BePrime",
@@ -6,5 +6,5 @@ export const metadata = {
 };
 
 export default function Page() {
-  return <PayPage />;
+  return <PayPageFawaterak />;
 }
