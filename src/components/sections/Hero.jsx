@@ -9,11 +9,10 @@ function Hero() {
   const { subtitle, cta: ctaText, highlightedText, title2 } = t.hero;
 
   return (
-    <section className="relative pt-[9svh] sm:pt-20 md:pt-24 lg:pt-0 px-5 sm:px-10 lg:min-h-svh lg:flex lg:items-center lg:justify-center lg:pb-[12svh]">
+    <section className="relative pt-[9svh] sm:pt-20 md:pt-24 lg:pt-0 px-5 sm:px-10 overflow-hidden lg:min-h-svh lg:flex lg:items-center lg:justify-center lg:pb-[12svh]">
 
-      {/* ── Ambient glow ── */}
       <div
-        className="pointer-events-none absolute top-[-10%] left-1/2 -translate-x-1/2 w-[600px] h-[300px] opacity-[0.10]"
+        className="pointer-events-none absolute top-0 sm:top-[-10%] left-1/2 -translate-x-1/2 w-[600px] h-[300px] opacity-[0.10]"
         style={{
           background: "radial-gradient(ellipse at center, rgba(67,97,238,0.6) 0%, rgba(198,255,0,0.2) 55%, transparent 72%)",
           filter: "blur(50px)"
