@@ -2,12 +2,14 @@
 
 import { useEffect, useRef } from 'react';
 import { content } from '@/data/content';
+import { useLanguage } from '@/contexts/LanguageContext';
 import Swiper from 'swiper';
 import { Autoplay, Mousewheel, FreeMode } from 'swiper/modules';
 import { IconArrowNarrowLeft, IconArrowNarrowRight } from '@tabler/icons-react';
 import 'swiper/css';
 
 const CoachShowcase = () => {
+  const { isRTL } = useLanguage();
   const { title, description, images: showcaseImages } = content.coachShowcase;
   const swiperRef = useRef(null);
 
@@ -155,13 +157,13 @@ const CoachShowcase = () => {
           onClick={handlePrev}
           className="relative z-40 flex h-12 w-12 items-center justify-center rounded-full bg-accent-500 hover:bg-accent-400 hover:shadow-glow-green transition-all duration-200 cursor-pointer"
         >
-          <IconArrowNarrowLeft className="h-6 w-6 text-primary-800" />
+          <IconArrowNarrowLeft className={`h-6 w-6 text-primary-800 ${isRTL ? 'rotate-180' : ''}`} />
         </button>
         <button 
           onClick={handleNext}
           className="relative z-40 flex h-12 w-12 items-center justify-center rounded-full bg-accent-500 hover:bg-accent-400 hover:shadow-glow-green transition-all duration-200 cursor-pointer"
         >
-          <IconArrowNarrowRight className="h-6 w-6 text-primary-800" />
+          <IconArrowNarrowRight className={`h-6 w-6 text-primary-800 ${isRTL ? 'rotate-180' : ''}`} />
         </button>
       </div>
     </section>
