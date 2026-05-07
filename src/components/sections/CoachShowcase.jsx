@@ -70,12 +70,12 @@ const CoachShowcase = () => {
         </p>
       </div>
       
-      <div className="coach-showcase-swiper w-full">
+      <div className="coach-showcase-swiper w-full px-4 md:px-8 lg:px-12">
         <div className="swiper-wrapper flex items-center">
           {[...showcaseImages, ...showcaseImages].map((image, index) => (
             <div 
               key={index} 
-              className="swiper-slide w-[300px] sm:w-[500px] md:w-[700px] lg:w-[900px] xl:w-[1000px] aspect-[4/3] md:aspect-[16/10] rounded-xl md:rounded-3xl overflow-hidden bg-primary-800 transition-all duration-500 shadow-2xl shadow-black/50 border border-white/5"
+              className="swiper-slide w-[300px] sm:w-[500px] md:w-[700px] lg:w-[900px] xl:w-[1000px] aspect-[4/3] md:aspect-[16/10] rounded-xl md:rounded-3xl overflow-hidden transition-all duration-500 shadow-2xl"
             >
               <div className="relative h-full w-full group">
                 {image.isLocal ? (
