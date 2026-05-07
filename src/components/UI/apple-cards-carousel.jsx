@@ -77,7 +77,7 @@ export const Carousel = ({ items, initialScroll = 0, cardWidth = 320 }) => {
     >
       <div className="relative w-full" dir="ltr">
         <div
-          className="flex w-full overflow-x-scroll overscroll-x-auto scroll-smooth py-12 [scrollbar-width:none] md:py-16"
+          className="flex w-full overflow-x-scroll overscroll-x-auto scroll-smooth pt-4 pb-16 [scrollbar-width:none] md:pt-8 md:pb-24"
           ref={carouselRef}
           onScroll={checkScrollability}
         >
