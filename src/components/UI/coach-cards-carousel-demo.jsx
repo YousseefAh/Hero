@@ -12,7 +12,11 @@ export default function CoachCardsCarouselDemo() {
 
   useEffect(() => {
     const handleResize = () => {
-      setCardWidth(window.innerWidth < 768 ? 320 : 500);
+      const w = window.innerWidth;
+      if (w >= 1280) setCardWidth(850); // Huge on large screens
+      else if (w >= 1024) setCardWidth(700);
+      else if (w >= 768) setCardWidth(550);
+      else setCardWidth(340); // mobile
     };
     handleResize();
     window.addEventListener("resize", handleResize);

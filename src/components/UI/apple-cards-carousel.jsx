@@ -245,7 +245,7 @@ export const Card = ({
           src={card.src}
           alt={card.title}
           fill
-          className="absolute inset-0 z-10 object-cover"
+          className="absolute inset-0 z-10 object-cover scale-[1.03]"
         />
       </motion.button>
     </>
