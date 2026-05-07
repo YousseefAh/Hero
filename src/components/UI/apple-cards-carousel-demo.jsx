@@ -11,7 +11,7 @@ export default function AppleCardsCarouselDemo() {
   const cards = cardData.map((card, index) => {
     const translated = t.appleCarousel?.cards?.[index];
     const mergedCard = translated ? { ...card, ...translated } : card;
-    return <Card key={card.src} card={mergedCard} index={index} />;
+    return <Card key={card.src} card={mergedCard} index={index} className="shadow-2xl bg-white" />;
   });
 
   return (
