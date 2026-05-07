@@ -117,7 +117,7 @@ export const Carousel = ({ items, initialScroll = 0, cardWidth = 320 }) => {
             ))}
           </div>
         </div>
-        <div className="mr-10 mt-4 md:mt-8 flex justify-end gap-4">
+        <div className="mr-10 flex justify-end gap-4">
           <button
             className="relative z-40 flex h-10 w-10 items-center justify-center rounded-full bg-accent-500 disabled:opacity-50 hover:bg-accent-400 hover:shadow-glow-green transition-all duration-200"
             onClick={scrollLeft}
