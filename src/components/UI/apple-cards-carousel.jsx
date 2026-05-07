@@ -21,7 +21,7 @@ export const CarouselContext = createContext({
   currentIndex: 0,
 });
 
-export const Carousel = ({ items, initialScroll = 0 }) => {
+export const Carousel = ({ items, initialScroll = 0, cardWidth = 320 }) => {
   const carouselRef = useRef(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
@@ -56,8 +56,8 @@ export const Carousel = ({ items, initialScroll = 0 }) => {
 
   const handleCardClose = (index) => {
     if (carouselRef.current) {
-      const cardWidth = 320; // matches style={{ width: "320px" }}
-      const gap = isMobile() ? 4 : 8;
+      const gap = isMobile() ? 4 : 8; // This might be pixel gaps or tailwind units, actually gap-4 is 16px.
+      // But the original code was (cardWidth + gap) * (index + 1)
       const scrollPosition = (cardWidth + gap) * (index + 1);
       carouselRef.current.scrollTo({
         left: scrollPosition,
@@ -142,6 +142,8 @@ export const Card = ({
   card,
   index,
   layout = false,
+  cardWidth = 320,
+  aspectRatio = "4/5",
 }) => {
   const [open, setOpen] = useState(false);
   const containerRef = useRef(null);
@@ -236,8 +238,8 @@ export const Card = ({
       <motion.button
         layoutId={layout ? `card-${card.title}` : undefined}
         onClick={handleOpen}
-        className="relative z-10 flex flex-col items-start justify-start overflow-hidden rounded-3xl bg-primary-300"
-        style={{ width: "320px", aspectRatio: "4/5" }}
+        className="relative z-10 flex flex-col items-start justify-start overflow-hidden rounded-3xl bg-primary-300 shrink-0"
+        style={{ width: cardWidth, aspectRatio: aspectRatio }}
       >
         <BlurImage
           src={card.src}

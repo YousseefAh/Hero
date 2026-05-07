@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { content } from '@/data/content';
 import { Carousel, Card } from "@/components/UI/apple-cards-carousel";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -8,6 +8,16 @@ import { useLanguage } from "@/contexts/LanguageContext";
 export default function CoachCardsCarouselDemo() {
   const { t } = useLanguage();
   const showcaseData = content.coachShowcase;
+  const [cardWidth, setCardWidth] = useState(320);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setCardWidth(window.innerWidth < 768 ? 320 : 500);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   
   const cards = showcaseData.images.map((img, index) => {
     // Map the CoachShowcase image format to the AppleCardsCarousel Card format
@@ -21,7 +31,7 @@ export default function CoachCardsCarouselDemo() {
         image: { src: img.url, alt: img.title }
       }
     };
-    return <Card key={img.url} card={cardData} index={index} />;
+    return <Card key={img.url} card={cardData} index={index} cardWidth={cardWidth} aspectRatio="16/9" />;
   });
 
   return (
@@ -34,7 +44,7 @@ export default function CoachCardsCarouselDemo() {
           {showcaseData.description}
         </p>
       </div>
-      <Carousel items={cards} />
+      <Carousel items={cards} cardWidth={cardWidth} />
     </div>
   );
 }
