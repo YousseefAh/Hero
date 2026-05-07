@@ -13,9 +13,9 @@ export default function CoachCardsCarouselDemo() {
   useEffect(() => {
     const handleResize = () => {
       const w = window.innerWidth;
-      if (w >= 1280) setCardWidth(850); // Huge on large screens
-      else if (w >= 1024) setCardWidth(700);
-      else if (w >= 768) setCardWidth(550);
+      if (w >= 1280) setCardWidth(1000); // Massive on large screens
+      else if (w >= 1024) setCardWidth(850);
+      else if (w >= 768) setCardWidth(650);
       else setCardWidth(340); // mobile
     };
     handleResize();
@@ -35,7 +35,7 @@ export default function CoachCardsCarouselDemo() {
         image: { src: img.url, alt: img.title }
       }
     };
-    return <Card key={img.url} card={cardData} index={index} cardWidth={cardWidth} aspectRatio="16/9" />;
+    return <Card key={img.url} card={cardData} index={index} cardWidth={cardWidth} aspectRatio="16/10" />;
   });
 
   return (
