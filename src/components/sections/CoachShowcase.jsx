@@ -75,20 +75,20 @@ const CoachShowcase = () => {
           {[...showcaseImages, ...showcaseImages].map((image, index) => (
             <div 
               key={index} 
-              className="swiper-slide w-[300px] sm:w-[500px] md:w-[700px] lg:w-[900px] xl:w-[1000px] aspect-[4/3] md:aspect-[16/10] rounded-xl md:rounded-3xl overflow-hidden transition-all duration-500 shadow-2xl"
+              className="swiper-slide w-[300px] sm:w-[500px] md:w-[700px] lg:w-[900px] xl:w-[1000px] aspect-[4/3] md:aspect-[16/10] rounded-xl md:rounded-3xl overflow-hidden bg-white dark:bg-primary-900 transition-all duration-500 shadow-2xl"
             >
               <div className="relative h-full w-full group">
                 {image.isLocal ? (
                   <img 
                     src={image.url}
                     alt={image.title}
-                    className="w-full h-full object-cover object-top"
+                    className="w-full h-full object-cover object-top scale-105"
                   />
                 ) : (
                   <img 
                     src={image.url}
                     alt={image.title}
-                    className="w-full h-full object-cover object-top"
+                    className="w-full h-full object-cover object-top scale-105"
                     loading={index < 4 ? "eager" : "lazy"}
                   />
                 )}
