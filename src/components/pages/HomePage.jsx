@@ -10,7 +10,7 @@ import Hero from "@/components/sections/Hero";
 
 // Main
 import Main from "@/components/layout/Main";
-import CoachShowcase from "@/components/sections/CoachShowcase";
+import CoachCardsCarouselDemo from "@/components/UI/coach-cards-carousel-demo";
 import Dashboard from "@/components/sections/Dashboard";
 import AppStatistics from "@/components/sections/AppStatistics";
 import StatsStrip from "@/components/sections/StatsStrip";
@@ -57,7 +57,7 @@ export default function HomePage() {
             <AppStatistics />
             <StatsStrip />
             <AppleCardsCarouselDemo />
-            <CoachShowcase />
+            <CoachCardsCarouselDemo />
             <section id="features"><Features /></section>
             <section className="m-auto px-4 sm:px-8 md:px-16 xl:px-24 py-16 max-w-[90rem]">
               <div className="text-center mb-12">
