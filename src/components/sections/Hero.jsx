@@ -9,7 +9,7 @@ function Hero() {
   const { subtitle, cta: ctaText, highlightedText, title2 } = t.hero;
 
   return (
-    <section className="relative pt-[9svh] sm:pt-20 md:pt-24 lg:pt-0 px-5 sm:px-10 overflow-hidden lg:min-h-svh lg:flex lg:items-center lg:justify-center lg:pb-[12svh]">
+    <section className="relative pt-[9svh] sm:pt-20 md:pt-24 lg:pt-0 px-5 sm:px-10 lg:min-h-svh lg:flex lg:items-center lg:justify-center lg:pb-[12svh]">
 
       {/* ── Ambient glow ── */}
       <div
