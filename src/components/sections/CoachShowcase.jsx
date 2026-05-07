@@ -1,44 +1,90 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { content } from '@/data/content';
 import Swiper from 'swiper';
-import { Autoplay } from 'swiper/modules';
+import { Autoplay, Mousewheel, FreeMode } from 'swiper/modules';
+import { IconArrowNarrowLeft, IconArrowNarrowRight } from '@tabler/icons-react';
 import 'swiper/css';
 
 const CoachShowcase = () => {
   const { title, description, images: showcaseImages } = content.coachShowcase;
+  const swiperRef = useRef(null);
 
   useEffect(() => {
-    const swiper = new Swiper('.coach-showcase-swiper', {
-      modules: [Autoplay],
+    swiperRef.current = new Swiper('.coach-showcase-swiper', {
+      modules: [Autoplay, Mousewheel, FreeMode],
       slidesPerView: 'auto',
       spaceBetween: 40,
-      speed: 12000, // Slower speed for larger images to be readable
+      speed: 8000, // Slow, continuous motion
+      preventInteractionOnTransition: false, // Important to allow click while moving
       autoplay: {
         delay: 1,
         disableOnInteraction: false,
+        pauseOnMouseEnter: true, // Stop when hovering to read
       },
       loop: true,
       loopAdditionalSlides: 4,
-      allowTouchMove: false,
-      grabCursor: false,
-      watchSlidesProgress: true,
       freeMode: {
         enabled: true,
-        momentum: false,
+        momentum: true,
+        momentumRatio: 0.8,
+        momentumVelocityRatio: 0.8,
       },
-      slideToClickedSlide: false,
-      preventInteractionOnTransition: true,
-      updateOnWindowResize: true,
-      observer: true,
-      observeParents: true
+      mousewheel: {
+        forceToAxis: true,
+        sensitivity: 1,
+      },
+      allowTouchMove: true,
+      grabCursor: true,
+      on: {
+        touchStart: function () {
+          this.params.speed = 600; // Snappy speed when dragging manually
+        },
+        touchEnd: function () {
+          setTimeout(() => {
+            if (this && !this.destroyed) {
+              this.params.speed = 8000; // Return to slow continuous scrolling
+            }
+          }, 0);
+        }
+      }
     });
 
     return () => {
-      if (swiper) swiper.destroy();
+      if (swiperRef.current) swiperRef.current.destroy();
     };
   }, []);
+
+  const handlePrev = () => {
+    if (swiperRef.current) {
+      swiperRef.current.autoplay.stop();
+      swiperRef.current.setTransition(600);
+      swiperRef.current.params.speed = 600;
+      swiperRef.current.slidePrev();
+      setTimeout(() => {
+        if (swiperRef.current && !swiperRef.current.destroyed) {
+          swiperRef.current.params.speed = 8000;
+          swiperRef.current.autoplay.start();
+        }
+      }, 600);
+    }
+  };
+
+  const handleNext = () => {
+    if (swiperRef.current) {
+      swiperRef.current.autoplay.stop();
+      swiperRef.current.setTransition(600);
+      swiperRef.current.params.speed = 600;
+      swiperRef.current.slideNext();
+      setTimeout(() => {
+        if (swiperRef.current && !swiperRef.current.destroyed) {
+          swiperRef.current.params.speed = 8000;
+          swiperRef.current.autoplay.start();
+        }
+      }, 600);
+    }
+  };
 
   return (
     <section className="w-full relative z-10 py-[10svh] overflow-x-hidden flex flex-col items-center justify-center">
@@ -102,6 +148,21 @@ const CoachShowcase = () => {
             </div>
           ))}
         </div>
+      </div>
+
+      <div className="container mx-auto px-4 mt-10 flex justify-end gap-3 relative z-10">
+        <button 
+          onClick={handlePrev}
+          className="relative z-40 flex h-12 w-12 items-center justify-center rounded-full bg-accent-500 hover:bg-accent-400 hover:shadow-glow-green transition-all duration-200 cursor-pointer"
+        >
+          <IconArrowNarrowLeft className="h-6 w-6 text-primary-800" />
+        </button>
+        <button 
+          onClick={handleNext}
+          className="relative z-40 flex h-12 w-12 items-center justify-center rounded-full bg-accent-500 hover:bg-accent-400 hover:shadow-glow-green transition-all duration-200 cursor-pointer"
+        >
+          <IconArrowNarrowRight className="h-6 w-6 text-primary-800" />
+        </button>
       </div>
     </section>
   );
