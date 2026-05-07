@@ -53,10 +53,10 @@ const CoachShowcase = () => {
       />
 
       <div className="container mx-auto px-4 mb-10 md:mb-16 relative z-10">
-        <h2 className="text-center text-3xl md:text-5xl lg:text-6xl font-black text-white mb-4 md:mb-6">
+        <h2 className="text-center text-3xl md:text-5xl lg:text-6xl font-black text-black mb-4 md:mb-6">
           {title}
         </h2>
-        <p className="text-center text-lg md:text-xl text-primary-300 max-w-4xl mx-auto">
+        <p className="text-center text-lg md:text-xl text-primary-600 max-w-4xl mx-auto">
           {description}
         </p>
       </div>
