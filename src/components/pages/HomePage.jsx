@@ -50,7 +50,6 @@ export default function HomePage() {
               <Navigation />
               <Hero />
             </Header>
-            <CoachShowcase />
             <section id="dashboard"><Dashboard /></section>
           </div>
 
@@ -58,6 +57,7 @@ export default function HomePage() {
             <AppStatistics />
             <StatsStrip />
             <AppleCardsCarouselDemo />
+            <CoachShowcase />
             <section id="features"><Features /></section>
             <section className="m-auto px-4 sm:px-8 md:px-16 xl:px-24 py-16 max-w-[90rem]">
               <div className="text-center mb-12">
