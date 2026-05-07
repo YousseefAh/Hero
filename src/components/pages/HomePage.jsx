@@ -10,6 +10,7 @@ import Hero from "@/components/sections/Hero";
 
 // Main
 import Main from "@/components/layout/Main";
+import CoachShowcase from "@/components/sections/CoachShowcase";
 import Dashboard from "@/components/sections/Dashboard";
 import AppStatistics from "@/components/sections/AppStatistics";
 import StatsStrip from "@/components/sections/StatsStrip";
@@ -49,6 +50,7 @@ export default function HomePage() {
               <Navigation />
               <Hero />
             </Header>
+            <CoachShowcase />
             <section id="dashboard"><Dashboard /></section>
           </div>
 
