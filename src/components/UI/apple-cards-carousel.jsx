@@ -144,6 +144,7 @@ export const Card = ({
   layout = false,
   cardWidth = 320,
   aspectRatio = "4/5",
+  className,
 }) => {
   const [open, setOpen] = useState(false);
   const containerRef = useRef(null);
@@ -238,7 +239,7 @@ export const Card = ({
       <motion.button
         layoutId={layout ? `card-${card.title}` : undefined}
         onClick={handleOpen}
-        className="relative z-10 flex flex-col items-start justify-start overflow-hidden rounded-3xl bg-primary-300 shrink-0"
+        className={cn("relative z-10 flex flex-col items-start justify-start overflow-hidden rounded-3xl bg-primary-300 shrink-0", className)}
         style={{ width: cardWidth, aspectRatio: aspectRatio }}
       >
         <BlurImage

@@ -35,7 +35,16 @@ export default function CoachCardsCarouselDemo() {
         image: { src: img.url, alt: img.title }
       }
     };
-    return <Card key={img.url} card={cardData} index={index} cardWidth={cardWidth} aspectRatio="16/10" />;
+    return (
+      <Card 
+        key={img.url} 
+        card={cardData} 
+        index={index} 
+        cardWidth={cardWidth} 
+        aspectRatio="16/10" 
+        className="border border-primary-200 dark:border-primary-800 shadow-2xl" 
+      />
+    );
   });
 
   return (
