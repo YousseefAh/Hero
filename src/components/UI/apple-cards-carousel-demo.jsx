@@ -15,7 +15,7 @@ export default function AppleCardsCarouselDemo() {
   });
 
   return (
-    <div className="w-full h-full py-20">
+    <div className="w-full h-full pt-20 pb-4">
       <h2 className="max-w-7xl mx-auto text-center text-xl md:text-5xl font-bold text-primary-500 font-sans transition-colors duration-300">
         {t.appleCarousel?.title || content.appleCarousel.title}<span className="text-accent-500">.</span>
       </h2>

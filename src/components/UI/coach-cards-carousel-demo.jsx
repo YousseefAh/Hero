@@ -48,7 +48,7 @@ export default function CoachCardsCarouselDemo() {
   });
 
   return (
-    <div className="w-full h-full py-20">
+    <div className="w-full h-full pt-4 pb-20">
       <div className="max-w-7xl px-4 mx-auto mb-10 text-center">
         <h2 className="text-xl md:text-5xl font-bold text-primary-500 font-sans transition-colors duration-300">
           {showcaseData.title}<span className="text-accent-500">.</span>
