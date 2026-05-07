@@ -42,7 +42,7 @@ export default function CoachCardsCarouselDemo() {
         index={index} 
         cardWidth={cardWidth} 
         aspectRatio="16/10" 
-        className="border border-primary-200 dark:border-primary-800 shadow-2xl" 
+        className="shadow-2xl bg-white"
       />
     );
   });
