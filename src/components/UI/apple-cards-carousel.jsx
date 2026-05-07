@@ -195,42 +195,44 @@ export const Card = ({
               exit={{ opacity: 0 }}
               ref={containerRef}
               layoutId={layout ? `card-${card.title}` : undefined}
-              className="relative z-[60] mx-auto my-10 h-fit max-w-5xl rounded-3xl bg-white p-4 font-sans md:p-10"
+              className="relative z-[60] mx-auto my-10 h-fit max-w-6xl rounded-[2.5rem] md:rounded-[3rem] bg-white p-6 font-sans md:p-12 shadow-2xl"
             >
+              {/* Close Button */}
               <button
-                className="sticky top-4 right-0 ml-auto flex h-8 w-8 items-center justify-center rounded-full bg-black"
+                className="absolute top-6 right-6 md:top-8 md:right-8 z-[100] flex h-10 w-10 items-center justify-center rounded-full bg-primary-100/80 hover:bg-primary-200 transition-colors shadow-sm"
                 onClick={handleClose}
               >
-                <IconX className="h-6 w-6 text-white" />
+                <IconX className="h-6 w-6 text-primary-800" />
               </button>
-              <motion.p
-                layoutId={layout ? `category-${card.title}` : undefined}
-                className="text-base font-medium text-primary-500"
-              >
-                {card.category}
-              </motion.p>
-              <motion.p
-                layoutId={layout ? `title-${card.title}` : undefined}
-                className="mt-4 text-2xl font-semibold text-primary-500 md:text-5xl"
-              >
-                {card.title}
-              </motion.p>
-                            <div className="py-10">
-                <div className="bg-white-shade p-8 md:p-14 rounded-3xl mb-4">
-                  <p className="text-primary-500 text-base md:text-2xl font-sans max-w-3xl mx-auto">
-                    <span className="font-bold text-primary-500">
-                      {card.content.title}
-                    </span>{" "}
+
+              {/* Header Text */}
+              <div className="mb-8 md:mb-12 max-w-4xl pt-4">
+                <motion.p
+                  layoutId={layout ? `category-${card.title}` : undefined}
+                  className="text-sm md:text-base font-bold text-accent-500 uppercase tracking-widest mb-3"
+                >
+                  {card.category}
+                </motion.p>
+                <motion.p
+                  layoutId={layout ? `title-${card.title}` : undefined}
+                  className="text-3xl md:text-5xl font-black text-primary-800 leading-[1.2]"
+                >
+                  {card.title}
+                </motion.p>
+                {card.content?.description && (
+                  <p className="mt-4 text-lg md:text-xl text-primary-500 leading-relaxed max-w-3xl">
                     {card.content.description}
                   </p>
-                  <img
-                    src={card.content.image.src}
-                    alt={card.content.image.alt}
-                    height="500"
-                    width="500"
-                    className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain rounded-lg"
-                  />
-                </div>
+                )}
+              </div>
+
+              {/* Huge Image Showcase */}
+              <div className="relative w-full rounded-2xl md:rounded-[2rem] overflow-hidden shadow-[0_20px_60px_-15px_rgba(0,0,0,0.15)] bg-primary-50/50 border border-black/5">
+                <img
+                  src={card.content?.image?.src || card.src}
+                  alt={card.title}
+                  className="w-full h-auto object-cover max-h-[80vh] md:max-h-[85vh] scale-[1.02]"
+                />
               </div>
             </motion.div>
           </div>
