@@ -9,6 +9,16 @@ function PayContent() {
   const params = useSearchParams();
   const serviceName = params.get("name")?.trim() || "";
   const amountStr = params.get("amount")?.trim() || "";
+  const currency = params.get("currency")?.trim() || "EGP";
+
+  const currencySymbols = {
+    EGP: "ج.م",
+    USD: "$",
+    EUR: "€",
+    SAR: "ر.س",
+    AED: "د.إ",
+  };
+  const currencySymbol = currencySymbols[currency.toUpperCase()] || currency;
 
   const amount = useMemo(() => {
     const n = Number(String(amountStr).replace(/,/g, ""));
@@ -86,6 +96,7 @@ function PayContent() {
           planName: serviceName,
           planPrice: amount,
           billingCycle: "once",
+          currency,
         }),
       });
       const data = await res.json().catch(() => ({}));
@@ -143,7 +154,7 @@ function PayContent() {
             <p className="text-white/25 text-[11px] mt-0.5">دفع إلكتروني عبر Fawaterak</p>
           </div>
           <p className="font-display font-bold text-lg text-accent-500">
-            {Number(amount).toLocaleString()} <span className="text-xs text-white/30">ج.م</span>
+            {Number(amount).toLocaleString()} <span className="text-xs text-white/30">{currencySymbol}</span>
           </p>
         </div>
 

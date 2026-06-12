@@ -19,6 +19,7 @@ export async function POST(request) {
       planName,
       planPrice,
       billingCycle,
+      currency = "EGP",
     } = body;
 
     const cartTotal = parseEgpCartTotal(planPrice);
@@ -50,7 +51,7 @@ export async function POST(request) {
     const payload = {
       payment_method_id: pmId,
       cartTotal,
-      currency: "EGP",
+      currency,
       invoice_number: invoiceNumber,
       customer: {
         first_name,
@@ -83,6 +84,7 @@ export async function POST(request) {
         price: cartTotal,
         billingCycle: billingCycle || "monthly",
         invoiceNumber,
+        currency,
       },
     };
 
