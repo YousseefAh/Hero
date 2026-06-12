@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { Suspense } from "react";
+import { Suspense, useState, useEffect, useCallback } from "react";
 
 function ReturnInner({ variant }) {
   const { t, isRTL } = useLanguage();
@@ -32,12 +32,52 @@ function ReturnInner({ variant }) {
         ? "fail"
         : variant;
 
+  const [localVariant, setLocalVariant] = useState(derivedVariant);
+  const [checking, setChecking] = useState(false);
+  const [statusText, setStatusText] = useState("");
+
   const reference = invoiceKey || invoiceId || "";
 
+  const checkFawaterakStatus = useCallback(async () => {
+    if (!invoiceId) return;
+    setChecking(true);
+    setStatusText(isRTL ? "جاري التحقق من حالة الدفع..." : "Checking payment status...");
+    try {
+      const res = await fetch("/api/fawaterak/sync-status", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ invoiceId: invoiceId.trim() }),
+      });
+      const data = await res.json();
+      if (res.ok && data.success) {
+        if (data.paid) {
+          setLocalVariant("success");
+          setStatusText(isRTL ? "تم تأكيد الدفع بنجاح!" : "Payment confirmed successfully!");
+        } else {
+          setLocalVariant("pending");
+          setStatusText(isRTL ? "لم يتم الدفع بعد في النظام." : "Invoice is not paid yet.");
+        }
+      } else {
+        setStatusText(isRTL ? `فشل التحقق: ${data.error || "خطأ غير معروف"}` : `Check failed: ${data.error || "unknown error"}`);
+      }
+    } catch {
+      setStatusText(isRTL ? "فشل الاتصال بالخادم للتحقق من حالة الدفع." : "Failed to connect to server to verify status.");
+    } finally {
+      setChecking(false);
+    }
+  }, [invoiceId, isRTL]);
+
+  // Run automatically on mount if we have an invoice ID
+  useEffect(() => {
+    if (invoiceId) {
+      checkFawaterakStatus();
+    }
+  }, [invoiceId, checkFawaterakStatus]);
+
   const copy =
-    derivedVariant === "success"
+    localVariant === "success"
       ? { title: tr.successTitle, body: tr.successBody, tone: "success" }
-      : derivedVariant === "fail"
+      : localVariant === "fail"
         ? { title: tr.failTitle, body: tr.failBody, tone: "fail" }
         : { title: tr.pendingTitle, body: tr.pendingBody, tone: "pending" };
 
@@ -55,7 +95,7 @@ function ReturnInner({ variant }) {
       />
 
       <div
-        className={`max-w-md w-full rounded-2xl border p-8 text-center ${
+        className={`max-w-md w-full rounded-2xl border p-8 text-center transition-colors duration-300 ${
           copy.tone === "success"
             ? "border-accent-500/30 bg-accent-500/[0.06]"
             : copy.tone === "fail"
@@ -65,11 +105,34 @@ function ReturnInner({ variant }) {
       >
         <h1 className="text-xl sm:text-2xl font-bold text-white mb-3">{copy.title}</h1>
         <p className="text-white/55 text-sm leading-relaxed mb-6">{copy.body}</p>
+        
         {reference ? (
-          <p className="text-white/35 text-xs mb-6" dir="ltr">
+          <p className="text-white/35 text-xs mb-4" dir="ltr">
             {tr.referenceLabel}: {reference}
           </p>
         ) : null}
+
+        {/* Live Pull Card */}
+        {invoiceId && (
+          <div className="mt-4 mb-6 p-4 rounded-xl bg-white/[0.02] border border-white/[0.05] text-xs text-right" dir={isRTL ? "rtl" : "ltr"}>
+            <p className="text-white/40 mb-1.5 font-medium">
+              {isRTL ? "التحقق المباشر من الدفع:" : "Live payment verification:"}
+            </p>
+            <p className={`font-bold text-[11px] mb-3 ${
+              localVariant === "success" ? "text-accent-500" : "text-amber-400"
+            }`}>
+              {statusText || (checking ? (isRTL ? "جاري التحقق..." : "Checking...") : (isRTL ? "لم يتم التحقق بعد" : "Not checked yet"))}
+            </p>
+            <button
+              onClick={checkFawaterakStatus}
+              disabled={checking}
+              className="w-full py-2.5 bg-white/5 hover:bg-white/10 text-white/70 hover:text-white rounded-lg transition-all border border-white/10 text-[11px] font-bold disabled:opacity-50"
+            >
+              {checking ? (isRTL ? "جاري التحقق..." : "Checking...") : (isRTL ? "تحديث وتأكيد حالة الدفع الآن" : "Refresh & Confirm Status Now")}
+            </button>
+          </div>
+        )}
+
         <Link
           href="/"
           className="inline-flex items-center justify-center w-full py-3.5 rounded-xl font-bold text-sm text-primary-800 transition-all"
