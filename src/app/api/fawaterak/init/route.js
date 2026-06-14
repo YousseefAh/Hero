@@ -6,6 +6,11 @@ import {
   invoiceInitPay,
   getFawaterakConfig,
 } from "@/lib/fawaterak";
+import {
+  isUsablePhoneNumber,
+  normalizePhoneForGateway,
+  normalizePhoneForRecords,
+} from "@/lib/phone";
 
 export async function POST(request) {
   try {
@@ -44,9 +49,15 @@ export async function POST(request) {
       return NextResponse.json({ error: "Missing customer name, email, or phone" }, { status: 400 });
     }
 
+    if (!isUsablePhoneNumber(phone)) {
+      return NextResponse.json({ error: "Invalid phone number" }, { status: 400 });
+    }
+
     const { first_name, last_name } = splitCustomerName(fullName);
     const origin = getPublicSiteOrigin();
     const invoiceNumber = `BP-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`.toUpperCase();
+    const recordPhone = normalizePhoneForRecords(phone);
+    const gatewayPhone = normalizePhoneForGateway(phone);
 
     const payload = {
       payment_method_id: pmId,
@@ -57,7 +68,7 @@ export async function POST(request) {
         first_name,
         last_name,
         email: email.trim(),
-        phone: String(phone).replace(/\s/g, ""),
+        phone: gatewayPhone,
         address: (platformName && String(platformName).trim()) || "Egypt",
       },
       redirectionUrls: {
@@ -77,7 +88,7 @@ export async function POST(request) {
       lang: "ar",
       payLoad: {
         fullName: fullName.trim(),
-        phone: String(phone).replace(/\s/g, ""),
+        phone: recordPhone,
         email: email.trim(),
         platformName: platformName || "",
         planName: planName || "BePrime",

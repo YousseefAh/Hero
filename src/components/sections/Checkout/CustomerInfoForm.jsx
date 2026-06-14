@@ -3,6 +3,7 @@
 import { useCheckout } from "@/contexts/CheckoutContext";
 import { useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { isUsablePhoneNumber } from "@/lib/phone";
 
 export default function CustomerInfoForm() {
   const { checkout, updateCustomerInfo, nextStep } = useCheckout();
@@ -17,7 +18,7 @@ export default function CustomerInfoForm() {
     if (!customerInfo.fullName.trim()) newErrors.fullName = isRTL ? "الاسم مطلوب" : "Name is required";
     if (!customerInfo.phone.trim()) {
       newErrors.phone = isRTL ? "رقم الموبايل مطلوب" : "Phone number is required";
-    } else if (!/^01[0-9]{9}$/.test(customerInfo.phone.replace(/\s/g, ""))) {
+    } else if (!isUsablePhoneNumber(customerInfo.phone)) {
       newErrors.phone = isRTL ? "رقم موبايل غير صحيح" : "Invalid phone number";
     }
     const email = (customerInfo.email || "").trim();
@@ -103,7 +104,7 @@ export default function CustomerInfoForm() {
                 {c.phone} <span className="text-accent-500">*</span>
               </label>
               <input
-                type="tel" dir="ltr" autoComplete="tel" placeholder="01xxxxxxxxx"
+                type="tel" dir="ltr" autoComplete="tel" placeholder="+1 415 555 2671"
                 value={customerInfo.phone}
                 onChange={(e) => updateCustomerInfo("phone", e.target.value)}
                 onBlur={() => handleBlur("phone")}

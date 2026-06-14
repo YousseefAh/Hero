@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { Suspense, useEffect, useMemo, useState } from "react";
 import { motion } from "motion/react";
+import { isUsablePhoneNumber } from "@/lib/phone";
 
 function PayContent() {
   const params = useSearchParams();
@@ -68,7 +69,7 @@ function PayContent() {
     const e = {};
     if (!fullName.trim()) e.fullName = "الاسم مطلوب";
     if (!phone.trim()) e.phone = "رقم الموبايل مطلوب";
-    else if (!/^01[0-9]{9}$/.test(phone.replace(/\s/g, ""))) e.phone = "رقم موبايل غير صحيح";
+    else if (!isUsablePhoneNumber(phone)) e.phone = "رقم موبايل غير صحيح";
     const em = email.trim();
     if (!em) e.email = "البريد مطلوب";
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)) e.email = "بريد غير صالح";
@@ -189,7 +190,7 @@ function PayContent() {
                     <input
                       type="tel"
                       dir="ltr"
-                      placeholder="01xxxxxxxxx"
+                      placeholder="+1 415 555 2671"
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
                       className={`${inputBase} ${errors.phone ? inputErr : inputOk}`}
@@ -271,4 +272,3 @@ export default function PayPageFawaterak() {
     </Suspense>
   );
 }
-
